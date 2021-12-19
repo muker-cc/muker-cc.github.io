@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>服务发布或重启，发生抖动怎么办？ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='../../cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="098d5d510cbada16bdbc529a7205cff1">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">服务发布或重启，发生抖动怎么办？</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 520 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="text-align: left;line-height: 2em;margin-bottom: 5px;margin-left: 8px;margin-right: 8px;" data-mpa-powered-by="yiban.io"><strong style="max-width: 100%;font-family: 微软雅黑;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"></strong><strong style="max-width: 100%;font-family: 微软雅黑;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="max-width: 100%;font-size: 15px;overflow-wrap: break-word !important;box-sizing: border-box !important;">点击关注公众号，Java干货</span></strong><span style="color: rgb(123, 12, 0);"><strong style="max-width: 100%;font-family: 微软雅黑;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="color: rgb(123, 12, 0);max-width: 100%;font-size: 15px;overflow-wrap: break-word !important;box-sizing: border-box !important;">及时送达</span></strong></span><img data-ratio="1" data-src="https://mmbiz.qpic.cn/mmbiz_png/b96CibCt70iaajvl7fD4ZCicMcjhXMp1v6UibM134tIsO1j5yqHyNhh9arj090oAL7zGhRJRq6cFqFOlDZMleLl4pw/640?wx_fmt=png" data-type="png" data-w="64" style="font-family: 微软雅黑; font-size: 16px; text-align: left; white-space: normal; overflow-wrap: break-word !important; max-height: 20px !important; width: 20px !important; height: auto !important; visibility: visible !important;" _width="20px" src="../../mmbiz_png/b96CibCt70iaajvl7fD4ZCicMcjhXMp1v6UibM134tIsO1j5yqHyNhh9arj090oAL7zGhRJRq6cFqFOlDZMleLl4pw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></p><section><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzI3ODcxMzQzMw==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRmQZ5QvlZZvNdzX7ICmxzLeD6icmhocv2mrIOJEjicPL5DJ3VItG1w2RKB09zY1sl5uC6LHbuXoqjA/0?wx_fmt=png" data-nickname="Java技术栈" data-alias="javastack" data-signature="专注分享Java技术干货，包括多线程、JVM、Spring Boot、Spring Cloud、Intellij IDEA、Dubbo、Zookeeper、Redis、架构设计、微服务、消息队列、Git、面试题、程序员攻略、最新动态等。"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzI3ODcxMzQzMw==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/TNUwKhV0JpRmQZ5QvlZZvNdzX7ICmxzLeD6icmhocv2mrIOJEjicPL5DJ3VItG1w2RKB09zY1sl5uC6LHbuXoqjA/0.jpg" alt="Java技术栈">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                Java技术栈                           </strong>           <div class="wx_profile_desc">专注分享Java技术干货，包括多线程、JVM、Spring Boot、Spring Cloud、Intellij IDEA、Dubbo、Zookeeper、Redis、架构设计、微服务、消息队列、Git、面试题、程序员攻略、最新动态等。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">497篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;"><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><em><span style="font-size: 14px;">作者：zhanlijun<br>来源：http://www.cnblogs.com/LBSer</span></em></p><h2 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 22px;line-height: 1.5em;margin-top: 2.2em;margin-bottom: 35px;"><span style="display: inline-block;background-image: linear-gradient(rgb(255, 255, 255) 60%, rgb(255, 177, 27) 40%);background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;color: rgb(81, 81, 81);padding: 2px 13px;margin-right: 3px;height: 50%;"><strong style="color: black;">一、问题描述</strong></span></h2><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">在发布或重启某线上某服务时（jetty8作为服务器），常常发现有些机器的load会飙到非常高（高达70），并持续较长一段时间（5分钟）后回落（图1），与此同时响应时间曲线（图2）也与load曲线一致。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">注：load飙高的初始时刻是应用服务端口打开，流量打入时：</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.30821147356580425" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRgVYEiagLjPA8v8nvWucia84A5ZlhgNmu1cWmdrOl4rbyuaxqviawbqeMemKwUene2B1CcbiarhKeOqQ/640?wx_fmt=png" data-type="png" data-w="889" style="margin-right: auto; margin-left: auto; border-radius: 5px; display: block; margin-bottom: 15px; width: 308px !important; height: 96.3127px !important;" _width="100%" class="img_loading" src="../../index/index/wx62.jpg" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #dda52d;font-size: 14px;">图1 发布时候load飙高</figcaption></figure><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.2985571587125416" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRgVYEiagLjPA8v8nvWucia84lmFicKLqUqTGsibMUxLo0jia6p6be3Aiam5uPYRXIVTWHrFfZxNMdDW7Uw/640?wx_fmt=png" data-type="png" data-w="901" style="margin-right: auto; margin-left: auto; border-radius: 5px; display: block; margin-bottom: 15px; width: 308px !important; height: 93.3585px !important;" _width="100%" class="img_loading" src="../../index/index/wx63.jpg" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #dda52d;font-size: 14px;">图2 发布时候响应时间飙高</figcaption></figure><h2 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 22px;line-height: 1.5em;margin-top: 2.2em;margin-bottom: 35px;"><span style="display: inline-block;background-image: linear-gradient(rgb(255, 255, 255) 60%, rgb(255, 177, 27) 40%);background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;color: rgb(81, 81, 81);padding: 2px 13px;margin-right: 3px;height: 50%;">二、问题排查方法</span></h2><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">发布时对资源使用情况进行监控。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">1）通过top -H -p 查找cpu使用率较高的线程，发现2129和2130这两个线程cpu使用较高。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.2143646408839779" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRgVYEiagLjPA8v8nvWucia8465nexzeZwGZeia6gMWxjaApaSqqbJIbZiahy37oZ3Vb4EiaYhICSAPLXA/640?wx_fmt=png" data-type="png" data-w="905" style="margin-right: auto; margin-left: auto; border-radius: 5px; display: block; margin-bottom: 15px; width: 308px !important; height: 67.5956px !important;" _width="100%" class="img_loading" src="../../index/index/wx64.jpg" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #dda52d;font-size: 14px;">图3 查找cpu使用率较高的线程</figcaption></figure><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">2）通过jstack打印栈信息，并将线程号2129和2130转换成16进制（printf "%x\" 2129），分别为851和852，发现这两个线程是编译线程（表1）。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">此外当这两个线程cpu使用率降低后load以及响应时间也马上恢复了正常，时间点非常吻合。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="表1 cpu使用率较高的两个线程详细信息&quot;C2&nbsp;CompilerThread1&quot;&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48125800&nbsp;nid=0x852&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]java.lang.Thread.State:&nbsp;RUNNABLELocked&nbsp;ownable&nbsp;synchronizers:-&nbsp;None&quot;C2&nbsp;CompilerThread0&quot;&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48123000&nbsp;nid=0x851&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]java.lang.Thread.State:&nbsp;RUNNABLELocked&nbsp;ownable&nbsp;synchronizers:-&nbsp;None" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);">表1 cpu使用率较高的两个线程详细信息</span></a></p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="表1 cpu使用率较高的两个线程详细信息&quot;C2&nbsp;CompilerThread1&quot;&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48125800&nbsp;nid=0x852&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]java.lang.Thread.State:&nbsp;RUNNABLELocked&nbsp;ownable&nbsp;synchronizers:-&nbsp;None&quot;C2&nbsp;CompilerThread0&quot;&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48123000&nbsp;nid=0x851&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]java.lang.Thread.State:&nbsp;RUNNABLELocked&nbsp;ownable&nbsp;synchronizers:-&nbsp;None" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(178, 178, 178);"><span style="color: rgb(178, 178, 178);line-height: 26px;">"C2&nbsp;CompilerThread1"</span>&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48125800&nbsp;nid=0x852&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]<br>java.lang.Thread.State:&nbsp;RUNNABLE<br>Locked&nbsp;ownable&nbsp;synchronizers:<br>-&nbsp;None<br><span style="color: rgb(178, 178, 178);line-height: 26px;">"C2&nbsp;CompilerThread0"</span>&nbsp;daemon&nbsp;prio=10&nbsp;tid=0x00007fce48123000&nbsp;nid=0x851&nbsp;waiting&nbsp;on&nbsp;condition&nbsp;[0x0000000000000000]<br>java.lang.Thread.State:&nbsp;RUNNABLE<br>Locked&nbsp;ownable&nbsp;synchronizers:<br>-&nbsp;None</span></a></code></pre><h2 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 22px;line-height: 1.5em;margin-top: 2.2em;margin-bottom: 35px;"><span style="display: inline-block;background-image: linear-gradient(rgb(255, 255, 255) 60%, rgb(255, 177, 27) 40%);background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;color: rgb(81, 81, 81);padding: 2px 13px;margin-right: 3px;height: 50%;">三、现象解释</span></h2><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);">C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？</span></a></p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);">Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。</span></a></p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);">现在貌似可以解释之前的现象了。</span></a></p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);">在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。</span></a></p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);"><strong style="color: black;">现在的症结在于编译优化过程持续时间较长，引起抖动</strong>。</span></a></p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=2&amp;sn=2f28d811947f61f9690336b433831c19&amp;chksm=eb50cefddc2747ebf647ce65467630ba9f010b1558f9bd5e5156700bcdc17baf788ad0c94a86&amp;scene=21#wechat_redirect');" textvalue="C2 CompilerThread线程项目启动初期cpu使用率那么高，它在干什么呢？Java程序在启动的时候所有代码的执行都处于解释执行模式，只有在运行了一段时间后，根据代码方法执行的次数，或代码里循环的执行次数等达到一定的阈值才会编译成机器码，编译成机器码后执行效率会得到大幅提升，而随着执行时间进一步拉长，JVM的各种更高级的编译优化手段就会逐渐加上，例如if条件的执行状况，逃逸分析等。这里的C2 CompilerThread线程干的就是编译优化的活。现在貌似可以解释之前的现象了。在程序刚启动的时候，java还处于解释执行模式，因此服务效率很低，响应时间缓慢，处理得慢了，load自然也就高了。而当流量持续不断导入时，我们代码的很多方法执行次数不断增多，此时C2 CompilerThread线程不断收集优化信息，并且开始将一些热点代码优化编译成本地机器码，因此该线程的cpu使用率增高。而当C2 CompilerThread线程完成初始编译优化过程后，C2 CompilerThread线程的cpu使用率开始下降，与此同时优化后服务的性能大幅提升，服务响应时间也大大缩短，load也下降。现在的症结在于编译优化过程持续时间较长，引起抖动。如何降低编译优化的持续时间呢？" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="color: rgb(0, 0, 0);"><strong style="color: black;">如何降低编译优化的持续时间呢？</strong></span></a></p><h2 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 22px;line-height: 1.5em;margin-top: 2.2em;margin-bottom: 35px;"><span style="display: inline-block;background-image: linear-gradient(rgb(255, 255, 255) 60%, rgb(255, 177, 27) 40%);background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;color: rgb(81, 81, 81);padding: 2px 13px;margin-right: 3px;height: 50%;">四、解决思路</span></h2><h3 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 20px;line-height: 1.4;padding-top: 10px;margin-top: 10px;margin-bottom: 5px;"><span style="color: rgb(81, 81, 81);font-size: 1em;padding-left: 20px;border-left: 3px solid rgb(249, 191, 69);">1）预热</span></h3><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">如果在服务接受线上请求之前提前完成编译优化过程，那么将能避免此种抖动情况。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">一般的做法是预热，有两种方法：</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">a）程序主动预热：在启动完成后，程序主动的访问热点的代码，确保主要的热点代码已被编译成机器码后再放入流量，可通过-XX:+PrintCompilation来确认。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">b）复制流量预热：通过tcpcopy软件拷贝一份线上nginx的流量进行预热，完成之后再导入线上流量。</p><h3 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 20px;line-height: 1.4;padding-top: 10px;margin-top: 10px;margin-bottom: 5px;"><span style="color: rgb(81, 81, 81);font-size: 1em;padding-left: 20px;border-left: 3px solid rgb(249, 191, 69);">2）启动多个线程进行编译优化</span></h3><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">如果能加快编译优化速度，那也能降低解释执行阶段导致的抖动时间。因此可以多拿几个线程来做编译，加快达到高峰性能的速度。另外，多线程系列面试题和答案全部整理好了，微信搜索Java技术栈，在后台发送：面试，可以在线阅读。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">可以使用-XX:CICompilerCount参数来设置编译线程数目，这个值默认是2（之前在栈里看到有两个编译线程），我们可以加到4。</p><h3 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 20px;line-height: 1.4;padding-top: 10px;margin-top: 10px;margin-bottom: 5px;"><span style="color: rgb(81, 81, 81);font-size: 1em;padding-left: 20px;border-left: 3px solid rgb(249, 191, 69);">3）采用多层编译</span></h3><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">编译方式有三种：</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">1）Client模式；</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">2）Server模式；</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">3）Tiered模式。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">我们服务默认是Server模式。Server模式是采用c2高级编译的，会比较耗时且要运行一段时间才会触发编译。Server模式的优点是编译后程序效率较高；</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">Client模式比较轻量也比较快触发（比Server模式触发快），编译优化后程序效率不如Server模式；</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">Tiered模式是Client模式和Server模式的折中，一开始会启用Client模式，可以在启动后更快的让部分代码先进入编译优化阶段，之后会启动Server模式，达到程序效率最大优化的目的。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">Oracle JDK 7里的HotSpot VM已经开始有比较好的Tiered编译（tiered compilation）支持，可以设置参数-XX:+TieredCompilation来启动Tiered模式，java 8默认就是Tiered模式。《 <a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247489332&amp;idx=2&amp;sn=65de5886e13b98116c8432d7d10ae4bc&amp;chksm=eb539202dc241b14010f70edf89dc37c7629b5e2b7add50fd3f58070ecf2c14260196bf147d8&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" style="color: rgb(0, 0, 0);" data-linktype="2"><span style="color: rgb(0, 0, 0);"><em>46 张 PPT 弄懂J VM 调优</em></span></a>》推荐看下。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">图4是到截取的不同编译方式的性能比较图，横坐标是时间，纵坐标是性能。可以看出Tired模式开始阶段性能与C1相当，当到达某一时刻后性能与C2相当。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.6114790286975718" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRgVYEiagLjPA8v8nvWucia84GbTPVpRmib8qILxXoC2tpy534mLIgGK5iaicOia2qHSygSSjdR3WUVDs3Q/640?wx_fmt=png" data-type="png" data-w="906" style="margin-right: auto; margin-left: auto; border-radius: 5px; display: block; margin-bottom: 15px; width: 308px !important; height: 189.113px !important;" _width="100%" class="img_loading" src="../../index/index/wx65.jpg" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #dda52d;font-size: 14px;">图4 不同编译模式的性能比较</figcaption></figure><h2 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 22px;line-height: 1.5em;margin-top: 2.2em;margin-bottom: 35px;"><span style="display: inline-block;background-image: linear-gradient(rgb(255, 255, 255) 60%, rgb(255, 177, 27) 40%);background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;color: rgb(81, 81, 81);padding: 2px 13px;margin-right: 3px;height: 50%;">五、结果分析</span></h2><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">简单起见采用方案2和方案3来进行优化。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">采用方案2和3之后进行了多次发布，发布时除个别机器load达到10之外，基本没有过高现象（在2~4范围内），并且短时间(2分钟)内，load都会降到较合理水平（2左右），较发布时的load来看，比优化前要好很多。</p><p data-tool="mdnice编辑器" style="margin-bottom: 20px;line-height: 1.8em;color: rgb(58, 58, 58);">方案2和方案3只是降低了抖动持续的时间以及抖动强度，并不能完全避免抖动。真正能避免抖动的方案应该是方案1，通过预热的方式实现平滑发布或重启。<span style="letter-spacing: 0px;">最后，关注公众号Java技术栈，在后台回复：</span><span style="letter-spacing: 0px;">面试，可以获取我整理的 Java 系列面试题和答案，非常齐全。</span></p><p style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img data-ratio="0.08658008658008658" data-src="https://mmbiz.qpic.cn/mmbiz_gif/TNUwKhV0JpTGQqtlGfEHkjibtshlaDwVKzjqq2pnpmYC14bKxDtSuhpWZWfVcicj5PFsoSMzuzicKIWZbsBpGXiaicg/640?wx_fmt=gif" data-type="gif" data-w="462" data-width="100%" style="display: block; overflow-wrap: break-word !important; width: 308px !important; height: 26.6667px !important;" _width="328px" src="../../index/index/wx66.jpg" class="__bg_gif" data-order="0" alt="图片"></p><p style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></p><p style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a class="weapp_image_link" data-miniprogram-appid="wxe57fd7ba3fb24ae8" data-miniprogram-path="pages/index/list" data-miniprogram-nickname="Java技术栈" href="" data-miniprogram-type="image" data-miniprogram-servicetype="" style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="198" data-backw="558" data-cropselx1="0" data-cropselx2="558" data-cropsely1="0" data-cropsely2="198" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpQrFpP1qhNbYGZS79nx8EM67X6ErGNS3BwkGrR0906fGEMW59wbUCQDru0ibzSsyEx3hnYknYPGVpw/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx67.jpg" crossorigin="anonymous" alt="图片"></a></p><section style="margin-top: 10px;max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535009&amp;idx=1&amp;sn=5a0ac485739f9ee7be02bbe938ff0eb3&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" tab="innerlink" data-linktype="1"><span class="js_jump_icon h5_image_link" data-positionback="static" style="max-width: 100%;top: auto;left: auto;right: auto;bottom: auto;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="206" data-backw="578" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="206" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpTKobA9NQFs85mKaCFA8dwfHWvN4gMkTfVs7H19HPic7eKYEB7cYQXoU4xBrcoIoia3xdCCqTticaH4g/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx68.jpg" crossorigin="anonymous" alt="图片"></span></a><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></section><section style="margin-top: 10px;max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;min-height: 1em;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247534855&amp;idx=1&amp;sn=fdaf7ea70fca4597d3cc4e18f5ada334&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" tab="innerlink" data-linktype="1"><span class="js_jump_icon h5_image_link" data-positionback="static" style="max-width: 100%;top: auto;left: auto;right: auto;bottom: auto;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="206" data-backw="578" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="206" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpTyQWfk7ZDkDUyJnicmWAq9wssJXmF3ic1iciay2o7WFOgFwEm8DvJfRibj8TPd1oNqXrtJicpINia99b97g/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx69.jpg" crossorigin="anonymous" alt="图片"></span></a></section><section style="margin-top: 10px;max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247530418&amp;idx=1&amp;sn=e6a0138c7c2f9a9ff6a8b4c878386211&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" tab="innerlink" data-linktype="1"><span class="js_jump_icon h5_image_link" data-positionback="static" style="max-width: 100%;top: auto;left: auto;right: auto;bottom: auto;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="206" data-backw="578" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="206" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRBr15x0knTrNkibSsCaib9nlpK5hUy9aRzIkiaKARIDXx7aZibEZbicg60QHLYw6OMtkSO4EzaAzYiaMLQ/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; inset: auto; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx70.jpg" crossorigin="anonymous" alt="图片"></span></a></section><section style="margin-top: 10px;max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535062&amp;idx=1&amp;sn=c34b69e41525dbcb3c473c6986daa801&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" tab="innerlink" data-linktype="1"><span class="js_jump_icon h5_image_link" data-positionback="static" style="max-width: 100%;top: auto;left: auto;right: auto;bottom: auto;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="206" data-backw="578" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="206" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpSEkFqzvxZiaJsULDdCaJiawQBaictB9RC23mdSiaaEZs10kCBMUuyTd7cqBVmnY7RXIukcMiapTq66HSQ/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; inset: auto; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx71.jpg" crossorigin="anonymous" alt="图片"></span></a><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></section><section style="margin-top: 10px;max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247535563&amp;idx=1&amp;sn=b2a1de775b95890690e3295aa7e6b253&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" tab="innerlink" data-linktype="1"><span class="js_jump_icon h5_image_link" data-positionback="static" style="max-width: 100%;top: auto;left: auto;right: auto;bottom: auto;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="rich_pages img_loading" data-backh="206" data-backw="578" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="206" data-ratio="0.35555555555555557" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/TNUwKhV0JpRgVYEiagLjPA8v8nvWucia842hBvvMp1OWeQWg0xF9xDwrEZyqksic3061IrzqIcSjj2rXehA9hllYQ/640?wx_fmt=png" data-type="png" data-w="900" style="border-radius: 3px; overflow-wrap: break-word !important; width: 308px !important; height: 110.8px !important;" _width="100%" src="../../index/index/wx72.jpg" crossorigin="anonymous" alt="图片"></span></a></section><p style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;white-space: normal;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></p><section data-mpa-template="t" mpa-from-tpl="t" style="max-width: 100%;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 16px;text-align: left;white-space: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><section mpa-from-tpl="t" style="padding-right: 0.5em;padding-left: 0.5em;max-width: 100%;box-sizing: border-box;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box;text-align: center;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box;display: inline-block;vertical-align: top;background-color: rgb(255, 255, 255);overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-bottom: 11px;max-width: 100%;box-sizing: border-box;display: inline-block;vertical-align: bottom;width: 5px;border-right: 1px solid rgb(231, 184, 81);border-left: 1px solid rgb(231, 184, 81);height: 8px;transform-origin: center bottom 0px;transform: skew(-30deg);border-top-color: rgb(231, 184, 81);border-bottom-color: rgb(231, 184, 81);overflow-wrap: break-word !important;"><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></section><section mpa-from-tpl="t" style="padding-right: 5px;padding-left: 10px;max-width: 100%;box-sizing: border-box;display: inline-block;vertical-align: top;color: rgb(76, 71, 72);overflow-wrap: break-word !important;"><p style="max-width: 100%;box-sizing: border-box;min-height: 1em;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-family: Optima-Regular, PingFangTC-light;font-size: 15px;overflow-wrap: break-word !important;box-sizing: border-box !important;"><strong style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;">关注Java技术栈看更多干货</strong></span></p></section><section mpa-from-tpl="t" style="margin-right: 4px;margin-bottom: 4px;max-width: 100%;box-sizing: border-box;display: inline-block;vertical-align: bottom;width: 5px;border-right: 1px solid rgb(231, 184, 81);border-left: 1px solid rgb(231, 184, 81);height: 8px;transform-origin: center bottom 0px;transform: skew(-30deg);border-top-color: rgb(231, 184, 81);border-bottom-color: rgb(231, 184, 81);overflow-wrap: break-word !important;"><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></section></section><section mpa-from-tpl="t" style="margin-top: -12px;max-width: 100%;box-sizing: border-box;height: 12px;border-top: 1px solid rgb(231, 184, 81);overflow-wrap: break-word !important;"><br style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"></section></section></section></section></section><section style="max-width: 100%;font-size: 16px;letter-spacing: 0px;text-align: left;white-space: normal;color: rgb(62, 62, 62);line-height: 2em;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;overflow-wrap: break-word !important;box-sizing: border-box !important;"><p style="margin-top: 10px;max-width: 100%;min-height: 1em;background-color: rgb(255, 255, 255);overflow-wrap: break-word !important;box-sizing: border-box !important;word-break: normal !important;"><img data-backh="279" data-backw="558" data-before-oversubscription-url="https://mmbiz.qpic.cn/mmbiz_jpg/TNUwKhV0JpQiar894HDic0yJSCHN19dmct0zTB1I3ib1uiaibB0XWIHOJdXWNmq4ZKHTVL6wS24ThQfY5ibqfqNKLung/640" data-copyright="0" data-ratio="0.5004444444444445" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/TNUwKhV0JpQiar894HDic0yJSCHN19dmct0zTB1I3ib1uiaibB0XWIHOJdXWNmq4ZKHTVL6wS24ThQfY5ibqfqNKLung/640?wx_fmt=jpeg" data-type="jpeg" data-w="1125" style="font-size: 14px; color: rgb(63, 62, 63); letter-spacing: 1px; text-align: right; border-radius: 3px; overflow-wrap: break-word !important; box-sizing: border-box !important; word-break: normal !important; width: 308px !important; height: 155.136px !important;" _width="100%" class="img_loading" src="../../index/index/wx73.jpg" crossorigin="anonymous" alt="图片"></p><section style="margin-top: 10px;max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"><section mpa-from-tpl="t" style="max-width: 100%;letter-spacing: 0px;display: inline-block;width: 30px;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img data-ratio="1" data-src="https://mmbiz.qpic.cn/mmbiz_gif/jZXlUHNuBN5a6JWIdk82cPD8FSSoqjutJcFTXQH1jWPa2pUnwgsOkb95nNBTkMiamwxeAHKFba0FdqKDthpdlibQ/640?wx_fmt=gif" data-type="gif" data-w="400" style="display: inline-block; vertical-align: middle; overflow-wrap: break-word !important; width: 30px !important; height: 30px !important;" _width="328px" class="img_loading __bg_gif" src="../../index/index/wx74.jpg" data-order="1" alt="图片"></section><section data-brushtype="text" mpa-from-tpl="t" style="margin-left: 5px;max-width: 100%;letter-spacing: 0px;display: inline-block;vertical-align: middle;font-size: 12px;overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="max-width: 100%;font-size: 14px;overflow-wrap: break-word !important;box-sizing: border-box !important;">获取&nbsp;Spring Boot&nbsp;实战笔记！</span></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/47F0Yr1TXlxg9Pi_jJcbTQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="197" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="197" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://www.muker.cc/assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="197" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="javascript:window.open('https://www.muker.cc/cms/t/java.html');" class="tag" rel="tag">java</a></li>
+        <li>浏览次数：<span>520</span> 次浏览</li>
+        <li>发布日期：2021-07-08 14:17:55</li>
+        <li>本文链接：<a href="">https://www.muker.cc/cms/tech2/197.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="196.html">再见了微服务！全面拥抱 DDD 真正的价值</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="javascript:window.open('https://www.muker.cc/cms/tech2/207.html');">太酷了，Python 制作足球可视化图表 | 代码干货</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="javascript:window.open('https://www.muker.cc/cms/tech2/268.html');" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/RXvHpViaz3EoOs44EkUiceqsT2yyRBYuPP7RkU21gibQo4icojIVfI6YsEHnib3eVrkSySr2FXKibSxS3f2aBFWKBDfg/640.jpg" alt="图解Java中那18 把锁" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="javascript:window.open('https://www.muker.cc/cms/tech2/268.html');">图解Java中那18 把锁</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="javascript:window.open('https://www.muker.cc/cms/tech2/230.html');" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="推荐一款 Java 零注解 API 文档生成工具" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="javascript:window.open('https://www.muker.cc/cms/tech2/230.html');">推荐一款 Java 零注解 API 文档生成工具</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="javascript:window.open('https://www.muker.cc/cms/tech2/217.html');" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="【非广告】2021 入门级的 Java 程序员学习路线图 1.0" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="javascript:window.open('https://www.muker.cc/cms/tech2/217.html');">【非广告】2021 入门级的 Java 程序员学习路线图 1.0</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="服务发布或重启，发生抖动怎么办？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">服务发布或重启，发生抖动怎么办？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="098d5d510cbada16bdbc529a7205cff1">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="197">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="javascript:window.open('https://www.muker.cc/u/2');">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="javascript:window.open('https://www.muker.cc/u/2');">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6bfcfc62fb9f755c',m:'Kp9vyfF.1.sIUauFix..SG.CsLOWs7ATMegs8AMzi2c-1639878687-0-Af5Wd5dukS/k26CVaNhdyEjwjhUeFHlhxXwIDLns1Q65rC5d90SuoK1fvp6k8OJV1dYK0qUdbkkYI3vWFtIqTTF84EoIyJrjHFk8HHT1kVTdiVCwv1LOLVIHm/jOCmArn9Hmpf1HjE4lJMqQjIGwVuk=',s:[0x34d1723854,0xef235376f1],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>
