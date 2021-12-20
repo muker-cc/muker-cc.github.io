@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>什么是事件建模Event Modeling? - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="67056f845a02e94c75f50fa081ec25e2">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">什么是事件建模Event Modeling?</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 263 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">基本概念</h2><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">事件建模（Event Modeling）是一种描述系统的方法，展示信息如何随时间变化的例子。具体来说，这种方式省略了瞬息万变的细节，而着眼于在任何特定的时间点上的持久化存储和用户所见数据的变化。这些时间轴上的事件，构成了对系统的描述。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">近年来，很多系统使用事件通过事件存储数据库或者使用特定方式使用常规数据库构建了状态和信息传播的模块。然而，大多数方法仍然依赖于通过SQL数据库、文档数据库或者其他技术实现严格意义上的当前时间点信息的视图。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">对很多系统而言，特别是对于非小型系统而言，随着系统复杂性的增加，变更成本将会随着时间的推移难度指数级上升。与现有的设计和建模方式对比，事件建模可以在短时间内创建一个基础蓝图，将返工工作量降到最低。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">从过去谈起</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">讲故事自古以来就是人类能够将知识传递给后代的方法，它在很大程度上依赖于我们如何存储记忆-无论是逻辑的、视觉的、听觉的还是其他的。这一点很重要，因为这与信息系统的构建方式有相似之处。用具体的例子说明某物应该如何工作是一种常见的方式。这种方式可以在软件开发的成功实践中看到，如行为驱动开发。这种方式很有效，因为我们通过故事来沟通更有效。将它和讲故事联系在一起，是一种保持社会信息的方式。我们的大脑是为它而建的，而不是为流程图和其他格式而建的。而事件建模模型就是遵循这种讲故事模式而建立的产品建模方式。</p><h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">事件建模模式</h2><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6006493506493507" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9tq1cdXic3YqibNRv9brg9NJU2pk1HsaCNAmyXoBIKbTuicx6GnzP1ZLWA/640?wx_fmt=png" data-type="png" data-w="1232" style="width: 328px !important; height: 197.812px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9tq1cdXic3YqibNRv9brg9NJU2pk1HsaCNAmyXoBIKbTuicx6GnzP1ZLWA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">时间线是最好描述故事主线的方式，对我们的系统而言，时间线也是描述我们系统核心部分概念的重要组成部分。我们可以通过在一条时间线上，系统从开始到结束，在没有分支情况下应该做什么方式展示我们系统的一部分功能。这就是一个典型的事件模型的组成。我们可以用这种方式跟踪所有UI界面中字段值如何存储和如何展示的。比如在上面的示例图中，我们使用了3种不同模块的内容和传统的线框模型就展示了整个系统的模型。但是简单性是我们重要的一个目标，因此我们只依赖于4种模式构建这种模型图。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">保持简单性</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">当我们想采用某些做法或流程来帮助彼此理解和沟通时，它与个人为熟练掌握这些方法而进行的学习量成反比。换句话说，如果我们可以更快的掌握一个名叫X的方法时，我们就可以更好的通过这种方式进行知识分享和互动；反之，无论这种方法多么好，昂贵的学习成本总会搞砸一切。</p><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>当一本书是团队中的必读书目时，每个人都会说他们读过；但事实上只有一半的人会真正读过；这些真正读过的人中一半的人会声称他们理解了这本书；而这些声称理解的人中只有一半的人真正的理解了这本书；而这些真正理解了这本书的人只有一半的人能够使用它。</p></blockquote><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这就是为什么使用3个模块和基于2个想法的4种模式进行事件建模。因为这只需要几分钟就可以将所有的东西向所有人解释清楚。其他的学习则可以在实践中进行。即便理解出现了不足和错误，也可以很快在实践中得到纠正。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">事件</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">假设我们想为连锁酒店设计一个酒店网站，让我们的客户可以在线预订房间，并让我们安排清洁和任何其他酒店问题。我们可以显示在该业务的年度时间线上存储了哪些事件。我们可以假装我们已经有了这个系统，然后问自己随着时间的推移存储了哪些事件。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">线框图</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">让我们看一下在图片的最上面的部分的第一个模块。为了让讲故事这个事情更加可视化，我们可以在顶部显示功能的线框图或者网页模拟图。这也可以被具象化为具体的泳道图，以方便不同的人（也可以是系统）与我们的系统进行互动。这里一些自动化的内容可以用齿轮表示，同时说明系统正在做什么。通过这种方式，我们可以非常容易的展示出系统需要实现的功能列表，执行流程和项目完成标记。这里的图是示例了一个酒店的预订、支付和通知系统的过程，我们可以重点关注一下所有相关高亮显示的内容。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.5851851851851851" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9HQl2qgMSUvVKmJEXfAfhTmTicXCjiaeOwaibII7obKVDANcu6C4zj4Oicw/640?wx_fmt=png" data-type="png" data-w="1215" style="width: 328px !important; height: 192.77px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9HQl2qgMSUvVKmJEXfAfhTmTicXCjiaeOwaibII7obKVDANcu6C4zj4Oicw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">借助这个模块，我们可以很方便的和设计师一起沟通设计系统，当然，这里需要注意在设计中，两个重要的内容需要添加到整个设计中：用户所拥有的权限和用户可以获取的信息。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">命令</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">大多数信息系统必须给用户一种影响系统的状态的能力，而这种能力就是命令。在我们的例子中，我们必须允许房间预订改变系统状态，这样我们就不会发生超额预订情况。当那个人在未来的预订日期到达时，他们就有一个为他们准备的房间。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">改变系统状态的意图会被封装在一个命令中。相对于简单地将表单数据保存到数据库中的一个表中，这可以让我们以非技术性的方式来显示意图，同时允许任何实现 - 尽管我们可以看到某些方法更具优势。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.5991902834008097" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9fibrd543VrRETP1jh6laEpTKMibeT72DmlGqY5hM3kibHyMfCHfvG5vmQ/640?wx_fmt=png" data-type="png" data-w="1235" style="width: 328px !important; height: 197.336px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9fibrd543VrRETP1jh6laEpTKMibeT72DmlGqY5hM3kibHyMfCHfvG5vmQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">从UI和UX的角度来看，这就是一个"命令响应式用户界面"，对帮助制作可组合的UI大有帮助。使用这种模式，从技术和商业的角度来看，交易的界限就更清楚了。以酒店入住为例，酒店的客人要么登记成功，要么没有。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">当命令成功的前提条件有细微的差别时，它们会在"Given-When-Then"风格的描述方式中进行阐述。这种方式也是行为测试模式惯用的描述方式，也是一种成功的讲述故事的方式。实际执行过程中，可能会有几个这样的故事来说明一个命令如何能成功执行和不能成功执行。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这里我们可以用一个例子来描述一下：</p><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>Given：我们已经注册并添加了一个支付方式</p></blockquote><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>When：我们试图预订一个房间</p></blockquote><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>Then：一个房间被预订了</p></blockquote><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这种描述方式也通常被叫做“安排、行动、断言”，在UI/UX的世界中，也被称为“情景、统计、价值”。在图中我们也可以发现，所有的命令都是用蓝色进行标记的。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">视图（或者叫读模型）</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">任何信息系统的一个重要能力是将系统中保存的状态告知用户。我们的酒店客人需要知道他们感兴趣的某些类型的房间在哪一天可以入住。这通常有很多种情况，需要支持信息系统的多个模型。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.609674728940784" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9CNAcoX2jVmfnhmjyC7xl7IZicvia1wIs5Yw1PTibrbBAxKWbK3OCsWuVg/640?wx_fmt=png" data-type="png" data-w="1199" style="width: 328px !important; height: 200.754px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9CNAcoX2jVmfnhmjyC7xl7IZicvia1wIs5Yw1PTibrbBAxKWbK3OCsWuVg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">随着这些新事件的存储，系统中的视图也会一直变化。在我们的酒店系统中，这个日历视图随着影响库存的新事件的发生而被更新。其他视图中清洁团队可以在客户离店事件存储后在其他视图中看到房间已经可以被清理了。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">指定视图的行为方式与我们指定接受命令的方式非常相似，但有一处不同。视图是被动的，并且不能在事件被存储到系统中之后撤销事件。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">举个例子：</p><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>Given：酒店设置了12间海景房，海景房从4月4日到12日被预订</p></blockquote><blockquote style="  margin-top: 1.5em; margin-bottom: 1.5em; border-left: var(--blockquote-border-size)solid var(--card-separator-color); color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal; "><p>Then：日历上应该显示除4月4日到12日以外的所有海景房的日期</p></blockquote><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">从上面图中我们也可以注意到，所有的读都是用绿色进行标记的。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">集成</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">我们刚刚介绍了描述大多数系统所需的 4 种模式中的前 2 种模式。系统可以从其他系统获取信息并且将信息发送到其他系统。强迫这 2 个模式成为前 2 个模式的扩展并共享相同的空间是很诱人的选择。然而这会让交流变得更加困难，因为它们没有人类可见的方面，并且需要一些更高级别的模式。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">翻译</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">当我们有一个为我们提供信息的外部系统时，将这些信息转换成我们自己系统中的更熟悉的形式会很有帮助。在我们的酒店系统中，如果选择让我们的清洁人员反应更加灵敏，我们可以从客人的 GPS 坐标中获取事件。我们不想使用经度和纬度对作为事件来指定我们系统中的先决条件。我们宁愿选择对我们有意义的活动，例如“客人离开酒店”、“客人回到酒店房间”。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6008298755186722" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9szEbcEoT9VdI4FeyVr5Tzq0fYx8TKobAR1YibIKCq7UmAQM9Zt77DWw/640?wx_fmt=png" data-type="png" data-w="1205" style="width: 328px !important; height: 197.871px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9szEbcEoT9VdI4FeyVr5Tzq0fYx8TKobAR1YibIKCq7UmAQM9Zt77DWw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">常，翻译很简单，可以表示为从外部事件中获取信息的视图。如果我们不将它们用作测试的任何“Given”部分，则它们存储在该视图模型中的值仅在我们的状态更改测试中的命令参数中表示。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">自动化</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">我们的系统一般都需要与外部服务进行通信。当我们酒店的客人在退房时支付住宿费用时，我们的系统会调用付款处理程序。我们可以通过系统中某个处理程序的“待办事项列表”的概念来了解这是如何发生的。这个待办事项列表显示了我们需要完成的任务。例如，我们的处理程序会不时查看该列表（可能是几毫秒或几天）并向外部系统发送命令以处理付款。然后将来自外部系统的回复转换为我们存储回系统中的事件。通过这种方式，我们将系统中使用的构建块保留为对我们有意义的东西。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">我们通过在具有线框的蓝图顶部放置一个处理程序来展示这一点。这表明这些东西在屏幕上无法看到但在后台发生。由于需要完成后台任务，用户可能期望旋转图标提示延迟。此规范的形式为“Given：要执行的任务的视图，When：每个项目启动此命令时，Then：这些事件会返回。”</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">实际上，这些可以通过许多不同的方式实现，例如队列、响应式或实时构造。它们甚至可能是我们使用的待办事项列表。这里的目标是传达我们的系统在需要影响外部时是如何与之沟通的。</p><h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">落地实现</h2><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">事件建模分7个步骤进行。我们已经解释了最终的目标。因此，让我们倒退到开头，展示如何建立起蓝图。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">头脑风暴</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6656050955414012" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9jwTWtHIiazlseiavR1UQibx95KpHeSfQZOCVDBuFp55RW1VAPkkKuaETg/640?wx_fmt=png" data-type="png" data-w="314" style="width: 314px !important; height: 209.669px !important;" _width="314px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9jwTWtHIiazlseiavR1UQibx95KpHeSfQZOCVDBuFp55RW1VAPkkKuaETg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">我们让某人解释项目的目标和其他信息。然后，参与者设想系统的外观和行为是什么样的。他们写下所有他们能想象到的发生的事件。在这里，我们只需要明确改变了状态的事件。这些所有的事件一定要意味着某些状态的变更，如果没有发生变更，那么他们就不是事件。比如，有人会说出"客人查看了房间的可用日历"，那么这个就不是事件。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">阐述剧情</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.21658986175115208" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9601DyOypCnyUmakYicx6EADoowOHcKRv6wZ19tAIn0iafVDvT8QVnM7A/640?wx_fmt=png" data-type="png" data-w="1085" style="width: 328px !important; height: 72.6083px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9601DyOypCnyUmakYicx6EADoowOHcKRv6wZ19tAIn0iafVDvT8QVnM7A/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">现在的任务是用这些事件创造一个合理的故事。因此，它们被排列成一条线（也就是时间线），每个人都检查这条线，以了解这条时间线作为按顺序发生的事件是合理的。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">制作故事</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.21747042766151045" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9NqU1zSOm9JsOicq5QTzS5gF01ae6xG6EsT6s5Sl76wpN0hWnUoLAIgg/640?wx_fmt=png" data-type="png" data-w="1099" style="width: 328px !important; height: 72.8954px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9NqU1zSOm9JsOicq5QTzS5gF01ae6xG6EsT6s5Sl76wpN0hWnUoLAIgg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">接下来，需要制作故事的框线图或模拟图，用可视化帮助初学者上手。更重要的是，每个领域都必须被表示出来，这样系统的蓝图就可以从用户的角度来表示信息的来源和目的地。</p><h4 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">UX并行</h4><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">线框图一般被放在蓝图的顶部。如果有超过一个用户的话，它们可以被分成独立的泳道，以显示每个用户看到的东西。这里需要注意我们需将系统的每个变化转化为蓝图的单独一列，因此屏幕不能出现垂直重叠的情况。不同的排序可以显示在各种详情中。如果它是系统的核心或非常重要的交互，则需要在蓝图中添加备用的工作流程。这是显示部分的最后一步，但如果有帮助的话，可以提前完成。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">鉴别输入</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.2353870458135861" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9CLC6GAkUtwFbCzfRemFhD7iapmQZgeVcsCMKeiay1DPDGlub1yq3PufA/640?wx_fmt=png" data-type="png" data-w="1266" style="width: 328px !important; height: 78.7362px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9CLC6GAkUtwFbCzfRemFhD7iapmQZgeVcsCMKeiay1DPDGlub1yq3PufA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">从前面的部分我们看到，我们需要展示我们如何让用户改变系统的状态。这通常是我们引入蓝框的步骤。每次由于用户的操作而存储了一个事件时，我们通过一个命令将其与UI联系起来，如果是一个网页程序，这个命令展示了我们从屏幕上获取或隐式的从客户端状态得到的信息。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">鉴别输出</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.24840255591054314" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9ia7hBM7xoZA7xbCCEe895AxaTsSjDdwRx67RN4bmZDjvR2o1sTNCSzg/640?wx_fmt=png" data-type="png" data-w="1252" style="width: 328px !important; height: 82.9792px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9ia7hBM7xoZA7xbCCEe895AxaTsSjDdwRx67RN4bmZDjvR2o1sTNCSzg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">再次回头看一下我们的蓝图目标，我们现在必须通过视图（又称读模型）将通过存储事件积累的信息链接到用户界面。这些可能是像酒店系统中的日历视图一样的东西，当用户想要预订房间时，它将显示房间的可用性。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">应用康威定律</h3><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.4189627228525122" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9qQhG68ohZDASjP6ncZRwfht6Jc9P7DiaK6cnlupzByibShINeTEW6mgg/640?wx_fmt=png" data-type="png" data-w="1234" style="width: 328px !important; height: 138.582px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9qQhG68ohZDASjP6ncZRwfht6Jc9P7DiaK6cnlupzByibShINeTEW6mgg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">现在我们知道了所有的信息是如何进出我们的系统的，我们可以开始研究将事件本身组织成泳道。我们需要这样做，以便让系统的模块作为一组独立团队可以拥有的自主部分而存在。这允许专业化发生在我们控制的水平上，而不是脱离团队的组成。详见梅尔康威的康威法则。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">精心设计场景</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">每个工作流程步骤都与一个命令或一个视图/读模型相联系。前面已经解释了这些规范。我们如何制定它们，仍然是与所有参与者合作进行。一个Give-When-Then或Given-Then可以在快速的构建的同时被多个角色进行审查的。这使得传统上由专门的产品负责人以文本格式单独完成的用户故事写作，可以在极短的时间内以可视化的方式协作完成。更为关键的是，每个定义都与一个命令或视图相关联。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">完整性校验</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">事件模型应该有每一个字段的说明。所有的信息都必须有一个起点和一个终点。事件会促进这种转换，并包含必要的字段来实现这一目标。这种严格性是使用该技术的最大好处。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这方面的一个变种是，我们不做这个最后的检查，在某些情况下，这也是可以的。</p><h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">项目管理</h2><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">如果完成的足够良好，我们制作出的是一组包含每个工作流程所有场景定义的足够小的组合。他们可以直接转化为开发人员的开发内容和测试内容，并且只与约定部分和相邻工作流程相耦合。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6110645431684828" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9nsHCh5iaYIaAod6aVq9mprnxM4FDF6mcu1SOVxEKiawEYDSPlWiaCqgmQ/640?wx_fmt=png" data-type="png" data-w="1193" style="width: 328px !important; height: 201.207px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9nsHCh5iaYIaAod6aVq9mprnxM4FDF6mcu1SOVxEKiawEYDSPlWiaCqgmQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">明确的约定</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">许多项目管理、业务和协调问题都因为我们对工作流的某一步骤开始时的信息形状和完成时的数据形状做了明确的约定而得到缓解。这些事前和事后的条件是允许工作在相对孤立的情况下完成，并在之后按照设计与相邻的步骤结合在一起。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">平坦的成本曲线</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">使用事件建模的最大影响是可以建立一个平坦的成本曲线。这是由于建立每个工作流程步骤不受其他工作流程开发的影响。需要理解的一件事是，如果一个工作流程步骤使用了相同的命令或视图，那么它就可以被认为是在事件模型上的重复。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.548885077186964" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9q9QCql5KNYV1EV0j2iaxxxWUtcDZH333YQ6QUHIwVKtHWmaJ4d1gibTQ/640?wx_fmt=png" data-type="png" data-w="1166" style="width: 328px !important; height: 180.937px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9q9QCql5KNYV1EV0j2iaxxxWUtcDZH333YQ6QUHIwVKtHWmaJ4d1gibTQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这一点的影响是非常深远的，因为它是将软件开发重新变为工程实践的原因。它使创建一个信息系统的工作像建造房子一样。功能可以以任何顺序被创建。传统的开发不能依靠估算，因为功能是否在项目的早期和后期所需的工作量会随着系统的复杂度而被影响。重新确定工作的优先次序使得以前的估算变得不可靠。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">真正的完成就是要正确的完成</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">当一个工作流程步骤被实现后，实现任何其他工作流程步骤的行为都不会导致需要重新调整这个已经完成的工作流程步骤。这也是恒定特征成本曲线能够实现的原因。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">没有估算的估算</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">有了恒定成本曲线，一个团队的开发可以简单地通过许多功能在一段时间内进行衡量。这是一种相对公平的方式，可以凭经验确定团队的速度。这些数字在之后可以被用来确定未来项目的范围、进度和成本。</p><h4 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">关于测试驱动开发</h4><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这是行业内采用敏捷实践带来的影响，就像将创可贴贴在缺乏设计的核心问题上。因为现在每个团队需求的范围都是按工作流程步骤进行的，所以TDD的重构步骤不会影响事件模型中的其他工作流程步骤。当我们没有事件模型的时候，重构就可以不受限制地进行，以前完成的工作片段就需要进行调整。已经完成的工作越多，在我们构建解决方案的过程中，每一个新增加的工作都会被审查和调整。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">项目外包</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">恒定成本曲线给了制定固定成本项目的机会。一旦有了一个团队的开发速度，你就可以明确团队的软件的成本。有了这个数字，你现在就可以为你愿意给外包厂商完成的每个工作流程步骤的报酬定价了。</p><h4 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;font-size: 17px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">产出保证</h4><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">由于每个工作流程步骤都受到保护，不受其他工作流程步骤的影响，因此，任何缺陷都将由谁为它们提供非计费工作来保证。因此，如果一个外包商只是为了快速完成更多的可计费项目而做得不好，他们就必须让接下来的工作时间专门用来修复之前已经完成的工作的缺陷。这就平衡了他们的有效工资率，因为他们不是在做新的应交付的工作。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这可以通过不同的绩效检查点来提供这些指标，在员工参与的过程中长期进行下去。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">由于有效薪酬可以根据个人的能力进行自我调整，这也是一种让新员工入职的方式，在他们处于试用阶段的时候，对他们进行公平的支付。这种从合同到雇佣的过程消除了技术职位的主观和基本无效的面试过程。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">确定优先顺序</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在不改变每个项目的估计成本的情况下，在时间表上移动工作，即哪些步骤要先实施。这确保了工作的优先次序对总成本没有影响。恒定成本曲线的要求是允许这种重新确定优先次序的 “敏捷性”。</p><h3 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">变更管理</h3><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">当计划改变时，我们只需调整事件模型。这通常是通过直接复制当前的内容并进行调整来实现的。这样，我们就可以直观的看到差异在哪里。如果一个事件中加入了新的信息，这就构成了创建该事件的工作流程的新版本。视图也一样。如果这些还没有开发，那么这就不会改变我们的计划。如果它们已经开发了，它们就会给我们的开发计划增加另一个实现单元，它被认为是对原有流程的一种替换。围绕这一点还有一些规则。最终的结果是为变更管理提供一个明确的指南。</p><h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">安全性</h2><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6042372881355932" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9O84xBIEAXagakPLHyCjYx9GDcXJ0zyS2gkh8sYUwkP70WxDicibdlWibA/640?wx_fmt=png" data-type="png" data-w="1180" style="width: 328px !important; height: 198.981px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9O84xBIEAXagakPLHyCjYx9GDcXJ0zyS2gkh8sYUwkP70WxDicibdlWibA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">有了事件模型，该方案可以准确地显示敏感数据在哪里，同样重要的是，敏感数据何时越界。在传统的审计中，与员工面谈的次数很耗时，而且有可能错过重要的领域。当应用程序有一个事件模型作为参考时，安全问题就能够得到最有效的保障。</p><h2 style="  border-left: var(--heading-border-size)solid var(--accent-color);color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255); ">遗留系统</h2><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">大部分组织所面临的情况是大多数系统已经存在了。处理一个因为复杂和缺乏理解而难以管理的系统的主要方法是重写它或在它运行时重构它。这两种做法的代价都是非常昂贵的。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">其实还有第三个风险较小的选择。冻结旧系统。在适当的支持下，团队可以不再考虑变更现有的系统。相反，处理错误和增加新的功能是作为sidecar方式来完成的。</p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">可以从旧系统的数据库中收集事件，并制作该状态的视图–采用前面描述的翻译模式。用户行动的Y型阀重定向可以在侧面解决方案中增加新的功能。一个修复了一个错误的例子（注意，我们采用了外部集成模式，并对旧系统进行了扩展，增加了资料图片，如图。）</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.472243940578577" data-s="300,640" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9kaKdh4aLraCmVWaScKdAiaZKx4jqn4jPDn1qaOO4TCcHM5VPrg13RyQ/640?wx_fmt=png" data-type="png" data-w="1279" style="width: 328px !important; height: 155.952px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9kaKdh4aLraCmVWaScKdAiaZKx4jqn4jPDn1qaOO4TCcHM5VPrg13RyQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.5em;margin-bottom: 1.5em;color: rgb(0, 0, 0);font-family: Lato, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Droid Sans&quot;, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Droid Sans Fallback&quot;, &quot;Microsoft YaHei&quot;, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这种模式可以让团队停止将精力浪费在现有的系统上，并能够通过实现事件模型的模式解除遗留系统对快速交付价值的阻碍。</p>                </div><div>来源:https://mp.weixin.qq.com/s/OyplRWc8MaBVRaCa46NNPQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="225" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="225" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/sz_mmbiz_png/9JWhUlLkJtnNliasUjRHbV5kmfibXGotc9tq1cdXic3YqibNRv9brg9NJU2pk1HsaCNAmyXoBIKbTuicx6GnzP1ZLWA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="225" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>263</span> 次浏览</li>
+        <li>发布日期：2021-07-10 08:13:21</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="224.html">不容错过！这也许是全网最好的树状数组的讲解</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="227.html">Stack Overflow上最火的一段代码竟然有Bug</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="209.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640" alt="自动驾驶中实时车道检测和警报" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="209.html">自动驾驶中实时车道检测和警报</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="208.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640" alt="深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="208.html">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="207.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640" alt="太酷了，Python 制作足球可视化图表 | 代码干货" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="207.html">太酷了，Python 制作足球可视化图表 | 代码干货</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../yunwei/206.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640" alt="PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../yunwei/206.html">PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="67056f845a02e94c75f50fa081ec25e2">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="225">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998dfecc038a5',m:'jm.JQlDHMG1uiscI9xFrZiZlqedLaVj.YoUilXFMzvk-1640010926-0-AThG5rvz2icHV1xov9MYGZTqcUK7aBR9d4p2/qdRqJ76z3Xsu1tarowGjyQXPTXrMydxCXMSQvBfcTZxlien7yukm6Si3qCX+4H5Ec8T64T2AqrfgyzHfJDTmLgQOIzDIR6jo++7nA06G1FfdtrBV1g=',s:[0xa84ebdde01,0x282f5d3c54],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

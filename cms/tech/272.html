@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>为什么魂斗罗只有 128 KB却可以实现那么长的剧情？ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="33">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="3ed324442bb6b9ae25c5600942219270">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech.html">科技</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">为什么魂斗罗只有 128 KB却可以实现那么长的剧情？</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 226 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;color: rgb(0, 0, 0);font-size: 16px;text-align: left;background-color: rgb(255, 255, 255);" data-mpa-powered-by="yiban.io"><code style="">来源:https:<span style="color: rgb(160, 161, 167);font-style: italic;line-height: 26px;">//dwz.cn/ZTAnWr5j</span><br></code></pre><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">个人觉得fc最神奇的游戏还属超级玛丽，32个关卡，每关都不同，各种隐藏要素，好像代码区才10多k，数据区10多k。反汇编看完还是不敢相信这点东西能玩一个童年…现在helloworld的二进制都可能比这大多了。</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">首先128k并不小</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">主要消耗存储空间的不是程序</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">当然对于128k来说程序大小自然也要考虑</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">鉴于fc是八位机 而且FC采用的是CISC处理器 一条指令就能完成很多事情</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">所以程序的大小也就现代64位RISC处理器的十几到几百分之一</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">资源才是大户（包括图像 音乐 地图数据 关卡数据 等等）</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">就拿图像和音乐来说</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">图像在没有压缩之前 消耗存储空间和 像素深度和大小有关</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;"><mpcpc js_editor_cpcad="" class="" src="/cgi-bin/readtemplate?t=tmpl/cpc_tmpl#1626596182872" data-category_id_list="48|32|26|49|1|27|28|45|46|55|39|8|3|47|35|41|5|31|6|7|24|37|22|11|50|54|53|52|42|29|43|16|17|51|36" data-id="1626596182872" style="display: none;"></mpcpc></p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">FC上的图像 像素深度就2bit的索引而已 而现在广泛使用的真彩色是24bit 包含alpha的需要32bit</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">这里就差了12倍到16倍</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">图像大小更是差距巨大</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">FC普遍一个角色也就是 宽高十几个像素而已</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">与现在动辄宽高几千像素图像资源相比差了 数万倍到数百万倍</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">所以图像资源消耗的存储空间 至少差了5～7个数量级</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">音乐的话</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">FC采用的是8位midi音乐</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">而现在普遍用的是PCM音乐</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">类比到图像中</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">就像矢量图像和位图的区别</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">总之PCM音乐的大小和采样深度 采样率 通道数 以及长度有关</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">midi仅仅和谱子的复杂度有关</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">所以FC实际上对空间的要求和现代游戏相比至少差了5～7个数量级</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">你把128k放大10w倍到1000w倍 你就不觉得小了</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">一些人还提到了什么64k 3d程序什么的</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">这完全是两码事</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">FC程序小只是因为需求的资源本来就很小而已</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">而那种64k 3d程序是因为采用Procedural generation方法</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">简单的说就是通过数学来描述</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">而不是通过记录结果的采样</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">Procedural generation 不光需要的存储空间极小</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">而且可以做到无限精度</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">缺点是难以描述复杂事物</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">并且对算力要求高</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">而不是用了什么外星压缩法</p><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;"><strong style="color: rgb(14, 136, 235);">总结:</strong></p><ol class="list-paddingleft-2" style="list-style-type: decimal;"><li><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">游戏大量复用图块，图块还使用调色板索引，好像每个像素才占用2bit。</p></li><li><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">程序员精心优化各种数据结构，每一bit存储都不浪费。</p></li><li><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">声音只存储发声通道的调制参数序列，能复用就复用。</p></li><li><p data-tool="mdnice编辑器" style="margin: 10px;padding-top: 8px;padding-bottom: 8px;color: rgb(0, 0, 0);font-family: PingFangSC-Light;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75;letter-spacing: 0.2em;font-size: 15px;word-spacing: 0.1em;">代码全是汇编写成，直接操作硬件，基本不存在浪费的指令。</p></li></ol><pre style="letter-spacing: 0.544px;font-size: 15px;widows: 1;caret-color: rgb(51, 51, 51);background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);word-spacing: 1px;text-size-adjust: auto;text-align: start;line-height: inherit;"><section powered-by="xiumi.us" style="margin-top: 15px;margin-bottom: 25px;white-space: normal;color: rgb(0, 0, 0);font-size: 16px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;background-color: rgb(255, 255, 255);letter-spacing: 0.476px;opacity: 0.8;"><section><p>—&nbsp;<span style="font-weight: bolder;">完</span>&nbsp;—</p><p style="color: rgb(63, 63, 63);letter-spacing: 0.544px;widows: 1;word-spacing: 2px;caret-color: rgb(89, 89, 89);"><span style="font-size: 13px;color: rgb(0, 82, 255);"><span style="font-weight: bolder;font-size: 16px;">点这里👇关注我，记得标星呀～</span></span></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MjM5MjU1NDMwOA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/XYztT0ibvK6ibyUR3fnjQbYT7eNlp8ibRiaVaHXREVl5J9bZKzic79Q5oM8QNyRqTLAwibiaQsORScJIuKvauib2wv8XqQ/0?wx_fmt=png" data-nickname="锋雷科技" data-alias="fenglei_technology" data-signature="搜罗全网最好的黑科技软件、工具、网站，以及第一时间提供互联网圈每天发生的那些科技事！" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MjM5MjU1NDMwOA==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="https://mmbiz.qpic.cn/mmbiz_png/XYztT0ibvK6ibyUR3fnjQbYT7eNlp8ibRiaVaHXREVl5J9bZKzic79Q5oM8QNyRqTLAwibiaQsORScJIuKvauib2wv8XqQ/0?wx_fmt=png" alt="锋雷科技">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                锋雷科技                           </strong>           <div class="wx_profile_desc">搜罗全网最好的黑科技软件、工具、网站，以及第一时间提供互联网圈每天发生的那些科技事！</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">167篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section></section></section><pre style="letter-spacing: 0.544px;color: rgb(0, 0, 0);text-align: start;caret-color: rgb(51, 51, 51);background-color: rgb(255, 255, 255);text-size-adjust: auto;font-size: 15px;widows: 1;word-spacing: 1px;line-height: inherit;"><h2 style="margin-top: 10px;letter-spacing: 0.544px;text-align: center;"><img class="__bg_gif" data-ratio="0.45454545454545453" data-src="https://mmbiz.qpic.cn/mmbiz/cZV2hRpuAPiaJQXWGyC9wrUzIicibgXayrgibTYarT3A1yzttbtaO0JlV21wMqroGYT3QtPq2C7HMYsvicSB2p7dTBg/640?wx_fmt=gif" data-type="gif" data-w="22" style="letter-spacing: 0.544px; color: rgb(51, 51, 51); font-family: 微软雅黑; font-variant-numeric: normal; line-height: 25.6px; display: inline; box-sizing: border-box !important; visibility: visible !important; width: 22px !important; height: 10px !important;" title="音符" width="22px" _width="22px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz/cZV2hRpuAPiaJQXWGyC9wrUzIicibgXayrgibTYarT3A1yzttbtaO0JlV21wMqroGYT3QtPq2C7HMYsvicSB2p7dTBg/640?wx_fmt=gif" data-order="0" alt="图片"></h2><h1 style="letter-spacing: 0.544px;white-space: normal;word-spacing: 2px;font-family: 微软雅黑;"><section powered-by="xiumi.us"><section style="letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><section style="letter-spacing: 0.544px;"><section powered-by="xiumi.us"><section><section style="padding-right: 5px;padding-left: 5px;font-size: 15px;"><section style="font-size: 16px;"><section powered-by="xiumi.us"><section><pre style="letter-spacing: 0.544px;font-weight: 700;text-align: center;"><section mpa-from-tpl="t" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;"><pre style="letter-spacing: 0.544px;text-align: start;word-spacing: 1px;"><pre style="letter-spacing: 0.544px;"><pre style="letter-spacing: 0.544px;line-height: inherit;"><section mpa-from-tpl="t"><section style="margin: 10px 16px;color: rgb(63, 63, 63);letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: 2em;"><span style="font-size: 17px;">最近热文：</span></section><section style="margin: 10px 16px;color: rgb(63, 63, 63);letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: 2em;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzA4NjUyMDU4OQ==&amp;mid=2247492452&amp;idx=1&amp;sn=126927e2ef4c4818ce403fa217232612&amp;chksm=9fc5c506a8b24c1049bc624f3fd5ab86f6149eedf6aa40772aa2cc5b30ae0945bbf8f453fcdf&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">电脑到底要不要安装杀毒软件?</a><br></section><section style="margin: 10px 16px;color: rgb(63, 63, 63);letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: 2em;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzA4NjUyMDU4OQ==&amp;mid=2247492409&amp;idx=1&amp;sn=4c67c2477045f70d3801d9adb7293341&amp;chksm=9fc5c55ba8b24c4d444bb8f7c9d8a2ab6c948c83362b346762aa46fb8ed8e68f4c38081408f4&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">几款非常好用的Edge浏览器插件</a><br></section><section style="margin: 10px 16px;color: rgb(63, 63, 63);letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: 2em;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzA4NjUyMDU4OQ==&amp;mid=2247492302&amp;idx=1&amp;sn=8f3cbd7a8bb23fe23b2376de01d302fb&amp;chksm=9fc5c4aca8b24dbab6d9fc41c0aae953b8af073d9717640266d4f724b3dd5540641b0112e3e7&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">彻底阻止流氓软件：你的电脑你做主！</a><br></section><section style="margin: 10px 16px;color: rgb(63, 63, 63);letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: 2em;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzA4NjUyMDU4OQ==&amp;mid=2247492352&amp;idx=1&amp;sn=450317d694f9780f5f7baaa549d77a9a&amp;chksm=9fc5c562a8b24c74235e464763f3c2ec8827efdecb6bd75ff6b61beca7cd7d51bb9baa8ad3ea&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">紧急通知！可能要转移阵地了！</a><br></section></section></pre><section style="margin-right: 8px;margin-left: 8px;padding-right: 0.5em;padding-left: 0.5em;color: rgb(62, 62, 62);white-space: normal;letter-spacing: 0.544px;word-spacing: 2px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br></section><section style="margin-right: 8px;margin-left: 8px;padding-right: 0.5em;padding-left: 0.5em;color: rgb(62, 62, 62);white-space: normal;letter-spacing: 0.544px;word-spacing: 2px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><span style="color: rgb(2, 30, 170);font-weight: bolder;font-size: 14px;">2T技术资源大放送！包括但不限于：C/C++，Linux，Python，Java，人工智能，考研，软考，英语，等等。在公众号内回复「</span><span style="color: rgb(255, 0, 0);font-weight: bolder;font-size: 14px;">资源</span><span style="color: rgb(2, 30, 170);font-weight: bolder;font-size: 14px;">」，即可免费获取！<span style="letter-spacing: 0.544px;font-weight: bolder;">回复「</span><span style="letter-spacing: 0.544px;color: rgb(255, 0, 0);font-weight: bolder;">社群</span><span style="letter-spacing: 0.544px;font-weight: bolder;">」，可以邀请你加入读者群！</span></span></section><section style="margin-right: 8px;margin-left: 8px;color: rgb(62, 62, 62);white-space: normal;letter-spacing: 0.544px;word-spacing: 2px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><br></section><section data-mpa-template-id="1324376" data-mpa-color="null" data-mpa-category="fav" style="color: rgb(62, 62, 62);letter-spacing: 0.544px;white-space: pre-wrap;word-spacing: 2px;font-family: Consolas, Menlo, Courier, monospace;"><section style="margin-right: 8px;margin-left: 8px;letter-spacing: 1px;text-align: center;"><img data-cropselx1="0" data-cropselx2="186" data-cropsely1="0" data-cropsely2="186" data-ratio="1" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/IibUVnJ665WrUTlY7PN2ibUDR9oykIoe4ZYjSaoz34qYoRP1mKTKk67JYctZEQGQoHnzs0a6vQqibzambERibSibiamQ/640?wx_fmt=jpeg" data-type="jpeg" data-w="258" style="border-width: 0px; border-style: solid; border-color: rgb(0, 0, 0); font-size: medium; letter-spacing: 0.544px; border-radius: 9px; box-shadow: rgb(170, 170, 170) 0em 0em 1em 0px; box-sizing: border-box !important; visibility: visible !important; width: 186px !important; height: 186px !important;" _width="186px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/IibUVnJ665WrUTlY7PN2ibUDR9oykIoe4ZYjSaoz34qYoRP1mKTKk67JYctZEQGQoHnzs0a6vQqibzambERibSibiamQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></section></section></pre></pre></section><section mpa-from-tpl="t" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;"><section mpa-from-tpl="t"><section powered-by="xiumi.us" mpa-from-tpl="t"><section mpa-from-tpl="t"><section mpa-from-tpl="t"><pre style="font-size: inherit;line-height: inherit;font-family: 微软雅黑 !important;"><section data-tools="135编辑器" data-id="94250" mpa-from-tpl="t" style="letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: none;border-color: initial;"><section data-tools="135编辑器" data-id="91842" mpa-from-tpl="t" style="border-width: 0px;border-style: none;border-color: initial;"><section mpa-from-tpl="t" style="text-align: right;width: auto;"><section mpa-from-tpl="t" style="display: inline-block;clear: both;"><section data-brushtype="text" mpa-from-tpl="t" style="padding: 18px 15px 20px 10px;text-align: center;letter-spacing: 1.5px;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuhpplm16ibb8iaib7RoGQ5iaHEdy66AHd7QqL7A2s5icSBE0aw4iaKOKPnXGYxQPhG7VMpbbYV6VJprSh7w/640?wx_fmt=png&quot;);background-size: 100% 100%;background-repeat: no-repeat;"><section mpa-from-tpl="t" style="display: flex;justify-content: center;align-items: center;"><section data-brushtype="text" mpa-from-tpl="t" style="font-size: 14px;"><span style="font-family: 楷体, 楷体_GB2312, SimKai;color: rgb(255, 79, 121);">❤️</span><span style="font-family: 楷体, 楷体_GB2312, SimKai;">给个</span><span style="font-family: 楷体, 楷体_GB2312, SimKai;color: rgb(255, 169, 0);">「在看」</span><span style="font-family: 楷体, 楷体_GB2312, SimKai;">，是对我最大的支持❤️</span></section></section></section></section></section></section></section></pre></section></section></section></section></section></pre></section></section></section></section></section></section></section></section></section></h1></pre></pre>                </div><div>来源:https://mp.weixin.qq.com/s/EfQhHpNv2ad9EtcIuDGnXQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="272" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="272" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://www.muker.cc/assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="272" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech.html">科技</a></li>
+        <li>本文标签：<a href="../t/游戏.html" class="tag" rel="tag">游戏</a></li>
+        <li>浏览次数：<span>226</span> 次浏览</li>
+        <li>发布日期：2021-07-18 20:05:14</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="271.html">一觉醒来，无数硬盘被远程格式化，官方喊话：快拔网线！</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="286.html">首款鸿蒙系统游戏《迷你世界》上架华为商城！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://www.muker.cc/assets/addons/cms/img/noimage.jpg" alt="为什么魂斗罗只有 128 KB却可以实现那么长的剧情？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">为什么魂斗罗只有 128 KB却可以实现那么长的剧情？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="3ed324442bb6b9ae25c5600942219270">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="272">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998ed5c0638a5',m:'kZ17k0XJT.xJXPvOIeygqNbclsnObx7r3DyCvCwLC2k-1640010928-0-AaXaCsZx+fduqsb/ncCUhvZEpxhZMqutG6R0SNKQzOcXA/Oup7IDOehl5dG5ENCvi6On1ZICxcrEKF0UjbHrb4C69sYtup6WY47wZBNhsesi0d7N7nihkEAY+cnKTUXk0jJY/m3Xp1gcsZclw7rGOjQ=',s:[0x3f8fef28b7,0x56176dd2a1],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

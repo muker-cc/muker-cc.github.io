@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>自动驾驶中实时车道检测和警报 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="a37a4b9b3ffdfa68fc5d8f4552aaa455">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">自动驾驶中实时车道检测和警报</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 282 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style='letter-spacing: 0.544px;white-space: normal;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: center;' data-mpa-powered-by="yiban.io"><img class="rich_pages __bg_gif" style="width: 578px !important; height: auto !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640?wx_fmt=gif" data-w="680" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640?wx_fmt=gif" data-ratio="0.17647058823529413" data-s="300,640" _width="578px" data-order="0" data-fail="0" data-cropsely2="72" data-cropsely1="0" data-cropselx2="578" data-cropselx1="0"><span style='color: rgb(136, 136, 136);font-size: 14px;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;text-align: left;'></span></p><p style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;'><img class="rich_pages" style="width: 677px !important; height: auto !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/Pn4Sm0RsAuiactk79YEtX3OAgjgfCWe6kmNNTHicFX18wyPdqVWRZGeLfOo9b5j0GrDFTyibmtTbibWXA6y4RoldXQ/640?wx_fmt=jpeg" crossorigin="anonymous" data-w="1280" data-type="jpeg" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/Pn4Sm0RsAuiactk79YEtX3OAgjgfCWe6kmNNTHicFX18wyPdqVWRZGeLfOo9b5j0GrDFTyibmtTbibWXA6y4RoldXQ/640?wx_fmt=jpeg" data-ratio="0.6640625" data-s="300,640" _width="677px" data-fail="0"></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;white-space: normal;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);letter-spacing: 1px;text-align: right;line-height: normal;'><span style="font-size: 14px;color: rgb(136, 136, 136);">作者 | 小白&nbsp;&nbsp;</span><br></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;white-space: normal;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: normal;text-align: right;'><span style="font-size: 14px;color: rgb(136, 136, 136);">来源&nbsp;|&nbsp;<span style="color: rgb(154, 154, 154);">小白学视觉</span></span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">未来十年，自动驾驶将彻底改变人们的出行方式。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">目前，自动驾驶应用程序目前正在测试各种案例，包括客车、机器人出租车自、动商业运输卡车、智能叉车以及用于农业的自动拖拉机。自动驾驶需要计算机视觉感知模块来识别和导航环境。此感知模块的作用是：</span></section><ul class="list-paddingleft-2" style='margin-right: 8px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);'><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">车道检测</section></li><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">检测环境中的其他物体：车辆，行人，动物</section></li><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">跟踪检测到的对象</section></li><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">预测他们可能的运动</section></li></ul><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">一个好的感知系统应该能够在各种驾驶条件下（白天/晚上、夏天/冬天、下雨/下雪等）实时完成这项工作。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><img class="rich_pages img_loading" style="width: 661px !important; height: 372.54px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdiafI4zrRBIeqjag7loMibcJxLKoF2lZM8WuicoVFfTH8wq3DG2GNFmGvw/640?wx_fmt=gif" crossorigin="anonymous" data-w="875" data-type="gif" data-src="https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdiafI4zrRBIeqjag7loMibcJxLKoF2lZM8WuicoVFfTH8wq3DG2GNFmGvw/640?wx_fmt=gif" data-ratio="0.5622857142857143" data-s="300,640" _width="677px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;font-size: 14px;color: rgb(214, 214, 214);">车道检测模型</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">在本文中，我们将探究一个实时模型，用于检测车道、其他车辆等以及生成警报。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);' mpa-from-tpl="t" data-mpa-template="t"><p style="text-align: center;"><img class="rich_pages" style="width: 356px !important; height: 37.97px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGnbk06YDicFMj9oDJmrBAzXg238JzpDRV2Rbad6a5YibNiaL91WNgtDGrg/640?wx_fmt=png" crossorigin="anonymous" data-w="1125" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGnbk06YDicFMj9oDJmrBAzXg238JzpDRV2Rbad6a5YibNiaL91WNgtDGrg/640?wx_fmt=png" data-ratio="0.10666666666666667" data-s="300,640" _width="356px" data-cropsely2="38" data-cropsely1="0" data-cropselx2="232" data-cropselx1="125"></p><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;text-align: center;"><span style="font-size: 18px;"><strong><span style="letter-spacing: 1px;">训练实时车道检测</span></strong></span><br></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">车道检测问题通常被构造为语义或实例分割问题，目的是识别属于车道类别的像素。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">TUSimple 是用于车道检测任务的常用数据集，这个数据集有 3626 个道路场景的注释视频剪辑，每个剪辑有 20 帧，数据都是从安装在汽车上的摄像机所捕获的。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">下面分享一个示例图像及其注释。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><img class="rich_pages img_loading" style="width: 661px !important; height: 380.52px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdx343mbo6cTC8Dh4oz4HkMhm0IvM3WJ7qzR14ib5SY9mIR1dutJob47Q/640?wx_fmt=png" crossorigin="anonymous" data-w="625" data-type="png" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdx343mbo6cTC8Dh4oz4HkMhm0IvM3WJ7qzR14ib5SY9mIR1dutJob47Q/640?wx_fmt=png" data-ratio="0.5744" data-s="300,640" data-backw="266" data-backh="153" _width="661px"><img class="rich_pages img_loading" style="width: 661px !important; height: 380.52px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdwjbLKL4HJsZB9JCFVKn7VD9EWou6LLf6Drn6jQHdWEW94wooibUwmzA/640?wx_fmt=png" crossorigin="anonymous" data-w="625" data-type="png" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdwjbLKL4HJsZB9JCFVKn7VD9EWou6LLf6Drn6jQHdWEW94wooibUwmzA/640?wx_fmt=png" data-ratio="0.5744" data-s="300,640" data-backw="277" data-backh="159" _width="661px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;font-size: 14px;color: rgb(214, 214, 214);">TUSimple 数据集的样本图像和车道注释</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">在此数据集中，我们可以训练语义分割模型用于分割出属于车道类别的像素。U-Net 模型是一个理想的模型，因为它是具有实时推理速度的轻量级模型。U-Net 是一种编码器-解码器模型，具有跳过连接编码器和解码器块。模型架构如下所示：</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><img class="rich_pages img_loading" style="width: 453px !important; height: 321.58px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdTe1jxNHBSGE7u9ty8JENiaK775JlTgnlz03xo5AnHInI1Dia7qFBjzYQ/640?wx_fmt=png" crossorigin="anonymous" data-w="453" data-type="png" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdTe1jxNHBSGE7u9ty8JENiaK775JlTgnlz03xo5AnHInI1Dia7qFBjzYQ/640?wx_fmt=png" data-ratio="0.7086092715231788" data-s="300,640" _width="453px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;color: rgb(214, 214, 214);font-size: 14px;">U-Net 论文中的 U-Net 模型架构&nbsp;</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">但是，损失函数应修改为骰子损失系数。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">车道线分割问题是一个极不平衡的数据问题，图像中的大多数像素都属于背景类。Dice Loss 基于 Sorenson-Dice 系数，它对假阳性和假阴性具有相似的重要性，这使它在数据不平衡问题的处理上表现更好。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">你可以在他们的论文中阅读有关 Dice Loss 的更多信息。Dice Loss 尝试匹配地面真实情况和预测模型中的车道像素，并能够获得清晰的边界预测。个人非常喜欢这个关于使用骰子进行边界预测的博客。</span></section><p style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);'><br></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);' mpa-from-tpl="t" data-mpa-template="t"><p style="text-align: center;"><img class="rich_pages" style="width: 366px !important; height: 39.04px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkG67iap52pvXo0Sa4PnsAfnnOMicrrvmBzZ3M8DSiaPre153aHgJZWz5SYw/640?wx_fmt=png" crossorigin="anonymous" data-w="1125" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkG67iap52pvXo0Sa4PnsAfnnOMicrrvmBzZ3M8DSiaPre153aHgJZWz5SYw/640?wx_fmt=png" data-ratio="0.10666666666666667" data-s="300,640" _width="366px" data-cropsely2="39" data-cropsely1="0" data-cropselx2="238" data-cropselx1="129"></p><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;text-align: center;"><strong><span style="letter-spacing: 1px;font-size: 18px;">LaneNet 模型</span></strong><br></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">对于本文，我使用 LaneNet 模型生成车道线。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">LaneNet 模型是两阶段车道线预测器。<strong>第一阶段是编码器-解码器模型，以创建车道线分割掩码。第二阶段是车道定位网络，该车道网络将从掩码中提取的车道点作为输入，并使用 LSTM 学习预测车道点的二次函数</strong>。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">下图显示了操作的两个阶段。左图是原始图像，中间图像是第 1 阶段车道注释的输出，右图是第 2 阶段的最终输出。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><img class="rich_pages img_loading" style="width: 661px !important; height: 165.43px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdWrK4NePDSsKp7QwtZhynQibhXZCkicqMhqnYbknWIf4dKMXm4uv6R1Pw/640?wx_fmt=png" crossorigin="anonymous" data-w="875" data-type="png" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdWrK4NePDSsKp7QwtZhynQibhXZCkicqMhqnYbknWIf4dKMXm4uv6R1Pw/640?wx_fmt=png" data-ratio="0.248" data-s="300,640" _width="677px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;font-size: 14px;color: rgb(214, 214, 214);">LaneNet 模型的解释（论文图片-https://arxiv.org/pdf/1807.01726.pdf）</span></section><h3 style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">我使用了这个 repo 中的 LaneNet 模型实现。代码维护良好，运行无错误。</span></h3><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);' mpa-from-tpl="t" data-mpa-template="t"><p style="text-align: center;"><img class="rich_pages" style="width: 375px !important; height: 40px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGicibicG4b0aHZh4JgBr5iapnG1FQowhPw1oVHlRqJDDE2M7fHgqtjwXr2w/640?wx_fmt=png" crossorigin="anonymous" data-w="1125" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGicibicG4b0aHZh4JgBr5iapnG1FQowhPw1oVHlRqJDDE2M7fHgqtjwXr2w/640?wx_fmt=png" data-ratio="0.10666666666666667" data-s="300,640" _width="375px" data-cropsely2="40" data-cropsely1="0" data-cropselx2="242" data-cropselx1="133"></p><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;text-align: center;"><strong><span style="letter-spacing: 1px;font-size: 18px;">生成智能警报器</span></strong><br></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">我将车道的预测与对象检测相结合，以生成智能警报。这些智能警报可以：</span></section><ul class="list-paddingleft-2" style='margin-right: 8px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);'><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">检测车辆的自我车道中是否存在其他车辆并测量与它们的距离</section></li><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">检测相邻车道中的车辆</section></li><li style="font-size: 15px;letter-spacing: 1px;"><section style="margin-bottom: 15px;line-height: 1.75em;">识别弯曲道路的转弯半径</section></li></ul><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">在这里，我使用 YOLO v5 来检测道路上的汽车和人。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">YOLO v5 在检测道路上的其他车辆方面表现出色，而且推断时间也非常快。接下来，我们使用 YOLO v5 来测量我方车辆与前面最近的车辆之间的距离。模型返回以像素为单位的距离，可以根据相机参数将其转换为米。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">由于 TUSimple 数据集的相机参数未知，因此我根据车道的标准宽度估算了像素到米的转换。</span></section><p style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);'><br></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><img class="rich_pages img_loading" style="width: 661px !important; height: 372.54px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdykoYsHFx1MEbvCARltgkjbAECWoqibfI4KNV4ib7LlLcsw17KCgwPx6g/640?wx_fmt=gif" crossorigin="anonymous" data-w="875" data-type="gif" data-src="https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdykoYsHFx1MEbvCARltgkjbAECWoqibfI4KNV4ib7LlLcsw17KCgwPx6g/640?wx_fmt=gif" data-ratio="0.5622857142857143" data-s="300,640" _width="677px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;font-size: 14px;color: rgb(214, 214, 214);">距离测量警报</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">我们同样可以计算车道的曲率半径，并将其用于汽车的转向模块。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><img class="rich_pages img_loading" style="width: 661px !important; height: 372.54px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdkpVgCglCQicYMzg60MibWHp63FGNDVbz9QdOicJhapPOKp40wc5x6aOzw/640?wx_fmt=gif" crossorigin="anonymous" data-w="875" data-type="gif" data-src="https://mmbiz.qpic.cn/sz_mmbiz_gif/4AqSEnNUeribAMEVGibYfKVcdRU3KYWkRdkpVgCglCQicYMzg60MibWHp63FGNDVbz9QdOicJhapPOKp40wc5x6aOzw/640?wx_fmt=gif" data-ratio="0.5622857142857143" data-s="300,640" _width="677px"></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;'><span style="letter-spacing: 1px;color: rgb(214, 214, 214);font-size: 14px;">曲率半径测量</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><br></section><section style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);' mpa-from-tpl="t" data-mpa-template="t"><p style="text-align: center;"><img class="rich_pages" style="width: 356px !important; height: 37.97px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGhom9QBpbnv5icdRcaxKVk4vRhanqot9hsI68QfTFgay93vW6oic7xZ6w/640?wx_fmt=png" crossorigin="anonymous" data-w="1125" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGhom9QBpbnv5icdRcaxKVk4vRhanqot9hsI68QfTFgay93vW6oic7xZ6w/640?wx_fmt=png" data-ratio="0.10666666666666667" data-s="300,640" _width="356px" data-cropsely2="38" data-cropsely1="0" data-cropselx2="234" data-cropselx1="123"></p><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;text-align: center;"><span style="font-size: 18px;"><strong><span style="letter-spacing: 1px;">结论</span></strong></span><br></section><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;text-align: center;"><br></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">在本文中，我们探讨了针对自动驾驶中如何准确而快速地检测车道线的问题。然后，我们使用 YOLO v5 建立对道路上其他对象的识别，用于生成智能警报。</span></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 1.75em;'><span style="font-size: 15px;letter-spacing: 1px;">在深度学习分析中，我们非常热衷于使用机器学习解决现实世界中的问题。我们已经帮助许多企业部署了基于 AI 的创新解决方案。</span></section><p style='white-space: normal;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-size: 15px;text-align: center;'><img class="rich_pages __bg_gif img_loading" style="width: 677px !important; height: 137px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGpJiaozYcoDqdicBtIND9d4IpGGEDk1TYx9khYV1lE1EZMEXiaGxnr1Gkw/640?wx_fmt=gif" data-w="750" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGpJiaozYcoDqdicBtIND9d4IpGGEDk1TYx9khYV1lE1EZMEXiaGxnr1Gkw/640?wx_fmt=gif" data-ratio="0.2" data-galleryid="" _width="677px" data-order="1"></p><p style='white-space: normal;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-size: 15px;text-align: center;'><img class="rich_pages img_loading" style="background-position: center !important; border: 1px solid rgb(238, 237, 235); border-image: none; width: 645px !important; height: 360.18px !important; background-repeat: no-repeat !important; visibility: visible !important; box-sizing: border-box !important; background-size: 22px !important; background-color: rgb(238, 237, 235) !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPW7cpia7iaU27UW1N4FPOcKGiaomLmsuqJmvqLKNEzFHBKqHD0qaicpsT6VesiaOUUfahQGMicmHCLpuCQA/640?wx_fmt=png" crossorigin="anonymous" data-w="745" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/VeJKXItpwPW7cpia7iaU27UW1N4FPOcKGiaomLmsuqJmvqLKNEzFHBKqHD0qaicpsT6VesiaOUUfahQGMicmHCLpuCQA/640?wx_fmt=png" data-ratio="0.5570469798657718" data-s="300,640" _width="645px"></p><section style="padding-right: 8px;padding-left: 8px;white-space: normal;background-color: rgb(255, 255, 255);font-family: PingFangSC-light;line-height: 1.8;letter-spacing: 1px;font-size: 16px;"><section style="text-align: center;font-size: 15px;color: rgb(255, 97, 149);" powered-by="xiumi.us"><pre style="letter-spacing: 0.544px;color: rgb(73, 73, 73);font-size: 14.6667px;widows: 1;"><pre class="js_darkmode__55" style="letter-spacing: 0.544px;text-align: left;" data-tool="mdnice编辑器" data-style="text-size-adjust: auto; letter-spacing: 0.544px; color: rgb(73, 73, 73); font-size: 14.6667px; text-align: left; caret-color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);" data-darkmode-original-color-16132827574404="#fff|rgb(73, 73, 73)" data-darkmode-color-16132827574404="rgb(157, 157, 157)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><pre style="font-variant-numeric: normal;text-align: center;line-height: 25.6px;" data-style="max-width: 100%; font-size: 16px; font-variant-numeric: normal; font-variant-east-asian: normal; letter-spacing: 0.544px; line-height: 25.6px; widows: 1; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;" data-darkmode-original-color-16132827574404="#fff|rgb(73, 73, 73)" data-darkmode-color-16132827574404="rgb(157, 157, 157)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)"><pre style="line-height: 25.6px;" data-style="max-width: 100%; letter-spacing: 0.544px; background-color: rgb(255, 255, 255); color: rgba(230, 230, 230, 0.9); font-size: 16px; text-align: center; line-height: 25.6px; box-sizing: border-box !important; overflow-wrap: break-word !important;" data-darkmode-original-color-16132827574404="#fff|rgb(73, 73, 73)" data-darkmode-color-16132827574404="rgb(157, 157, 157)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)" data-darkmode-original-color-15924629205581="rgba(230, 230, 230, 0.9)" data-darkmode-color-15924629205581="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-15924629205581="rgb(255, 255, 255)" data-darkmode-bgcolor-15924629205581="rgb(25, 25, 25)"><pre style="line-height: 25.6px;" data-style="max-width: 100%; font-size: 16px; font-variant-numeric: normal; font-variant-east-asian: normal; letter-spacing: 0.544px; line-height: 25.6px; widows: 1; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;" data-darkmode-original-color-16132827574404="#fff|rgb(73, 73, 73)" data-darkmode-color-16132827574404="rgb(157, 157, 157)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)" data-darkmode-original-color-15924629205581="rgba(230, 230, 230, 0.9)" data-darkmode-color-15924629205581="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-15924629205581="rgb(255, 255, 255)" data-darkmode-bgcolor-15924629205581="rgb(25, 25, 25)"><section style='margin: 15px 8px;font-size: 11pt;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;text-indent: 0em;line-height: 1.75em;'><span style='color: rgb(255, 255, 255);background-color: rgb(0, 122, 170);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'><strong data-darkmode-original-color-16132827574404="#fff|rgb(73, 73, 73)|rgb(255, 255, 255)" data-darkmode-color-16132827574404="rgb(255, 255, 255)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(0, 122, 170)" data-darkmode-bgcolor-16132827574404="rgb(0, 122, 170)" data-darkmode-original-color-15910964149051="rgb(255, 255, 255)" data-darkmode-color-15910964149051="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15910964149051="rgb(0, 128, 255)" data-darkmode-bgcolor-15910964149051="rgb(0, 128, 255)" data-darkmode-original-color-15882396318564="rgb(255, 255, 255)" data-darkmode-color-15882396318564="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15882396318564="rgb(0, 128, 255)" data-darkmode-bgcolor-15882396318564="rgb(0, 128, 255)" data-darkmode-original-bgcolor-15882384789136="rgb(0, 128, 255)" data-darkmode-bgcolor-15882384789136="rgb(0, 128, 255)" data-darkmode-original-color-15924629205581="rgb(255, 255, 255)" data-darkmode-color-15924629205581="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15924629205581="rgb(0, 128, 255)" data-darkmode-bgcolor-15924629205581="rgb(0, 128, 255)" data-darkmode-original-color-15882384789136="rgb(255, 255, 255)" data-darkmode-color-15882384789136="rgb(255, 255, 255)" data-darkmode-original-color-15870356071023="rgb(255, 255, 255)" data-darkmode-color-15870356071023="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15870356071023="rgb(0, 128, 255)" data-darkmode-bgcolor-15870356071023="rgb(0, 128, 255)" data-darkmode-original-color-15870356070738="rgb(255, 255, 255)" data-darkmode-color-15870356070738="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15870356070738="rgb(0, 128, 255)" data-darkmode-bgcolor-15870356070738="rgb(0, 128, 255)" data-darkmode-original-color-15860613985508="rgb(255, 255, 255)" data-darkmode-color-15860613985508="rgb(255, 255, 255)" data-darkmode-original-bgcolor-15860613985508="rgb(0, 128, 255)" data-darkmode-bgcolor-15860613985508="rgb(0, 128, 255)">更多精彩推荐</strong></span></section></pre></pre></pre></pre><pre style="letter-spacing: 0.544px;"><pre class="js_darkmode__56" style="margin: 5px 8px 15px;letter-spacing: 0.544px;" data-style='margin: 10px 8px 15px; font-size: 16px; text-size-adjust: auto; line-height: normal; font-variant-numeric: normal; font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif; white-space: normal; letter-spacing: 1px; color: rgba(230, 230, 230, 0.9); text-align: left; widows: 1; background-color: rgb(255, 255, 255);' data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)" data-darkmode-original-color-15924629205581="rgba(230, 230, 230, 0.9)" data-darkmode-color-15924629205581="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-15924629205581="rgb(255, 255, 255)" data-darkmode-bgcolor-15924629205581="rgb(25, 25, 25)"><pre data-style="max-width: 100%; font-size: 16px; font-variant-numeric: normal; font-variant-east-asian: normal; letter-spacing: 0.544px; line-height: 25.6px; widows: 1; background-color: rgb(255, 255, 255); box-sizing: border-box !important; overflow-wrap: break-word !important;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)" data-darkmode-original-color-15924629205581="rgba(230, 230, 230, 0.9)" data-darkmode-color-15924629205581="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-15924629205581="rgb(255, 255, 255)" data-darkmode-bgcolor-15924629205581="rgb(25, 25, 25)"><section style='margin: 5px 8px 15px;letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;line-height: 1.75em;text-align: justify;'><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg4NDQwNTI0OQ==&amp;mid=2247540445&amp;idx=1&amp;sn=74de233eaaab0a99ec7cbf8b4231ae36&amp;chksm=cfbabbb3f8cd32a5e978dc9ae2bf30e2c94e2e7ceb6b131f958da5212065545b878d56827ae1&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="11">Windows 11 上手机！小米 8、一加 6T、微软 Lumia 950 XL 都可以运行</a><br></section><section style='margin: 5px 8px 15px;letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;line-height: 1.75em;text-align: justify;'><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg4NDQwNTI0OQ==&amp;mid=2247540331&amp;idx=1&amp;sn=19220f56a8f40d4185ebf21196906087&amp;chksm=cfbabb05f8cd3213506e8bae1711c4e00add85492dc3af179851ec7d6603a939938d8b55165d&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="0">深度学习教你重建赵丽颖的三维人脸</a><br></section><section style='margin: 5px 8px 15px;letter-spacing: 0.544px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;line-height: 1.75em;text-align: justify;'><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg4NDQwNTI0OQ==&amp;mid=2247540482&amp;idx=1&amp;sn=2ab3b97129b01ffc3d33fd42bcc8ce91&amp;chksm=cfbaba6cf8cd337abfcd065b55d0619f95ca0f89bf3688272ff84ba47ac78b95ec93bff633c7&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">Openpose+Tensorflow 这样实现人体姿态估计 | 代码干货</a><br></section></pre></pre><pre class="js_darkmode__68" style='margin: 10px 8px 15px;color: rgba(230, 230, 230, 0.9);font-size: 16px;letter-spacing: 1px;text-align: left;line-height: normal;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;' data-style='margin: 10px 8px 15px; font-size: 16px; text-size-adjust: auto; letter-spacing: 1px; text-align: left; color: rgba(230, 230, 230, 0.9); widows: 1; background-color: rgb(255, 255, 255); line-height: normal; font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif; white-space: normal;' data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-darkmode-original-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-color-15910964149051="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15910964149051="rgb(255, 255, 255)" data-darkmode-bgcolor-15910964149051="rgb(36, 36, 36)" data-darkmode-original-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-color-15882396318564="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15882396318564="rgb(255, 255, 255)" data-darkmode-bgcolor-15882396318564="rgb(36, 36, 36)" data-darkmode-original-bgcolor-15882384789136="rgb(255, 255, 255)" data-darkmode-bgcolor-15882384789136="rgb(36, 36, 36)" data-darkmode-original-color-15924629205581="rgba(230, 230, 230, 0.9)" data-darkmode-color-15924629205581="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-15924629205581="rgb(255, 255, 255)" data-darkmode-bgcolor-15924629205581="rgb(25, 25, 25)" data-darkmode-original-color-15894505168308="rgba(230, 230, 230, 0.9)" data-darkmode-color-15894505168308="rgba(230, 230, 230, 0.9)" data-darkmode-original-bgcolor-15894505168308="rgb(255, 255, 255)" data-darkmode-bgcolor-15894505168308="rgb(36, 36, 36)"><section data-role="outer" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" label="Powered by 135editor.com"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;text-indent: 0em;line-height: 1.75em;"><section style="margin: 10px auto;display: flex;justify-content: space-between;align-items: flex-end;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section style="display: flex;justify-content: center;align-items: flex-end;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section style="width: auto;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section class="js_darkmode__69" style="margin-right: auto;margin-left: auto;background-color: rgb(237, 28, 36);border-radius: 100%;width: 40px;height: 40px;color: rgba(163, 163, 163, 0.9) !important;" data-style="margin-right: auto; margin-left: auto; background-color: rgb(237, 28, 36); border-radius: 100%; width: 40px; height: 40px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><section style="margin-right: auto;margin-left: auto;padding-top: 12px;width: 22px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><img style="width: 21.99px !important; height: 18.79px !important; display: block; visibility: visible !important; box-sizing: border-box;" alt="图片" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" data-w="62" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuggpZ0lia5ZjmiaqEIGqmY9ChSzUrwxOQLO4h5OVG9LgFWUC40EfJ2hIPvITVJdT1pJibhiaypdI4e5Rg/640?wx_fmt=png" data-ratio="0.8548387096774194" _width="21.99px" data-width="100%"></section></section><section class="js_darkmode__70" style="margin-top: 5px;color: rgb(0, 0, 0);font-size: 14px;letter-spacing: 1.5px;font-weight: bold;text-align: center;" data-style="margin-top: 5px; font-size: 14px; letter-spacing: 1.5px; color: rgb(0, 0, 0); font-weight: bold; text-align: center;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)|rgb(0, 0, 0)" data-darkmode-color-16132827574404="rgb(163, 163, 163)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-brushtype="text"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>点分享</span></section></section><section style="margin-left: 6px;width: auto;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section class="js_darkmode__71" style="margin-right: auto;margin-left: auto;background-color: rgb(237, 28, 36);border-radius: 100%;width: 40px;height: 40px;color: rgba(163, 163, 163, 0.9) !important;" data-style="margin-right: auto; margin-left: auto; background-color: rgb(237, 28, 36); border-radius: 100%; width: 40px; height: 40px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><section style="margin-right: auto;margin-left: auto;padding-top: 12px;width: 18px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><img style="width: 17.99px !important; height: 15.37px !important; display: block; visibility: visible !important; box-sizing: border-box;" alt="图片" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" data-w="62" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuggpZ0lia5ZjmiaqEIGqmY9ChpSDiaY5h0UQseRZMGm5DYE1D6vyPBFvm89PaBicwOias9xDEqqGEFULOA/640?wx_fmt=png" data-ratio="0.8548387096774194" _width="17.99px" data-width="100%"></section></section><section class="js_darkmode__72" style="margin-top: 5px;color: rgb(0, 0, 0);font-size: 14px;letter-spacing: 1.5px;font-weight: bold;text-align: center;" data-style="margin-top: 5px; font-size: 14px; letter-spacing: 1.5px; color: rgb(0, 0, 0); font-weight: bold; text-align: center;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)|rgb(0, 0, 0)" data-darkmode-color-16132827574404="rgb(163, 163, 163)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-brushtype="text"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>点收藏</span></section></section></section><section style="display: flex;justify-content: center;align-items: flex-end;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section style="width: auto;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section class="js_darkmode__73" style="margin-right: auto;margin-left: auto;background-color: rgb(237, 28, 36);border-radius: 100%;width: 40px;height: 40px;color: rgba(163, 163, 163, 0.9) !important;" data-style="margin-right: auto; margin-left: auto; background-color: rgb(237, 28, 36); border-radius: 100%; width: 40px; height: 40px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><section style="margin-right: auto;margin-left: auto;padding-top: 12px;width: 22px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><img style="width: 21.99px !important; height: 18.79px !important; display: block; visibility: visible !important; box-sizing: border-box;" alt="图片" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" data-w="62" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuggpZ0lia5ZjmiaqEIGqmY9Chh8O0aG2STQYQKoq0cVXO1wTf3iavK8DibYZlLojh8b3VfE7I58CcjLPA/640?wx_fmt=png" data-ratio="0.8548387096774194" _width="21.99px" data-width="100%"></section></section><section class="js_darkmode__74" style="margin-top: 5px;color: rgb(0, 0, 0);font-size: 14px;letter-spacing: 1.5px;font-weight: bold;text-align: center;" data-style="margin-top: 5px; font-size: 14px; letter-spacing: 1.5px; color: rgb(0, 0, 0); font-weight: bold; text-align: center;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)|rgb(0, 0, 0)" data-darkmode-color-16132827574404="rgb(163, 163, 163)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-brushtype="text"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>点点赞</span></section></section><section style="margin-left: 6px;width: auto;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)"><section class="js_darkmode__75" style="margin-right: auto;margin-left: auto;background-color: rgb(237, 28, 36);border-radius: 100%;width: 40px;height: 40px;color: rgba(163, 163, 163, 0.9) !important;" data-style="margin-right: auto; margin-left: auto; background-color: rgb(237, 28, 36); border-radius: 100%; width: 40px; height: 40px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><section style="margin-right: auto;margin-left: auto;padding-top: 12px;width: 22px;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)" data-darkmode-color-16132827574404="rgba(163, 163, 163, 0.9)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)|rgb(237, 28, 36)" data-darkmode-bgcolor-16132827574404="rgb(237, 28, 36)"><img style="width: 21.99px !important; height: 21.6px !important; display: block; visibility: visible !important; box-sizing: border-box;" alt="图片" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" data-w="57" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/Pn4Sm0RsAuggpZ0lia5ZjmiaqEIGqmY9ChJXkZDWibHQQXREDrR1icVY0ljVAujDpYrMknbRPlQibib0yBAbWbtK0joQ/640?wx_fmt=png" data-ratio="0.9824561403508771" _width="21.99px" data-width="100%"></section></section><section class="js_darkmode__76" style="margin-top: 5px;color: rgb(0, 0, 0);font-size: 14px;letter-spacing: 1.5px;font-weight: bold;" data-style="margin-top: 5px; font-size: 14px; letter-spacing: 1.5px; color: rgb(0, 0, 0); font-weight: bold; text-align: center;" data-darkmode-original-color-16132827574404="#fff|rgba(230, 230, 230, 0.9)|rgb(0, 0, 0)" data-darkmode-color-16132827574404="rgb(163, 163, 163)" data-darkmode-original-bgcolor-16132827574404="#fff|rgb(255, 255, 255)" data-darkmode-bgcolor-16132827574404="rgb(25, 25, 25)" data-brushtype="text"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>点在看</span></section></section></section></section></section></section></pre></pre></pre></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/it5iwvKRNouWADKdGUBjhQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="209" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="209" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="209" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/自动驾驶.html" class="tag" rel="tag">自动驾驶</a></li>
+        <li>浏览次数：<span>282</span> 次浏览</li>
+        <li>发布日期：2021-07-08 22:06:19</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="208.html">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="210.html">基于 Yarp 实现内网 http 穿透</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640" alt="自动驾驶中实时车道检测和警报" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">自动驾驶中实时车道检测和警报</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="a37a4b9b3ffdfa68fc5d8f4552aaa455">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="209">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998437fde38a5',m:'kV4s88FEaPJvbuhvDLKsUX.xPoaHV.is32hk.8VAa98-1640010901-0-AcRsZG3IxTLow5rnrAevx3cgPvd0OD5fLXvrXucH+HhbB5otyWfTLTO7Q2MswiVjyFJQkI6sNEEmsRO0TMBlB3cQhVh8pY9l9CfOkPf6DkPFUKquqa+AHeQlYuOEHV3TANuoa7+j7hLpGExt/eB7IIY=',s:[0xf65f669552,0xf08416f501],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

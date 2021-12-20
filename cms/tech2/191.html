@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>鸿蒙日志工具组件，代码已开源！ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="3c5f8c37819b47351eed540ce4706ae7">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">鸿蒙日志工具组件，代码已开源！</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 218 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="margin: 20px 0% 10px;box-sizing: border-box;"><section style="display: inline-block;width: 100%;vertical-align: top;border-style: solid;border-width: 1px;border-color: rgb(89, 89, 89);box-sizing: border-box;"><section style="box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;display: flex;flex-flow: row nowrap;margin: -8px 0% 0px;transform: translate3d(27px, 0px, 0px);-webkit-transform: translate3d(27px, 0px, 0px);-moz-transform: translate3d(27px, 0px, 0px);-o-transform: translate3d(27px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;vertical-align: top;width: auto;flex: 0 0 0%;height: auto;line-height: 0;z-index: 3;box-sizing: border-box;"><section style="margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 16px;height: 16px;vertical-align: top;overflow: hidden;background-color: rgba(255, 255, 255, 0);border-width: 1px;border-radius: 26px;border-style: solid;border-color: rgb(89, 89, 89);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;flex: 0 0 0%;height: auto;margin: 0px 0px 0px -8px;line-height: 0;box-sizing: border-box;"><section style="margin: 0px 0%;justify-content: flex-start;transform: translate3d(-3px, 0px, 0px);-webkit-transform: translate3d(-3px, 0px, 0px);-moz-transform: translate3d(-3px, 0px, 0px);-o-transform: translate3d(-3px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;width: 16px;height: 16px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section></section><section style="margin: 14px 0% 4px;box-sizing: border-box;"><section style="font-size: 15px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px 28px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">基于安卓平台的日志工具组件 Timber， 实现鸿蒙的功能化迁移和重构，代码已经开源，欢迎各位开发者提出宝贵意见。</p></section></section><section style="text-align: right;justify-content: flex-end;transform: translate3d(-18px, 0px, 0px);-webkit-transform: translate3d(-18px, 0px, 0px);-moz-transform: translate3d(-18px, 0px, 0px);-o-transform: translate3d(-18px, 0px, 0px);margin: 0px 0% -12px;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 15px;height: auto;align-self: center;margin: 0px -7px 0px 0px;box-sizing: border-box;"><section style="transform: rotateZ(311deg);-webkit-transform: rotateZ(311deg);-moz-transform: rotateZ(311deg);-o-transform: rotateZ(311deg);box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><section style="display: inline-block;vertical-align: middle;width: 15px;height: auto;align-self: center;box-sizing: border-box;"><section style="transform: rotateZ(311deg);-webkit-transform: rotateZ(311deg);-moz-transform: rotateZ(311deg);-o-transform: rotateZ(311deg);box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span></p><section style="text-align: center;margin-bottom: 5px;margin-left: 8px;margin-right: 8px;"><img class="rich_pages" style="width: 578px !important; height: auto !important; visibility: visible !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fDLZGytAauMaLlDibiaC21JQODF7RIWCiaBJIqouI7tcVyybIvv1CSyyAq1IgSpHQ3YYv74x4VnibQYIw/640?wx_fmt=png" crossorigin="anonymous" data-w="965" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fDLZGytAauMaLlDibiaC21JQODF7RIWCiaBJIqouI7tcVyybIvv1CSyyAq1IgSpHQ3YYv74x4VnibQYIw/640?wx_fmt=png" data-s="300,640" data-ratio="0.616580310880829" data-galleryid="" data-cropsely2="371" data-cropsely1="0" data-cropselx2="562" data-cropselx1="0" _width="578px" data-fail="0"></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">开源地址：<br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">https:<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//gitee.com/isrc_ohos/timber_ohos</span><br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Timber_ohos 是一个带有小型可扩展 API 的日志工具组件，它可以给开发者提供统一的 API 接口，来记录不同类型的日志，帮助开发者管理不同类型的 log。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">同时，Timber_ohos 是项目开发时的 log 开关，通过此开关控制 log 的打印与关闭，从而形成不同的软件版本。该组件功能丰富且使用简单高效，可以被广泛应用于软件项目开发中。<br></span></p><p style="line-height: normal;"><br></p><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="height: auto;box-sizing: border-box;"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin: 0px 0px 0px -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">组件效果展示</p></section></section><section style="margin: 0px 0% 8px;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①测试界面</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">如图 1 所示，这是一个为了测试 Timber_ohos 功能而简单构建的 UI 页面。点击“测试”按钮即可输出相应的 log。</span></section><section style="text-align: center;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 228px !important; height: 472.83px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJUZX2lK1I7FibfZPA17PCicJKQElaknKP65BGJF7VshLKgBFIyLL1cPLw/640?wx_fmt=png" crossorigin="anonymous" data-w="228" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJUZX2lK1I7FibfZPA17PCicJKQElaknKP65BGJF7VshLKgBFIyLL1cPLw/640?wx_fmt=png" data-s="300,640" data-ratio="2.0833333333333335" data-galleryid="" _width="228px"></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 14px;"><em><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">图 1：测试界面 UI 图</span></em></span><br></p><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②Log 打印</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Timber 类的静态方法调用如图 2 中的（a）图所示。运行项目后查看 HiLog 显示，可以看到实时打印出来的日志，如图 2 中的（b）图所示。</span></section><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages img_loading" style="width: 555px !important; height: 197.29px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJxr7ic7op4f58JQZicNjNHLrU6UpliazDlJDcprB2QnEQAuhDcskicPlG6w/640?wx_fmt=png" crossorigin="anonymous" data-w="555" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJxr7ic7op4f58JQZicNjNHLrU6UpliazDlJDcprB2QnEQAuhDcskicPlG6w/640?wx_fmt=png" data-s="300,640" data-ratio="0.35315315315315315" _width="555px"></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 555px !important; height: 197.29px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJEEkoCHvDuIwSVRHh59eSkwgnJmlaAU6PBQ4icQ7VdkkyzevWOr4U5Qg/640?wx_fmt=png" crossorigin="anonymous" data-w="555" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJEEkoCHvDuIwSVRHh59eSkwgnJmlaAU6PBQ4icQ7VdkkyzevWOr4U5Qg/640?wx_fmt=png" data-s="300,640" data-ratio="0.35315315315315315" _width="555px"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 14px;"><em><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">图 2：HiLog 日志打印</span></em></span><br></p><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="height: auto;box-sizing: border-box;"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin: 0px 0px 0px -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">Sample 解析</p></section></section><section style="margin: 0px 0% 8px;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①Tree 的使用</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Timber_ohos 将不同的日志操作以树（Tree）的概念进行表示，种植一种树就拥有一种日志记录功能，种植多种树就拥有多种日志记录的功能。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">树的种类有很多，常见的树有：DebugTree、RealeseTree、FileTree、CrashReportingTree 等，这些树都是继承自 Tree 类。</span></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">DebugTree：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">对所有的日志进行记录。</span></p></li><li><p><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">RealeseTree：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">只对 warn，error，wtf 信息进行记录。</span></p></li><li><p><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">FileTree：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在运行时将日志记录到文件中。</span></p></li><li><p><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">CrashReportingTree：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">对应用崩溃时的信息进行记录。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span></p></li></ul><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Timber_ohos 中默认已经种植了 DebugTree，由于 Timber_ohos 本身是一个可扩展的框架。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">因此开发者想得到其他类型的 Log 日志时，就需要自己实现一个日志记录类 ，然后种植到 Timber_ohos 中即可。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②Sample 的实现</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Sample 部分需要添加日志记录种类，并负责整体显示布局的搭建。首先为 Timber_ohos 组件添加想要的任何 Tree 子类实例（这里使用的是 DebugTree）。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">然后设置简单的按钮监听器，当按动按钮时在鸿蒙常规 HiLog 中出现调试日志。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">下面将详细介绍组件的使用方法：</span></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">步骤 1：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">种树（添加 Tree 子类实例）。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">步骤 2：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">创建整体的显示布局。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">步骤 3：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">导入相关类并设置按钮监听。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">步骤 4：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">使用 Tree 实例。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li></ul><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（1）种树（添加 Tree 子类实例）</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">本步骤是在 ExampleApp 类的 onInitialize() 方法中实现的。首先需要创建 Tree 子类实例，然后调用 Timber 的 plant() 方法，同时将实例作为 plant() 方法的参数，这个过程叫做“种树”。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.plant</span>(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.DebugTree</span>(0<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">x001f00</span>));<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（2）创建整体的显示布局<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在 XML 文件中创建一个 DirectionalLayout 作为整体显示布局，宽度和高度都跟随父控件变化而调整。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">创建两个组件，分别是 Text 组件和 Button 组件，用于控制组件效果显示。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">整体显示布局如图 1 所示：</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">DirectionalLayout</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">xmlns:ohos</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"http://schemas.huawei.com/res/ohos"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:height</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_parent"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:width</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_parent"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:orientation</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"vertical"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:padding</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"32vp"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:background_element</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"#ffffff"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:alignment</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"horizontal_center"</span>&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Text</span>&nbsp;&nbsp;&nbsp;//“测试”提示<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:height</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_content"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:width</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_content"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:layout_alignment</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"horizontal_center"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:text</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"Timber测试"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:text_size</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"35fp"</span>/&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Button</span>&nbsp;&nbsp;//控制按钮<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:id</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"$+id:btn1"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:height</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_content"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:width</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"match_content"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:top_margin</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"35vp"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:text_size</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"25fp"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:background_element</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"#FF51A8DD"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:padding</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"10vp"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">ohos:text</span>=<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"测试"</span>/&gt;</span><br><span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;/<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">DirectionalLayout</span>&gt;</span><br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（3）导入显示布局并设置按钮监听</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在 MainAbilitySlice 中，整体显示布局也需要通过 super.setUIContent() 方法进行设置，才能生效并成功显示。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">然后给按钮设置点击事件，当用户需要使用 Tree 子类实例时，可通过手指进行点击。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">super</span>.setUIContent(ResourceTable.Layout_ability_main);<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//设置整体显示布局</span><br>findComponentById(ResourceTable.Id_btn1).setClickedListener(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;Component.ClickedListener()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;...<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//按钮的点击事件</span><br>}<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（4）使用 Tree 实例</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">当用户需要打印调试日志的时候，调用 Timber 的静态方法，就会在鸿蒙常规 HiLog 上出现调试日志。调试日志如组件效果展示部分的图 2 所示。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.e</span>&nbsp;&nbsp;("<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.e</span>&nbsp;测试成功！！！");<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.d</span>&nbsp;&nbsp;("<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.d</span>&nbsp;测试成功！！！");<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.i</span>&nbsp;&nbsp;("<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.i</span>&nbsp;测试成功！！！");<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.w</span>&nbsp;&nbsp;&nbsp;("<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.w</span>&nbsp;测试成功！！！");<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.wtf</span>&nbsp;&nbsp;&nbsp;("<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">Timber</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">.wtf</span>测试成功！！！");<br></code></pre></section><p style="line-height: normal;"><br></p><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="height: auto;box-sizing: border-box;"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin: 0px 0px 0px -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">Library 解析</p></section></section><section style="margin: 0px 0% 8px;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"> Library 主要为 Timber_ohos 组件提供日志输出的统一接口。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">以 Sample 中种植的调试树（DebugTree）为例，当使用 Timber 的静态方法 Timber.e 时，从 MainAbilitySlice 到 Timber.e 打印 log 的地方可以分为 5 个步骤。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">整体调用的流程如图 3 所示：</span></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 172.18px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJTgunZg5BAlm3Jojnsy5iad3HnwgxLCMRv3AqwQQ5N5Y8OLnL23MuFuQ/640?wx_fmt=png" crossorigin="anonymous" data-w="697" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJTgunZg5BAlm3Jojnsy5iad3HnwgxLCMRv3AqwQQ5N5Y8OLnL23MuFuQ/640?wx_fmt=png" data-s="300,640" data-ratio="0.2582496413199426" data-galleryid="" _width="677px"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 14px;"><em><span style="color: rgb(89, 89, 89);letter-spacing: 1px;">图 3：调用顺序图</span></em></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">下面我们着重介绍树（Tree 类）在 Library 中的实现，核心算法 prepareLog() 内部的逻辑结构这两个方面的内容。<br></span></p><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①树（Tree）的实现</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Tree 类是一种概念形式的日志操作，具体可分为DebugTree、ReleaseTree、FileTree 等。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">而在 Library 内部，Tree 类也实现了一系列方法，以便于对森林中的各类树进行增加、删除、修改等操作。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（1）在 Timber_ohos 组件中维护一个森林对象（FOREST）</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">森林对象由不同类型的日志树组合而成，并提供对外的接口进行日志的打印。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">每种类型的树都可以通过种植操作来把自己添加到森林对象中，或者通过移除操作从森林对象中删除，从而实现该类型日志记录的开启和关闭。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">private</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">static</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">final</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">List</span>&lt;Tree&gt;&nbsp;FOREST&nbsp;=&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;ArrayList&lt;&gt;();<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（2）种树<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">调用 plant() 方法，把 Tree 实例添加进 FOREST 里面 可以种植一棵树，也可以种植多棵树。这里以种一棵树为例。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">可以看到，树的种植是在 plant() 静态方法的 synchronized 同步代码块中进行的。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">具体流程是先将树对象添加到 FOREST 列表中，然后将日志树保存到 forestAsArray 数组中（将树种植到森林中）。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">需要注意的是，如果树为空，则抛出空指针异常的错误；如果开发者手动种植灵魂之树（TREE_OF_SOULS），Timber_ohos 将会抛出非法数据异常。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">public</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">static</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">void</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">plant</span>(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(255, 152, 35);word-wrap: inherit !important;word-break: inherit !important;">@NotNull&nbsp;Tree&nbsp;tree</span>)&nbsp;</span>{<br>&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">if</span>&nbsp;(tree&nbsp;==&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(174, 135, 250);word-wrap: inherit !important;word-break: inherit !important;">null</span>)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">throw</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;NullPointerException(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"tree&nbsp;==&nbsp;null"</span>);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">if</span>&nbsp;(tree&nbsp;==&nbsp;TREE_OF_SOULS)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">throw</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;IllegalArgumentException(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"Cannot&nbsp;plant&nbsp;Timber&nbsp;into&nbsp;itself."</span>);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;synchronized&nbsp;(FOREST)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;FOREST.<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">add</span>(tree);<br>&nbsp;&nbsp;&nbsp;&nbsp;forestAsArray&nbsp;=&nbsp;FOREST.toArray(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;Tree[FOREST.size()]);<br>&nbsp;&nbsp;}<br>}<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（3）移除 Tree 实例</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">同样的，树的移除也是在静态方法 uproot() 中的 synchronized 同步代码块中进行的。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">如果没有该树可以移除，则 Timber_ohos 组件将抛出一个非法数据异常；反之，Timber_ohos 组件将根据移除该树后的 FOREST 列表生成新的 forestAsArray 数组。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">public</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">static</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">void</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">uproot</span>(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(255, 152, 35);word-wrap: inherit !important;word-break: inherit !important;">@NotNull&nbsp;Tree&nbsp;tree</span>)&nbsp;</span>{<br>&nbsp;&nbsp;synchronized&nbsp;(FOREST)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">if</span>&nbsp;(!FOREST.<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">remove</span>(tree))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">throw</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;IllegalArgumentException(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"Cannot&nbsp;uproot&nbsp;tree&nbsp;which&nbsp;is&nbsp;not&nbsp;planted:&nbsp;"</span>&nbsp;+&nbsp;tree);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;forestAsArray&nbsp;=&nbsp;FOREST.toArray(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;Tree[FOREST.size()]);<br>&nbsp;&nbsp;}<br>}<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（4）清除森林里面全部的 Tree 实例</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">移除森林里所有的 Tree 实例，首先使用 FOREST 的 clear() 方法清除所有的 Tree 实例，将会自动生成一个对应的新的 Tree 数组，而 forestAsArray 就是这个数组的引用。因此 forestAsArray 数组被设置为空数组。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">public</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">static</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">void</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">uprootAll</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(255, 152, 35);word-wrap: inherit !important;word-break: inherit !important;">()</span>&nbsp;</span>{<br>&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">synchronized</span>&nbsp;(FOREST)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;FOREST.clear();<br>&nbsp;&nbsp;&nbsp;&nbsp;forestAsArray&nbsp;=&nbsp;TREE_ARRAY_EMPTY;<br>&nbsp;&nbsp;}<br>}<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">（5） 灵魂之树（TREE_OF_SOULS）</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">估计很多同学好奇上述 TREE_OF_SOULS。代码实现中，在这里运用的是经典设计模式中的代理模式。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">TREE_OF_SOULS 本质上是一个代理对象，森林中所有其他普通的树对象都是被代理对象，代理对象通过 for 循环来依次调用被代理对象的同名方法，从而实现不同类型的日志记录。<br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">如下所示：</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">private</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">static</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">final</span>&nbsp;Tree&nbsp;TREE_OF_SOULS&nbsp;=&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">new</span>&nbsp;Tree()&nbsp;{<br>&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(91, 218, 237);word-wrap: inherit !important;word-break: inherit !important;">@Override</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">public</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">void</span>&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);word-wrap: inherit !important;word-break: inherit !important;">v</span><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(255, 152, 35);word-wrap: inherit !important;word-break: inherit !important;">(String&nbsp;message,&nbsp;Object...&nbsp;args)</span>&nbsp;</span>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Tree[]&nbsp;forest&nbsp;=&nbsp;forestAsArray;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">for</span>&nbsp;(Tree&nbsp;tree&nbsp;:&nbsp;forest)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree.v(message,&nbsp;args);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br></code></pre></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②核心算法（prepareLog）</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Timber_ohos 组件的日志记录功能的核心算法在抽象类 Tree 的私有化 prepareLog() 方法中，该方法接收四个参数，如图 4 所示：</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 630px !important; height: 132.58px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJl4LNXPMDyne9oibtOdrI4ibaVMeuqFj1VGaWdiawe2LibtORlHSZOCP7nQ/640?wx_fmt=png" crossorigin="anonymous" data-w="630" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJl4LNXPMDyne9oibtOdrI4ibaVMeuqFj1VGaWdiawe2LibtORlHSZOCP7nQ/640?wx_fmt=png" data-s="300,640" data-ratio="0.20793650793650795" data-galleryid="" _width="630px"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 14px;"><em><span style="color: rgb(89, 89, 89);letter-spacing: 1px;">图 4：参数表</span></em></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">prepareLog() 中首先判断了打 log 的条件，然后将要打印的 message 信息进行了处理，最后调用了抽象方法 log 进行日志输出。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">总体而言 prepareLog()算法流程如下：</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">获取当前线程的 tag。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">当正常信息 message 不为 null 且信息长度为 0 时，这时正常信息 message 为 null。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">当正常信息 message 和异常信息 t 都是 null 时，说明没有信息可以记录，方法直接返回。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">异常信息 t 通过 getStackTraceString 方法转换为字符串。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">正常信息 message 和可选格式化参数 args 通过 formatMessage 方法拼装成一个字符串。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">调用抽象方法 log 进行日志记录，这个方法由 Tree 的子类来实现。</span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p></li></ul><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">项目贡献人：陈丛笑、郑森文<span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">、</span>朱伟<span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">、</span>陈美汝<span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">、</span>蔡志杰。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">👇</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">点击</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">关注鸿蒙技术社区👇<br></span></strong></p><section class="wx-edui-media-wrp"><mpprofile class="js_uneditable" data-from="0" data-signature="HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。" data-alias="" data-nickname="鸿蒙技术社区" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0?wx_fmt=png" data-id="MzkzNzE0MTA4OQ==" data-pluginname="mpprofile"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzkzNzE0MTA4OQ==" data-index="0" data-isban="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" alt="鸿蒙技术社区" src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0?wx_fmt=png">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                鸿蒙技术社区                           </strong>           <div class="wx_profile_desc">HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">147篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="text-align: center;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">了解</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">鸿蒙</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">一手资讯</span></strong></p><p style="line-height: normal;"><br></p><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 12%;box-sizing: border-box;"><section style="text-align: center;margin: 0px 0%;box-sizing: border-box;"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;box-sizing: border-box;"><img class="img_loading __bg_gif" style="width: 81px !important; height: 81px !important; vertical-align: middle; max-width: 100%; box-sizing: border-box;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJtbYpsoQaf4539uo4FrgKfDE2GiavPMUm8ax9OI0KZWEm2cZzCrju8Iw/640?wx_fmt=gif" data-w="300" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/bmc8z80Q8fC59kSbpc7b9AjPwGZibicJRJtbYpsoQaf4539uo4FrgKfDE2GiavPMUm8ax9OI0KZWEm2cZzCrju8Iw/640?wx_fmt=gif" data-ratio="1" _width="100%" data-order="0"></section></section></section><section style="display: inline-block;vertical-align: middle;width: 88%;padding: 0px 0px 0px 10px;box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><strong>点</strong></span><span style="font-size: 15px;letter-spacing: 1px;color: rgb(255, 41, 65);"><strong>“阅读原文”</strong></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><strong>了解更多</strong></span></p></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/Re8PfROPSIzOmGb0BpxSvg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="191" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="191" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fDLZGytAauMaLlDibiaC21JQODF7RIWCiaBJIqouI7tcVyybIvv1CSyyAq1IgSpHQ3YYv74x4VnibQYIw/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="191" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/鸿蒙.html" class="tag" rel="tag">鸿蒙</a><a href="../t/日志工具.html" class="tag" rel="tag">日志工具</a></li>
+        <li>浏览次数：<span>218</span> 次浏览</li>
+        <li>发布日期：2021-07-07 15:15:30</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="189.html">我是如何成为首位OpenHarmony野生Committer的？</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="193.html">使用Go语言，25秒读取16GB文件</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="304.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fAmfHeNou112fic4TRiaX3hXAr5YSdibnCewR3LibUxYRkNibQQ059jWDiaG40Isk8lV13WoVyRSXFsQ1DA/640" alt="十分钟完成Hi3516小型系统的编译烧录！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="304.html">十分钟完成Hi3516小型系统的编译烧录！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../soft/289.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fCq52bowtpFPRHksRNyDAeE8a47icR4WpqvRoHyfhWOByL83iaribFD1kac1EODY69hlfT21tkzZbxUg/640" alt="鸿蒙首款地图服务卡片，我心动了！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../soft/289.html">鸿蒙首款地图服务卡片，我心动了！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech/286.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fCAvfbNeHGaSXhsV5V0KN9cOo32lv7V7vjKFaeQuP2OdUg7rKlkJo3OlZf3acRbXdQnI85yfyem7Q/640" alt="首款鸿蒙系统游戏《迷你世界》上架华为商城！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech/286.html">首款鸿蒙系统游戏《迷你世界》上架华为商城！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="285.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zC54b7QVQxuScialeDHJSUy9zWnd6HVwbpFzCZzFkcXv1UacPZhKiarJDg/640" alt="鸿蒙OS将支持控制中心与通知中心左右滑动切换" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="285.html">鸿蒙OS将支持控制中心与通知中心左右滑动切换</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="3c5f8c37819b47351eed540ce4706ae7">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="191">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c099831ccbc7550',m:'Dms3iHVyARdUO.AS0YA7gSXei42ICipjyNr13sgHeQk-1640010898-0-AeOWVSiBUNfQsI4y89lHmhx8ESPrA0VW4EIrAXTLJHX21ytZYskjqirVONxN9QxTnLR2tCL0mSLaU9untDQtVQMMquVioExtaRKf/GtRwB8menCYXlsW6L+tjMVfGtSmdCv7TqWnd60cMhdwWZ/XSSk=',s:[0xa1f772e207,0x2d03ebdfc3],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

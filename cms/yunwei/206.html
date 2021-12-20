@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="40">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="b55470f52ae3861ad7beb4cb5f04b051">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../yunwei.html">运维</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 319 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="text-align: center;" data-mpa-powered-by="yiban.io"><img class="rich_pages __bg_gif" style="width: 574px !important; height: auto !important; visibility: visible !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640?wx_fmt=gif" data-w="574" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640?wx_fmt=gif" data-ratio="0.23693379790940766" data-galleryid="" _width="574px" data-order="0" data-fail="0"></p><p><img class="rich_pages" style="width: 677px !important; height: auto !important; text-align: center; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/KdayOo3PqHAAHVZEJcvQtNQfFgU3S54Oicqa6Tg45h2TOoEO55LHl5gl8OR2iaQjeKibZlkkFG6xLjtGuasYcYWkw/640?wx_fmt=jpeg" crossorigin="anonymous" data-w="1200" data-type="jpeg" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/KdayOo3PqHAAHVZEJcvQtNQfFgU3S54Oicqa6Tg45h2TOoEO55LHl5gl8OR2iaQjeKibZlkkFG6xLjtGuasYcYWkw/640?wx_fmt=jpeg" data-ratio="0.5541666666666667" data-galleryid="" data-s="300,640" _width="677px" data-fail="0"><br></p><section class="js_darkmode__0" style="line-height: 1.75em;" data-style='white-space: normal; max-width: 100%; letter-spacing: 0.544px; text-size-adjust: auto; background-color: rgb(255, 255, 255); font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; box-sizing: border-box !important; overflow-wrap: break-word !important;' data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)" data-id="85660" data-custom="rgb(117, 117, 118)" data-color="rgb(117, 117, 118)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section style="line-height: 1.75em;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)" data-id="85660" data-custom="rgb(117, 117, 118)" data-color="rgb(117, 117, 118)"><section class="js_darkmode__1" style="line-height: 1.75em;" data-style="margin-top: 2em; padding-top: 0.5em; padding-bottom: 0.5em; max-width: 100%; border-style: solid none; text-decoration: inherit; border-top-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-top-width: 1px; border-bottom-width: 1px; box-sizing: border-box !important; overflow-wrap: break-word !important;" data-darkmode-original-bgcolor-16095509242984="rgb(255, 255, 255)" data-darkmode-bgcolor-16095509242984="rgb(25, 25, 25)"><section><br></section></section></section></section></section></section></section></section></section></section></section></section><p style="line-height: 1.75em;"><span style="font-size: 15px;">自深度学习重新获得公认以来，许多机器学习框架层出不穷，争相成为研究人员以及行业从业人员的新宠。从早期的学术成果 Caffe、Theano，到获得庞大工业支持的 PyTorch、TensorFlow，许多研究者面对大量的学习框架不知该如何选择？</span><br></p><p style="text-align: center;"><img class="rich_pages" style="width: 677px !important; height: auto !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWibtOlJkZ2FeNc7VFcfnKFzDIfEsH470NzBC365QIVUZjLRHJWqiaxx2lRQBnic55YiciaXvdJAaibWLO5A/640?wx_fmt=png" crossorigin="anonymous" data-w="1080" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWibtOlJkZ2FeNc7VFcfnKFzDIfEsH470NzBC365QIVUZjLRHJWqiaxx2lRQBnic55YiciaXvdJAaibWLO5A/640?wx_fmt=png" data-ratio="0.5425925925925926" data-s="300,640" _width="677px" data-fail="0"></p><p style="line-height: 1.75em;"><span style="color: rgb(136, 136, 136);"><em><span style="font-size: 12px;">机器学习框架。<br></span></em></span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">Tensorflow / Keras 和 PyTorch 是迄今为止最受欢迎的两个主要机器学习库。TensorFlow 由谷歌团队开发，于 2015 年发布。而 PyTorch 则由 Facebook 的团队开发，并于 2017 年在 GitHub 上开源。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">为了充分发挥不同机器学习框架的优势，许多机器学习从业者对不同框架进行了比较，通过对比优缺点，以选择最适合自己的框架。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">&nbsp;在本文中，我们将从以下两个方面对机器学习库（PyTorch 1.8 和 Tensorflow 2.5）进行比较：</span></p><p style="line-height: 1.75em;"><br></p><ul class="list-paddingleft-2"><li><p style="line-height: 1.75em;"><span style="font-size: 15px;">最新发行版本中的新增功能；</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: 15px;">使用哪个以及为什么。</span></p></li></ul><p style="line-height: 1.75em;"><br></p><p style="text-align: center;line-height: 1.75em;"><strong><span style="font-size: 16px;">Tensorflow 2.x VS Pytorch 1.8</span></strong></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;">Tensorflow 2.x</span></strong><span style="font-size: 15px;"></span><br></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">TensorFlow 1 和 TensorFlow 2.x 之间有很多变化。第一个是 Tensorflow.js. 的发布。随着 Web 应用程序越来越占主导地位，在浏览器上部署模型的需求大大增加。借助 Tensorflow.js，你可以使用 Node 在浏览器中运行现有的 python 模型、重新训练现有的模型，并使用 Javascript 完全构建和训练模型（不需要 python）。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">Tensorflow 2.x 中的另一个版本是 Tensorflow Lite，一个轻量级库，用于在移动和嵌入式设备上部署模型。这是因为移动和 Web 应用程序是两种最主要的应用程序类型。使用 Tensorflow Lite，你可以简单地将现有模型转换为「compressed flat buffer」，然后将 buffer 加载到移动设备或任何其他嵌入式设备中。这期间发生的主要优化过程是将 32 位浮点值转换成 8 位，这更适合于嵌入式设备（更少的内存使用）。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">此外还包括 Tensorflow Extended（TFX）的发布，它是用于部署生产 ML pipeline 的端到端平台。其在机器学习的 3 个最重要领域（web 应用程序、移动应用程序和生产管理）方面做得很好。机器学习生产 pipeline 仍需要大量研究和开发。TFX 可以应对经典的软件生产挑战，例如可扩展性、可维护性和模块化。此外，它还可以帮助解决机器学习的特定挑战，例如持续在线学习、数据验证，数据管理等。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;">PyTorch 1.8</span></strong></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">与 Tensorflow Lite 相似，PyTorch 改进了其现有的 Pytorch Mobile。该框架可以量化、跟踪、优化和保存适用于 Android 和 iOS 的模型。此外还发布了 Pytorch Lite Interpreter 的原型，该原型可减小移动设备上二进制运行时的大小。此外，还通过更具体的错误处理和 pipeline 并行为分布式训练提供了更多支持。Pytorch Profiler 用于分析 APP、模型的执行时间、执行流程、内存消耗等。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">尽管 Pytorch lightning 不是 PyTorch 1.8 的一部分，但还是值得一提。Pytorch lightning 已发布，可以使编码神经网络更加简单。可以将其视为 Pytorch 的 Keras，使用广泛，其中的原因可归结为 Keras 显著的改进了 Tensorflow，因为它使实现模型变得更加容易和快捷。在 Pytorch 中，Pytorch lightning 起到了相同的作用。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;">该如何选择？</span></strong></p><p style="line-height: 1.75em;"><span style="font-size: 15px;"></span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">从本质上讲，这两个库都是相当不错的，它们在性能和功能上非常接近。总的来说，两个库之间的编码风格有所不同。</span></p><p style="line-height: 1.75em;"><br></p><p style="text-align: center;"><img class="rich_pages img_loading" style="width: 318px !important; height: 160px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWibtOlJkZ2FeNc7VFcfnKFzDeRelXEFMqzTPT28urIAjAGYWYOBddMQib1ibbnQMB41LNjt8F5ddDy8Q/640?wx_fmt=png" crossorigin="anonymous" data-w="318" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWibtOlJkZ2FeNc7VFcfnKFzDeRelXEFMqzTPT28urIAjAGYWYOBddMQib1ibbnQMB41LNjt8F5ddDy8Q/640?wx_fmt=png" data-ratio="0.5" data-s="300,640" _width="318px"></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">PyTorch 以其 OOP（面向对象编程）风格而闻名。例如，当创建自定义模型或自定义数据集时，你很可能会创建一个新类，该类继承默认的 PyTorch 库，然后在进行代码调整。尽管 OOP 以某种方式为代码提供了一种结构，但就代码行数而言，会使代码变得很长。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">另一方面，当使用 Tensorflow 时，你很可能会使用 Keras。例如在进行 Kaggle 比赛时（监督学习图像分类、目标检测、图像分割、NLP 等任务），可以发现 Keras 的代码实现比 PyTorch 短。作为初学者 / 中级人员，这是非常不错的选择，因为你不必花费大量时间阅读和分解代码行。</span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;"></span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">在某些情况下，需要在特定的机器学习领域中寻找特定的模型。例如，当进行目标检测比赛时，想要实现 DETR（Facebook 的 Data-Efficient transformer），结果发现大部分资源都是用 PyTorch 编写的，因此在这种情况下，使用 PyTorch 更加容易。另外，PyTorch 的代码实现更长，因为它们涵盖了许多底层细节。这既是优点也是缺点。当你是初学者时先学习低层级的细节，然后再使用更高层级的 API（例如 Keras）非常有帮助。但是，这同时也是一个缺点，因为你会发现自己迷失于许多细节和相当长的代码段中。因此，从本质上讲，如果你的工作期限很紧，最好选择 Keras 而不是 PyTorch。</span></p><p style="line-height: 1.75em;"><em style="color: rgb(136, 136, 136);text-align: left;"><span style="font-size: 12px;">原文链接：https://towardsdatascience.com/pytorch-vs-tensorflow-2021-d403504d7bc3</span></em><span style="text-align: center;"></span></p><section style='margin-top: 10px;white-space: normal;color: rgb(0, 0, 0);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);text-align: right;'><span style="font-size: 12px;color: rgb(178, 178, 178);"><em><em style="letter-spacing: 0.544px;">文章转载：Python程序员</em><br>（版权归原作者所有，侵删）</em></span></section><p style='padding-right: 0.5em;padding-left: 0.5em;white-space: normal;color: rgb(0, 0, 0);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);text-align: center;'><img width="94" height="40" class="__bg_gif" style="width: 55.79px !important; height: 31.38px !important; letter-spacing: 0.54px; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/US10Gcd0tQEfcffueY0reDaT8agHibMbk6Pqc4ibhiccO8Pz07m9jJ4eyuPZVomxWiac5FdicwB3aOub11CqBzXQrjw/640?wx_fmt=gif" data-w="1280" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/US10Gcd0tQEfcffueY0reDaT8agHibMbk6Pqc4ibhiccO8Pz07m9jJ4eyuPZVomxWiac5FdicwB3aOub11CqBzXQrjw/640?wx_fmt=gif" data-ratio="0.5625" data-before-oversubscription-url="https://mmbiz.qlogo.cn/mmbiz_gif/HbjXqFK3L72957xsibH48vUn4119YSdqKzKaWGu3iaLPF8MpDeGzGJRDyXEjp2hEX6VE5ruWP2uibv4tVibOrwYIaA/0?wx_fmt=gif" _width="55.79px" data-order="1"></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" style="width: 677px !important; height: 323.14px !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/QFzRdz9libEbAsBnjdaOpUzSab2M3JylwiaWNJsSuPkqq5oGIuAzM0CcR4rSCQ6TKjFEEAYSuaEQYEQrjvTbjsog/640?wx_fmt=png" crossorigin="anonymous" data-w="2270" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/QFzRdz9libEbAsBnjdaOpUzSab2M3JylwiaWNJsSuPkqq5oGIuAzM0CcR4rSCQ6TKjFEEAYSuaEQYEQrjvTbjsog/640?wx_fmt=png" data-ratio="0.47577092511013214" data-galleryid="" data-s="300,640" _width="677px"></p><p style="white-space: normal;"><span class="js_tx_video_container" id="js_tx_video_container_0.8436547015716691" style="width: 677px !important; height: 393px !important; display: block;" data-ratio="1.7777777777777777"><iframe width="677" height="380.8125" src="javascript:window.open('https://v.qq.com/txp/iframe/player.html?origin=https:%2F%2Fmp.weixin.qq.com&amp;chid=17&amp;vid=t3234zwkmf2&amp;autoplay=false&amp;full=true&amp;show1080p=false&amp;isDebugIframe=false');" frameborder="0" allowfullscreen="true" allow="autoplay; fullscreen"></iframe></span></p><section style='white-space: normal;color: rgb(0, 0, 0);font-size: 14px;text-align: left;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);' mpa-from-tpl="t" data-mpa-template="t"><section style="padding-top: 20px;display: flex;justify-content: center;align-items: center;" mpa-from-tpl="t" data-mid="" data-mpa-category="模板"><section style="display: flex;justify-content: center;align-items: center;" mpa-from-tpl="t" data-mid=""><img class="__bg_gif" style="width: 38px !important; height: 36.71px !important; margin-right: 16px; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/Ax5Bp6214YNMtf0RNv4VQ0V1bg9SLBsGR5p3Olv8OSO4thBdpswMMZB8mHmWKdE9raicHrIbHZQRO5xxq1RZblA/640?wx_fmt=gif" data-w="59" data-type="gif" data-src="https://mmbiz.qpic.cn/mmbiz_gif/Ax5Bp6214YNMtf0RNv4VQ0V1bg9SLBsGR5p3Olv8OSO4thBdpswMMZB8mHmWKdE9raicHrIbHZQRO5xxq1RZblA/640?wx_fmt=gif" data-ratio="0.9661016949152542" _width="38px" data-order="2"><p style='font-size: 16px;font-family: PingFangSC-Regular, "PingFang SC";color: rgb(102, 102, 102);line-height: 23px;letter-spacing: 3px;' data-mid=""><em><span style="font-size: 15px;">点击下方“阅读原文”查看更多</span></em></p></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/VWEFpi6pJka1oC2VLq80kA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="206" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="206" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="206" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../yunwei.html">运维</a></li>
+        <li>本文标签：<a href="../t/pytorch.html" class="tag" rel="tag">PyTorch</a><a href="../t/tensorflow.html" class="tag" rel="tag">Tensorflow</a></li>
+        <li>浏览次数：<span>319</span> 次浏览</li>
+        <li>发布日期：2021-07-08 22:03:57</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="205.html">Kubernetes 五层的安全的最佳实践</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="231.html">一文详解LNMP企业级架构设计！（建议收藏）</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/208.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640" alt="深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/208.html">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640" alt="PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="b55470f52ae3861ad7beb4cb5f04b051">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="206">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c099844397838a5',m:'uekI0dqX1mtEpnzDqKWxPf1zQmYdFmgqmk4kAF0m_KA-1640010901-0-AdnaH6T6vj9B3Z1dON51DN6J7pvg5l9nkGBoByQRGQawY9wqCQPmF4GUawlicF3s9TCk/HCQcPVNreDPeCnXwlHqOjxFDGf2wAtFgQU7zZsjKM6cd1XeV3MC7p4cl6t3W2aojb9eGHkxAONg+UH0W3M=',s:[0x76499a8a4f,0xfd32f7d85d],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

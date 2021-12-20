@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>【建议收藏】MMU是如何完成地址翻译的？ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="5616ea2ca2c135d3e5c60f84be116ec9">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">【建议收藏】MMU是如何完成地址翻译的？</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 488 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding: 0 10px;line-height: 1.6;word-spacing: 0px;letter-spacing: 0px;word-break: break-word;word-wrap: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><p>1. 什么是虚拟内存？</p></li><li><p>2. 虚拟内存的作用</p></li><li><p>3. 虚拟内存与物理内存</p></li><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: square;" class="list-paddingleft-2"><li><p>3.1 CPU存取数据</p></li><li><p>3.2 物理地址常用术语</p></li><li><p>3.3 虚拟地址常用术语</p></li><li><p>3.4 页表常用术语</p></li><li><p>3.5 页命中/缺页</p></li></ul><li><p>4. 为什么有了高速缓存，还需要TLB呢？</p></li><li><p>5. MMU是如何完成地址翻译的？</p></li><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: square;" class="list-paddingleft-2"><li><p>5.1 准备工作</p></li><li><p>5.2 产生虚拟地址</p></li><li><p>5.3 构造物理地址</p></li><li><p>5.4 遍历高速缓存</p></li><li><p>5.5 缺页处理</p></li></ul><li><p>6. 总结</p></li></ul><blockquote data-tool="mdnice编辑器" style="border-color: currentcolor currentcolor currentcolor rgb(239, 112, 96);border-style: none none none solid;border-width: medium medium medium 3px;display: block;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;background: rgb(255, 249, 249) none repeat scroll 0% 0%;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0px;color: black;line-height: 26px;">虚拟内存是现代操作系统中<strong style="font-weight: bold;color: black;">最伟大的发明之一</strong>。它为每个进程提供了一个一致的、私有的地址空间，让每个进程产生了一种自己在<strong style="font-weight: bold;color: black;">独享主存</strong>的错觉。</p><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0px;color: black;line-height: 26px;">为了讲清楚MMU是如何一步一步完成地址翻译，取出数据的，本篇文章在前4节中讲解了虚拟内存中一些重要的概念，比如，<strong style="font-weight: bold;color: black;">虚拟内存的作用，页命中，缺页异常处理，为什么需要TLB</strong>等等。最后，通过两个地址翻译的例子，详细解释了MMU地址翻译的过程。</p></blockquote><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">1. 什么是虚拟内存？</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟内存能够创建一个连续的更大的空间给进程使用，出现的原因是由于<strong style="font-weight: bold;color: black;">主存的空间是有限</strong>。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">当运行多个进程或者一个进程需要更大的空间进行存储运行，主存显然是不够的，这个时候就需要更大更便宜的磁盘进行保存一部分数据。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">对于进程来说，<strong style="font-weight: bold;color: black;">虚拟内存就是一张连续的内存空间</strong>，这个空间有些在主存中，有些在磁盘中。</p></section></li></ul><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">2. 虚拟内存的作用</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟内存将主存看成是一个存储在<strong style="font-weight: bold;color: black;">磁盘上的地址空间的高速缓存</strong>，在主存中只保存活动区域，并根据需要在磁盘和主存之间来回传送数据，通过这种方式，可以<strong style="font-weight: bold;color: black;">高效地使用主存</strong>。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟内存为<strong style="font-weight: bold;color: black;">每个进程提供了一致的地址空间</strong>，简化了内存管理。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟内存保护了每个进程的地址空间不被其他进程破坏。</p></section></li></ul><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">3. 虚拟内存与物理内存</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>3.1 CPU存取数据<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.5038314176245211" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwY9Uic0YXc2xw5f8XiaODRjKr8Q4Fn2VrcEQt8aiacEegDdufiaeKtROptA/640?wx_fmt=png" data-type="png" data-w="1044" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 156.172px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwY9Uic0YXc2xw5f8XiaODRjKr8Q4Fn2VrcEQt8aiacEegDdufiaeKtROptA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">CPU通过MMU找到虚拟地址对应的物理地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们先来看下，CPU是如何根据地址取得数据的。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">CPU 在这里生成的物理地址为 4，把地址发送给内存，然后内存从该地址获取其中保存的字，最后将其发送回 CPU。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">MMU(Memory Management Unit)叫做内存管理单元，主要用来管理<strong style="font-weight: bold;color: black;">虚拟内存与物理内存的映射</strong>，由硬件自动完成。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>3.2 物理地址常用术语<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.2236842105263158" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwibfwplatD0V7kc7Kgy66lf1GXMV1MC4BJzVph9kNwReZlerwLSmzneg/640?wx_fmt=png" data-type="png" data-w="988" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 70.4474px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwibfwplatD0V7kc7Kgy66lf1GXMV1MC4BJzVph9kNwReZlerwLSmzneg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">物理地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">这里需要比较烧脑地介绍几个名词，后面<strong style="font-weight: bold;color: black;">理解MMU地址翻译的时候会用到</strong>。</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理内存(physical memory)</strong>，主存RAM，实际能使用的物理空间。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理页(physical page)</strong>，把物理内存按照页表的大小进行划分。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理地址(physical</strong> <strong style="font-weight: bold;color: black;">address，PA)</strong>, 物理内存划分了根据物理页划分为很多块，通过物理地址进行定位。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理页号</strong>(<strong style="font-weight: bold;color: black;">physical</strong> <strong style="font-weight: bold;color: black;">page number，PPN</strong>) ，定位缓存中的数据字。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理页号偏移</strong> (<strong style="font-weight: bold;color: black;">physical</strong> <strong style="font-weight: bold;color: black;">page offset， PPO</strong>)，定位缓存中的数据块。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">缓存标记(cache tag，CT)</strong>，在高速缓存中作为行匹配。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">缓存索引(cache index，CI)</strong>，在高速缓存中作为组索引。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">缓存偏移(cache offset，CO)</strong>，在高速缓存中用作行内偏移来选择目的数据块。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理页号偏移PPO</strong> = 组索引CI + 行内偏移CO。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理页号PPN</strong> = 行匹配CT。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">物理地址 PA</strong> = 物理页号 + 物理页号偏移 = PPN * page size + ppo。</section></li></ul><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>3.3 虚拟地址常用术语<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.19858781994704325" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwUgPHTmr8FYqvJVWeHd6fId6BENolVJSCqqscEMxd6J9J9laBs289Nw/640?wx_fmt=png" data-type="png" data-w="1133" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 62.7679px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwUgPHTmr8FYqvJVWeHd6fId6BENolVJSCqqscEMxd6J9J9laBs289Nw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">虚拟地址</figcaption></figure><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟内存(virtual memory)</strong>，每个程序独有，存放在磁盘上，由多个虚拟页(VP， virtual page)组成。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">虚拟内存的地址编码称<strong style="font-weight: bold;color: black;">虚拟地址空间(virtual address space VAS)</strong>，跟物理内存一样，但虚拟内存是每个进程独有的，其大小是根据操作系统的指令集位有关，如32位，64位，32位，每个进程就有4G，64位有个百亿的GB。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟页(virtual page，VP )</strong>，把虚拟内存按照页表的大小进行划分。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟地址(virtual address)</strong>，通俗说是计算机进程加载地址的指令，进程给的虚拟地址通过MMU进行获取地址计算物理地址空间，然后获取物理地址对应的数据传送到CPU上。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟页号(virtual page number ，VPN)</strong> ，用于定位页表的PTE。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟页号偏移(virtual page offset VPO)</strong> ，跟PPO值一样，定位物理内存的地址。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">TLB索引(TLB index，TLBI)</strong>，在页表中作为组索引。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">TLBT标记(TLB tag，TLBT)</strong>，在页表中作为行匹配。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟页号VPN</strong> = TLBT + TLBI。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><strong style="font-weight: bold;color: black;">虚拟地址 VA</strong> = 虚拟页号 + 虚拟页号偏移 。</section></li></ul><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>3.4 页表常用术语<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.7759146341463414" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwbRdtsbIF36Yzcj0y3FyT19fOtA0atE9atLibmmTccQwAMZldsnoRPIA/640?wx_fmt=png" data-type="png" data-w="656" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 239.43px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwbRdtsbIF36Yzcj0y3FyT19fOtA0atE9atLibmmTccQwAMZldsnoRPIA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">页表</figcaption></figure><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;"><strong style="font-weight: bold;color: black;">页表(page tables)</strong>，虚拟地址与物理地址的<strong style="font-weight: bold;color: black;">对应表</strong>集合。进程虚拟地址转换成物理地址，程序需要用到数据放在物理主存或磁盘某个位置，页表是存储在主存中。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;"><strong style="font-weight: bold;color: black;">页表条目(page table entry PTE)</strong>，虚拟地址与物理地址具体<strong style="font-weight: bold;color: black;">对应记录</strong>。页表是由多个页表条目PTE组成的数组，PTE 由一个有效位 和 n位地址字段组成，如果设置了有效位，那么地址字段就标识DRAM中相应的物理页的起始位置。</p></section></li></ul><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>3.5 页命中/缺页<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.42006615214994486" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwVAUnp7Bubk37r8S81CyaAbDYsNZs0QPa3ylWQ67TFse1KDBrd5B72A/640?wx_fmt=png" data-type="png" data-w="907" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 130.54px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwVAUnp7Bubk37r8S81CyaAbDYsNZs0QPa3ylWQ67TFse1KDBrd5B72A/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">页命中</figcaption></figure><ol data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: decimal;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">处理器产生一个虚拟地址。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">MMU生成PTE地址，并从高速缓存/主存请求得到它。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">高速缓存/主存向MMU返回PTE。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">MMU构造物理地址，并把它传送给高速缓存/主存。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">高速缓存/主存返回所请求的数据字给处理器。</section></li></ol><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.3734567901234568" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw1IUvlM57Xlh1O24BCmHQVyqD0h4NoxgzVYxPNK59ia9JrZhKEjnGWwA/640?wx_fmt=png" data-type="png" data-w="972" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 116.278px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw1IUvlM57Xlh1O24BCmHQVyqD0h4NoxgzVYxPNK59ia9JrZhKEjnGWwA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">缺页</figcaption></figure><ol data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: decimal;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">处理器产生一个虚拟地址。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">MMU生成PTE地址，并从高速缓存/主存请求得到它。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">高速缓存/主存向MMU返回PTE。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">PTE中的有效位是零，所以MMU触发了一次异常，传递CPU中的控制到操作系统内核中的缺页异常处理程序。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">缺页处理程序确定出物理内存中的牺牲页，如果这个页面已经被修改了，则把它换出到磁盘。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">缺页处理程序页面调入新的页面，并更新内存中的PTE。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;">缺页处理程序返回到原来的进程，再次执行导致缺页的指令。CPU将引起缺页的虚拟地址重新发送给MMU。因为虚拟页面现在缓存在物理内存中，所以就会命中，主存就会将所请求字返回给处理器。</section></li></ol><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">4. 为什么有了高速缓存，还需要TLB呢？</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">局部性原则保证了在任意时刻， 程序将往往在一个<strong style="font-weight: bold;color: black;">较小的活动页面集合上工作</strong>，这个集合叫做工作集或者常驻集。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">换句话说， <strong style="font-weight: bold;color: black;">局部性原则</strong>揭示了一个现象：在一段时间内，我们会<strong style="font-weight: bold;color: black;">反复调入或调出同一个或几个虚拟页页面</strong>。而且，每次CPU产生一个VA时， MMU就必须查阅PTE，以便将VA翻译为PA， 注意是每次，所以<strong style="font-weight: bold;color: black;">开销很大</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;"><strong style="font-weight: bold;color: black;">解决方法：</strong> 为了消除这样的开销，在MMU中包括了一个关于PTE的小缓存，称为翻译后备缓冲器，TLB(Translation Lookaside Buffer)。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;"><strong style="font-weight: bold;color: black;">关键点：</strong> 所有的地址翻译步骤都是在芯片上的MMU中执行的， 因此执行速度非常快。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">说了这么多，下面就是<strong style="font-weight: bold;color: black;">本文的重点</strong>，我们看两个例子，虚拟地址是如何转换为物理地址的。</p><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">5. MMU是如何完成地址翻译的？</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>5.1 准备工作<span style="display: none;"></span></h3><h4 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 18px;"><span style="display: none;"></span>5.1.1 内存系统的基本条件<span style="display: none;"></span></h4><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.5061224489795918" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwp7GU3am7pmn8zspiavgUJ2iaEHxQiaTxsqIVTjNE3aWJpNUhMOTHoauwg/640?wx_fmt=png" data-type="png" data-w="735" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 156.873px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwp7GU3am7pmn8zspiavgUJ2iaEHxQiaTxsqIVTjNE3aWJpNUhMOTHoauwg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">简单内存系统的地址组成</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">假设我们有一个简单内存系统，我们做出如下规定：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: disc;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟地址(VA)：14 位</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">物理地址(PA)：12 位</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">页面大小：64 字节</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟页号(VPN)：8位</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟页面偏移量(VPO)：6 位(64 = 2^6)</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">物理页号(PPN)：6位</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;text-align: left;color: rgb(1,1,1);font-weight: 500;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">物理页偏移量(PPO)：6位</p></section></li></ul><h4 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 18px;"><span style="display: none;"></span>5.1.2 TLB<span style="display: none;"></span></h4><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.21271186440677967" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw6BNPptLkuK8mlmsZkMdhyRD5aPejoZuVdlYGPwEdzRic6S12fSRulew/640?wx_fmt=png" data-type="png" data-w="1180" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 67.0898px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw6BNPptLkuK8mlmsZkMdhyRD5aPejoZuVdlYGPwEdzRic6S12fSRulew/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">TLB</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">假设TLB 有 16 个条目，并且是 4 路组相连的。TLB 缓存的是页表条目，<strong style="font-weight: bold;color: black;">页表条目是虚拟页号的唯一标识</strong>。所以，我们只需要用虚拟页号去访问 TLB。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们使用 VPN 的<strong style="font-weight: bold;color: black;">低两位(2^2=4)作为组索引</strong>。剩下的<strong style="font-weight: bold;color: black;">6位作为标记位</strong>。然后用不同的值来初始化 TLB。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">左边的红色区域(第一个列)并不是 TLB 的条目，<strong style="font-weight: bold;color: black;">仅仅是为了方便区分是哪一组</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们只根据<strong style="font-weight: bold;color: black;">索引来查找组</strong>，每一个条目都有一个标记位。一个 TLB 条目如果有效，它就含有一个物理地址。</p><h4 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 18px;"><span style="display: none;"></span>5.1.3 页表<span style="display: none;"></span></h4><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.521108179419525" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwbxfpKicicHpAMJkIWWLsSmcicFUAr59RoexOaGUvCEicN3FMIwtqCibibY4g/640?wx_fmt=png" data-type="png" data-w="758" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 161.459px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwbxfpKicicHpAMJkIWWLsSmcicFUAr59RoexOaGUvCEicN3FMIwtqCibibY4g/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">页表的前 16 个条目</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">现在，我们还需要页表。假设，图中是我们页表的前 16 个条目。每一个页表有一个<strong style="font-weight: bold;color: black;">物理页号</strong>和一个<strong style="font-weight: bold;color: black;">有效位</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">如果有效位有效，则表示那个虚拟页面对应的物理页面在内存中，并且 PPN 项给出了对应的物理页号。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>5.2 产生虚拟地址<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.27102803738317754" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwAeDPRCbef5r1Jgm2IpO3XFBicp5zBRBqmPAI8JZc0VTqKQ0H7mrhqnw/640?wx_fmt=png" data-type="png" data-w="1070" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 84.9346px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwAeDPRCbef5r1Jgm2IpO3XFBicp5zBRBqmPAI8JZc0VTqKQ0H7mrhqnw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">CPU产生的虚拟地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">假设 CPU 执行了一条指令，它产生了一个有效地址 0x3d4。它把这个地址传递给了 MMU。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们需要找出对应的<strong style="font-weight: bold;color: black;">物理地址</strong>，然后从缓存或内存中<strong style="font-weight: bold;color: black;">取出数据</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">在这个例子中，<strong style="font-weight: bold;color: black;">虚拟页面偏移</strong>(VPO)是0x24，<strong style="font-weight: bold;color: black;">虚拟页号</strong>(VPN)是 0xf，<strong style="font-weight: bold;color: black;">TLB 索引</strong>(TLBI)是虚拟页号的低两位是 0b11，也就是 0x3。<strong style="font-weight: bold;color: black;">TLB 标记位</strong>(TLBT)是 3。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.20747295968534907" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwZapjOYFGrCGtJdVOjib2cGsQO1ojdTsOESmzceEe00ah8HyXGAIze1w/640?wx_fmt=png" data-type="png" data-w="1017" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 65.4867px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwZapjOYFGrCGtJdVOjib2cGsQO1ojdTsOESmzceEe00ah8HyXGAIze1w/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">TLB</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">MMU 做的第一件是就是<strong style="font-weight: bold;color: black;">查询 TLB</strong>，所以，我们先取出<strong style="font-weight: bold;color: black;">索引位</strong>，值为 3。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们找到<strong style="font-weight: bold;color: black;">第 3 组</strong>，我们在第 3 组中找<strong style="font-weight: bold;color: black;">标记位为 3 的表项</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">遍历这 4 个条目，有一个<strong style="font-weight: bold;color: black;">标记位为 7</strong> 的项，但它不是我们想要的，它的<strong style="font-weight: bold;color: black;">有效位为 0</strong>。再往后找，找到一个<strong style="font-weight: bold;color: black;">标记位为 3 并且有效位为 1</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">所以，我们在 TLB 中找到了页表条目。页表条目返回这个值。MMU 返回的<strong style="font-weight: bold;color: black;">物理页号是 0x0D</strong>。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>5.3 构造物理地址<span style="display: none;"></span></h3><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.2947845804988662" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwciczmP1s0Rd3WAicxia0bqIicepsR4OUzelFDibzD4cKB4MH82rPDjCYERg/640?wx_fmt=png" data-type="png" data-w="882" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 92.2041px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwciczmP1s0Rd3WAicxia0bqIicepsR4OUzelFDibzD4cKB4MH82rPDjCYERg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">构造物理地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">现在我们可以构造物理地址，PPO的值总是等于VPO的值，可以直接拷贝过来，为0x24。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">PPN的值从 TLB 缓存的 PTE 中得到，为0x0d。合在一起构成了<strong style="font-weight: bold;color: black;">物理地址 0x354</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">下一步是使用这个物理地址去看高速缓存中有没有这个物理地址的缓存。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>5.4 遍历高速缓存<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">把 0x354送入高速缓存，请求高速缓存返回对应物理地址上的值，在这个例子中，我们只需要返回一个字节。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.32526621490803487" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwEhPrULagOpicaxe7fMVwxBzTT64ROk8yjsEbUkZXnowVCZbJysA6ibLQ/640?wx_fmt=png" data-type="png" data-w="1033" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 101.531px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwEhPrULagOpicaxe7fMVwxBzTT64ROk8yjsEbUkZXnowVCZbJysA6ibLQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">高速缓存</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">高速缓存收到请求后，首先去检查高速缓存中<strong style="font-weight: bold;color: black;">是否有块缓存了该字节</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">高速缓存先取出物理地址的<strong style="font-weight: bold;color: black;">索引位</strong>是 0b00101，也就是 0x5。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">接着去第 5 组找。找标记位为 0xd 的项，有一个匹配的标记位且<strong style="font-weight: bold;color: black;">有效位为 1</strong>。这就是我们要在高速缓存中找的项。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">偏移量是 0，所以我们去请求第五组偏移量为 0 的字节，值为 0x36。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">缓存命中，高速缓存把这个字节返回给 MMU， MMU 把它传递给处理器。最后处理器可能把这个字节存储在一个寄存器里。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">以上就是一个完整的地址翻译的例子，在这个例子中，并没有出现缺页的情况。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">下面我们看一个在缺页异常处理中，是如何完成地址翻译的。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;font-size: 20px;"><span style="display: none;"></span>5.5 缺页处理<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">好了，我们来看下一个例子。这次 CPU 发送给 MMU 的虚拟地址是 0x0020。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.29666366095581603" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw6AXupG33JpMeIuib9UTRMBUefISYgc1TfcBZ7H5iaB2OnacYQxXSNYOw/640?wx_fmt=png" data-type="png" data-w="1109" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 92.7791px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZw6AXupG33JpMeIuib9UTRMBUefISYgc1TfcBZ7H5iaB2OnacYQxXSNYOw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">虚拟地址0x0020</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">和之前的例子一样，我们可以得到<strong style="font-weight: bold;color: black;">VPN</strong>为0x00，<strong style="font-weight: bold;color: black;">VPO</strong>为0x01，<strong style="font-weight: bold;color: black;">TLBI</strong>为0，<strong style="font-weight: bold;color: black;">TLBT</strong>为0x00。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.20314033366045142" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwYVQmUAwnicSbLdbY8EzjwFfFcLwwRHXgW2tQdULJnibNDzpuBMuibwQOw/640?wx_fmt=png" data-type="png" data-w="1019" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 64.1609px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwYVQmUAwnicSbLdbY8EzjwFfFcLwwRHXgW2tQdULJnibNDzpuBMuibwQOw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">TLB</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">第一步是检查 <strong style="font-weight: bold;color: black;">TLB 看是否有页表条目的缓存</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">在 TLB 中，如果缓存存在，它应该在第一组，并且它的<strong style="font-weight: bold;color: black;">标记位应该为 0</strong>。所以，我们在第 0 组内找标记位为 0 的项。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">第一项是 0x03，不匹配，第二项是 0x09，不匹配，第三项是 0x00，匹配，但是<strong style="font-weight: bold;color: black;">有效位为 0</strong>。所以，这次 <strong style="font-weight: bold;color: black;">TLB 缓存不命中</strong>。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.5341207349081365" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwXx16SuibJmhdg46G3rWvpmvlibake8wolQZMG7UjAVPB5MSY7XK8Mg3w/640?wx_fmt=png" data-type="png" data-w="762" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 165.441px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwXx16SuibJmhdg46G3rWvpmvlibake8wolQZMG7UjAVPB5MSY7XK8Mg3w/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">TLB不命中只能去页表中查找</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">查找缓存失败了，我们只能去内存中去<strong style="font-weight: bold;color: black;">读取页表中对应的页表条目</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">查看页表，寻找虚拟页号为 0 的项。检查对应的页表条目，<strong style="font-weight: bold;color: black;">看虚拟页是否在内存中</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟页号为 0 的项的<strong style="font-weight: bold;color: black;">有效位为1</strong>，我们就可以得到一个<strong style="font-weight: bold;color: black;">物理页号为0x28</strong>。根据物理页号和物理页面偏移量就可以构造出物理地址。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.10382513661202186" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwqfXIwwmujQwWpLJyuOxGbtWOdCia1icQHibbwP46HibKkkAcV6YN3sjs0Q/640?wx_fmt=png" data-type="png" data-w="915" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 31.9781px !important;" _width="328px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">构造物理地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">现在 MMU 拥有了物理地址，就可以将其发送到高速缓存。并请求高速缓存返回对应的物理地址上的一个字节。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.34994337485843713" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwicyLeRqYciah773rTC0H69KHJc5alDvEltdnMawuCKhrA54b32xBrvRA/640?wx_fmt=png" data-type="png" data-w="883" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 109.083px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwicyLeRqYciah773rTC0H69KHJc5alDvEltdnMawuCKhrA54b32xBrvRA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">构造出的物理地址</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">高速缓存得到了这个物理地址。它取出对应的索引位，在这个例子中是 0x8。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">所以我们去高速缓存的第八组，然后寻找对应的标记位，在这个例子中是0x28。</p><figure data-tool="mdnice编辑器" style="margin: 0;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.3197278911564626" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwMH9DTn5lQSXb5rgf2qo5dg2PiazbicSy2PoBsr8hU7If3lAZQN5gC16w/640?wx_fmt=png" data-type="png" data-w="1029" style="display: block; margin: 0px auto; max-width: 100%; width: 308px !important; height: 99.8367px !important;" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwMH9DTn5lQSXb5rgf2qo5dg2PiazbicSy2PoBsr8hU7If3lAZQN5gC16w/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><figcaption style="margin-top: 5px;text-align: center;color: #888;font-size: 14px;">高速缓存</figcaption></figure><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">第八组有一个条目，它的标记位是 24，这里是一次<strong style="font-weight: bold;color: black;">缓存不命中</strong>。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">所以，缓存就要向内存传递物理地址去得到所需要的字节。相关内容本篇就不再做具体讲解，可以参考下这篇文章。<a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247484470&amp;idx=1&amp;sn=98f80777cd8500885da981516213bf7f&amp;chksm=c06028dff717a1c9ea56ae26e9e3352e0dcb82ffdc37711e396df33781605c0eb0b757e270de&amp;token=849592305&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" style="text-decoration: none;word-wrap: break-word;font-weight: bold;color: rgb(239, 112, 96);border-bottom: 1px solid rgb(239, 112, 96);" data-linktype="2">24张图7000字详解计算机中的高速缓存</a></p><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;padding: 0px;font-weight: bold;color: black;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;font-weight: bold;background: rgb(239, 112, 96);color: #ffffff;padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">6. 总结</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">虚拟存储器的工作原理是有一些复杂，本文描述的也并不全是最真实的计算机中的工作方式，比如，PTE由一个有效位和一个地址字段组成其实是为了便于理解而假设出来的。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">但是这种方式成功的<strong style="font-weight: bold;color: black;">解决了直接使用物理内存会出现的问题</strong>。比如，虚拟内存中连续存储<strong style="font-weight: bold;color: black;">解决了物理内存碎片化，资源利用率过低的问题</strong>；每个进程只能访问自己独立的用户空间而内核空间是共用的<strong style="font-weight: bold;color: black;">解决了进程间的安全问题</strong>；缺页异常和选择牺牲页的算法<strong style="font-weight: bold;color: black;">提高了内存读写的效率</strong>等等。</p><p data-tool="mdnice编辑器" style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0;line-height: 26px;color: black;">我们应该对虚拟存储器的工作原理有深层次的理解，可以更好的帮助我们理解系统是如何工作的，也可以帮助我们避免在使用malloc这类的管理虚拟存储器的分配程序时遇到的一些错误。</p><blockquote data-tool="mdnice编辑器" style="border-color: currentcolor currentcolor currentcolor rgb(239, 112, 96);border-style: none none none solid;border-width: medium medium medium 3px;display: block;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;background: rgb(255, 249, 249) none repeat scroll 0% 0%;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;margin: 0px;color: black;line-height: 26px;">本文参考 《深入理解计算机系统》</p></blockquote></section><section data-mpa-template="t"><section data-id="89429" style="border-width: 0px;border-style: none;border-color: initial;"><section style="text-align: center;height: 50px;"><section style="width: 48px;height: 48px;color: rgb(255, 255, 255);font-size: 16px;line-height: 48px;display: inline-block;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_gif/kiaqiahsnxHd4Zt4378tqib1DnnfKYvZAI7sUNZCYmGN2HCMDFDYV5hLu6HrHIK5BynAAwgHGiafFFU7ibYez6mXL4w/640?wx_fmt=gif&quot;);background-repeat: no-repeat;background-size: 100%;background-position: 0px center;margin-right: auto;margin-left: auto;"><p style="font-weight: bold;"><span style="font-size: 14px;">end</span></p></section><section style="height:2px;background-color:#222121;margin-top:-26px;"><br></section></section></section></section><section><section class="appmsg_card_context wx_profile_card"><section class="wx_profile_card_inner"><section class="appmsg_card_context wx_profile_card"><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="Mzg5ODUxNDMxMA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R48TMWIkwpwUyBQCZ7lbodMWXW1Yyl5D9ArLiaXXhr8nYjU2tYIENxENzgwW22LVSRaATM7pibHRRTQ/0?wx_fmt=png" data-nickname="嵌入式与Linux那些事" data-alias="" data-signature="计算机基础，操作系统，Linux驱动开发，Arm体系与架构，C/C++，数据结构与算法" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="Mzg5ODUxNDMxMA==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R48TMWIkwpwUyBQCZ7lbodMWXW1Yyl5D9ArLiaXXhr8nYjU2tYIENxENzgwW22LVSRaATM7pibHRRTQ/0?wx_fmt=png" alt="嵌入式与Linux那些事">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                嵌入式与Linux那些事                           </strong>           <div class="wx_profile_desc">计算机基础，操作系统，Linux驱动开发，Arm体系与架构，C/C++，数据结构与算法</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">26篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section></section></section></section></section><section data-recommend-type="list-title" data-mpa-template="t" data-recommend-tid="5" style="width: 100%;display: flex;justify-content: center;align-items: center;" data-mid="" data-from="yb-recommend"><section style="width: 100%;padding: 13px 12px 8px;background: rgb(255, 255, 255);border-radius: 3px;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 235);" data-mid=""><section style="width: 100%;background: #fff8f4;box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.17);padding: 7px 0;" data-mid=""><section style="width: 100%;text-align: center;font-size: 14px;font-weight: 500;color: #572e0f;line-height: 20px;margin-bottom: 4px;" data-mid=""><p data-mid="">往期推荐</p></section><section style="width: 100%;height: 2px;background: #e0c6b2;margin-bottom: 1px;" data-mid=""><br></section><section style="width: 100%;height: 1px;background: #e0c6b2;margin-bottom: 5px;" data-mid=""><br></section><section data-mpa-template="t" data-recommend-article-type="list-title" data-recomment-template-id="5" data-recommend-article-id="2247486379_1" data-recommend-article-time="1625198400" data-recommend-article-cover="http://mmbiz.qpic.cn/mmbiz_jpg/vYkxJW0b4R4qJm5P5Vbl9eN9QiaFiaibF1ME30pZyDC78R7hkEtq2k0Pp6vQaliaVTPtcvKcOomklI8ZGMMY409tUA/0?wx_fmt=jpeg" data-recommend-article-title="彩云之南，流连忘返" data-recommend-article-content-url="http://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247486379&amp;idx=1&amp;sn=8457f4b896f101bbc4ad7849de2c2fbb&amp;chksm=c0602742f717ae54bebe06791bc0e49eadd0fcd0296d62ca0d7b9bb20a20581bbd4f552fc7fc#rd"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247486379&amp;idx=1&amp;sn=8457f4b896f101bbc4ad7849de2c2fbb&amp;chksm=c0602742f717ae54bebe06791bc0e49eadd0fcd0296d62ca0d7b9bb20a20581bbd4f552fc7fc&amp;scene=21#wechat_redirect');" data-linktype="2"><section data-recommend-title="t" data-recommend-content="t" style="width: 100%;display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;border-bottom: 1px dashed #e0c6b2;padding: 6px 18px;font-size: 13px;font-weight: 400;color: #572e0f;line-height: 18px;" data-mid=""><p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100%;" data-mid="">彩云之南，流连忘返</p></section></a></section><section data-mpa-template="t" data-recommend-article-type="list-title" data-recomment-template-id="5" data-recommend-article-id="2247485904_1" data-recommend-article-time="1624593600" data-recommend-article-cover="http://mmbiz.qpic.cn/mmbiz_jpg/vYkxJW0b4R4TWDsNlUoxRvsHCrc2CbEV39yQGvC8vQV0XHsQMZ5TdZGBeVbHjicV6bHkjSG32JHJHyMzibQ50Z6A/0?wx_fmt=jpeg" data-recommend-article-title="租房避坑指南（建议收藏）" data-recommend-article-content-url="http://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485904&amp;idx=1&amp;sn=54ad4d6cb7f8de6f17e9d05c1e9469cf&amp;chksm=c0602539f717ac2f28861ee3f738f7e3b4a941a21f4692b17cfc25dfe70d3b41e0e26ea3d007#rd"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485904&amp;idx=1&amp;sn=54ad4d6cb7f8de6f17e9d05c1e9469cf&amp;chksm=c0602539f717ac2f28861ee3f738f7e3b4a941a21f4692b17cfc25dfe70d3b41e0e26ea3d007&amp;scene=21#wechat_redirect');" data-linktype="2"><section data-recommend-title="t" data-recommend-content="t" style="width: 100%;display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;border-bottom: 1px dashed #e0c6b2;padding: 6px 18px;font-size: 13px;font-weight: 400;color: #572e0f;line-height: 18px;" data-mid=""><p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100%;" data-mid="">租房避坑指南（建议收藏）</p></section></a></section><section data-mpa-template="t" data-recommend-article-type="list-title" data-recomment-template-id="5" data-recommend-article-id="2247485568_1" data-recommend-article-time="1619150400" data-recommend-article-cover="http://mmbiz.qpic.cn/mmbiz_jpg/vYkxJW0b4R6QZIk1lmF7PZ5HKfpF4a1UdYFJiaz8IdeCibn424YiaVtG1tOIJIysqicYvKjjdSpwNRcrFL86t4A9CQ/0?wx_fmt=jpeg" data-recommend-article-title="海康和oppo面经分享" data-recommend-article-content-url="http://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485568&amp;idx=1&amp;sn=3e21f0f5de6e49c6fb3cd0237f0f0535&amp;chksm=c0602469f717ad7fee26894a7d6ea0196924ef0f79f37525d55815239a8c33e1655d7ce8c504#rd"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485568&amp;idx=1&amp;sn=3e21f0f5de6e49c6fb3cd0237f0f0535&amp;chksm=c0602469f717ad7fee26894a7d6ea0196924ef0f79f37525d55815239a8c33e1655d7ce8c504&amp;scene=21#wechat_redirect');" data-linktype="2"><section data-recommend-title="t" data-recommend-content="t" style="width: 100%;display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;border-bottom: 1px dashed #e0c6b2;padding: 6px 18px;font-size: 13px;font-weight: 400;color: #572e0f;line-height: 18px;" data-mid=""><p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100%;" data-mid="">海康和oppo面经分享</p></section></a></section><section data-mpa-template="t" data-recommend-article-type="list-title" data-recomment-template-id="5" data-recommend-article-id="2247485061_1" data-recommend-article-time="1615348800" data-recommend-article-cover="http://mmbiz.qpic.cn/mmbiz_jpg/vYkxJW0b4R7NlibngZNKiaEUsiczicITibLdiajkC3XMJPPibu9tGic6wXX1KthbKh1DbrQURuTbdJ46nIicJhfDuWUR7yQ/0?wx_fmt=jpeg" data-recommend-article-title="分析下BL(B)/LDR指令" data-recommend-article-content-url="http://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485061&amp;idx=1&amp;sn=753e18bf7cbb2caa2c8940a15293f475&amp;chksm=c0602a6cf717a37a91ac526be089b5c5f281fefb4c33a489ea57ea7d49c36c4803da6c28a492#rd"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzg5ODUxNDMxMA==&amp;mid=2247485061&amp;idx=1&amp;sn=753e18bf7cbb2caa2c8940a15293f475&amp;chksm=c0602a6cf717a37a91ac526be089b5c5f281fefb4c33a489ea57ea7d49c36c4803da6c28a492&amp;scene=21#wechat_redirect');" data-linktype="2"><section data-recommend-title="t" data-recommend-content="t" style="width: 100%;display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;border-bottom: 1px dashed #e0c6b2;padding: 6px 18px;font-size: 13px;font-weight: 400;color: #572e0f;line-height: 18px;border-bottom:none !important;" data-mid=""><p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100%;" data-mid="">分析下BL(B)/LDR指令</p></section></a></section></section></section></section><p><br></p><section style="white-space: normal;"><section data-id="28451" data-type="lspecial02,lspecial04"><section style="text-align: center;"><section style="display: inline-block;"><section style="margin-bottom: -16px;display: -webkit-box;-webkit-box-pack: end;"><section style="width: 80px;"><img data-ratio="0.3088235294117647" data-src="https://mmbiz.qpic.cn/mmbiz_png/6aVaON9Kibf5VNYt0ibwA6m1BvnXYFSnVn8icyic45TuQk1ib633LibS0HKWYQ6qz0yBLo894U0T52O2YEtyP3iaB7P1w/640?wx_fmt=png" data-type="png" data-w="136" style="vertical-align: bottom; width: 80px !important; height: 24.7059px !important;" _width="80px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></section></section><section style="border-width: 1px;border-style: solid;border-color: rgb(58, 98, 29);"><section style="padding: 3px;"><section style="border-width: 1px;border-style: solid;border-color: rgb(58, 98, 29);"><section style="padding: 6px 10px;"><section style="width: 100px;display: inline-block;vertical-align: middle;transform: rotate(0deg);"><img data-cropselx1="0" data-cropselx2="100" data-cropsely1="0" data-cropsely2="100" data-ratio="1" data-src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R6QZIk1lmF7PZ5HKfpF4a1UZ0dxrVLnubXXz6EjKZec0rJzNOXKhMTAIvYfh3fqMtInv9eSYfAwkg/640?wx_fmt=png" data-type="png" data-w="400" style="vertical-align: middle; width: 100px !important; height: 100px !important;" _width="100px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R6QZIk1lmF7PZ5HKfpF4a1UZ0dxrVLnubXXz6EjKZec0rJzNOXKhMTAIvYfh3fqMtInv9eSYfAwkg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="margin-left: -100px;padding-left: 106px;display: inline-block;vertical-align: middle;"><section style="color: rgb(58, 98, 29);letter-spacing: 1px;line-height: 24px;"><p style="font-size: 16px;"><span style="font-size: 12px;">扫码加我微信<br></span></p><p style="font-size: 16px;"><span style="font-size: 12px;">进技术交流群</span></p></section></section></section></section></section></section><section style="margin-top: -20px;width: 80px;"><img data-ratio="0.3088235294117647" data-src="https://mmbiz.qpic.cn/mmbiz_png/US10Gcd0tQENdoltlmlstW79v8ibDFelROfzwpmcZ6r2ZINfyXOc24AVAON65c7shCuT1l1bz7ziavNMZSApBnhg/640?wx_fmt=png" data-type="png" data-w="136" style="vertical-align: top; width: 80px !important; height: 24.7059px !important;" _width="80px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"><br></section></section></section></section></section><section data-mpa-template="t" data-mpa-powered-by="yiban.io"><section data-mpa-category="模板" style="display: flex;justify-content: flex-start;align-items: center;flex-direction: column;padding: 5px;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-end;flex-direction: row;" data-mid=""><section data-mid=""><p style="margin-bottom: 2px;font-size: 16px;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #333333;line-height: 23px;" data-mid="">&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 16px;">点个<span style="font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;line-height: 23px;color: rgb(204, 62, 54);" data-mid="">“在看”</span>表示朕</span></p></section><section style="display: flex;justify-content: center;align-items: center;margin-left: 7px;transform: rotate(15deg);width: 44px;height: 31px;background: rgb(255, 255, 255);border-radius: 2px;border-width: 3px;border-style: solid;border-color: rgb(221, 44, 44);" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #dd2c2c;line-height: 23px;" data-mid=""><span style="font-size: 16px;">已阅</span></p></section></section></section></section><p><br></p>                </div><div>来源:https://mp.weixin.qq.com/s/5qoq2S36zKkyGHmd1IE25g</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="305" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="305" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwY9Uic0YXc2xw5f8XiaODRjKr8Q4Fn2VrcEQt8aiacEegDdufiaeKtROptA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="305" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/操作系统.html" class="tag" rel="tag">操作系统</a></li>
+        <li>浏览次数：<span>488</span> 次浏览</li>
+        <li>发布日期：2021-07-29 14:25:35</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="304.html">十分钟完成Hi3516小型系统的编译烧录！</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="306.html">Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwY9Uic0YXc2xw5f8XiaODRjKr8Q4Fn2VrcEQt8aiacEegDdufiaeKtROptA/640" alt="【建议收藏】MMU是如何完成地址翻译的？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">【建议收藏】MMU是如何完成地址翻译的？</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../news2/267.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoBawYiau8IicVNiaqNVfj2npO4CJJXFLDKPCtyb1ib32Fdx6jhZ9Lf8EdDg/640" alt="手撸了个操作系统，变强了！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../news2/267.html">手撸了个操作系统，变强了！</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="5616ea2ca2c135d3e5c60f84be116ec9">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="305">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998c46dce38a5',m:'C8ZZqcARxff5WQ4NVJdHnxV4v8qjJMO5ptxnsEJTK.Q-1640010921-0-AUI/1IEmEt/A1Ss5n8BVQSB1fhDiAR/jFag0gEL2R32bOlNcqwxY48e274JC9QMXhYgExYnD7EB3Khxy7AeteBPYsAlxGLzHtid/qvSe26B/i5F7XVxkwlcmUYP4kvJYf89GucwUvcWUWKQK1ok6ohw=',s:[0x597c7042f7,0x4226da61f5],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

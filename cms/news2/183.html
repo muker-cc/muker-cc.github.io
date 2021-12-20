@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>重要变更: Android App Bundle 的未来计划 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="35">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="9b003213055a2633dc8bc554d7d06e21">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../news2.html">资讯</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">重要变更: Android App Bundle 的未来计划</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 501 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="text-align: center;margin-bottom: 10px;" data-mpa-powered-by="yiban.io"><img class="rich_pages" data-backh="289" data-backw="578" data-galleryid="" data-ratio="0.5" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7Jq7TDoAo7U45bquMXoDLYAEVAAbOsXo3XM4OAnKicJQUFZajEFFsUozA/640?wx_fmt=png" data-type="png" data-w="2048" style="width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7Jq7TDoAo7U45bquMXoDLYAEVAAbOsXo3XM4OAnKicJQUFZajEFFsUozA/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></section><section style="line-height: normal;"><em style="color: rgb(136, 136, 136);font-family: -apple-system, system-ui, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);"><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;">作者 / Google Play 产品经理 Dom Elliott</span></em></section><section style="line-height: normal;"><em style="color: rgb(136, 136, 136);font-family: -apple-system, system-ui, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);"><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;"><br></span></em></section><section style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">自 2018 年 5 月发布 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Android App Bundle</span><span style="font-size: 15px;"> 以来，我们见证了开发者社区积极拥护这一全新发布格式，并受益于其简化的发布管理和高级分发功能。现在，有逾一百万款正式版应用在使用 App Bundle，Google Play 上排名前 1,000 的大多数应用和游戏均在此列，例如 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Adobe</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Duolingo</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Gameloft</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Netflix</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">redBus</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Riafy</span><span style="font-size: 15px;"> 和 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Twitter</span><span style="font-size: 15px;">。</span></section><section style="text-align: left;line-height: 1.75em;"><br></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Android App Bundle</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/platform/technology/app-bundle</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Adobe</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/stories/apps/adobe-app-bundle</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Duolingo</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/stories/apps/duolingo</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Gameloft</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/stories/games/gameloft-pad</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Netflix</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://www.youtube.com/watch?v=2AmJgx-t7sQ</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">redBus</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/stories/apps/redbus</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Riafy</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://www.youtube.com/watch?v=zgbLs2bEdnA</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Twitter</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/stories/apps/twitter</span></section></li></ul><p style="text-align: center;margin-top: 10px;margin-bottom: 10px;"><img class="rich_pages img_loading" data-croporisrc="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7JJ7Yutib40mWjEugwGdevzv8Ify0eOiaNBcLfa9tLv1RQyfUmg93J3J3g/640?wx_fmt=png" data-cropx1="0" data-cropx2="1080" data-cropy1="164.46700507614213" data-cropy2="953.9086294416243" data-ratio="0.7305555555555555" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7JcAia26hSXFlu18cpek4appNPjba8HJco1hpagsnvMFo4AaBQpYgySIQ/640?wx_fmt=jpeg" data-type="jpeg" data-w="1080" style="width: 190.24px !important; height: 139.52px !important;" _width="58%" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7JcAia26hSXFlu18cpek4appNPjba8HJco1hpagsnvMFo4AaBQpYgySIQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">为了让更多用户体验到这些优势，并专注推广对所有开发者有益的现代 Android 分发技术，<strong>自 2021 年 8 月起，Google Play 将开始要求新应用使用 Android App Bundle 进行发布</strong>。该格式将取代 APK 作为标准发布格式。</span></p><p><br></p><p><br></p><section style="text-align: left;"><section style="padding: 3px 5px;white-space: normal;background-color: rgb(255, 255, 255);display: inline-block;vertical-align: top;border-color: rgb(51, 105, 232);width: 558px;border-width: 1px 1px 1px 4px;border-style: solid;font-size: 20px;color: rgb(51, 105, 232);box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(51, 105, 232);"><strong>现代 Android 应用分发</strong></span></p></section></section><section style="text-align: left;line-height: 1.75em;"><br></section><p style="margin-bottom: 10px;text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">如果您尚未采用 App Bundle，这意味着您错过了以下优势:</span></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li style="text-align: left;"><p style="line-height: 1.75em;"><span style="font-size: 15px;color: rgb(51, 105, 232);"><strong>Android App Bundle</strong></span><span style="font-size: 15px;">: Google Play 使用 App Bundle 生成并优化 APK，以针对不同设备配置和语言进行分发。这种方式可令应用体积更小 (平均而言，比一般 APK 小 15%)，下载速度更快，进而提升安装量，减少卸载量。</span></p></li><li style="text-align: left;"><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">Play 应用签名</span></strong><span style="font-size: 15px;">:&nbsp;以 App Bundle 方式分发需要 Play 应用签名，这种签名使用 Google 的安全基础架构避免了应用签名密钥丢失，并可以升级到加密性更强的新应用签名密钥。</span></p></li><li style="text-align: left;"><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">Play Feature Delivery</span></strong><span style="font-size: 15px;">:&nbsp;超过 10% 的使用了 App Bundle 的热门应用都在使用 Play Feature Delivery，自定义将哪些功能模块交付给哪个设备，以及何时交付。它支持安装时交付、按条件交付和按需交付等三种模式。</span></p></li><li style="text-align: left;"><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">Play Asset Delivery</span></strong><span style="font-size: 15px;">:&nbsp;以动态方式交付大型资源可以减少用户等待时间，同时缩减交付成本。使用 Play Asset Delivery 的游戏可以使用纹理压缩格式作为交付条件，以便用户只获得适合其设备的资源，避免浪费空间或带宽。</span></p></li><li style="text-align: left;"><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;">未来改进</span></strong><span style="font-size: 15px;">:&nbsp;Play 应用签名将在不久后开始向适合的应用推出 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">APK Signature Scheme v4</span><span style="font-size: 15px;">，允许其访问较新设备上即将推出的性能特性。请关注于 7 月 12 日举办的 </span><span style="font-size: 15px;text-decoration: underline;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247491579&amp;idx=2&amp;sn=52966e74aec4e2ef906037ff8aaafbad&amp;chksm=c3291309f45e9a1fdbc01776a6a220b1a8a908dcf02c9aeb99481b387c0f26ab4c2e80d22d30&amp;token=980133093&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" textvalue="Google 游戏开发者峰会" tab="innerlink" data-linktype="2">Google 游戏开发者峰会</a></span><span style="font-size: 15px;">，了解更多详情。</span></p></li></ul><p style="text-align: left;line-height: normal;"><br></p><ul class="list-paddingleft-2" style="list-style-type: circle;"><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Android App Bundle</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/platform/technology/app-bundle</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Play 应用签名</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://play.google.com/console/about/keymanagement/</span></section></li><li><section style="color: rgb(51, 105, 232);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Play Feature Delivery</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/guide/playcore/feature-delivery</span></section></li><li><section style="color: rgb(51, 105, 232);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Play Asset Delivery</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/guide/playcore/asset-delivery</span></section></li><li><section style="color: rgb(51, 105, 232);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">APK Signature Scheme v4</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://source.android.google.cn/security/apksigning/v4</span></section></li><li><section style="color: rgb(51, 105, 232);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Google 游戏开发者峰会</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developersonair.withgoogle.com/events/game-dev-summit-2021</span></section></li></ul><section style="text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;"><br></span></section><p><br></p><section style="text-align: left;"><section style="padding: 3px 5px;white-space: normal;background-color: rgb(255, 255, 255);display: inline-block;vertical-align: top;border-color: rgb(213, 15, 37);width: 558px;border-width: 1px 1px 1px 4px;border-style: solid;font-size: 20px;color: rgb(213, 15, 37);box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(213, 15, 37);"><strong>回顾: 自 2021 年 8 月起的相关变更</strong></span></p></section></section><section style="text-align: left;line-height: 1.75em;"><br></section><section powered-by="xiumi.us" style="box-sizing: border-box;"><section style="white-space: normal;box-sizing: border-box;text-align: left;line-height: 1.75em;"><span style="font-size: 15px;"></span></section></section><table><tbody><tr><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;"><strong>发布类型<br></strong></span></td><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;"><strong>被替换对象<br></strong></span></td><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;"><strong>需要在 2021 年 8 月合规</strong></span></td></tr><tr><td width="171" valign="top" style="word-break: break-all;" rowspan="2" colspan="1"><p><span style="font-size: 12px;">新上架 Google Play 的</span><span style="font-size: 12px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;"></span><span style="font-size: 12px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;">应用</span></p></td><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;">APK</span></td><td width="171" valign="top" style="word-break: break-all;"><span style="color: rgb(51, 105, 232);font-size: 12px;">Android App Bundle (AAB)</span></td></tr><tr><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;">扩展文件 (OBB)</span></td><td width="171" valign="top" style="word-break: break-all;"><p><span style="font-size: 12px;"><span style="color: rgb(51, 105, 232);">Play Asset Delivery</span> 或&nbsp;</span></p><p><span style="color: rgb(51, 105, 232);font-size: 12px;">Play Feature Delivery</span></p></td></tr><tr><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;">现有应用的更新</span></td><td valign="top" rowspan="1" colspan="2" style="word-break: break-all;"><span style="font-size: 12px;">没有变化</span></td></tr><tr><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;">新的免安装体验</span></td><td width="171" valign="top" rowspan="2" colspan="1" style="word-break: break-all;"><span style="font-size: 12px;">免安装应用 ZIP</span></td><td width="171" valign="top" rowspan="2" colspan="1" style="word-break: break-all;"><p><span style="font-size: 12px;">启用了</span><span style="color: rgb(51, 105, 232);font-size: 12px;">免安装 Android App Bundle (AAB)</span></p></td></tr><tr><td width="171" valign="top" style="word-break: break-all;"><span style="font-size: 12px;">免安装体验的更新</span></td></tr></tbody></table><section style="text-align: left;line-height: normal;"><br></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Android App Bundle&nbsp;(AAB)</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/platform/technology/app-bundle</span></p></li><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Play Feature Delivery</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/guide/playcore/feature-delivery</span></p></li><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Play Asset Delivery</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/guide/playcore/asset-delivery</span></p></li><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">免安装 Android App Bundle (AAB)</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/topic/google-play-instant/getting-started/instant-enabled-app-bundle</span></p></li></ul><section style="text-align: left;line-height: normal;"><br></section><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">注意，App Bundle 的要求仅适用于新应用，而现有应用及面向特定 Google Play 用户的私人应用目前无需遵从此要求。感谢为 App Bundle 的发展做出贡献的众多开发者，我们也期待在未来为开发者带来更多更新。</span></p><section style="text-align: left;line-height: normal;"><br></section><p><br></p><section style="text-align: left;"><section style="padding: 3px 5px;white-space: normal;background-color: rgb(255, 255, 255);display: inline-block;vertical-align: top;border-color: rgb(238, 178, 17);width: 558px;border-width: 1px 1px 1px 4px;border-style: solid;font-size: 20px;color: rgb(238, 178, 17);box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(238, 178, 17);"><strong>关于 Android App Bundle 的一些常见问题的回答</strong></span></p></section></section><section style="text-align: left;line-height: 1.75em;"><br></section><section powered-by="xiumi.us" style="box-sizing: border-box;"><section style="white-space: normal;box-sizing: border-box;text-align: left;line-height: 1.75em;"><span style="font-size: 15px;"></span></section></section><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong>相比 APK 而言，使用 App Bundle 开发应用需要多少工作量？</strong></span></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;padding-right: 5px;padding-left: 5px;"><p style="text-align: left;white-space: normal;"><span style="font-size: 15px;">对于大多数应用而言，构建 AAB 文件来替代 APK 文件仅需要少量工作。这其中的关键是在构建时选择其他选项并按常规方式进行测试。App Bundle 是一种受主流构建工具支持的开源格式，包括 Android Studio、Gradle、Bazel、Buck、Cocos Creator、Unity、Unreal Engine 和其他引擎。在 Play Core 原生 SDK、Play Core Java SDK 和 Play Core Kotlin SDK 的助力下，无论用户偏好哪种编码环境，都可以轻松开始使用可选的高级 App Bundle 功能。</span></p><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section powered-by="xiumi.us" style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong><span style="color: rgb(238, 178, 17);letter-spacing: 0px;">App Bundle 为何不支持扩展文件 (OBB)？为何游戏应使用 Play Asset Delivery？</span></strong></span><br></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;text-align: left;"><span style="font-size: 15px;">APK 要求使用单独的文件 (OBB) 来向用户推送更多资源。但是，由于 OBB 不具有签名且存储在应用的外部存储中，所以不够安全。借助 Play Asset Delivery (PAD)，用户可以在 Play 商店中将大小超过 150MB 的游戏整体发布为单个 App Bundle，从而替换掉 OBB。除了能实现更顺畅的发布流程和更灵活的推送模式，相比于以前的扩展文件，PAD 具有更多优势: 其资源的增量补丁面向大型应用进行了优化，这意味着更新需要的设备存储空间比 OBB 少得多。因此，其快速跟进的安装模式提升了安装率和商店转化率。最终，由于 ASTC 现在支持约 80% 的设备，纹理压缩格式的定位条件让您可以向支持该功能的设备推送 ASTC。您可以定位众多 Android 设备，同时高效利用可用硬件和设备存储空间。<p><br></p></span></section></section></section><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong>如果使用 App Bundle，我是否可以继续通过多分发渠道/应用商店发布应用？</strong></span></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;"><p style="text-align: left;white-space: normal;">当然可以，您可以通过多种方式实现。您可以使用通用的应用签名密钥或使用针对不同渠道的唯一应用签名密钥，包括面向 Google Play 的唯一应用签名密钥。您可以在本地面向所有分发渠道构建并签名工件，或者从 Google Play 中下载可分发的 APK，并发布于其他渠道。从 Google Play 下载的 APK，无论其是通过 Play 管理中心中的 App Bundle 资源管理器还是 Play Developer API 进行下载，均由 Play 应用签名管理的同个密钥进行签名。</p><p style="text-align: left;white-space: normal;"><br></p></section></section></section><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong>如果要发布一个新应用，我能决定我的应用签名密钥内容吗？</strong></span></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;"><p style="text-align: left;white-space: normal;">可以，我们会在 Play 管理中心中提供此选项。创建新应用时，您可以选择向 Google 提供应用签名密钥。您可以借此在本地留存应用签名密钥副本，例如生成与 Play 同样秘钥签名的应用版本，并在其他渠道上发布。很快，Play 管理中心将帮助您更加轻松地进行首次发布应用，只要在第一次发布到开放渠道之前，您都可以更改应用签名密钥。</p><p style="text-align: left;white-space: normal;"><br></p><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong>在 Google Play 上分发应用时，我如何确保按我偏好的方式向用户推送我的应用？</strong></span></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;"><p style="text-align: left;white-space: normal;">您可以随时利用 Play Store 或 Play 管理中心中的 App Bundle 资源管理器下载并检查工件，并通过 Play Developer API 验证应用。此外，<span style="color: rgb(37, 113, 247);">App Bundle 的代码透明性</span>是一项可选的全新功能，可检查设备上运行的代码是否是开发者最初构建并签名的代码。</p><p style="white-space: normal;"><br></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p style="line-height: normal;text-align: left;"><span style="color: rgb(37, 113, 247);font-size: 12px;">App Bundle 的代码透明性</span></p><p style="line-height: normal;text-align: left;"><span style="color: rgb(147, 147, 147);font-size: 12px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;">https://developer.android.google.cn/guide/app-bundle/code-transparency</span></p></li></ul><p style="line-height: normal;text-align: left;"><br></p></section></section></section><section style="font-size: 16px;"><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong>如果我已经在 Google Play 上发布了一款应用，我能否在不提供现有应用签名密钥的副本前提下开始使用 Play 应用签名？</strong></span></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;"><p style="text-align: left;white-space: normal;">若想使用 Play 应用签名，您需要提供应用签名密钥的副本，因为 Google Play 需要使用此签名副本进行签名，并向您的现有用户提供版本更新。这种分发格式适合多数开发者，超过一百万款应用在正式版中使用 Play 应用签名。我们将在不久后面向现有应用提供额外选项，允许开发者执行密钥升级来选择加入 Play 应用签名。此选项意味着 Play 应用签名可以针对新安装及其后续更新使用新的唯一密钥。不过，要做到这一点，当您上传 App Bundle 时，您还需要上传使用旧密钥签名的原 APK，这样一来，Google Play 即可继续向现有用户推送更新。</p><p style="text-align: left;white-space: normal;"><br></p></section></section></section><section style=""><section style="" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: 12%;"><section style="margin-top: 10px;margin-bottom: 10px;text-align: center;font-size: 8px;" powered-by="xiumi.us"><section style="border-width: 3px;border-style: dotted;border-color: rgb(238, 178, 17);border-radius: 100%;display: inline-block;"><section style="width: 1.6em;height: 1.6em;line-height: 1.6em;border-radius: 100%;margin-left: auto;margin-right: auto;font-size: 14px;color: rgb(238, 178, 17);"><p><strong>Q</strong></p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: 88%;line-height: 1.6;"><section style="margin: 5px 0%;" powered-by="xiumi.us"><section style="font-size: 14px;line-height: 1.75;color: rgb(147, 147, 147);letter-spacing: 0px;"><p style="text-align: left;white-space: normal;"><span style="color: rgb(238, 178, 17);"><strong><span style="color: rgb(238, 178, 17);letter-spacing: 0px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">我可以更改我的应用签名密钥吗？</span></strong></span><br></p></section></section></section></section><section style="margin: 15px 0%;" powered-by="xiumi.us"><section style="font-size: 15px;line-height: 1.75;"><section style="white-space: normal;text-align: left;line-height: 1.75em;">当然，一些应用可以请求在 Play 管理中心中针对新安装应用进行<span style="color: rgb(51, 105, 232);">应用签名密钥升级</span>。Google Play 将使用新密钥对新安装应用和应用更新进行签名，并使用旧版应用签名密钥对密钥升级前已安装应用的用户进行的更新进行签名。很快，Play 应用签名密钥的升级还将添加对 <span style="color: rgb(51, 105, 232);">APK Signature Scheme v3</span> 密钥轮替的支持。这将促使更多应用可以选择密钥升级，使借助升级密钥签名的应用覆盖更多用户。</section><p style="white-space: normal;text-align: left;line-height: normal;"><br></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">应用签名密钥升级</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://support.google.com/googleplay/android-developer/answer/9842756#upgrade</span></p></li><li style="text-align: left;"><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">APK Signature Scheme v3</span></p><p style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://source.android.google.cn/security/apksigning/v3</span></p></li></ul><section style="white-space: normal;text-align: left;line-height: normal;"><br></section><section style="white-space: normal;text-align: left;line-height: normal;"><br></section><section style="text-align: center;margin-bottom: 10px;"><span style="font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: left;font-weight: bold;color: rgb(79, 79, 79);letter-spacing: 0px;font-size: 15px;"><strong style="font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;text-align: center;white-space: normal;background-color: rgb(255, 255, 255);color: rgb(79, 79, 79);font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="342" data-cropsely1="0" data-cropsely2="101" data-ratio="0.29508949059201467" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtydcPdNBribOnGzUGEL9YiaQzDXengw9viab7icDykNd8fUejzUuAWd2Ytdf6ib4nflgOfTfxibsCgpSreQ/640?wx_fmt=png" data-type="png" data-w="4358" style="visibility: visible !important; width: 318px !important; height: 95.2483px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtydcPdNBribOnGzUGEL9YiaQzDXengw9viab7icDykNd8fUejzUuAWd2Ytdf6ib4nflgOfTfxibsCgpSreQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></strong></span></section><section style="font-size: 16px;"><section style="margin-top: 10px;margin-bottom: 10px;" powered-by="xiumi.us"><section style="display: flex;align-items: center;"><section style="flex: 1 1 auto;height: 1px;background-image: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section><section style="flex: 0 1 auto;"><section opera-tn-ra-cell="_$.pages:0.layers:0.comps:0.col1" style="padding-right: 15px;padding-left: 15px;"><section style="text-align: center;color: rgb(70, 70, 70);font-size: 15px;" powered-by="xiumi.us"><p><span style="font-size: 17px;"><strong>推荐阅读</strong></span></p></section></section></section><section style="flex: 1 1 auto;height: 1px;transform: matrix(-1, 0, 0, 1, 0, 0);background-image: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><section style="font-size: 16px;"><section powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;"><section style="display: inline-block;vertical-align: bottom;width: 100px;flex: 0 0 auto;height: auto;align-self: flex-end;border-width: 0px;"><section style="text-align: left;justify-content: flex-start;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;overflow: hidden;height: 70px;width: 70px;background-color: rgb(213, 15, 37);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;flex: 100 100 0%;height: auto;align-self: flex-start;margin: 10px -90px;z-index: 1;border-style: none;border-width: 6px;border-color: rgb(255, 255, 255);background-color: rgb(255, 255, 255);padding: 10px;box-shadow: rgb(189, 189, 189) 0px 0px 3px;"><section name="preview-19" style="-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow: hidden;text-align: center;line-height: 0;"><section powered-by="jzeditor" label="404.tech_svg_8" copyright="404 新媒体编辑器版权所有 禁止任何个人或主体出于商业目的的引用和复用以及模板化行为 违者必究" style="overflow: hidden;line-height:0;margin-top:-1px;"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 722 308" style="display: block;margin: 0 auto;" width="100%" powered-by="jzeditor" label="404.tech_svg_8" copyright="404 新媒体编辑器版权所有 禁止任何个人或主体出于商业目的的引用和复用以及模板化行为 违者必究"><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247487326&amp;idx=1&amp;sn=c9677bae1fa8018ed34400bb8f6e71e7&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKz8OmE810LwzuurpVKaWI6wHIfvTm43dTIedSSobSgtruRFIUsI7mBfY15ic8qUdY3Lh91WyJog7rQ/640?wx_fmt=png&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-7.5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&amp;mid=2652083711&amp;idx=1&amp;sn=8cd8f24751844f3241714c3228fdc702&amp;chksm=808c35bab7fbbcacec92604a5457000c34d6a2f754f2b71ca44331d2e276d8dcfaec1419cb12&amp;token=972678834&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtzcP2HZYNQaDaglwRwQTnyKJExGh48wXVCj30edYJGXADnrjibCGzY6m3wPWoXKF3lFDWylwU1oVvQ/640?wx_fmt=png&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&amp;mid=2652084432&amp;idx=1&amp;sn=bb1039765978d28ee9f2d8ef4f91c567&amp;chksm=808c3895b7fbb183f28bc7c6596eab8bc21d4611f43fe0394b82f6e16b15d9d36386c5b29815&amp;token=1122393300&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtz6mv0W27rcE3icQiaNAPgMdRugeA9WMSSOSgyibtBZIticQLRTFmzwiclarFPwJrnGgicQvdbmUgTdCiayA/640?wx_fmt=png&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-2.5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&amp;mid=2652084491&amp;idx=1&amp;sn=f23b64ffbe1d65eac70a4900b67118a2&amp;chksm=808c394eb7fbb058b808567a06f3774a2d4fda7d4593e088c156c23daed714e8031f3457042a&amp;token=1122393300&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtwtQyicJ4brzjeTUGO4RHg2uibiaibpicasnZLIBqIibEgVxXjrzVPC1ra3rnU8JqoicuCh6wyxP8JAtIN9A/640?wx_fmt=png&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="0s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g></svg><section style="height: 0 !important;margin-top: 0 !important;overflow: hidden;" powered-by="jzeditor" label="404.tech_svg_2">如页面未加载，请刷新重试</section></section></section></section><section style="display: inline-block;vertical-align: top;width: 100px;flex: 0 0 auto;align-self: flex-start;height: auto;"><section style="text-align: right;justify-content: flex-end;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;overflow: hidden;height: 70px;width: 70px;background-color: rgb(51, 105, 232);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section></section></section><section style="margin-right: 16px;margin-left: 16px;white-space: normal;text-align: center;line-height: normal;"><br></section><section style="margin-right: 16px;margin-left: 16px;white-space: normal;text-align: left;line-height: normal;"><span style="max-width: 100%;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: left;background-color: rgb(255, 255, 255);font-weight: bold;color: rgb(79, 79, 79);letter-spacing: 0px;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img class="__bg_gif" data-ratio="0.6197183" data-type="gif" data-w="71" width="29px" data-src="https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640?wx_fmt=gif" style="vertical-align: middle; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 29px !important; height: 17.9718px !important;" _width="29px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640?wx_fmt=gif" data-order="0" alt="图片">&nbsp;</span><span style="max-width: 100%;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;text-align: left;background-color: rgb(255, 255, 255);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击屏末</span><strong style="max-width: 100%;letter-spacing: 0.544px;color: rgb(72, 133, 237);box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;</span><strong style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;">|&nbsp;<strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(51, 105, 232);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">阅</strong></span><span style="max-width: 100%;color: rgb(213, 15, 37);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">读</strong></span><span style="max-width: 100%;color: rgb(238, 178, 17);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">原</strong></span><span style="max-width: 100%;color: rgb(0, 153, 37);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">文</strong></span></strong>&nbsp;|</strong><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;</span></strong><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;letter-spacing: 0.544px;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;">即刻了解 Android App Bundle</strong></span></span></section><section style="margin-right: 16px;margin-left: 16px;white-space: normal;text-align: center;line-height: normal;"><br></section><hr style="white-space: normal;border-style: solid;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;border-color: rgba(0, 0, 0, 0.1);transform-origin: 0px 0px;transform: scale(1, 0.5);"><p style="white-space: normal;"><br></p><p style="text-align: center;"><img class="rich_pages" data-ratio="0.075" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WAyYfjvkLrZcKfyzCbSiaEKzssYUJpUniaLKtU0NeX2L7zphcS9IkgawQ/640?wx_fmt=png" data-type="png" data-w="1400" style="width: 318px !important; height: 23.85px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WAyYfjvkLrZcKfyzCbSiaEKzssYUJpUniaLKtU0NeX2L7zphcS9IkgawQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;"><img class="rich_pages img_loading __bg_gif" data-ratio="0.696875" data-src="https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WE0r9WAF2wHtzeC1dvtDqIQQKMKGicJ6pAFWsrD0AXNuiblnQ7nUHhj7A/640?wx_fmt=gif" data-type="gif" data-w="640" style="width: 318px !important; height: 222.213px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WE0r9WAF2wHtzeC1dvtDqIQQKMKGicJ6pAFWsrD0AXNuiblnQ7nUHhj7A/640?wx_fmt=gif" data-order="1" alt="图片"></p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.2" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WskUWYqiazibcvKPcLHUhacmbgDbmN5ibsBy9tCuw1MYI3dZJqj5A5Sneg/640?wx_fmt=png" data-type="png" data-w="1400" style="width: 318px !important; height: 65.2px !important;" _width="328px" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/rFWVXwibLGtxMPDu51LG2yjicbvAuxZz6WskUWYqiazibcvKPcLHUhacmbgDbmN5ibsBy9tCuw1MYI3dZJqj5A5Sneg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p></section></section></section></section></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/Q2cBGTVEuHj7gYV0SOQHLQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="183" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="183" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7Jq7TDoAo7U45bquMXoDLYAEVAAbOsXo3XM4OAnKicJQUFZajEFFsUozA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="183" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../news2.html">资讯</a></li>
+        <li>本文标签：<a href="../t/安卓.html" class="tag" rel="tag">安卓</a></li>
+        <li>浏览次数：<span>501</span> 次浏览</li>
+        <li>发布日期：2021-07-07 09:49:19</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="173.html">美团外卖回应系统崩溃；小米122个技术专家和核心管理者获1.2亿股十年股权激励；暴风集团已无财产可供执行 | TGO每日速递</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="184.html">Linux Kernel 5.13 稳定版发布</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/306.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouic8oLpMu9ZFUQ9X3BggeexT8t7bO2MrsLTwMkJ7TMcFks9oicXkhn7BCw/640" alt="Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/306.html">Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="226.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_jpg/icFp8MFO4IKyezZRSeNOYh1FlMWSgl7PLXhLLx420FMPLOOKFkPdyqN6LsjU2YBLs6lL6fCWtib6rrfdATfibo1gg/640" alt="让 2021 不止于分享 | 开发者说·DTalk 年中鉴赏" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="226.html">让 2021 不止于分享 | 开发者说·DTalk 年中鉴赏</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKyrfLAZUCN3GO9xXe4Bsq7Jq7TDoAo7U45bquMXoDLYAEVAAbOsXo3XM4OAnKicJQUFZajEFFsUozA/640" alt="重要变更: Android App Bundle 的未来计划" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">重要变更: Android App Bundle 的未来计划</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="9b003213055a2633dc8bc554d7d06e21">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="183">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998bb9c0a7550',m:'kaWBuFV2U2k3V7qtSCCqMbNx3A_XvXWhF21mHysrIz4-1640010920-0-AV2Cy6aAnoYYAQlZc1lQqaR60JgL230mD4a9sk1VtjumT+mVIr7xRfF8Zy2p4MxZiuTLIOCfU48gqb96VAcpo3jQpuY0TsidIKq+J3gK9/AZTm7d/xrZzcSUmYv1cxxwEHzKLUNXY4TxV9KqWRJFPjU=',s:[0x56c4989b42,0xf34ce766f0],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

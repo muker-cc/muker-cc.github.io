@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>推荐一款 Java 零注解 API 文档生成工具 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="068eb98417d216dbe53b02d542db1b34">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">推荐一款 Java 零注解 API 文档生成工具</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 469 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <h2 style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 5px 8px 15px;line-height: 2em;" data-mpa-powered-by="yiban.io"><span style="color: rgb(178, 178, 178);">来源：java后端</span><br></h2><h2 style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 5px 8px 15px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">smart-doc 是一款同时支持 java restful api 和 Apache Dubbo rpc 接口文档生成的工具，smart-doc 颠覆了传统类似 swagger 这种大量采用注解侵入来生成文档的实现方法。</span></h2><p style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px 20px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">smart-doc 完全基于接口源码分析来生成接口文档，完全做到零注解侵入，你只需要按照 java 标准注释编写，smart-doc 就能帮你生成一个简易明了的 markdown 或是一个像 GitBook 样式的静态 html 文档。如果你已经厌倦了 swagger 等文档工具的无数注解和强侵入污染，那请拥抱 smart-doc 吧！</span></p><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><img data-ratio="0.37601078167115903" data-src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuy5xRwsElVHX7slqbjtOqCfiaNN8N1V8Khkic6MhKWvKjhI3jicX8pvHSg/640?wx_fmt=png" data-type="png" data-w="2226" style="box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; display: inline; width: 312px !important; height: 117.315px !important;" title="null" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuy5xRwsElVHX7slqbjtOqCfiaNN8N1V8Khkic6MhKWvKjhI3jicX8pvHSg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><p><br></p><h2 style="box-sizing: border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-weight: bold;color: rgb(36, 41, 46);margin: 15px 8px;font-size: 1.75em;padding-bottom: 0.3em;border-bottom: 1px solid rgb(238, 238, 238);text-align: left;white-space: normal;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">功能特性</span></h2><ul style="margin-bottom: 16px;padding-left: 2em;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin-left: 8px;margin-right: 8px;" class="list-paddingleft-2"><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持接口 debug。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">零注解、零学习成本、只需要写标准 java 注释。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">基于源代码接口定义自动推导，强大的返回结构推导。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持 Spring MVC,Spring Boot,Spring Boot Web Flux(controller 书写方式)。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持 Callable,Future,CompletableFuture 等异步接口返回的推导。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持 JavaBean 上的 JSR303 参数校验规范，支持分组验证。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">对 json 请求参数的接口能够自动生成模拟 json 参数。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">对一些常用字段定义能够生成有效的模拟值。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持生成 json 返回值示例。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持从项目外部加载源代码来生成字段注释(包括标准规范发布的 jar 包)。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持生成多种格式文档：Markdown、HTML5、Asciidoctor、Postman collection、Open Api 3.0+。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">轻易实现在 Spring Boot 服务上在线查看静态 HTML5 api 文档。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">开放文档数据，可自由实现接入文档管理系统。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">一款代码注释检测工具，不写注释的小伙伴逃不过法眼了。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">插件式快速集成(支持 maven 和 gradle 插件)。</span></section></li><li style="box-sizing: border-box;font-size: 14px;font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><section style="line-height: 2em;margin-bottom: 15px;margin-top: 15px;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">支持 Apache Dubbo rpc 文档生成。</span><span style="color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 17px;text-align: justify;"></span></section></li></ul><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">Smart-doc 从 2.0.0 后几乎实现了 swagger ui 的功能，并且比 swagger ui 更简洁大方，也更符合国内开发者的诉求。当然 smart-doc 的功能也已经</span></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">超过了 swagger 为 java 开发者提供的功能。当然 smart-doc 本身是只支持扫描代码生成 openapi 3.0 的文档的，也可以将生成的 openapi 3.0 文档导入到其他ui中渲染展示。</span></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-weight: bold;color: rgb(44, 44, 48);font-size: 18px;">效果图</span><span style="color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 17px;text-align: justify;"></span></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><img data-ratio="0.4937154348919055" data-src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuFNnZAT7fmBQF4NxJAyNGKwRmDErrjZ2k5wBBSExN8IoUkr2DzTYmHw/640?wx_fmt=png" data-type="png" data-w="1989" style="box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; display: inline; width: 312px !important; height: 154.039px !important;" title="null" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuFNnZAT7fmBQF4NxJAyNGKwRmDErrjZ2k5wBBSExN8IoUkr2DzTYmHw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><img data-ratio="0.512280701754386" data-src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuNbk0BgsghyU0kKT2eCSicbicjWicRx9pPQibLYKCSibwj9aXZDcukPokYqw/640?wx_fmt=png" data-type="png" data-w="1995" style="box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; display: inline; width: 312px !important; height: 159.832px !important;" title="null" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuNbk0BgsghyU0kKT2eCSicbicjWicRx9pPQibLYKCSibwj9aXZDcukPokYqw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><img data-ratio="0.8326633165829146" data-src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuro8HJJn8W46KB5aZz0RgXITOMTskdPMTxKjuH8rqRo0ia6gtnBjLP4g/640?wx_fmt=png" data-type="png" data-w="1990" style="box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; display: inline; width: 312px !important; height: 259.791px !important;" title="null" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuro8HJJn8W46KB5aZz0RgXITOMTskdPMTxKjuH8rqRo0ia6gtnBjLP4g/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><img data-ratio="0.4788047255038221" data-src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuJwy2Eqzubj7S3OqwEMmjXpdpicaORFTCnByuFX87zBCe0afG6ERzicng/640?wx_fmt=png" data-type="png" data-w="2878" style="box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; display: inline; width: 312px !important; height: 149.387px !important;" title="null" _width="328px" class="img_loading" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuJwy2Eqzubj7S3OqwEMmjXpdpicaORFTCnByuFX87zBCe0afG6ERzicng/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="box-sizing: border-box;color: rgb(36, 41, 46);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-size: 14px;text-align: left;white-space: normal;margin: 15px 8px;line-height: 2em;"><span style="font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;">源码：https://gitee.com/smart-doc-team</span></section><section data-mpa-template="t" mpa-paragraph-type="ignored" style="font-family: -apple-system, system-ui, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><br></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-family: -apple-system, system-ui, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><p style="margin-bottom: 5px;"><span style="font-size: 16px;letter-spacing: 0.544px;">往期回顾</span></p><section style="margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494388&amp;idx=1&amp;sn=13c7b70f42fa310f73e8bd5fde7887b4&amp;chksm=973e745da049fd4bbbf7eeddcbb032c0850cc8a2ecaa1c36e14947f62b3392d23312feb9b4ef&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" data-linktype="2"> 让16 个写代码的好习惯变成你的财富</a></section><section style="margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494386&amp;idx=1&amp;sn=888c07ac7b394e559af7718b4648a70c&amp;chksm=973e745ba049fd4df903f410a77628d40668f3531938fd3b7253c1e0fcabc1d7480a772486b3&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" style="font-size: inherit;letter-spacing: 0.544px;" data-linktype="2">用 Java 实现每天给对象发情话，有点意思...</a></section><section style="margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494378&amp;idx=1&amp;sn=3d1a85ff4a0c6d752bd1ed8968378fb8&amp;chksm=973e7443a049fd55178b1989cab19dcc725208873ebbd2bf91868efce8d736eaf4b9c3b44a45&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" style="font-size: inherit;letter-spacing: 0.544px;" data-linktype="2">透彻Java线程状态转换</a></section></section><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzIwNDY1NTU1OA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/DibTgjt8mhxwsibjA6QDEY9evlE1wnIOkZyVgwXynsibtEFZlMuYoEv184ZvcTCunicbRqLiagaMN82PVcFzuwiaibLvg/0?wx_fmt=png" data-nickname="编程技术进阶" data-alias="tech_jinjie" data-signature="编程技术进阶，专注分享Java技术干货，包括多线程、架构设计、微服务、消息队列、Git、面试题、程序员攻略、JVM、Spring Boot、Spring Cloud、Dubbo、Zookeeper、Redis等。" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzIwNDY1NTU1OA==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="https://mmbiz.qpic.cn/mmbiz_png/DibTgjt8mhxwsibjA6QDEY9evlE1wnIOkZyVgwXynsibtEFZlMuYoEv184ZvcTCunicbRqLiagaMN82PVcFzuwiaibLvg/0?wx_fmt=png" alt="编程技术进阶">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                编程技术进阶                           </strong>           <div class="wx_profile_desc">编程技术进阶，专注分享Java技术干货，包括多线程、架构设计、微服务、消息队列、Git、面试题、程序员攻略、JVM、Spring Boot、Spring Cloud、Dubbo、Zookeeper、Redis等。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">40篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><section><br></section>                </div><div>来源:https://mp.weixin.qq.com/s/aYAE_oS5anRqDFYlupodcg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="230" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="230" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuy5xRwsElVHX7slqbjtOqCfiaNN8N1V8Khkic6MhKWvKjhI3jicX8pvHSg/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="230" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/java.html" class="tag" rel="tag">java</a></li>
+        <li>浏览次数：<span>469</span> 次浏览</li>
+        <li>发布日期：2021-07-10 20:32:57</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="229.html">再见 FTP/SFTP，是时候拥抱下一代文件传输利器 Croc 了！</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="232.html">MySQL数据库时间类型datetime、bigint、timestamp的查询效率比较</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="268.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/RXvHpViaz3EoOs44EkUiceqsT2yyRBYuPP7RkU21gibQo4icojIVfI6YsEHnib3eVrkSySr2FXKibSxS3f2aBFWKBDfg/640" alt="图解Java中那18 把锁" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="268.html">图解Java中那18 把锁</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/CMm9B05ayk8a0VdP6G4TVFD4JRcN3aFuy5xRwsElVHX7slqbjtOqCfiaNN8N1V8Khkic6MhKWvKjhI3jicX8pvHSg/640" alt="推荐一款 Java 零注解 API 文档生成工具" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">推荐一款 Java 零注解 API 文档生成工具</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="217.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://www.muker.cc/assets/addons/cms/img/noimage.jpg" alt="【非广告】2021 入门级的 Java 程序员学习路线图 1.0" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="217.html">【非广告】2021 入门级的 Java 程序员学习路线图 1.0</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="197.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://www.muker.cc/assets/addons/cms/img/noimage.jpg" alt="服务发布或重启，发生抖动怎么办？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="197.html">服务发布或重启，发生抖动怎么办？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="068eb98417d216dbe53b02d542db1b34">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="230">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c099859381c38a5',m:'yau8v0KdzJejR6dK9SXryNdZDvT3nzfYxSKWXsFBz0M-1640010904-0-AaGSJ95UmSARMMB0ykxz38/9y8UuySVjMwBZxP15GyUHS4OwM29PfcCHsRqjm7JJmYFyDCxibmv7urJxomXglMmrw8m8s5YQLMtK3oS+8hfReSj5Ih5k9CXmSS92Jhp7pZ1n8VR+gGm6E5yYWr4prIQ=',s:[0xecbe0b2575,0x29e87d7b28],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>推荐一个基于 Python + Vue 的海报生成器 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="https://www.muker.cc/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/css/bootstrap.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/font-awesome/css/font-awesome.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/libs/fastadmin-layer/dist/theme/default/layer.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/swiper.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/share.min.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/iconfont.css?v=1.0.97">
+    <link rel="stylesheet" media="screen" href="https://www.muker.cc/assets/addons/cms/css/common.css?v=1.0.97">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+<script async="" src='https://www.muker.cc/cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="https://www.muker.cc/uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanlicms.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="../s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="241bb84c2870987c70da3302778d8917">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index1.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">推荐一个基于 Python + Vue 的海报生成器</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 274 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="line-height: 2em;margin-bottom: 20px;margin-left: 16px;margin-right: 16px;" data-mpa-powered-by="yiban.io"><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>推荐一个基于 Vue.js 的海报生成器开源项目，像海报编辑器此类的低代码平台更多的开发量在前端，所以说这是前端工程师不错的练手项目，实现起来比管理系统有趣多了。</span></section><section style='letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);' mpa-paragraph-type="ignored" data-mpa-template="t"><hr style='margin-top: 1rem;margin-bottom: 1rem;height: 0px;overflow: visible;border-right: 0px solid rgba(0, 0, 0, 0.1);border-bottom: 0px solid rgba(0, 0, 0, 0.1);border-left: 0px solid rgba(0, 0, 0, 0.1);border-top-style: solid;border-top-color: rgba(0, 0, 0, 0.1);font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;transform-origin: 0px 0px 0px;transform: scale(1, 0.5);'></section><section style='margin: 20px 16px 25px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);line-height: 2em;'><span style="font-family: Optima-Regular, PingFangTC-light;"><span style="color: rgb(255, 41, 65);"><em><span style="font-size: 20px;font-weight: bolder;">01.&nbsp;</span></em></span><span style="color: rgb(0, 82, 255);"><em><span style="font-size: 20px;font-weight: bolder;">&nbsp;</span></em></span></span><span style='font-weight: bolder;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 19px;color: rgb(71, 71, 71);'>海报生成器</span></section><section style="line-height: 2em;margin-bottom: 20px;margin-left: 16px;margin-right: 16px;"><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>前几天也推荐过类似的项目：visual-drag-demo 仅仅通过简单的拖拉拽就能生成一个页面。</span></section><section style="line-height: 2em;text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages" style="border-radius: 3px; width: 469px !important; height: auto !important; visibility: visible !important; box-sizing: border-box !important; box-shadow: 0em 0em 0.5em 0px rgb(150,150,150);" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruyXo8VzACicO8MVibibicuJUQ8VTakRBG0SKDgicYPhOHekfCjQRw1gocktL8VwxINSUqwk0licpAsicvoMQ/640?wx_fmt=png" crossorigin="anonymous" data-w="2874" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruyXo8VzACicO8MVibibicuJUQ8VTakRBG0SKDgicYPhOHekfCjQRw1gocktL8VwxINSUqwk0licpAsicvoMQ/640?wx_fmt=png" data-s="300,640" data-ratio="0.4899095337508699" _width="469px" data-fail="0"></section><section style="margin: 20px 16px 10px;line-height: 2em;"><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>今天推荐的海报编辑器开源项目功能更加完善，最左侧是组件列表。可以在最左侧选择组件，比如文本、二维码、图片等添加到最中间的画布区域，通过右侧的属性调节面板调节添加组件的样式。</span></section><section style="line-height: 2em;margin-top: 10px;margin-left: 16px;margin-right: 16px;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>快速：</span></strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>三步完成海报开发工作：启动服务&nbsp;&gt;&nbsp;编辑海报&nbsp;&gt;&nbsp;生成代码</span></section><section style="line-height: 2em;margin-left: 16px;margin-right: 16px;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>简单：</span></strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>组件丰富、支持拖拽、复制、所见即所得、下载等功能。</span></section><section style="line-height: 2em;margin-bottom: 25px;margin-left: 16px;margin-right: 16px;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>动态：</span></strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>无需更改代码，直接在编辑器修改海报即可获得最新的海报。</span></section><section style="line-height: 2em;padding: 0px 0.5em;text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages img_loading" style="border: 1px solid rgb(235, 235, 235); border-image: none; width: 628px !important; height: 389.7px !important; font-size: 17px; box-sizing: border-box; box-shadow: 0em 0em 0.5em 0px rgb(150,150,150);" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibHTWvXXgpE1ghLfj4piaiaSxlEib0m0EKjricULfTOLMjVFfdk6oFskDPRg/640?wx_fmt=png" crossorigin="anonymous" data-w="2648" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibHTWvXXgpE1ghLfj4piaiaSxlEib0m0EKjricULfTOLMjVFfdk6oFskDPRg/640?wx_fmt=png" data-s="300,640" data-ratio="0.6193353474320241" _width="100%"></section><section style="margin: 20px 16px;line-height: 2em;text-align: center;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>上传头像</span></strong></section><section style="line-height: 2em;padding: 0px 0.5em;text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages img_loading" style="border: 1px solid rgb(235, 235, 235); border-image: none; width: 628px !important; height: 389.7px !important; font-size: 17px; box-sizing: border-box; box-shadow: 0em 0em 0.5em 0px rgb(120,120,120);" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibHStHl9bx8icq77FfplonEBoyMHVILLpnONbrxtzj1ttAOCHMAoAxf1w/640?wx_fmt=png" crossorigin="anonymous" data-w="2648" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibHStHl9bx8icq77FfplonEBoyMHVILLpnONbrxtzj1ttAOCHMAoAxf1w/640?wx_fmt=png" data-s="300,640" data-ratio="0.6193353474320241" _width="100%"></section><section style="margin: 20px 16px;line-height: 2em;text-align: center;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>进行预览</span></strong></section><section style="line-height: 2em;padding: 0px 0.5em;text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages img_loading" style="border: 1px solid rgb(235, 235, 235); border-image: none; width: 628px !important; height: 389.7px !important; font-size: 17px; box-sizing: border-box; box-shadow: 0em 0em 0.5em 0px rgb(180,180,180);" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibQPqKNu6aXZPw6eA4rrtniaoBqxEB0uKa2ib4MTVmJ5akficAvZ2yvhgkA/640?wx_fmt=png" crossorigin="anonymous" data-w="2648" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibQPqKNu6aXZPw6eA4rrtniaoBqxEB0uKa2ib4MTVmJ5akficAvZ2yvhgkA/640?wx_fmt=png" data-s="300,640" data-ratio="0.6193353474320241" _width="100%"></section><section style="margin: 20px 16px;line-height: 2em;text-align: center;"><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>获取代码：点击 代码]，可以查看相关的接⼝调⽤代码。</span></section><section style="line-height: 2em;padding: 0px 0.5em;text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages img_loading" style="border-radius: 3px; border: 1px solid rgb(235, 235, 235); border-image: none; width: 628px !important; height: 389.7px !important; font-size: 17px; box-sizing: border-box; box-shadow: 0em 0em 0.5em 0px rgb(90,90,90);" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibSvwKLIVKpfQCLy8H6YjzmmvXpZIiavwHic2KibXtmshwsM18YGOj6dyxA/640?wx_fmt=png" crossorigin="anonymous" data-w="2648" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruygTW3iafAZ51s0hFLaLZt0ibSvwKLIVKpfQCLy8H6YjzmmvXpZIiavwHic2KibXtmshwsM18YGOj6dyxA/640?wx_fmt=png" data-s="300,640" data-ratio="0.6193353474320241" _width="100%"></section><section style='white-space: normal;letter-spacing: 0.544px;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);' mpa-paragraph-type="ignored" data-mpa-template="t"><hr style='margin-top: 1rem;margin-bottom: 1rem;height: 0px;overflow: visible;border-right: 0px solid rgba(0, 0, 0, 0.1);border-bottom: 0px solid rgba(0, 0, 0, 0.1);border-left: 0px solid rgba(0, 0, 0, 0.1);border-top-style: solid;border-top-color: rgba(0, 0, 0, 0.1);font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;transform-origin: 0px 0px 0px;transform: scale(1, 0.5);'></section><section style='margin: 20px 16px 25px;white-space: normal;letter-spacing: 0.544px;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);line-height: 2em;'><span style="font-family: Optima-Regular, PingFangTC-light;"><span style="color: rgb(255, 41, 65);"><em><span style="font-size: 20px;font-weight: bolder;">02.&nbsp;</span></em></span><span style="color: rgb(0, 82, 255);"><em><span style="font-size: 20px;font-weight: bolder;">&nbsp;</span></em></span></span><span style='font-weight: bolder;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-size: 19px;color: rgb(71, 71, 71);'>如何使用</span></section><section style="margin: 10px 16px;line-height: 2em;"><strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 14px;'>下载项目：</span></strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 14px;'>关注公众号「逛逛GitHub」回复「0625」获取该项目地址</span></section><p style="margin: 10px 16px 15px;line-height: 2em;"><strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 14px;'>运行 Docker&nbsp;命令:</span></strong></p><section data-mpa-template="t" mpa-from-tpl="t" mpa-preserve="t" data-mpa-preserve-tpl-color="t"><pre style="margin:0;padding:0;border-radius:none;background:none;"><p style="border-radius: 4px;font-size: 0.85em;margin: 0px 16px;background: rgb(248, 248, 248);color: rgb(51, 51, 51);display: block;padding: 5.95px;overflow-x: auto;white-space: nowrap;"><span style="font-size: 14px;">docker ru</span><span style="font-size: 14px;color: rgb(71, 71, 71);">n <span style="color: rgb(71, 71, 71);font-size: 14px;background: rgba(0, 0, 0, 0);display: inline;width: 357px;text-decoration: none solid rgb(153, 153, 136);font-weight: 400;font-style: italic;">--name fast-poster -p 9001:9001 tangweixin/fast-poster</span></span></p></pre></section><p style="margin: 15px 16px 10px;line-height: 2em;"><strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>打开浏览器:&nbsp;</span></strong><span style='font-size: 14px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>http://127.0.0.1:9001/</span><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 14px;background-color: rgb(255, 255, 255);letter-spacing: 0.544px;'></span></p><section style='letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);' mpa-paragraph-type="ignored" data-mpa-template="t"><hr style='margin-top: 1rem;margin-bottom: 1rem;height: 0px;overflow: visible;border-right: 0px solid rgba(0, 0, 0, 0.1);border-bottom: 0px solid rgba(0, 0, 0, 0.1);border-left: 0px solid rgba(0, 0, 0, 0.1);border-top-style: solid;border-top-color: rgba(0, 0, 0, 0.1);font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;transform-origin: 0px 0px 0px;transform: scale(1, 0.5);'></section><section style='letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);' data-website="https://www.mdnice.com" data-tool="mdnice编辑器"><section style="margin: 25px 8px 10px;font-size: inherit;line-height: 1.6 !important;"><span style="font-family: Optima-Regular, PingFangTC-light;color: rgb(84, 83, 83);"><span style='font-weight: bolder;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;text-align: start;'>推荐阅读</span></span></section></section><section style='margin-right: 8px;margin-left: 8px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;'><span style="font-size: 15px;font-family: Optima-Regular, PingFangTC-light;"><span style="font-weight: bolder;"><em><span style="color: rgb(18, 18, 18);">1.&nbsp;</span></em></span><span style="color: rgb(18, 18, 18);"><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;background-color: transparent;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247498662&amp;idx=1&amp;sn=0087c4f3b79ba3420e917e9b42d45eda&amp;chksm=f9a2286fced5a1794eb9a73d0be7c2e16eaceabf3a0420647c40cb4202bd116d9a15dd57c008&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="0">GitHub 上有什么好玩的项目？</a></span></span></section><section style='margin-right: 8px;margin-left: 8px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;'><em><strong><span style="font-size: 15px;font-family: Optima-Regular, PingFangTC-light;">2.&nbsp;</span></strong></em><span style="font-size: 15px;font-family: Optima-Regular, PingFangTC-light;"><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247501147&amp;idx=1&amp;sn=7d645733a5baaafebffc3491a45791b5&amp;chksm=f9a21692ced59f84166b56683be9fef3d06c42deebecf99271b4b1d3dadacbb008700c02fdef&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="0">6 月份最火的 10 个 GitHub 项目</a></span></section><section style='margin-right: 8px;margin-left: 8px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;'><span style="font-family: Optima-Regular, PingFangTC-light;"><em><span style="font-weight: bolder;"><span style="font-size: 15px;">3.&nbsp;</span></span></em><span style="font-size: 15px;"><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;background-color: transparent;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247500031&amp;idx=1&amp;sn=b4349fc85264c255bf9a22e1f25b035a&amp;chksm=f9a21336ced59a20518444a3e2bddb584f6d02266e831546ee5c00935d01d5bd61ed86ab606f&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="0">基于 Spring Boot 的百度云高仿项目</a></span></span></section><p style='margin-right: 8px;margin-left: 8px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;margin-bottom: 25px;'><span style="font-family: Optima-Regular, PingFangTC-light;"><em style="letter-spacing: 0.544px;"><span style="font-weight: bolder;"><span style="font-size: 15px;">4.&nbsp;</span></span></em><span style="font-size: 15px;"><a style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;background-color: transparent;" href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247498464&amp;idx=1&amp;sn=4f85123d6ca67578ca7bad8f7dc71453&amp;chksm=f9a22929ced5a03ffded2c41fd257d3eb96be02195de3ca66a083177bf5f73e2f418728f7f06&amp;scene=21#wechat_redirect');" target="_blank" hasload="1" data-linktype="2" tab="innerlink" data-itemshowtype="0">盘点百度 4 个牛逼哄哄的开源项目</a></span></span></p><section style='margin-right: 8px;margin-left: 8px;letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;background-color: rgb(255, 255, 255);text-align: center;line-height: 2em;'><img class="rich_pages img_loading" style="border-style: none; width: 172px !important; height: 172.93px !important; vertical-align: middle; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="https://www.muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruxW7LMX2Iz5DfjRIbFTS7UROhxibBmicicT0HpjIh1yniaJJibSnLFuicMHRx5NEdiaOh2OOACfr6MvR38ibQ/640?wx_fmt=png" crossorigin="anonymous" data-w="734" data-type="png" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruxW7LMX2Iz5DfjRIbFTS7UROhxibBmicicT0HpjIh1yniaJJibSnLFuicMHRx5NEdiaOh2OOACfr6MvR38ibQ/640?wx_fmt=png" data-s="300,640" data-ratio="1.005449591280654" data-cropsely2="172" data-cropsely1="0" data-cropselx2="172" data-cropselx1="0" _width="172px"></section>                </div><div>来源:https://mp.weixin.qq.com/s/iz932cjmi5tsnads3Z_gMQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="155" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="155" data-image="/uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruyXo8VzACicO8MVibibicuJUQ8VTakRBG0SKDgicYPhOHekfCjQRw1gocktL8VwxINSUqwk0licpAsicvoMQ/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="155" data-action="../../addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>274</span> 次浏览</li>
+        <li>发布日期：2021-07-05 22:14:50</li>
+        <li>本文链接：<a href=""></a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="154.html">火了！开发一个具有弹幕功能的视频播放器项目</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="156.html">.NET MAUI 预览版 6 发布</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="209.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640" alt="自动驾驶中实时车道检测和警报" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="209.html">自动驾驶中实时车道检测和警报</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="208.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640" alt="深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="208.html">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="207.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/VeJKXItpwPVibOSMQeyaGwgUuVlcQvxkGXXWJd5ibVobOMbl2fuGGsbm5Ric4aJjgUiahJfqib9xbibDticDldfIziaT8g/640" alt="太酷了，Python 制作足球可视化图表 | 代码干货" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="207.html">太酷了，Python 制作足球可视化图表 | 代码干货</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../yunwei/206.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640" alt="PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../yunwei/206.html">PyTorch 1.8 和 Tensorflow 2.5，我该用哪个？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="../../addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="241bb84c2870987c70da3302778d8917">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="155">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="https://www.muker.cc/uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/驰为.html" class="tag"> <span>驰为</span></a>
+                        <a href="../t/树莓派.html" class="tag"> <span>树莓派</span></a>
+                        <a href="../t/pc.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/鸿蒙.html" class="tag"> <span>鸿蒙</span></a>
+                        <a href="../t/jwt.html" class="tag"> <span>JWT</span></a>
+                        <a href="../t/视频转换器.html" class="tag"> <span>视频转换器</span></a>
+                        <a href="../t/.net.html" class="tag"> <span>. net</span></a>
+                        <a href="../t/虚拟录音.html" class="tag"> <span>虚拟录音</span></a>
+                        <a href="../t/vr.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/devops.html" class="tag"> <span>DevOps</span></a>
+                        <a href="../t/视频制作.html" class="tag"> <span>视频制作</span></a>
+                        <a href="../t/ddd.html" class="tag"> <span>DDD</span></a>
+                        <a href="../t/博客写作.html" class="tag"> <span>博客写作</span></a>
+                        <a href="../t/音乐播放器.html" class="tag"> <span>音乐播放器</span></a>
+                        <a href="../t/.netcore.html" class="tag"> <span>. net core</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/ftp工具.html" class="tag"> <span>FTP工具</span></a>
+                        <a href="../t/音频录制.html" class="tag"> <span>音频录制</span></a>
+                        <a href="../t/golang.html" class="tag"> <span>Golang</span></a>
+                        <a href="../t/无线wifi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/gitlab.html" class="tag"> <span>gitlab</span></a>
+                        <a href="../t/互联网.html" class="tag"> <span>互联网</span></a>
+                        <a href="../t/宏基.html" class="tag"> <span>宏基</span></a>
+                        <a href="../t/小米.html" class="tag"> <span> 小米</span></a>
+                        <a href="../t/线程.html" class="tag"> <span> 线程</span></a>
+                        <a href="../t/.net1.html" class="tag"> <span>.net</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/开源.html" class="tag"> <span>开源</span></a>
+                        <a href="../t/美团.html" class="tag"> <span>美团</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="https://www.muker.cc/uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/cms.archives/post.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="https://www.muker.cc/uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/jquery/dist/jquery.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/bootstrap/dist/js/bootstrap.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/fastadmin-layer/dist/layer.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/libs/art-template/dist/template-native.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/jquery.autocomplete.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/swiper.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/share.min.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/cms.js?v=1.0.97"></script>
+<script type="text/javascript" src="https://www.muker.cc/assets/addons/cms/js/common.js?v=1.0.97"></script>
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6c0998e36e5a7550',m:'fPKijcWZO.FEh1LK_obm0gQgJBJq9r2B4oFqICGnSPY-1640010926-0-AbgQyDa8rJsZHoVTPGuSaquqyEnnD307WX6W6PfWMWMZwo+Mopj3UdHD1kdmN1avJfM+QgI1gXjT4yNMlXHxKe9dyExASZjaagTqpjBK7OdcM1FE9of1H9DbjRFXhZ/wT7cP7BtUkqs+KmjzJ69R5tM=',s:[0xeff4d96261,0x371e79eee6],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+</html>
