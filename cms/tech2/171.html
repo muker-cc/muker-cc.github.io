@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>容器安全最佳实践入门 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="8bc9cf98ffaf9b6617ae4255c7c5abd4">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">容器安全最佳实践入门</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 443 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="text-align: center;margin-left: 8px;margin-right: 8px;" data-mpa-powered-by="yiban.io"><img class="rich_pages __bg_gif" data-ratio="0.15555555555555556" data-s="300,640" data-src="../../mmbiz_gif/6nWVkbiaAIRJm3iaibDcUDZLIhtqicQ6UAoZc6Dc6SDuhdUo9GfXU8Hqv9O0ZrLiaRxyZ61may1piaEDRjR6ibVLw2tEg/640.jpg" data-type="gif" data-w="900" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/6nWVkbiaAIRJm3iaibDcUDZLIhtqicQ6UAoZc6Dc6SDuhdUo9GfXU8Hqv9O0ZrLiaRxyZ61may1piaEDRjR6ibVLw2tEg/640?wx_fmt=gif" data-order="0" alt="图片" data-fail="0"></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;font-size: 14px;white-space: normal;box-sizing: border-box;color: rgb(145, 145, 145);text-align: left;line-height: 1em;margin-top: 13px;padding-left: 14px;">作者 | Cloudberry<br></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;font-size: 14px;white-space: normal;box-sizing: border-box;color: rgb(145, 145, 145);text-align: left;line-height: 1em;margin-top: 13px;padding-left: 14px;">译者 | 王者</section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;font-size: 14px;white-space: normal;box-sizing: border-box;color: rgb(145, 145, 145);text-align: left;line-height: 1em;margin-top: 13px;padding-left: 14px;">策划 | 万佳</section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">保证容器安全是一项复杂的任务。这个问题域很广，面对大量的检查清单和最佳实践，你很难确定采用哪个解决方案。所以，如果你要实现容器安全策略，应该从哪里开始呢？</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">我建议从最基本的开始：理解容器安全是什么，并构建模型来降低风险。</span></section><section style="margin-left: 8px;margin-right: 8px;"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><p><br></p><section data-mpa-template="t"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section style="margin-bottom: -25.5px;width: 18px;height: 18px;border-radius: 9px;background: rgb(190, 218, 255);" data-mid=""><br></section><h1 style="margin-left: 5px;font-size: 34px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 51px;letter-spacing: 2px;" data-mid="">01</h1></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><span style="font-size: 20px;">遵循DevOps生命周期</span></p></section></section></section></section></section></section></section></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">安全计划最终都会受到环境的限制，遵循标准的 DevOps 生命周期可以更好地发现模式和发挥协同效应。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">DevOps 的生命周期是一个无限迭代的过程：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">计划</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">编码</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">构建</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">测试</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">发布</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">部署</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">运维</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">监控</span></p></li></ul><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages img_loading" data-ratio="0.63984375" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1280" style="width: 312px !important; height: 200.352px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/FE4VibF0SjfPTAddWr6mcjsbopXFHSwBiaGZKnzF3ypdhQ4ZwTYdR0ytv3efraNeJXfELU7HeN6Ts44jg8542xhA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">容器通过 Dockerfile 文件的形式包含在应用程序中，但实际上并不是应用程序的一部分。因此，计划和编码阶段与容器无关。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">其余的每一个步骤都与容器安全有关，我对它们进行这样的分组：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">构建时：构建、测试和发布</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">容器基础设施：部署和运维</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">运行时：监控</span></p></li></ul><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">为什么要这样分组？安全策略只有在能够被实现的情况下才是有效的。每个分组中的每一个步骤都共享了一个公共设施，可以很容易往其中注入安全控制元素：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">构建时：CI/CD 基础设施、容器注册表；</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">容器基础设施：容器编配器；</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">运行时：生产环境。</span></p></li></ul><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">现在我们有了三个风险评估着手点。</span></section><section style="margin-left: 8px;margin-right: 8px;"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><p><br></p><section data-mpa-template="t"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section style="margin-bottom: -25.5px;width: 18px;height: 18px;border-radius: 9px;background: rgb(190, 218, 255);" data-mid=""><br></section><h1 style="margin-left: 5px;font-size: 34px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 51px;letter-spacing: 2px;" data-mid="">02</h1></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><span style="font-size: 20px;">构建时安全</span></p></section></section></section></section></section></section></section></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">在构建阶段，我们输入了一堆源文件和一个 Dockerfile，得到了一个 Docker 镜像。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">大多数供应商在这个时候向你强调容器镜像扫描的重要性。容器安全扫描的确很重要，但还不够。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;"><strong style="color: rgb(0, 179, 139);text-align: left;"><span style="color: rgb(0, 82, 255);">这个阶段的目标：最小化供应链攻击风险。</span></strong></span></section><section style="margin-left: 8px;margin-right: 8px;"><br></section><section data-mpa-template="t"><h2 mpa-is-content="t" style="margin: 5px 8px;padding-right: 10px;padding-left: 10px;font-weight: bold;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;letter-spacing: 0.544px;white-space: normal;widows: 1;border-left: 5px solid rgb(36, 104, 242);line-height: 32px;background-color: rgb(255, 255, 255);border-top-color: rgb(36, 104, 242);border-bottom-color: rgb(36, 104, 242);border-right-color: rgb(36, 104, 242);"><span style="border-color: rgb(36, 104, 242);color: rgb(36, 104, 242);">容器镜像“卫生”</span><strong style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;white-space: pre-line;color: rgb(0, 179, 139);text-align: left;"></strong></h2></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">首先，思考一下你的镜像应该是什么样的，并重点关注依赖项是如何引入的：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">允许开发人员使用哪些基本镜像？</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">依赖项是固定的吗？是从哪里拉取的？</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">是否需要一些标签来简化监管和合规性?</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">检查一下 Dockerfile。</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">在编写 Dockerfile 时遵循 Docker 安全最佳实践。</span></p></li></ul><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">所有这些检查都是静态的，可以很容易在构建管道中实现。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><br></section><section data-mpa-template="t"><h2 mpa-is-content="t" style="margin: 5px 8px;padding-right: 10px;padding-left: 10px;font-weight: bold;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;letter-spacing: 0.544px;white-space: normal;widows: 1;border-left: 5px solid rgb(36, 104, 242);line-height: 32px;background-color: rgb(255, 255, 255);border-top-color: rgb(36, 104, 242);border-bottom-color: rgb(36, 104, 242);border-right-color: rgb(36, 104, 242);"><span style="border-color: rgb(36, 104, 242);color: rgb(36, 104, 242);">容器镜像扫描</span></h2></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">然后，我们可以进行容器镜像扫描。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">不要在构建管道中扫描镜像，而是在容器注册表中进行持续的扫描。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">为什么要这样？服务不一定会进行不间断的构建，但漏洞会不断出现。其次，构建是增量的：每个构建都将生成一个新镜像。因此，假设你的容器编配器信任你的注册中心，所以你发布的每个标记总是可以部署并需要进行评估。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">这个时候你就要开始考虑补丁管理和保存期限：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">补丁管理：根据扫描结果提供补丁，生成新版本镜像；</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">保存期限：未修补 / 旧 / 不安全的镜像将从注册表中删除。</span></p><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><br></p></li></ul><section style="margin-left: 8px;margin-right: 8px;"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section data-mpa-template="t"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section style="margin-bottom: -25.5px;width: 18px;height: 18px;border-radius: 9px;background: rgb(190, 218, 255);" data-mid=""><br></section><h1 style="margin-left: 5px;font-size: 34px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 51px;letter-spacing: 2px;" data-mid="">03</h1></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><span style="font-size: 20px;">容器基础设施安全性</span></p></section></section></section></section></section></section></section></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">容器基础设施由负责从注册表拉取镜像并在生产环境中作为容器运行的所有活动部件组成。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">这主要是容器编配器——Kubernetes。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">这一阶段的目标：</span></section><ol class="list-paddingleft-2" style="list-style-type: decimal;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">避免存在安全隐患的平台配置错误</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">最大限度地减少来自受损容器的攻击</span></p><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><br></p></li></ol><section data-mpa-template="t"><h2 mpa-is-content="t" style="margin: 5px 8px;padding-right: 10px;padding-left: 10px;font-weight: bold;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;letter-spacing: 0.544px;white-space: normal;widows: 1;border-left: 5px solid rgb(36, 104, 242);line-height: 32px;background-color: rgb(255, 255, 255);border-top-color: rgb(36, 104, 242);border-bottom-color: rgb(36, 104, 242);border-right-color: rgb(36, 104, 242);"><span style="border-color: rgb(36, 104, 242);color: rgb(36, 104, 242);">基础设施安全性：配置错误</span></h2></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">容器编配器比较复杂，特别是 Kubernetes。到目前为止，它都没有兑现 DevOps 的承诺。我认为，我们离成为不需要太多运维开销的主流解决方案还有一两个抽象层的距离。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">每一个复杂的平台都很容易出现配置错误，而这正是你需要关注的部分。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">你必须对基础设施进行威胁建模，确保它不会被攻击。这个特殊的威胁模型应该关注每一个参与者，但受损的容器除外 (我们将在下面讨论这个问题)。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">这里我就不详细讲了，因为这取决于你运行的是什么平台。对于 Kubernetes，建立威胁模型的一个着手点是这样的。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="color: rgb(136, 136, 136);font-size: 15px;">https://www.marcolancini.it/2020/blog-kubernetes-threat-modelling/</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">此外，如果你还没有这么做，可以考虑使用托管平台：如果你可以利用 (受信任的) 供应商提供的模型，复杂性就会降低。</span></section><section style="margin-left: 8px;margin-right: 8px;"><br></section><section data-mpa-template="t"><h2 mpa-is-content="t" style="margin: 5px 8px;padding-right: 10px;padding-left: 10px;font-weight: bold;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;letter-spacing: 0.544px;white-space: normal;widows: 1;border-left: 5px solid rgb(36, 104, 242);line-height: 32px;background-color: rgb(255, 255, 255);border-top-color: rgb(36, 104, 242);border-bottom-color: rgb(36, 104, 242);border-right-color: rgb(36, 104, 242);"><span style="border-color: rgb(36, 104, 242);color: rgb(36, 104, 242);">基础设施安全性：横向移动</span></h2></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">接下来，我们来讨论当一个容器被破坏时会发生什么。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">你想要最小化攻击者横向移动的能力，专注于以下两个层：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;margin-left: 8px;margin-right: 8px;"><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">网络层</span></p></li><li style="font-size: 15px;"><p style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);"><span style="font-size: 15px;">身份和访问管理层（IAM）</span></p></li></ul><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">网络不应该是平的。你可以先把所有东西分配到子网络，然后建立起完整的服务网络。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">在 IAM 层，为每个容器使用单一的标识，以此来优化授权。这在多租户平台中尤其重要：如果没有细粒度的身份标识，就不可能获得最小权限。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">最后，由于它们是不可变的，所以最好是减少容器可以运行的时间：攻击者横向移动并获得持久性机会窗口等于容器运行生命周期。所以，持续关闭和滚动重启你的容器。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><br></section><section style="margin-left: 8px;margin-right: 8px;"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section data-mpa-template="t"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section style="margin-bottom: -25.5px;width: 18px;height: 18px;border-radius: 9px;background: rgb(190, 218, 255);" data-mid=""><br></section><h1 style="margin-left: 5px;font-size: 34px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 51px;letter-spacing: 2px;" data-mid="">04</h1></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><span style="font-size: 20px;">运行时安全性</span></p></section></section></section></section></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><br></p></section></section></section></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">最后一个是工作负载的安全性。到这个时候，大部分的强化工作都已完成，我们将进入反应性安全控制领域，也就是故障后（post-fail）。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><strong style="color: rgb(0, 82, 255);">这个阶段的目标：将受损容器的攻击影响降至最低。</strong></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><strong style="color: rgb(0, 82, 255);"><br></strong></section><section data-mpa-template="t"><h2 mpa-is-content="t" style="margin: 5px 8px;padding-right: 10px;padding-left: 10px;font-weight: bold;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;letter-spacing: 0.544px;white-space: normal;widows: 1;border-left: 5px solid rgb(36, 104, 242);line-height: 32px;background-color: rgb(255, 255, 255);border-top-color: rgb(36, 104, 242);border-bottom-color: rgb(36, 104, 242);border-right-color: rgb(36, 104, 242);"><span style="border-color: rgb(36, 104, 242);color: rgb(36, 104, 242);">探测和事故响应</span></h2></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">控制攻击影响面最好的办法是尽量缩短从入侵开始到安全团队收到警报之间的时间。<br></span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">探测正在发生的漏洞是供应商们争相寻找解决方案的另一个领域。现在有很多方法，其中大多数都需要使用边车或守护进程来主动监控 Pod 流量和系统调用。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">大多数解决方案都会提供一些价值，但我的建议是从简单的开始，并进行迭代：使用现有的 SIEM，摄取来自平台、应用程序和审计系统的日志。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">发生事故是不可避免的，不过这没关系，只要你有相应的事故响应流程。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">每次事后分析的第一个要点应该是：“下次我们如何更快地发现这个问题”？搞清楚这些问题可以让你发现自己的盲点，然后利用这些盲点来了解自己错过了哪些信号，以及什么东西是值得相信的。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><br></section><section style="margin-left: 8px;margin-right: 8px;"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section data-mpa-template="t"><section style="display: flex;justify-content: flex-start;align-items: center;" data-mid=""><section style="margin-left: 10px;display: flex;justify-content: center;align-items: center;" data-mid=""><section style="display: flex;justify-content: center;align-items: flex-start;flex-direction: column;" data-mid=""><section style="margin-bottom: -25.5px;width: 18px;height: 18px;border-radius: 9px;background: rgb(190, 218, 255);" data-mid=""><br></section><h1 style="margin-left: 5px;font-size: 34px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 51px;letter-spacing: 2px;" data-mid="">05</h1></section><section style="margin-bottom: -2.5px;margin-left: 2px;" data-mid=""><p style="font-size: 16px;font-family: PingFangSC-Semibold, &quot;PingFang SC&quot;;font-weight: bold;color: rgb(36, 104, 242);line-height: 22px;text-decoration: underline;" data-mid=""><span style="font-size: 20px;">结论</span></p></section></section></section></section></section></section></section></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 15px;">容器安全是一个广泛存在的问题，不仅仅是扫描镜像那么简单。这就是我建立的模型，用于分析容器风险和解决方案。它比较抽象，当然，和所有模型一样，它不一定是绝对正确的。我们都知道，每一个基础设施就像是一片雪花：以此为灵感去建立你自己的威胁模型。</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="color: rgb(136, 136, 136);font-size: 15px;">原文链接：</span></section><section style="font-family: Avenir, -apple-system-font, 微软雅黑, sans-serif;box-sizing: border-box;font-size: 16px;white-space: pre-line;line-height: 27px;padding-top: 23px;padding-right: 8px;padding-left: 8px;color: rgb(74, 74, 74);margin-left: 8px;margin-right: 8px;"><span style="font-size: 14px;color: rgb(136, 136, 136);">https://cloudberry.engineering/article/practical-introduction-container-security/</span></section><section style="letter-spacing: 0.544px;white-space: normal;color: rgb(0, 0, 0);font-family: Arial, sans-serif;text-align: left;background-color: rgb(255, 255, 255);line-height: 2em;word-break: break-all;"><section data-mpa-template="t" mpa-from-tpl="t"><section style="padding-right: 0em;padding-left: 0em;color: rgb(62, 62, 62);font-size: 16px;list-style-type: none;padding-inline-start: 0px;margin-block: 0px;line-height: 25.6px;text-align: center;margin-left: 8px;margin-right: 8px;"><span style="font-size: 14px;">- End -</span></section></section><p style="letter-spacing: 0.544px;text-align: center;line-height: 2em;word-break: break-all;margin-left: 16px;margin-right: 16px;"><span style="color: rgb(36, 104, 242);"><strong><span style="font-size: 15px;text-align: left;">文章看完，还不过瘾？</span></strong></span></p><p style="letter-spacing: 0.544px;line-height: 2em;word-break: break-all;margin-left: 16px;margin-right: 16px;"><span style="font-size: 15px;">欢迎加入百度开发者社群，和更多开发者小伙伴进行内行深入的灵魂交流～</span></p></section><section style="letter-spacing: 0.544px;white-space: normal;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;background-color: rgb(255, 255, 255);"><p style="margin-left: 16px;margin-right: 16px;"><span style="font-size: 15px;">扫码添加小助手（<span style="font-family: Arial, sans-serif;text-align: left;">ID：baidukfz2021）</span>，即可申请加入，<span style="font-family: Arial, sans-serif;text-align: left;">备注“姓名+单位/学校+职位/专业”，通过审核后即可进群</span>。</span></p></section><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;margin-left: 8px;margin-right: 8px;"><img data-ratio="0.9131121642969984" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="jpeg" data-w="633" style="box-sizing: border-box !important; visibility: visible !important; width: 208px !important; height: 190.101px !important;" _width="208px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/6nWVkbiaAIRKlczn1ickicM0N9iaNiciaF2rrAmjG7bB778TXMIDMrncCpqUxbbbibgT2TibTyT4HpAd3utlsG73Kv2S7g/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></section><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;text-align: center;margin-left: 16px;margin-right: 16px;"><span style="color: rgb(36, 104, 242);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 15px;font-weight: 700;letter-spacing: 0.544px;white-space: pre-line;widows: 1;">------------------推荐阅读------------------</span></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;text-align: left;margin-left: 16px;margin-right: 16px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDE2NDU2MA==&amp;mid=2654494370&amp;idx=1&amp;sn=b181fe7ba57fbc6df0597e621674566a&amp;chksm=bd840d9d8af3848bc307023b7b11b4df305d1eff56785ddd97f460fd6b6e6e5ed9f7ecd27e0e&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" style="font-size: 15px;" data-linktype="2"><span style="font-size: 15px;">前端性能优化实践 | 百度APP个人主页优化</span></a><br></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;text-align: left;margin-left: 16px;margin-right: 16px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDE2NDU2MA==&amp;mid=2654494352&amp;idx=1&amp;sn=62a7ab7b1be07be62f36b939bb58b76d&amp;chksm=bd840daf8af384b985052a51087df5ae8c8552ff05963745b898ba63df84b443e100633ed10b&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" style="font-size: 15px;" data-linktype="2"><span style="font-size: 15px;">工程师必知的代码重构指南</span></a><br></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;text-align: left;margin-left: 16px;margin-right: 16px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5MDE2NDU2MA==&amp;mid=2654494388&amp;idx=1&amp;sn=6679ef719379020662453376fad8ec4e&amp;chksm=bd840d8b8af3849dd34a8af5c5580e8309237214953e633fe1a349d04feb8ad5c032bb63066d&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" style="font-size: 15px;" data-linktype="2"><span style="font-size: 15px;">完成GitHub个人主页设计，只需要这三步</span></a><br></p><section style="text-align: center;margin-left: 16px;margin-right: 16px;"><img class="rich_pages img_loading" data-ratio="0.5266666666666666" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="900" style="width: 296px !important; height: 156.84px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/6nWVkbiaAIRJm3iaibDcUDZLIhtqicQ6UAoZLcGkIWYrUVU6AF7GialE2x7FGZxZv9Jx2zWtibS7ibBbJhkfeap5L0DYQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section>                </div><div>来源:https://mp.weixin.qq.com/s/8OHLBWRmU3AAoaUF0aQrYA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="171" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="171" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/6nWVkbiaAIRJm3iaibDcUDZLIhtqicQ6UAoZc6Dc6SDuhdUo9GfXU8Hqv9O0ZrLiaRxyZ61may1piaEDRjR6ibVLw2tEg/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="171" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/容器.html" class="tag" rel="tag">容器</a></li>
+        <li>浏览次数：<span>443</span> 次浏览</li>
+        <li>发布日期：2021-07-06 19:52:24</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/171.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="169.html">编译并体验 .NET MAUI 官方示例代码</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="172.html">来看看历代 MacBook Pro</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_gif/6nWVkbiaAIRJm3iaibDcUDZLIhtqicQ6UAoZc6Dc6SDuhdUo9GfXU8Hqv9O0ZrLiaRxyZ61may1piaEDRjR6ibVLw2tEg/640.jpg" alt="容器安全最佳实践入门" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">容器安全最佳实践入门</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="8bc9cf98ffaf9b6617ae4255c7c5abd4">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="171">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

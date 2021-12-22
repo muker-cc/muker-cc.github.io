@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>5000 万行以上大型代码仓库工程实践 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="0387cc9877945fc2fbaef016d0b07bd7">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">5000 万行以上大型代码仓库工程实践</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 192 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial;margin-left: 8px;margin-right: 8px;font-size: 16px;" data-mpa-powered-by="yiban.io"><p style="color: black;text-align: center;"><img class="rich_pages wxw-img __bg_gif" data-galleryid="" data-ratio="0.1575" data-src="../../mmbiz_gif/j3gficicyOvasIjZpiaTNIPReJVWEJf7UGpmokI3LL4NbQDb8fO48fYROmYPXUhXFN8IdDqPcI1gA6OfSLsQHxB4w/640.jpg" data-type="gif" data-w="400" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/j3gficicyOvasIjZpiaTNIPReJVWEJf7UGpmokI3LL4NbQDb8fO48fYROmYPXUhXFN8IdDqPcI1gA6OfSLsQHxB4w/640?wx_fmt=gif" data-order="0" alt="图片" data-fail="0"></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">作者：marinewu，腾讯 PCG 工程效能平台部专家</p><blockquote data-tool="mdnice编辑器" style="color: rgb(106, 115, 125);border-top: none;border-right: none;border-bottom: none;line-height: 1.8;font-size: 0.9em;overflow: auto;border-left-color: rgba(0, 0, 0, 0.4);background: rgba(0, 0, 0, 0.05);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 14px;display: inline;color: black;line-height: 26px;">腾讯 PCG 工程效能平台部自 2020 年开始进行大仓基本能力建设，并在 2021 年与工蜂合作成立了代码大仓研效联合项目组。在此, 我们想分享大仓/单仓踩过的坑。我们认为这些坑是真实存在且很难避免的，不是小马过河。</p></blockquote><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓并不简单。成功的单仓所带来的效果绝不止简单的代码聚合，但成本是大量的工具支持以及工程实践。单仓像放大镜，可以将优秀的工程实践以极低的成本推广，但同时也会将错误迅速放大。同时，向单仓迁移的过程也有相当程度的风险。本文会详细讨论单仓的益处、挑战，以及我们对挑战的应对之道，以供参考。</p><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>单仓/大仓是什么？</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">单仓：指<a href="javascript:window.open('https://en.wikipedia.org/wiki/Monorepo');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);" data-linktype="2">Monorepo</a>，或单一仓库，是指将多个项目放在同个仓库中的版本控制策略。单仓在实践中可能有不同规模，如中心级、部门级、BG 级、公司级单仓。业界最著名的单仓是<a href="javascript:window.open('https://cacm.acm.org/magazines/2016/7/204032-why-google-stores-billions-of-lines-of-code-in-a-single-repository/fulltext');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);" data-linktype="2">Google 的 google3</a>，除一些开源项目，Google 内其它所有代码都放置于其中，有超过 20 亿行代码和超过 86T 的容量。目前公司内部成功应用的单仓大多在部门级及以下。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">大仓：指大型规模的仓库。“大型规模”并没有严格的定义 -- 在本文中，我们将大仓定义为“单机已无法承受其容量的仓库”。一个粗略的估计：大于五千万行代码 或 容量超过 100G 的仓库即为普遍认可的大仓。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓是我们的目的，而大仓则是（终极）单仓的必然结果。</p><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>为什么要发明单仓？</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓的设计核心起源于"One Version"的哲学，并内化了规模化的思想。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">Scalability 可规模化</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">在软件工程中，我们希望“解决一次，解决全部”。即，任何的一个良好的工程实践，都以自动化、规模化的手段几乎零成本地推广到所有的团队及代码。这样可以减轻开发人员的心智负担，使之将更多的精力放在创造性的工作上。典型的例子包括代码静态检查、自动化测试及持续集成、开发流程标准化、工具统一化等等。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓极大地简化了规模化：当所有代码都放置在一处，并且高度统一，则所有的工具都可以规模化地在单仓上作业。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);">Single Source of Truth -&gt;One Version 从单可信源到单一版本</span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a href="javascript:window.open('https://en.wikipedia.org/wiki/Single_source_of_truth');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">Single source of truth(</a>SSoT)原则，是指开发人员在任意时间可以确定代码仓库内的哪个分支是唯一可信依赖源(SSoT)。在 CVS 中，单一来源是核心原则；在 DVS 中，如 git，在现代的业界实践中也采取了该原则，即要求永远都只有一条主干，且所有的分支（除了发布分支）最终都会被收拢回主干里。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单一版本(One Version)则更进一步，是指在任意时间，代码库内的每一份组件、每一个依赖只有一个版本。</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">对内部库而言，这意味着使用主干开发（见下），并且必须在主干 HEAD 上依赖。这是一个非常强的约束——这意味着除了终端制品，任何一个内部被依赖的库都不能通过分支发布，而必须保持自己在单仓的主干上一直是发布状态。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">对外部依赖而言，同一个第三方库在单仓中永远只会引入一个版本。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">不强制 SSoT/One Version 的版本控制策略往往通过制品/版本分支发布。这意味着在整个依赖关系图之上还有一个版本的维度。这也是在开源社区/SDK 发布商通常采用的策略，其根本原因在于并非完全掌握下游用户的情况。这样除了导致较高的维护成本，还会导致依赖关系难以满足（Dependency hell, <a href="javascript:window.open('https://en.wikipedia.org/wiki/Dependency_hell');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">依赖地狱</a>）。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">主干开发 Trunk-based development</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">基于版本控制的协作模式一般分两种：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">分支开发：每个分支对应一个功能，开发者在这个分支上开发，直到最后完成功能后合并回主干。这是现在小仓下的主流模式。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><a href="javascript:window.open('https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);" data-linktype="2">主干开发</a>：每个分支只对应一个简单的修改。每个开发者在分支上完成修改后经过 CR 尽快合入主干。这是在单仓下推荐的开发模式。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">两者的主要区别在于分支存活时间：保持主干始终健康，将所有的 commits 尽快小批量合入的是主干开发；以 feature 为单位，当 feature 完成之后再重新合入的是分支开发。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">虽然听上去差异微小，但从分支开发迁移到主干开发对研发模式的影响深远。请务必确保您的团队深入理解前置需求(挑战)和长期影响（益处）。下文将分别阐述。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">Case: API</strong> <a href="javascript:window.open('https://en.wikipedia.org/wiki/Deprecation');" style="color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">Deprecation</a></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">考虑以下常见场景：一个公共库的作者如何 deprecate 旧的 API 并提供新的 API 作为替代品？</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">小仓场景：这个公共库按版本分支或按制品发布。API 可以在下一个版本直接更新，并强制 API 调用方对 API 进行更新。这样的好处是 API 提供方的责任较简单，坏处是每一个 API 调用方都需要自行更新代码，并且 API 提供方无法保证自己的新版 API 已经被使用。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓/主干场景：公共库只提供源码依赖，并不按版本发布。这样，我们需要保证公共库在主干上始终是正确的。API deprecation 时，API 提供方可以查找所有 API 调用方，并且发动大规模自动修改，原子性地将所有的旧 API 调用更新至新的 API。这样的好处是 API 调用方的责任更简单，但是这种修改只有在能够查找 API 的所有用户、并且整个持续集成水平较高时才有可能。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">从上面的例子可见，在单仓/主干的场景下，很多代码的维护工作可以左移并规模化。减少重复劳动、大规模的工业化，是我们启用单仓的原动力。</p><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>益处</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">以下的益处基于开发者视角和代码维护者视角。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">再次提醒， 单仓想要达成预期效果需要工具、流程和文化三方面的准备，以及长期大量持续维护。贸然迁移到大仓不但不会带来收益，反而会导致项目和代码管理彻底混乱。请确保您对<strong>挑战</strong>部分有所准备。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">主干开发</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">主干开发是为了进行持续集成。频繁地、小批量地构建/测试是持续集成的关键。通过主干开发可以：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">避免较长的稳定期，使持续集成可以持续运行，均摊每次合入的风险</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">使不同特性的开发成员可以及早地了解其它团队可能对代码结构的影响</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">避免合流日必须大量合并冲突的痛苦</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">降低 CR 的难度和成本：主干开发下每个合入主干的提交更小，而 CR 的难度随提交修改量高于线性增长，因此 CR 的难度均摊更小。另外，强制小批量合入主干的提交可以将 CR 的责任从分支所有者转移到代码所有者，这更利于对代码质量的长期维护。</section></li></ul><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">更容易的代码复用与分享</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">在大仓下，所有的代码会变得更公开透明。这便于我们抽象出共同的需求，建立公共库与公共框架，也便于我们学习更优秀的代码，以及寻求常见问题的解决方案。另外，我们对公共代码的调用可以变得更简单：直接从代码层面依赖，而非必须使用包管理/制品/跨仓库的依赖。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">例子：查询 API 的使用方法</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">需要一个调用非常复杂（例如一个有几百个 fields 的 protobuf）的 API。如何才能正常调用？Stackoverflow 里不存在答案，而码客似乎也不适合提问，难道只能找 API 的原作者询问用法？</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">如果在大仓中，可以查找该 API 已有的在生产环境中的调用作为极好的参考。相反，在纷乱的小仓，缺少好的代码检索工具，很难确定 API 到底在哪里被调用。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">需要：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工具 编译系统：统一的优雅的编译系统可以降低代码的复用的工作量。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工具 权限控制</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工具 代码浏览工具</section></li></ul><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">开放协作的文化</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">大仓模式下会带来／诱发合作模式的改变。我们认为现代软件开发关键在于团队合作，因此一个能够增加透明度、允许更高层面合作的开发模式能够促成更透明更亲密的合作。更进一步，根据<a href="javascript:window.open('https://en.wikipedia.org/wiki/Conway's_law');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">Conway's law</a>，一个所有人的代码都公开透明、亲密协作的组织能够产生更加公开透明、结构亲密协作的产品（注意：这里协作不代表耦合）。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">在大仓模式和主干开发的模式下， 我们可以更方便地主动去为其他组的项目提交代码，例如修复缺陷或实现我们所需的新功能。这个组可能是姐妹组，也可能是相隔甚远的项目组。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们认为作者对代码有太强的归属感，即有强烈的领地意识，对开放协作文化有害。隐藏代码或不允许别人触碰自己编写的代码是反模式。允许别人修改，自己由 CR 做最终决定，是更为开放和有效的合作模式。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">例子：公共库/框架</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个公共库／框架的诞生往往通过两种途径 -- 自顶向下和自下向上。自下向上指通过逐步聚合抽象公共需求和组件。例如一个顶目的开发过程中，基于实践抽象出自己项目的公共库；慢慢地，该公共库与其它项目的公共库的共同部分会产生相当程度的重叠，我们便将这部分交集进行整理和泛化，升级为更高级别（如产品线）的公共库。经过更进一步的抽取和整合，最终形成公司级别的公共库。如果没有足够的透明度和协作，这种聚合几乎是天方夜谭。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">需要：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">流程·代码评审：开放协作的文化必须要通过严格的流程来制约</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">流程·结构管理：需要规范来控制大仓的目录结构，否则随意的创建目录会非常快速增加仓库熵以致于不可控</section></li></ul><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">原子修改</strong> <strong style="font-weight: border;color: #3e4753;">Atomic Commits</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a href="javascript:window.open('https://en.wikipedia.org/wiki/Atomic_commit#Revision_control');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">原子修改</a>指我们可以在一个提交中修改在单仓中的多个项目的代码并同时生效。这对仓库始终保持在一致状态至关重要。与此相反，在小仓场景下，我们需要在每个需要修改的仓库发送提交，这意味着原子性不能保证，即我们无法保证这些提交同时生效。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个典型的例子是同时修改 API 接口、实现以及所有的 API 调用者。如此，我们就可以避免同时维护同一接口的两个版本。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">注意：原子修改也无法解决 C/S 不统一的问题。即对 API 的更改，即使对实现和调用的更新和 API 更新一起是原子提交，也无法解决 C/S 面对的接口不一致的问题。因为 C/S 的发布周期不会因为原子提交而实现原子化。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">大规模修改</strong> <strong style="font-weight: border;color: #3e4753;">Large Scale Change</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">由于开发人员可以访问所有项目，因此我们可以批量地进行大规模的自动化的简单修改，例如 API 更新、自动清理长期未被引用代码等，以维护代码质量。这种由工具团队发起的大规模的修改在大仓开发模式下十分常见。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">需要：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工具·持续集成：只有保证足够高质量和覆盖率的自动化测试、足够优秀的持续集成才能让我们有足够的工程信心进行大规模的修改。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工具·大规模修改：为了能自动化进行大规模修改，需要能够自动按规则大范围修改代码、自动格式化代码的工具。</section></li></ul><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">代码治理简单</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">代码单一的存放位置使得代码作业更加简单。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">例子：代码扫描</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们希望建立知识库，因此希望扫描所有相关仓库内的 markdown 工程文档。小仓场景下，我们需要维护所有相关仓库的列表，克隆并扫描每个仓库。单仓场景下，只扫描一个仓库即可。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">依赖管理简单</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">在大仓里，第二方和第三方依赖可以直接依源码导入，并且只有一个版本。这样可以极大地简化我们对依赖的治理。而且也可以减少已经标准化的项目对引入第三方依赖的成本，因为这些引入的依赖需要标准化，如 Bazel 化。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">注意：第三方依赖的治理本身是需要大量工作的。详见[挑战·依赖管理]。</p><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>挑战</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">以下挑战基于单仓维护者视角。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">这些挑战是我们在以往大仓开发/大仓迁移过程中真实踩过的坑，而非臆想。我们鼓励所有考虑迁移单仓的团队在迁移前认真检查自己是否对以下挑战有所了解并做好准备。另外请注意，以下尚未穷举所有挑战，您需要随时准备迎接新的挑战。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">单仓不是银弹。事实上，单仓／主干开发不应该做为一个孤立的工程实践，而更应该被视为一个工程实践的放大器 -- 除了固有的挑战，它可以实现工业化，放大其它的流程／工具的收益；但是如果没有足够有效的工具和严格的流程及实践控制，大仓几乎就是灾难的代名词。下文中“单仓所需的工程实践”并非严格的限制，但这正是陷阱所在 -- 不满足这些前置的单仓还不如小仓。小仓虽然也需要这些实践，但是至少可能不会有这么强的扩散效应。如果妥协，即在单仓内完全采取和小仓一样的严格隔离项目并采取分支发布的策略，则迁移单仓的意义基本被消解。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们将挑战分为两类：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">单仓：由于多个项目在同个仓库中所带来的治理挑战</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">大仓：由于仓库的体量导致的可扩容性挑战</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">所有大仓引起的挑战在下文有特殊标明。如果您的单仓规模较小可暂时忽略，但请做好仓库规模增长的准备。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">权限控制</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">代码迁移到单仓会引入对权限控制的新要求。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">提交权限</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">目前我们的提交权限以 Git 仓库为最低颗粒度。在单仓中，仓库级别的权限控制不足以支持多个团队、多个项目在单仓内作业。因此“项目”级别的权限控制是必须的 -- 在单仓场景下，这需要目录作为最小颗粒的权限控制。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">同时，我们不建议照搬小仓的提交权限机制，即“只有目录的 owner 才能在该目录下提交”。我们认为提交权限需要在 CR 层面解决，即并非“只有有权限的人才能提交”，而是“只有有权限的人作为作者，或者作为评审者同意提交，才能提交”。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">引入类似于<a href="javascript:window.open('https://chromium.googlesource.com/chromium/src/+/HEAD/docs/code_reviews.md#owners-file-details');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">Chromium 的 OWNERS</a>机制。机制的关键在于：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">OWNERS，而非 commit 的作者，为代码质量负责。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">OWNERS 机制需要具有高度的灵活性。默认，OWNERS 的权限为所在目录树。但是 OWNERS 也可以为文件(per-file)级别提供颗粒度。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">OWNERS 的定义不应该在仓库根目录，而应在所在目录。并且，OWNERS 文件应该是可继承的。例如，/foo/bar/...的 OWNERS 应该是：</section></li></ol><figure data-tool="mdnice编辑器" style="color: black;margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.02727272727272727" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="svg" data-w="660" style="border-radius: 0px 0px 5px 5px; display: block; margin: 10px auto; object-fit: contain; width: 292px !important; height: 7.96364px !important;" _width="328px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们与此同时将设立一个工具以自动为 commit 自动分配 reviewer，因为在大仓下寻找正确的 reviewer 会相对更困难。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">可见权限</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个不太常见的、与大仓的设计目的相反的需求是隐藏代码。有一些代码是必须需要维持私密性的，例如与权限相关的代码或者具体高商业价值的代码。所以这些代码需要只对一部分人可见，并需依赖大仓其它代码进行编译。这里有几个选项：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">在大仓内提供更细颗粒度（如目录级别）的可见性控制。需要代码托管方的支持。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">私密代码放入小仓中，以小仓的权限控制来保证保密性。大仓保持所有代码的可见性。注意：这意味着可能有小仓向大仓的依赖，可能需要版本控制工具的支持对大仓的依赖。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：暂时未遇到，视情况解决。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">清除提交</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个更加少见的需求是清除一个提交。例如，一个提交泄露了高商业价值信息，需要及时清除。如何从仓库历史里以及从开发者本地的克隆里及时清除是一件困难的事情。在小仓场景下，我们可以简单地将提交所在仓库归档为私有，将该提交之前的所有历史复制到另一个新的仓库，将新的仓库公开并删除旧的仓库。在单仓场景下，其影响面会比原来大。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：暂时未遇到，视情况解决。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">巨大代码存储空间</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">大仓需要的存储空间可能会非常大。以 Google 为例，2015 年时已经有 20 亿行代码，仓库超过 86T。这个大小对版本控制造成了非常大的挑战，尤其是默认 Git 会下载整个仓库。这对代码托管方、开发、代码分析方(如 CI/数据分析/...）等原本可以单机承载单仓容量的系统都会造成更大的压力。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们与代码托管方，即工蜂，合作成立了代码大仓研效联合项目组，以解决扩容问题。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">可扩容性</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><em style="letter-spacing: 0em;">（该部分为大仓引起的挑战。如果您的单仓规模较小可暂时忽略，但请做好仓库规模增长的准备）</em></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">可扩容性的核心挑战在于，如果工具是以仓库为操作单元，则其随开发人员数量的增长往往不是线性的，而是以不低于二次方增长的。举例， 考虑每次持续集成都编译整个仓库，则如果人员增长 10 倍，可以粗略假设仓库大小增长 10 倍，提交频率增长 10 倍，则整个编译量会增加 100 倍。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们认为所有的所有开发工具和流程都应该优化，使之随仓库的规模上升线性增长。如果无法保证，请保证您的单仓较小。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">版本控制</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">版本控制工具将主要面对两个挑战：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">代码存储空间大</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">原生 Git 对仓库的最小操作单位是仓库，即不支持部分检出。这有其设计目的和历史原因，因此原生 Git 并不适合大型仓库。为了缓解这个问题，Git 本身做了很多尝试，如支持 Git-Lfs, Git Submodule, Git sparse checkout, Git partial clone 等，但是更像是在打补丁。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">主干进展迅速</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">大仓乃至单仓的提交非常频繁，主干进展很快，因此需要频繁进行 rebase。这对 rebase 的性能有所要求，并且可能需要您提交锁的设计。</p></section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">如果使用 Git 作为版本控制工具，在迁移到大仓之前，请确保您对仓库大小有所控制，包括：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">使用 Git-LFS，尽可能地把非代码的大文件，如资源，托管到 LFS。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">定期归档 Git 历史，保持.git 文件大小可控。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">强制采取 Squash and merge 方式合并，保持主干简洁。</section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们对 Git 进行了改造，开发了基于懒加载的检出方案。基于前文所提到的 Code access API，我们实现了对文件的按需检出。在初次 clone 时，所有的文件都只有元数据被下载，只有当需要获取文件内容时才会真正下载文件。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">构建系统</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们强烈推荐在单仓使用统一的构建系统。至少，每门语言应该使用统一的构建系统。否则，您可能使用的不是一个单仓，而是一个将众多小仓放在一起的空间。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们认为一个适合大仓的构建系统应该满足以下要求：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">构建可以是局部的。整个大仓应该作为一个方便彼此之间的依赖，但是在构建时应该允许只编译当前感兴趣的模块。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">构建可以是增量的。有限的修改应该只触发有限的重建，并且可以保证正确性。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">构建的配置应该是显式的、代码化的。理想状态下， 一个 repo + branch + commit + build target 即可以完整地、唯一地确定编译产物。这对 CI/CD 非常重要，即 CI 的正确性可以保证制品的正确性。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">依赖关系应该是显式的，包括传递依赖也应该是显式的。这样可以方便我们对系统模块化，并且更好地管理依赖，包括第一方以及第三方依赖。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个常见的错误是，把构建速度作为选择构建系统的唯一指标。另外，我们推荐统一每个语言的编译器以及对应版本。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们采用<a href="javascript:window.open('http://bazel.build/');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">Bazel</a>作为唯一的构建系统。Bazel 有以下优点：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Bazel 的编译是局部的。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Bazel 的编译是增量的，并且提供了分布式中间结果缓存以及分布式中间结果构建接口。搭建分布式缓存和分布式构建集群对 Bazel 的编译速度提升效果非常明显。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Bazel 的编译声明是显式的，并且所有的依赖关系也是必须的显式的。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Bazel 是跨语言的：Bazel 的核心是一个构建引擎，所有的语言支持都是以 DSL 的扩展实现的。</section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">如果要建立单仓，推荐考虑 Bazel 作为构建系统。但是请注意：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Bazel 本身对构建系统需要有较深理解。我们推荐在您的组织内培养一定数量的专家对构建进行维护。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">请不要使用 Bazel 4.0 之前的版本。Bazel 4.0 是第一个 LTS 版本，在此之前的版本 Bug 甚多。另外请尽量只使用 LTS 的版本。</section></li></ol><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">（大仓体量下的）持续集成</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个能够支持大仓体量的、可伸缩的持续集成系统是高度不平凡的。在设计持续集成系统，请确保已考虑以下可能需要解决的问题：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">持续集成的自动测试应该测试哪些目标</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">a.全量测试：朴素地编译整个大仓里的所有项目、执行所有测试可能并不是一个可行的方案，因为耗时可能过长。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">b.人工精准测试：人为定义一个“项目”，当项目内的文件被修改时，执行所有项目相关的测试。但是该策略可能难以保证所有被影响的目标都会被测试到，尤其当修改的代码是公共库时。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">c.精准测试：从构建系统出发，计算被修改的文件所可能影响到的所有测试。但是这需要构建系统的支持（这也是为什么我们推荐 Bazel 的原因之一）。另外，大型测试，如需要搭起多个服务的系统测试，依然需要一个不基于依赖关系的测试策略，即需要人工精准测试。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">自动构建/测试的体量可能超过单机承载量，即使已经采取了精准测试。您可能需要将测试任务分片。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">持续集成的构建机需要快速拉取代码进行构建和测试。请注意在大仓的体量巨大时，构建机可能每次构建都重新下载整个仓库的代码可能并不可行。您可能需要在构建机上缓存代码或者采取其它的裁剪策略保证您的持续集成不会因为下载代码花费过长时间。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">您可能需要严格执行持续集成的“主干永远是绿的”政策，即，主干上持续集成变红/变黑之后，受影响的团队需要立刻修复问题，或者，无法快速修复时，还原相关修改。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">a.您可能希望通过"PreMR 100%成功"保证主干永远是绿的。遗憾的是，这在大仓中无法做到。由于主干进展很快，我们在执行 PreMR 集成测试时的主干 HEAD 与实际合入时的 HEAD 可能相差甚远，这可能导致中间会由于被依赖文件的修改而发生合入之后的测试失败。因此您始终需要 PostMR，且 PostMR 需要更大范围的测试，因为这种情况只有在 PostMR 的自动化测试才能发现。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">b.您需要对主干上“失败肇因识别(culprit finding)”准备策略。这是指，PostMR 由 commit A 失败的测试（记为 T)未必是由 A 导致的。如果 T 上次测试通过的 commit 是 B，则所有在(B, A]之间的所有 commit 都可能是肇因。您可能需要对所有测试目标一段时间持续集成执行历史的记录。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">并发的执行自动测试的请求可能超过构建机的数量。您可能需要机器锁，或者一个更好的构建队列调度器。当 PreMR 和 PostMR 同时在排队时，您可能会需要给 PreMR 更高的优先度以不阻碍开发人员的工作。</p></section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们设计了新的持续集成服务。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">质量保证所必需的工程实践</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">主干开发</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">注意从分支开发到主干开发需要大量的学习成本，不可能一蹴而就。未实操过主干开发的开发者很可能难以想像如何采用这种方式工作。我们推荐进行大量的培训，甚至类似于导师制，来培养团队主干开发的习惯和能力。我们强烈不建议使用考核等行政手段作为唯一的推进手段，因为向主干开发的切换并非只是意愿问题。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">为达成主干开发，除了开发人员的培训，您需要在单仓中以下工具/实践：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">小批量开发。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">开关系统。当一个特性尚未开发完成，您需要在主干中通过开关将该特性屏蔽，使用户和其它特性完全不受该特性影响。开关系统分为两类：编译时开关和运行时开关， 区分在于开关可以判断状态的阶段。我们推荐：</section></li><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: square;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);">通过编译时开关进行主干开发协作；</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);">通过运行时开关进行上线发布以及 A/B 实验。这并不局限于大仓。</section></li></ul><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">高优先度的代码评审：相比于开发，CR 的优先应该更高。保持 CR 流程的畅通是主干开发的必要前置。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">保持主干健康。当主干上出现了构建/测试失败，需要开发者停止当前工作并立即修复 CI 问题。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">持续集成，见下。</section></li></ul><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">（单仓中的）持续集成</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">主干开发和持续集成是相辅相成的关系。尽快往主干的提交使得持续集成可以更细地触发，而持续集成是使主干代码始终保持在可发布状态的主要保证。</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">在单仓中，请确保测试的质量及覆盖率足够支撑持续集成。持续测试是持续集成的主体。如果没有足够的测试，持续集成能起到的作用非常有限。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">持续集成应该标准化。您不会希望看到单仓内的每个项目都有独立的几十条流水线，整个单仓有几万条流水线。这样无法达到持续集成所希望达成的质量保证。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">持续集成需要尽快得到结果。保持持续集成的畅通是主干开发的另一必要前置。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">我们要求测试质量和覆盖率必须达标。我们将测试的质量和覆盖率置入 EPC 指标。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">我们对流水线进行集中治理和标准化。</section></li></ul><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">代码评审</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">代码评审在大仓+主干开发的模式下非常重要。因为大仓的代码的合作程度更高，依赖关系会更加复杂，在大仓内的坏提交可能会比原来在小仓内有数百倍计甚至更高的破坏性。在维护左移与加强协作的情况下，代码的维护者很可能不是代码变更的作者，而是代码变更的评审者。如果没有足够良好的代码评审文化和实践，如果代码评审形同虚设，就无法通过代码评审来保证代码变更质量，则您可能需要考虑先培养代码评审的文化。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">高频次的细致的代码评审对代码评审工具有更高的要求。</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">代码评审工具需要和工作流程以及其它工具，如在线 IDE、静态检查、持续集成和持续发布等等。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">代码评审的记录是宝贵的工程资料和技术积累，需要永久保留并且需要便于审阅回顾。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">代码评审的流程需要清晰简洁，代码评审页面应该直观、响应速度快且无 bug。否则，开发人员可能会在被评审要求反复改代码之时迁怒于代码评审工具。</section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们采取了严格的 Code Review 的政策：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">创立了 PCG 工程技能认证体系(https://iwiki.woa.com/space/SkillsCertification)， 引入了 Readability 机制。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">我们投入了大量精力培养工程师的代码评审文化，并且提供了大量的 Code Review 的培训。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Code Review 的质与量作为考核标准。</section></li></ol><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">结构管理</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">大仓的结构管理需要慎重设计 。随着开发人员的增加和仓库规模的增长，需要考虑如何将维持大仓目录结构，使得各团队在合作的同时又不失结构。一个好的大仓的目录结构应该是易于在未知情况下定位项目所在目录的，并且比较稳定。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们推荐在设计结构目录时考虑以下问题：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">考虑不同语言的代码命名规范、存放惯例以及定位原则。假如，C++路径与引入完全一致，而与此相反，Java 没有类似的强制规定，但是惯例以 com.tencent...为 package 前缀。它们应该被放在何处？</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">API 的放置。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">第二方、第三方依赖的放置。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">是否提供每个项目的目录结构的设计准则。是否提供脚手架。</section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">从经验上来看，与其说设计结构目录是设计一个最好的，不如说是设计一个最不坏的。</p><h5 data-tool="mdnice编辑器" style="color: rgb(3, 124, 230);font-weight: bold;margin-top: 10px;"><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;"><strong style="font-weight: border;color: #3e4753;">依赖管理</strong></span><span style="color: rgb(0, 0, 0);font-weight: bolder;margin-top: 10px;margin-bottom: 10px;display: none;"></span></h5><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">正向依赖：需要认真治理所有的第三方依赖。在大仓里如果不进行第三方依赖的治理，大仓/主干开发的优势就会慢慢消散。第三方依赖主要有两个治理方向：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">依赖可信：指所有的第三方源应该是可靠的。当前，我们对外部依赖并没有明确的限制，内部仓库会从 Github 甚至其它低可信源不受限地添加依赖。由于缺乏足够的代码审查，且导入众多且难以追踪，当前我们缺乏工具和流程解决第三方依赖的安全问题，如对高危漏洞的修复以及对外部源投毒的防御等。另外，这导致我们无法审查外部代码引入的 LICENCE 是否合规。</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">依赖发散：指一个第三方库可能有同时有<strong>多个</strong>版本，或者一个版本的多个拷贝，或者一个版本的不同生成产物，在生产环境中使用。依赖发散可能会导致依赖地狱：指通过版本号来进行包管理时，由于依赖关系过于复杂，导致能够满足所有包之间依赖关系的版本配置不存在。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">一个理想的单仓是自包含的，即，所有的外部依赖都以源码的形式被引入了单仓。单仓自身能够完成对所有项目的构建而不需要构建时下载外部代码/制品。与此同时，您可能需要思考第二方库在大仓中的位置。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">反向依赖：大仓往往难以被外部仓库源码依赖。如果大仓内的库需要被反向依赖，请确保您有应对策略。通常有两个方案：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">允许外部仓库以轻量的方式依赖大仓，如制品依赖、或者按需依赖等；</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">将被依赖的代码同步到一个小仓中，以供外部依赖。</section></li></ol><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>推荐实践及工具</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">以下并非硬性要求，但是我们仍然积极推荐您准备以下实践及工具。另外请注意，我们推荐您制定并维护严格的工程规范，例如命名、分支拉取、发布策略、比<a href="javascript:window.open('https://iwiki.woa.com/pages/viewpage.action?pageId=302005142');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">腾讯代码规范</a>更详细的语言规范。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">静态检查</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a href="javascript:window.open('https://en.wikipedia.org/wiki/Static_program_analysis');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">静态检查</a> (static analysis)，包括基于规则的代码扫描、基于抽象语法树的静态分析和基于编译插桩的分析工具。静态检查可以提升代码质量，并减少代码评审的工作量。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">静态检查的范围可以比现有代码扫描广泛得多，比如：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">API deprecation and auto replacement</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Dead code detection and auto removal</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">Error prone code suggestion</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们追求的目标是：将尽可能多的<strong>CR 意见转化为静态检查</strong>。静态检查一般在请求 MR 时触发，若有可能，尽可能将静态检查左移，在开发/编译时触发。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们将在持续集成阶段执行标准化的静态检查，提高静态检查报告的强制力，并在代码评审阶段要求开发人员做出反应。同时，我们将提供 IDE 插件以实现静态检查左移。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">轻量的代码浏览/检索</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">当我们拥有一个大型仓库，有一个良好的代码浏览器可以减少代码阅读的成本，可以更好地达到代码的复用和分享。我们希望拥有一个代码浏览器，并做到：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">轻量， 理想情况下零设置成本；</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">完整， 能够看到整个大仓的代码以及历史版本的代码，以及 blame 信息；</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">有用， 具有语义索引，能够看到所有的引用与被引用，以及实现跳转；</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">可以检索。</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">但是，现有的浏览代码的方案都不完美：</p><ul data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">工蜂尚缺少语法索引</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">IDE 等本地阅读工具需要下载并进行本地索引</section></li></ul><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：我们希望有一个带有语义索引的代码浏览器，类似于<a href="javascript:window.open('https://cs.opensource.google/');" style="font-weight: bold;color: rgb(62, 71, 83);border-bottom: 0px solid rgb(255, 53, 2);font-family: &quot;Microsoft YaHei&quot;;" data-linktype="2">https://cs.opensource.google</a>。</p><h4 data-tool="mdnice编辑器" style="color: rgb(14, 136, 235);font-weight: bold;font-size: 17px;margin-top: 10px;margin-bottom: 10px;"><span style="color: rgb(3, 124, 230);display: none;"></span><span style="color: rgb(3, 124, 230);"><strong style="font-weight: border;color: #3e4753;">Web IDE</strong></span><span style="color: rgb(3, 124, 230);display: none;"></span></h4><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">Web IDE 与代码浏览器一起可以降低代码修改和提交的成本。对于一些小的修改，例如纠正 typo，轻量的工具可以极大地增加提交者进行修改的意愿。</p><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>大迁移</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">迁移总是困难的， 尤其是与开发者日常工作息息相关的大规模的仓库迁移。当您要制定将众多小仓迁移至单仓的计划，请确保您考虑过以下核心问题：</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">1.您是否需要提供紧急回迁方案？</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">提供回迁方案会极大地增加迁移复杂度。如果您的单仓规模较可控（如 &lt; 500 开发），可以考虑通过一些其它手段增加迁移成功的成功率，而不提供回迁方案。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">2.您准备先将仓库迁移到单仓再完成治理（即“挑战”中所提到的必须实践），还是先治理再迁移单仓，抑或不进行治理？</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">同时，请确保您考虑过以下风险：</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">项目代码所在目录会因迁移改变，从而可能导致代码需要改变。如，从@fiber://src/迁移到@depot://devtools/fiber，相对的 package 可能会发生变化。以下解决方案均非完美：</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">a.直接平移代码：可能会导致代码不符合组织规范，或导致无法编译/运行时错误</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">b.对代码进行自动化修改（如 copybara)：可能导致无法编译/运行时错误</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">c.代码所有人自行维护：相当于把风险委任给代码所有人，但是若要长期保持迁出与迁入仓的同步，需要大量的努力。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">仓库间的依赖关系会极大增加复杂度。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">a.一个简单的例子：小仓 A 依赖小仓 B，两者均需要迁移，则您需要 ：</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">i.将小仓 A 迁移至大仓 A，仍然依赖小仓 B。归档小仓 A</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">ii.将小仓 B 复制到大仓 B</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">iii.将大仓 A 的依赖转移至大仓 B</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">iiii.此时方可归档小仓 B</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">换言之，被依赖的仓库需要后迁移。这意味着，如果是一次性迁移多个小仓，您需要整理所有的依赖关系图，拓扑 排序使入度为 0（即不被依赖）的仓库先迁移，以此逐阶段迁移。</p><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">b.如果一个小仓被单仓外的仓库依赖，您需要长期保证这个小仓依然可以存在并被依赖</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">开发团队可能需要准备一个从分支开发到主干开发的全过程，并且确保主干开发有足够的测试和 CI。在 CI 尚未准备好且开发团队经验尚浅的情况下，风险会很高。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">项目的流水线需要迁移。将小仓的流水线迁移到大仓，需要保证大仓上迁移过去的流水线可以工作。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">其它工具也同流水线一样，可能需要适配。</p></section></li></ol><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">我们的实践：相对效率，我们的迁移方案更强调安全性。</p><ol data-tool="mdnice编辑器" style="color: black;margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">提供紧急回迁方案</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">先将小仓迁移至大仓之后再进行标准化</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(62, 71, 83);font-family: &quot;Microsoft YaHei&quot;;">预先建立大仓内的开发规范，强制所有迁入大仓的项目在标准化后符合开发规范</section></li></ol><h3 data-tool="mdnice编辑器" style="color: black;font-weight: bold;font-size: 20px;text-align: left;margin-bottom: 10px;"><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;display: inline-block;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);"><strong>结语</strong></span><span style="font-family: &quot;Microsoft YaHei&quot;;color: rgb(62, 71, 83);font-weight: bolder;padding-left: 10px;border-left: 5px solid rgb(14, 136, 235);display: none;"></span></h3><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">十年磨一剑，霜刃未曾拭。感谢 PCG 两年多的效能改革为如今的单仓提供了可能。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;">路漫漫其修远兮，大迁移已经启航，我们会前进。</p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><strong>近期热文：</strong><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&amp;mid=2649761883&amp;idx=1&amp;sn=11c28943b96279317c8de1b59f6ead30&amp;chksm=beccbb2089bb32362014b6a7639b5f5cc0541c8961f30d24ba0e60d7722653ed612deaf111ac&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">带你快速了解 Docker 和 Kubernetes</a><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&amp;mid=2649761822&amp;idx=1&amp;sn=8d7212cf4f0a63e1ebab860fe3c84468&amp;chksm=beccbb6589bb32730ba7c3928e014b5ab450f1792009317925210379567404cd04262898fd07&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">浅谈 Protobuf 编码</a><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&amp;mid=2649761793&amp;idx=1&amp;sn=daa4f692f401682205607b67123869d4&amp;chksm=beccbb7a89bb326c4293f69dfc814eeb197d2dd9a599d8a756884f8f045897a994329e36e6b4&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" data-linktype="2">gRPC 基础概念详解</a><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;"><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;text-align: center;"><strong><span style="color: rgb(255, 76, 0);">第三届腾讯技术技术开放日来了！</span></strong></p><p style="text-align: center;"><img class="rich_pages wxw-img img_loading" data-ratio="3.126851851851852" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1080" style="width: 292px !important; height: 908.787px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/j3gficicyOvavl9AxD71LyfJVCnqUbiac6nYav9rNPHobbBPicA96A4ggCzK4No0a6LBGJWQwRhzs90juQJrkFhibRg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;text-align: center;"><br></p><p data-tool="mdnice编辑器" style="color: rgb(62, 71, 83);padding-top: 8px;padding-bottom: 8px;line-height: 1.75;text-align: center;"><strong><span style="color: rgb(255, 76, 0);">腾讯程序员视频号最新视频</span></strong><span style="color: rgb(255, 76, 0);"></span></p><section class=""><mpvideosnap class="js_uneditable" data-pluginname="videosnap" data-id="export/UzFfAgtgekIEAQAAAAAA5uUGSsUf4gAAAAstQy6ubaLX4KHWvLEZgBPE6KNgQ3J_MNX-zNPgMItv7Fg5UwOIn2eOj9pLbe0-" data-url="https://findermp.video.qq.com/251/20304/stodownload?encfilekey=RBfjicXSHKCOONJnTbRmmlD8cOQPXE48ib0Tcb9DwgrTbgr6EzXROcNXLJ9auqdhMzsS0iahREQ72jlC0ds7dFJfrs9xRQ4uXudJyTT8JelhZmVricXRiaUnyp4fwuDu3f3ZNeTVBgGZv0icueQBjhrdTQRrt7R98ExRkq7gl6ULTO904&amp;adaptivelytrans=0&amp;bizid=1023&amp;dotrans=0&amp;hy=SH&amp;idx=1&amp;m=f03354e351b919f466f9b45802565c21&amp;token=x5Y29zUxcibBiaGHtmXXicGxvm1ibpJRNoTyPMR6pIPFWxibSRVUUFVOEnLPePNu9v7pg" data-headimgurl="http://wx.qlogo.cn/finderhead/I7awtksbibjQe7RZAy84xEecUymmic8cw4v7Y2zbnVDuo/0" data-username="v2_060000231003b20faec8c6e08e1ac1d4cf06ea31b07760a16cba92d83444bd9a5d9d55ffaede@finder" data-nickname="腾讯程序员" data-desc="你在程序或网页中见过哪些有趣的彩蛋？这些彩蛋肯定有你没见过的！#网页彩蛋#程序员" data-nonceid="310380171973845090" data-type="video"><div class="wxw_wechannel_card appmsg_card_context js_wechannel_video_card js_wechannel_video_context">   <div class="wxw_wechannel_card_bd">     <div class="wxw_wechannel_video_context" style="background-image:url(../../251/20304/stodownload.jpg)">       <i class="weui-play-btn_primary"></i>     </div>     <div class="wxw_wechannel_profile weui-flex">              <img class="wxw_wechannel_avatar" src="../../finderhead/I7awtksbibjQe7RZAy84xEecUymmic8cw4v7Y2zbnVDuo/0.jpg" data-disable-preview="1">              <strong class="wxw_wechannel_nickname">腾讯程序员</strong>     </div>          <div class="wxw_wechannel_desc">       你在程序或网页中见过哪些有趣的彩蛋？这些彩蛋肯定有你没见过的！#网页彩蛋#程序员     </div>          <!-- 不可引用时show出来即可 -->        </div>   <div class="wxw_wechannel_card_ft weui-flex">     <i class="wxw_wechannel_logo"></i>视频号  </div> </div></mpvideosnap></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/opCnSlnKYhrNkjP8xN-EGA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="290" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="290" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/j3gficicyOvasIjZpiaTNIPReJVWEJf7UGpmokI3LL4NbQDb8fO48fYROmYPXUhXFN8IdDqPcI1gA6OfSLsQHxB4w/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="290" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/腾讯.html" class="tag" rel="tag">腾讯</a></li>
+        <li>浏览次数：<span>192</span> 次浏览</li>
+        <li>发布日期：2021-07-26 19:11:01</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/290.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="285.html">鸿蒙OS将支持控制中心与通知中心左右滑动切换</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="291.html">利用机器学习在 Pixie 上进行非结构化数据处理</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/j3gficicyOvasIjZpiaTNIPReJVWEJf7UGpmokI3LL4NbQDb8fO48fYROmYPXUhXFN8IdDqPcI1gA6OfSLsQHxB4w/640" alt="5000 万行以上大型代码仓库工程实践" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">5000 万行以上大型代码仓库工程实践</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="0387cc9877945fc2fbaef016d0b07bd7">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="290">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

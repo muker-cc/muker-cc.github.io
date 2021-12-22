@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>（附代码）50 种常用的 matplotlib 可视化图 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="32">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="19cde5ffc8a8929282ead5e340fd1bfc">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../soft.html">软件</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">（附代码）50 种常用的 matplotlib 可视化图</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 156 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="margin-top: -10px;padding: 8px;letter-spacing: 0px;white-space: normal;color: black;line-height: 1.6;overflow-wrap: break-word;font-family: mp-quote, apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;word-break: break-all;"><section mpa-from-tpl="t" style="font-size: 16px;max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-right: 8px;margin-left: 8px;max-width: 100%;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-top: 15px;margin-bottom: 7px;max-width: 100%;display: flex;flex-flow: row nowrap;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;display: inline-block;vertical-align: top;width: auto;flex: 100 100 0%;align-self: flex-start;height: auto;border-bottom: 1px solid rgb(33, 147, 255);border-bottom-right-radius: 0px;line-height: 1;letter-spacing: 0px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-top: -5px;max-width: 100%;justify-content: flex-start;display: flex;flex-flow: row nowrap;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;display: inline-block;vertical-align: top;width: auto;min-width: 10%;flex: 0 0 auto;height: auto;line-height: 1;letter-spacing: 0px;align-self: flex-start;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" mpa-from-tpl="t" style="margin-top: 8px;margin-bottom: 6px;max-width: 100%;transform: translate3d(10px, 0px, 0px);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;text-align: justify;color: rgb(20, 50, 79);letter-spacing: 2px;line-height: 1;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;font-family: Optima-Regular, PingFangTC-light;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击左上方蓝字关注我们</strong></span><br></p></section></section></section><section mpa-from-tpl="t" style="max-width: 100%;display: inline-block;vertical-align: top;width: auto;align-self: flex-start;min-width: 10%;flex: 0 0 auto;height: auto;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" mpa-from-tpl="t" style="max-width: 100%;justify-content: flex-start;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="max-width: 100%;display: inline-block;vertical-align: top;overflow: hidden;height: 16px;width: 16px;border-width: 2px;border-radius: 100px;border-style: dotted;border-color: rgb(95, 156, 239);line-height: 0;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section></section><section mpa-from-tpl="t" style="max-width: 100%;display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;flex: 100 100 0%;height: auto;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" mpa-from-tpl="t" style="margin-bottom: 3px;max-width: 100%;text-align: right;justify-content: flex-end;transform: translate3d(0px, 0px, 1px) rotateX(180deg);box-sizing: border-box !important;overflow-wrap: break-word !important;"><br mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section></section></section></section></section></section></section><p style="font-size: 16px;text-align: center;"><img class="rich_pages __bg_gif" data-ratio="0.2833333333333333" data-s="300,640" data-src="../../mmbiz_gif/pZVwCdkl3sVLicM2ugPvZ9ia5LCQt04t9ibSyLJymveBLyxpcX0BArR52N7Cht9hxP7EmCJ3q1tdckcYQvsZqdRcA/640.jpg" data-type="gif" data-w="1080" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/pZVwCdkl3sVLicM2ugPvZ9ia5LCQt04t9ibSyLJymveBLyxpcX0BArR52N7Cht9hxP7EmCJ3q1tdckcYQvsZqdRcA/640?wx_fmt=gif" data-order="0" alt="图片" data-fail="0"></p><section style="margin-top: 5px;margin-bottom: 5px;font-size: 14px;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0.544px;text-align: center;widows: 1;color: rgb(1, 1, 1);line-height: 1.75em;"><span style="max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;color: rgb(78, 79, 80);font-size: 12px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;font-family: 微软雅黑;letter-spacing: 1px;font-size: 17px;color: rgb(63, 63, 63);line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;font-size: 16px;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="font-size: 12px;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;max-width: 100%;color: rgb(62, 62, 62);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;color: rgb(63, 63, 63);line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(51, 51, 51);letter-spacing: 3px;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;line-height: 25.6px;color: rgb(136, 136, 136);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2.91px;text-align: left;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;">全网搜集目标检测相关，人工筛选最优价值内容</span></strong></span></strong></strong></strong></strong></strong></span></strong></strong></span><br></section><section style="font-size: 16px;"><br></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="margin-top: -10px;padding: 8px;letter-spacing: 0px;line-height: 1.6;overflow-wrap: break-word;word-break: break-all;"><section data-mpa-template="t" mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-mpa-template="t" mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-mpa-template="t" mpa-from-tpl="t" data-mpa-powered-by="yiban.io" style="letter-spacing: 0.544px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-mpa-template="t" mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tools="135编辑器" data-id="31" style="max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);border-width: 0px;border-style: none;border-color: initial;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-top: 25px;padding: 5px;max-width: 100%;border-width: 1px;border-style: solid;border-color: rgb(204, 204, 204);line-height: 24px;color: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-top: -20px;margin-left: 15px;font-size: 16px;max-width: 100%;width: auto;color: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="margin-top: 15px;margin-right: 8px;max-width: 100%;color: rgb(102, 102, 102);box-sizing: border-box !important;overflow-wrap: break-word !important;"><span data-brushtype="text" style="padding: 4px 10px;max-width: 100%;border-color: rgb(252, 180, 43);border-radius: 5px;color: rgb(255, 255, 255);background-color: rgb(252, 180, 43);text-align: center;letter-spacing: 2px;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;">编者荐语</span></strong></span></section><section data-style="text-indent: 2em;;" style="margin: 15px;max-width: 100%;line-height: 2em;color: rgb(62, 62, 62);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="line-height: normal;"><span style="letter-spacing: 0.544px;color: rgb(136, 136, 136);font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif;text-align: start;text-indent: 32px;white-space: pre-wrap;widows: 1;font-size: 16px;">数据分析与机器学习中常需要大量的可视化，因此才能直观了解模型背地里都干了些什么。而在可视化中，matplotlib 算得上是最常用的工具，不论是对数据有个预先的整体了解，还是可视化预测效果，matplotlib 都是不可缺失的模块。最近 Machine Learning Plus 的作者介绍了 50 种最常用的 matplotlib 可视化图表。</span><span style="color: rgb(136, 136, 136);font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif;text-align: start;text-indent: 32px;white-space: pre-wrap;widows: 1;font-size: 16px;letter-spacing: 0.544px;"></span></section></section></section></section></section></section></section></section></section></section></section></section></section><p style="white-space: normal;widows: 1;text-align: right;"><span style="color: rgb(178, 178, 178);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 11px;letter-spacing: 0.544px;">转载自&nbsp;| 机器之心</span></p><h2 style="margin-bottom: 14px;font-weight: 700;font-size: 22px;line-height: 1.4;"><span style="margin-right: 10px;margin-bottom: 10px;display: inline-block;vertical-align: middle;font-size: 15px;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);color: rgba(0, 0, 0, 0.298);"></span><br></h2><p><br></p><section data-mpa-powered-by="yiban.io" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-id="85660" data-custom="rgb(117, 117, 118)" data-color="rgb(117, 117, 118)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-id="85660" data-custom="rgb(117, 117, 118)" data-color="rgb(117, 117, 118)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-right: 8px;margin-left: 8px;max-width: 100%;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.46426652337452984" data-s="300,640" data-type="png" data-w="1861" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-radius: 3px; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 312px !important; height: 145.923px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/jupejmznDCicibxl5CQVdgEkwYLic5CBy0iaKylXuaiaefnzFz3HRz4U7F0fcJVV85nxaDGyMzzrTSzSRZXBpEVj9DA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="margin-right: 8px;margin-left: 8px;max-width: 100%;text-align: right;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></section></section></section></section></section></section></section></section></section></section></section></section><h2 style="margin-top: 20px;margin-right: 8px;margin-left: 8px;font-weight: bold;font-size: 22px;max-width: 100%;color: black;text-align: left;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding-left: 10px;max-width: 100%;font-size: 18px;display: inline-block;border-left: 5px solid rgb(46, 154, 254);color: rgb(40, 40, 40);box-sizing: border-box !important;overflow-wrap: break-word !important;">介绍</span><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></strong></h2><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">该表格主要介绍了 7 种不同的 matplotlib 可视化类别，读者可根据目的选择不同的图。例如，如果你想要绘制两个变量之间的关系，查看下面 Correlation 部分；或者如果你想展示某个变量的动态变化，查看下面的 Change 部分。</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">一个美丽的图表应该：</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><ul class="list-paddingleft-2" style="margin-right: 8px;margin-left: 8px;max-width: 100%;width: 577.422px;overflow-wrap: break-word !important;"><li style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 1.75em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">提供准确、有需求的信息，不歪曲事实；</span></p></li><li style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 1.75em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">设计简单，获取时不会太费力；</span></p></li><li style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 1.75em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">美感是为了支持这些信息，而不是为了掩盖这些信息；</span></p></li><li style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 1.75em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">不要提供太过丰富的信息与太过复杂的结构。</span></p></li></ul><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">如下所示为 7 种不同类型的可视化图表：协相关性主要描述的是不同变量之间的相互关系；偏差主要展现出不同变量之间的差别；排序主要是一些有序的条形图、散点图或斜线图等；分布就是绘制概率与统计中的分布图，包括离散型的直方图和连续型的概率密度分布图等。后面还有变量的时序变化图和类别图等常见的可视化制图类别。</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.8148148148148148" data-s="300,640" data-type="jpeg" data-w="702" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 312px !important; height: 254.593px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0iaAHdPSibT5MPyV6cEiaJx6qHheYX8eBcEkr66jdFrWGVuAjic7svFKvCXw/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.6837481698389458" data-s="300,640" data-type="jpeg" data-w="683" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 213.962px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0ia7c4qVfTwcSTard9HfNy5mia7BI1SXlrHpCalhYZr8YbU1U1e7TOxYTg/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 20px;margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;color: black;font-weight: bold;font-size: 22px;text-align: left;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding-left: 10px;max-width: 100%;font-size: 18px;display: inline-block;border-left: 5px solid rgb(46, 154, 254);color: rgb(40, 40, 40);box-sizing: border-box !important;overflow-wrap: break-word !important;">配置</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">在绘制这 50 种可视化图之前，我们需要配置一下依赖项以及通用设定，当然后面有一些独立的美图会修改通用设定。如果读者看中了某种可视化图，那么用这些配置再加上对应的可视化代码就能嵌入到我们自己的项目中。</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p><br></p><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">如下所示 pandas 与 numpy 主要用于读取和处理数据，matplotlib 与 seaborn 主要用于可视化数据。其中 seaborn 其实是 matplotlib 上的一个高级 API 封装，在大多数情况下使用 seaborn 就能做出很有吸引力的图，而使用 matplotlib 能制作更具特色的图。</span></section><p><br></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;!pip&nbsp;install&nbsp;brewer2mpl</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;numpy&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;np<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;pandas&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;pd<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;matplotlib&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;mpl<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;matplotlib.pyplot&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;plt<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;seaborn&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;sns<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;warnings;&nbsp;warnings.filterwarnings(action=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'once'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">large&nbsp;=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>;&nbsp;med&nbsp;=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>;&nbsp;small&nbsp;=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">params&nbsp;=&nbsp;{<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'axes.titlesize'</span>:&nbsp;large,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'legend.fontsize'</span>:&nbsp;med,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'figure.figsize'</span>:&nbsp;(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>,&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'axes.labelsize'</span>:&nbsp;med,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'axes.titlesize'</span>:&nbsp;med,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'xtick.labelsize'</span>:&nbsp;med,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'ytick.labelsize'</span>:&nbsp;med,<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'figure.titlesize'</span>:&nbsp;large}<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.rcParams.update(params)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.style.use(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'seaborn-whitegrid'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.set_style(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"white"</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">%matplotlib&nbsp;inline<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Version</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">print(mpl.__version__)&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&gt;&nbsp;3.0.0</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">print(sns.__version__)&nbsp;&nbsp;<span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&gt;&nbsp;0.9.0</span></p></pre><p><br></p><section style="margin-top: 20px;margin-right: 8px;margin-left: 8px;max-width: 100%;color: black;font-weight: bold;font-size: 22px;text-align: left;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding-left: 10px;max-width: 100%;font-size: 18px;display: inline-block;border-left: 5px solid rgb(46, 154, 254);color: rgb(40, 40, 40);box-sizing: border-box !important;overflow-wrap: break-word !important;">制图示意</span></section><p><br></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">前面列出了 7 大类共 50 种不同的可视化图，但我们无法一一介绍，因此我们从协相关性、偏差、分布、时序变化和群组图中各选择了一个示例，它们能展示不同数据在不同情况下的可视化需求。</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">相关图（Correllogram）</span></strong></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">若有两种变量，且它们的值为离散的，那么二维相关图可以表示两个变量所有可能组合之间的相关性。当然如果是单变量，那么自身所有可能的组合也可以组成一个相关图：</span></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Import&nbsp;Dataset</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">df&nbsp;=&nbsp;pd.read_csv(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"https://github.com/selva86/datasets/raw/master/mtcars.csv"</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Plot</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.figure(figsize=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),&nbsp;dpi=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">80</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.heatmap(df.corr(),&nbsp;xticklabels=df.corr().columns,&nbsp;yticklabels=df.corr().columns,&nbsp;cmap=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'RdYlGn'</span>,&nbsp;center=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;annot=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Decorations</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.title(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Correlogram&nbsp;of&nbsp;mtcars'</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.xticks(fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.yticks(fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.show()</section></pre><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.8333333333333334" data-s="300,640" data-type="jpeg" data-w="960" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 260.333px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0iaSbVibIgtm9PSRVUPwV8GzUfC3lTAFFkbeOl7XoCoib5e7iaicS0yWccTRw/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">面积图（Area Chart）</span></strong></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">通过使用不同的颜色表示水平轴和线之间的区域，面积图不仅强调峰值和低谷值，同时还强调它们持续的时间：即峰值持续时间越长，面积越大。</span></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;numpy&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;np<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;pandas&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;pd<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Prepare&nbsp;Data</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">df&nbsp;=&nbsp;pd.read_csv(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"https://github.com/selva86/datasets/raw/master/economics.csv"</span>,&nbsp;parse_dates=[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'date'</span>]).head(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">100</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">x&nbsp;=&nbsp;np.arange(df.shape[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>])<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">y_returns&nbsp;=&nbsp;(df.psavert.diff().fillna(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>)/df.psavert.shift(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>)).fillna(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>)&nbsp;*&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">100</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Plot</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.figure(figsize=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),&nbsp;dpi=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">80</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.fill_between(x[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:],&nbsp;y_returns[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:],&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;where=y_returns[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:]&nbsp;&gt;=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;facecolor=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'green'</span>,&nbsp;interpolate=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.fill_between(x[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:],&nbsp;y_returns[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:],&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;where=y_returns[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>:]&nbsp;&lt;=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;facecolor=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'red'</span>,&nbsp;interpolate=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Annotate</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.annotate(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Peak&nbsp;\1975'</span>,&nbsp;xy=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">94.0</span>,&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">21.0</span>),&nbsp;xytext=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">88.0</span>,&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">28</span>),<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbox=dict(boxstyle=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'square'</span>,&nbsp;fc=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'firebrick'</span>),<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrowprops=dict(facecolor=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'steelblue'</span>,&nbsp;shrink=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.05</span>),&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">15</span>,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'white'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Decorations</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">xtickvals&nbsp;=&nbsp;[str(m)[:<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">3</span>].upper()+<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"-"</span>+str(y)&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">for</span>&nbsp;y,m&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">in</span>&nbsp;zip(df.date.dt.year,&nbsp;df.date.dt.month_name())]<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().set_xticks(x[::<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">6</span>])<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().set_xticklabels(xtickvals[::<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">6</span>],&nbsp;rotation=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">90</span>,&nbsp;fontdict={<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'horizontalalignment'</span>:&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'center'</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'verticalalignment'</span>:&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'center_baseline'</span>})<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.ylim(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">-35</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">35</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.xlim(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">1</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">100</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.title(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Month&nbsp;Economics&nbsp;Return&nbsp;%"</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.ylabel(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Monthly&nbsp;returns&nbsp;%'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.grid(alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.5</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.show()</section></pre><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.625" data-s="300,640" data-type="jpeg" data-w="1024" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 195.75px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0ia8fQJ55LjANsmPMw78xsgrXGxhehkGJ3NVCcvkN6Art7WBEGCru9EaQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">密度图（Density Plot）</span></strong></span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">在概率论与统计学习方法中，可视化概率密度就变得非常重要了。这种密度图正是可视化连续型随机变量分布的利器，分布曲线上的每一个点都是概率密度，分布曲线下的每一段面积都是特定情况的概率。如下所示，通过将它们按「response」变量分组，我们可以了解 X 轴和 Y 轴之间的关系。</span></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Import&nbsp;Data</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">df&nbsp;=&nbsp;pd.read_csv(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"https://github.com/selva86/datasets/raw/master/mpg_ggplot2.csv"</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Draw&nbsp;Plot</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.figure(figsize=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),&nbsp;dpi=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">80</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.kdeplot(df.loc[df[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'cyl'</span>]&nbsp;==&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">4</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"cty"</span>],&nbsp;shade=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"g"</span>,&nbsp;label=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Cyl=4"</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.kdeplot(df.loc[df[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'cyl'</span>]&nbsp;==&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">5</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"cty"</span>],&nbsp;shade=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"deeppink"</span>,&nbsp;label=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Cyl=5"</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.kdeplot(df.loc[df[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'cyl'</span>]&nbsp;==&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">6</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"cty"</span>],&nbsp;shade=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"dodgerblue"</span>,&nbsp;label=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Cyl=6"</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">sns.kdeplot(df.loc[df[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'cyl'</span>]&nbsp;==&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">8</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"cty"</span>],&nbsp;shade=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">True</span>,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"orange"</span>,&nbsp;label=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Cyl=8"</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Decoration</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.title(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Density&nbsp;Plot&nbsp;of&nbsp;City&nbsp;Mileage&nbsp;by&nbsp;n_Cylinders'</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.legend()<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.show()</p></pre><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.625" data-s="300,640" data-type="jpeg" data-w="1024" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 195.75px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0iaVd1BUicMtmWZcEicE94icBPEV11HFNLqDJYIOeenwwAic7AUbSibHkEt79w/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">此外值得注意的是，深度学习，尤其是深度生成模型中的分布极其复杂，它们是不能直接可视化的，我们一般会通过 T-SNE 等降维方法可视化。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">时序变化图（Time Series Plot）</span></strong></span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">时序变化图也是机器学习中最常见的一种可视化图表，不论是可视化损失函数还是准确率，都需要这种时序变化图的帮助。这种图主要关注某个变量怎样随时间变化而变化，以下展示了从 1949 到 1969 航空客运量的变化：</span></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Import&nbsp;Data</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">df&nbsp;=&nbsp;pd.read_csv(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'https://github.com/selva86/datasets/raw/master/AirPassengers.csv'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Draw&nbsp;Plot</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.figure(figsize=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>,<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),&nbsp;dpi=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">80</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.plot(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'date'</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'traffic'</span>,&nbsp;data=df,&nbsp;color=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'tab:red'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Decoration</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.ylim(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">50</span>,&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">750</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">xtick_location&nbsp;=&nbsp;df.index.tolist()[::<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>]<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">xtick_labels&nbsp;=&nbsp;[x[<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">-4</span>:]&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">for</span>&nbsp;x&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">in</span>&nbsp;df.date.tolist()[::<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>]]<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.xticks(ticks=xtick_location,&nbsp;labels=xtick_labels,&nbsp;rotation=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>,&nbsp;horizontalalignment=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'center'</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.yticks(fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.7</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.title(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"Air&nbsp;Passengers&nbsp;Traffic&nbsp;(1949&nbsp;-&nbsp;1969)"</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.grid(axis=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'both'</span>,&nbsp;alpha=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">.3</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Remove&nbsp;borders</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().spines[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"top"</span>].set_alpha(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.0</span>)&nbsp;&nbsp;&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().spines[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"bottom"</span>].set_alpha(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.3</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().spines[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"right"</span>].set_alpha(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.0</span>)&nbsp;&nbsp;&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.gca().spines[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"left"</span>].set_alpha(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">0.3</span>)&nbsp;&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.show()</p></pre><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.625" data-s="300,640" data-type="jpeg" data-w="1024" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 195.75px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0iajbj9Q4zdGWym5wjGBD14ib836Aib5IIbd86XF9eAGjIUZricaOrrfV9rQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">树状图（Dendrogram）</span></strong></span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">树状图是另一个比较有用的图表，层次聚类或决策树等算法可以使用它完成优美的可视化。树形图是以树的图形表示数据或模型结构，以父层和子层的结构来组织对象，是枚举法的一种表达方式。下图展示了一种神似层次聚类算法的图表：</span></p><pre style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">import</span>&nbsp;scipy.cluster.hierarchy&nbsp;<span style="max-width: 100%;font-weight: bold;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">as</span>&nbsp;shc<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Import&nbsp;Data</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">df&nbsp;=&nbsp;pd.read_csv(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'https://raw.githubusercontent.com/selva86/datasets/master/USArrests.csv'</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(153, 153, 136);font-style: italic;line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">#&nbsp;Plot</span><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.figure(figsize=(<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">16</span>,&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">10</span>),&nbsp;dpi=&nbsp;<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">80</span>)&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.title(<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">"USArrests&nbsp;Dendograms"</span>,&nbsp;fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">22</span>)&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">dend&nbsp;=&nbsp;shc.dendrogram(shc.linkage(df[[<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Murder'</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Assault'</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'UrbanPop'</span>,&nbsp;<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'Rape'</span>]],&nbsp;method=<span style="max-width: 100%;color: rgb(221, 17, 68);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">'ward'</span>),&nbsp;labels=df.State.values,&nbsp;color_threshold=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">100</span>)&nbsp;&nbsp;<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.xticks(fontsize=<span style="max-width: 100%;color: rgb(0, 128, 128);line-height: 26px;box-sizing: border-box !important;overflow-wrap: break-word !important;">12</span>)<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">plt.show()</p></pre><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.625" data-s="300,640" data-type="jpeg" data-w="1024" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" style="border-width: 1px; border-style: solid; border-color: rgb(238, 237, 235); box-sizing: border-box !important; overflow-wrap: break-word !important; background-color: rgb(238, 237, 235) !important; background-size: 22px !important; background-position: center center !important; background-repeat: no-repeat !important; width: 312px !important; height: 195.75px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/jupejmznDCicibxl5CQVdgEkwYLic5CBy0ia6gb4FS7bF5CfQYUCN7iaMvSwEciasc7ZkiaZNXvcx73yjQ2WUibQtiaZSFw/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;max-width: 100%;min-height: 1em;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;color: rgb(61, 60, 60);box-sizing: border-box !important;overflow-wrap: break-word !important;">本文简要介绍了这篇文章，详细的 50 种可视化可参考以下原文链接。</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 14px;color: rgb(136, 136, 136);box-sizing: border-box !important;overflow-wrap: break-word !important;">50 种可视化图原地址：</span></strong><span style="max-width: 100%;font-size: 14px;color: rgb(136, 136, 136);box-sizing: border-box !important;overflow-wrap: break-word !important;">https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python</span></p><p style="margin-right: 8px;margin-left: 8px;max-width: 100%;min-height: 1em;text-align: left;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 14px;color: rgb(136, 136, 136);box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></span></p><section data-tools="135编辑器" data-id="86032" mpa-from-tpl="t" style="white-space: normal;color: rgb(0, 0, 0);font-size: 16px;text-align: left;background-color: rgb(255, 255, 255);letter-spacing: 0.544px;max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-right: 8px;margin-left: 8px;max-width: 100%;text-align: center;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-right: auto;margin-left: auto;padding-right: 15px;padding-left: 15px;max-width: 100%;background-color: rgb(254, 254, 254);display: inline-block;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;color: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(26, 44, 237);font-size: 15px;font-family: Optima-Regular, PingFangTC-light;box-sizing: border-box !important;overflow-wrap: break-word !important;">END</span></p></section></section><section mpa-from-tpl="t" style="margin-top: -12px;margin-bottom: 10px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section mpa-from-tpl="t" style="margin-right: 8px;margin-left: 8px;max-width: 100%;border-top: 1px dashed rgb(33, 33, 34);width: 677px;border-right-color: rgb(33, 33, 34);border-bottom-color: rgb(33, 33, 34);border-left-color: rgb(33, 33, 34);height: 1px;overflow: hidden;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br mpa-from-tpl="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section></section><section data-tools="135编辑器" data-id="16401" mpa-from-tpl="t" style="white-space: normal;color: rgb(0, 0, 0);font-size: 16px;text-align: left;background-color: rgb(255, 255, 255);letter-spacing: 0.544px;max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></section><section data-tools="135编辑器" data-id="16401" mpa-from-tpl="t" style="white-space: normal;color: rgb(0, 0, 0);font-size: 16px;text-align: left;background-color: rgb(255, 255, 255);letter-spacing: 0.544px;max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="color: rgb(53, 53, 53);font-size: 14px;">双一流大学研究生团队创建，专注于目标检测与深度学习，希望可以将分享变成一种习惯！</span></section><p style="white-space: normal;color: rgb(0, 0, 0);font-size: 16px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 1px;text-align: right;"><img class="rich_pages img_loading" data-ratio="0.403125" data-s="300,640" data-src="../../mmbiz_png/pZVwCdkl3sVgTdmT6fT029TwKGS99wkf1gaJRxic5ic2nyf9CkibWBWGKxqWs8zQAQebvdErl98dr295yn77rHI3g/640.jpg" data-type="png" data-w="1280" style="text-align: center; width: 328px !important; height: 133.419px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pZVwCdkl3sVgTdmT6fT029TwKGS99wkf1gaJRxic5ic2nyf9CkibWBWGKxqWs8zQAQebvdErl98dr295yn77rHI3g/640?wx_fmt=png" crossorigin="anonymous" alt="图片"><strong style="font-size: 15px;letter-spacing: 0.54px;widows: 1;">整理不易，<span style="color: rgb(255, 0, 0);">点赞</span>三连↓</strong></p>                </div><div>来源:https://mp.weixin.qq.com/s/AfexZGxvZau8cXFqRITcVA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="219" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="219" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/pZVwCdkl3sVLicM2ugPvZ9ia5LCQt04t9ibSyLJymveBLyxpcX0BArR52N7Cht9hxP7EmCJ3q1tdckcYQvsZqdRcA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="219" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../soft.html">软件</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>156</span> 次浏览</li>
+        <li>发布日期：2021-07-10 08:06:51</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/soft/219.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="218.html">终于，阿里云盘支持分享了！！！</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="262.html">干掉activity、flowable，阿里开源工作流引擎compileflow使用指南</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QsoH4TRj4FwGVlPuCnqCRWUDvKBIX7aQRsa997Uq7K6BibYpSibxWq0GmrjIO6Yc0pqn66hfiaJXoDHQ/640" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="19cde5ffc8a8929282ead5e340fd1bfc">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="219">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

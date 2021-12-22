@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>.NET MAUI 预览版 6 发布 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="9e3df2d98c41c220fc49c57b33456844">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">.NET MAUI 预览版 6 发布</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 282 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="display:none;" data-tools="新媒体管家" data-label="powered by xmt.cn"><br></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Helvetica;"><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">当我们还在从微软 Build 大会和 .NET 6 预览版 4 中缓过来的时候，我们在这里就开始分享我们在 .NET 6 预览版 5 中对 .NET 多平台应用程序开发框架(.NET MAUI)的持续进展了。在这个版本中，我们启用了动画和视图转换，完成了几个 UI 组件的移植，并对单项目模板进行了改进。我们还发布了第一批预览文档，涵盖了 .NET MAUI 的介绍性和基础性内容：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://docs.microsoft.com/dotnet/maui/<br></code></pre><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="297" data-backw="558" data-ratio="0.533203125" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="gif" data-w="1024" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 165.16px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_gif/TIcgLjdQYUxDo7uibjBYIYoEIJ5HBE5JsHCsDLvnFDL7vicmAIPyOuLLayT0phdpbdVDicG4zZTiaxNnb001mfs26w/640?wx_fmt=gif" crossorigin="anonymous" alt="图片"></figure><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="color: rgb(171, 25, 66);font-size: 16px;">1、动画</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在 .NET MAUI 中执行动画有几种方法，其中最简单的是使用视图扩展方法，如 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">FadeTo</code>, <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">RotateTo</code>, <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">ScaleTo</code>, <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">TranslateTo</code> 等。在下面的例子中，我使用新的 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">HandlerAttached</code> 事件抓取了每个与布局绑定的视图的引用。</p><pre style="overflow-x:auto;"><code style="white-space:pre-wrap;font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;overflow: auto;padding: 0.5em;color: rgb(171, 178, 191);text-size-adjust: none;display: block !important;min-width: 400px;background: none 0% 0% / auto repeat scroll padding-box border-box rgb(40, 44, 52);font-weight: 400;"><span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;">&lt;<span style="color: rgb(224, 108, 117);font-weight: 400;font-style: normal;">DataTemplate</span> <span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">x:Key</span>=<span style="color: rgb(152, 195, 121);font-weight: 400;font-style: normal;">"FavouriteTemplate"</span>&gt;</span><br>    <span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;">&lt;<span style="color: rgb(224, 108, 117);font-weight: 400;font-style: normal;">Frame</span><br>        <span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">AttachedHandler</span>=<span style="color: rgb(152, 195, 121);font-weight: 400;font-style: normal;">"OnAttached"</span><br>        <span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">Opacity</span>=<span style="color: rgb(152, 195, 121);font-weight: 400;font-style: normal;">"0"</span>&gt;</span><br>        ...<br>    <span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;">&lt;/<span style="color: rgb(224, 108, 117);font-weight: 400;font-style: normal;">Frame</span>&gt;</span><br><span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;">&lt;/<span style="color: rgb(224, 108, 117);font-weight: 400;font-style: normal;">DataTemplate</span>&gt;</span></code></pre><p><br></p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlexLayout</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">BindableLayout.ItemTemplate</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"{StaticResource FavouriteTemplate}"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">BindableLayout.ItemsSource</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"{Binding Favorites}"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;...</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&lt;/</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlexLayout</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">当页面呈现时，我将视图以轻微交错的方式制成动画，以创造美丽的层叠效果。</p><pre style="overflow-x:auto;"><code style="white-space:pre-wrap;font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;overflow: auto;padding: 0.5em;color: rgb(171, 178, 191);text-size-adjust: none;display: block !important;min-width: 400px;background: none 0% 0% / auto repeat scroll padding-box border-box rgb(40, 44, 52);font-weight: 400;"><span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">public</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">partial</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">class</span> <span style="color: rgb(97, 174, 238);font-weight: 400;font-style: normal;">FavoritesPage</span> : <span style="color: rgb(97, 174, 238);font-weight: 400;font-style: normal;">ContentPage</span><br>{<br>    List&lt;Frame&gt; tiles = <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">new</span> List&lt;Frame&gt;();<br><br>    <span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"><span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">void</span> <span style="color: rgb(97, 174, 238);font-weight: 400;font-style: normal;">OnAttached</span>(<span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"><span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">object</span> sender, EventArgs e</span>)<br>    </span>{<br><br>        Frame f = (Frame)sender;<br>        tiles.Add(f);<br>    }<br><br>    <span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"><span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">protected</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">override</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">async</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">void</span> <span style="color: rgb(97, 174, 238);font-weight: 400;font-style: normal;">OnAppearing</span>(<span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"></span>)<br>    </span>{<br>        <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">base</span>.OnAppearing();<br><br>        <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">await</span> Task.Delay(<span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">300</span>);<br>        TransitionIn();<br>    }<br><br>    <span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"><span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">async</span> <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">void</span> <span style="color: rgb(97, 174, 238);font-weight: 400;font-style: normal;">TransitionIn</span>(<span style="color: rgb(171, 178, 191);font-weight: 400;font-style: normal;"></span>)<br>    </span>{<br>        <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">foreach</span> (<span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">var</span> item <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">in</span> tiles)<br>        {<br>            item.FadeTo(<span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">1</span>, <span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">800</span>);<br>            <span style="color: rgb(198, 120, 221);font-weight: 400;font-style: normal;">await</span> Task.Delay(<span style="color: rgb(209, 154, 102);font-weight: 400;font-style: normal;">50</span>);<br>        }<br>    }<br>}</code></pre><p><br></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">对于更完整的视图动画的协调，请查看自定义动画文档，其中演示了添加多个可以并行运行的子动画：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://docs.microsoft.com/xamarin/xamarin-forms/user-interface/animation/custom<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">你可以从 GitHub 上的 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">WeatherTwentyOne</code> 项目查看和运行这个例子的源代码：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://github.com/davidortinau/WeatherTwentyOne/<br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="color: rgb(171, 25, 66);font-size: 16px;">2、UI 组件</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在这个版本中，有几个控件的所有属性和事件都被移植到了 Xamarin.Forms 渲染器架构的处理程序中，包括 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">ActivityIndicator</code>、<code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">CheckBox</code>、<code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Image</code> 和 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Stepper</code>。在以前的预览版本中，你需要检查一个控件是否被移植，并从兼容包中为那些不可用的控件注册渲染器。在 .NET MAUI 预览版 5 中，我们通过更新 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">UseMauiApp</code> 扩展来为你连接所有的控件，无论它们是基于处理程序还是渲染器，都让这一切变得更加简单。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="444" data-backw="558" data-ratio="1" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="140" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 308px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUxDo7uibjBYIYoEIJ5HBE5Jsib98B922pZ70VdZm8kuaMcCZUrF1dQpAT7nnZ4fxek0icoKQruggbazQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">预览版 5 的新内容还包括首次引入 Shell，这是一个应用程序容器，提供 URI 导航和实现弹出式菜单和标签的快速方法。要使用它，请在 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">App.xaml.cs</code> 中添加 Shell 作为窗口的根元素。我遵循的典型模式将其命名为 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">AppShell</code>，当然你也可以按照你的意愿来命名它。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(198, 120, 221);">protected</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(198, 120, 221);">override</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> IWindow </span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(97, 174, 238);">CreateWindow</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">(IActivationState activationState)</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">{</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(198, 120, 221);">return</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(198, 120, 221);">new</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> Microsoft.Maui.Controls.Window(</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(198, 120, 221);">new</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> AppShell()</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;);</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">}</span></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在你的 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">AppShell</code> 类中，使用你希望显示的导航类型，无论是 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">FlyoutItem</code> 还是 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Tab</code>，并用内容填充菜单。这些不是 UI 控件，而是代表将创建这些 UI 控件的类型。你以后可以用我们将在预览 6 中介绍的内容模板来给这些控件添加样式。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">Shell</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">xmlns</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"http://schemas.microsoft.com/dotnet/2021/maui"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; </span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">xmlns:x</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"http://schemas.microsoft.com/winfx/2009/xaml"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; </span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">xmlns:pages</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"clr-namespace:ControlGallery.Pages"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; </span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">Title</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"ControlGallery"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; </span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">x:Class</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"ControlGallery.AppShell"</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlyoutItem</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">Title</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"Margin and Padding"</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">ShellContent</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">Route</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"marginpadding"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">ContentTemplate</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"{DataTemplate pages:ControlsPage}"</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> /&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;&lt;/</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlyoutItem</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlyoutItem</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">Title</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"ActivityIndicator"</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">ShellContent</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">Route</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"activityindicator"</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(209, 154, 102);">ContentTemplate</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">=</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(152, 195, 121);">"{DataTemplate pages:ActivityIndicatorPage}"</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> /&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;&lt;/</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">FlyoutItem</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"> &nbsp; &nbsp;...</span><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><br style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);"><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&lt;/</span><span style="white-space:pre-wrap;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);color: rgb(224, 108, 117);">Shell</span><span style="white-space:pre-wrap;color: rgb(171, 178, 191);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background-color: rgb(40, 44, 52);">&gt;</span></code></pre><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="456" data-backw="558" data-ratio="1" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="gif" data-w="140" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 308px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_gif/TIcgLjdQYUxDo7uibjBYIYoEIJ5HBE5JszvzD8OXQxSgbZibSz7ljhBouQy4zpX5EaYaWE40dO08Spa9FjU6t1pg/640?wx_fmt=gif" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在我们的 .NET MAUI 进度状态页面上查看有关控件、布局和功能的最新信息：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://github.com/dotnet/maui/wiki/Status<br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="color: rgb(171, 25, 66);font-size: 16px;">3、单项目模板</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">我们在这个版本中取得了进展，将多个 WinUI 项目合并为一个。现在，当你使用 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">dotnet new maui</code> 命令创建一个项目时，你会看到两个项目：多目标的 .NET MAUI 项目，和 WinUI 项目。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="309" data-backw="558" data-ratio="1" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="140" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 308px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUxDo7uibjBYIYoEIJ5HBE5Js0InsJz4KlHUnndzuZxRxAYdIsbiagiccjibjkPsx1KOFHiciagjGkdLlPUA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">现在要运行 WinUI 项目，你就不会对选择哪个项目感到困惑了。这离最终的愿景又近了一步，即一个项目可以构建和部署到所有支持的平台。为了支持这一点，你需要安装这些 Visual Studio 16.11 Preview 2 的 Project Reunion 0.8 (Preview) 扩展。</p><pre style="overflow-x:auto;"><code style="white-space:pre-wrap;font-size: 0.85em;font-family: Consolas, Menlo, Courier, monospace;margin: 0px 0.15em;overflow: auto;padding: 0.5em;color: rgb(171, 178, 191);text-size-adjust: none;display: block !important;min-width: 400px;background: none 0% 0% / auto repeat scroll padding-box border-box rgb(40, 44, 52);font-weight: 400;">https:<span style="color: rgb(92, 99, 112);font-weight: 400;font-style: italic;">//marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftProjectReunionPreview</span><br>https:<span style="color: rgb(92, 99, 112);font-weight: 400;font-style: italic;">//marketplace.visualstudio.com/items?itemName=ProjectReunion.MicrosoftSingleProjectMSIXPackagingTools</span></code></pre><p><span style="color: rgb(171, 25, 66);font-weight: bold;letter-spacing: 0px;"><br></span></p><p><span style="color: rgb(171, 25, 66);font-weight: bold;letter-spacing: 0px;">4、开始</span><span style="color: rgb(171, 25, 66);font-weight: bold;letter-spacing: 0px;">使用 .NET MAUI 预览版 5</span><br></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在这个版本中，不再需要添加一个自定义的 NuGet 源来 restore 你的项目。只要创建一个新的项目并运行它就可以了。为了获得所有最新的部件，我们继续推荐运行 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">maui-check dotnet</code> 工具。安装：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">dotnet&nbsp;tool&nbsp;install&nbsp;-g&nbsp;redth.net.maui.check<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">运行该工具可跟踪更新，以获得.NET 6 预览版 5、平台 SDK、.NET MAUI、项目模板，甚至检查你的环境是否有第三方依赖。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">maui-check<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">如果你想自己一步步来，你可以根据这些说明单独安装所有东西：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://github.com/dotnet/maui-samples/<span style="color: #5c6370;font-style: italic;line-height: 26px;">#installing-with-official-preview-installers</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">一旦安装完毕，你就可以根据预览 5 的模板创建一个新的应用程序：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">dotnet&nbsp;new&nbsp;maui&nbsp;-n&nbsp;MauiFive<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在 Visual Studio 16.11 预览 1 中打开你的新 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">MauiFive.sln</code>，并在你选择的平台上运行。若你急于使用 Visual Studio 2022 预览版 1，要使用安卓模拟器开始探索移动平台，和使用远程 iOS 设备开始探索 iOS，或者连接 Mac 主机，请务必禁用 XAML Hot Reload 以避免出现类型错误。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">或使用 Visual Studio 2019 的 16.11 预览版。未来，Project Reunion 扩展将支持 Visual Studio 2022，你将能够在 Windows 上使用所有的平台。如果你有现有的 .NET MAUI 项目，你希望迁移到 Preview 5，我建议像上面那样创建一个新项目，并将你的文件复制到多目标项目中，这样你就可以避免协调 WinUI 项目的麻烦。有关开始使用 .NET MAUI 的其他信息，请参考我们新的文档网站：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://docs.microsoft.com/dotnet/maui<br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="color: rgb(171, 25, 66);font-size: 16px;">5、欢迎反馈</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">请让我们了解您使用 .NET MAUI 预览版 5 创建新应用程序的体验，请在 GitHub 上与我们联系，地址是：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://github.com/dotnet/maui<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">要了解未来版本的内容，请访问我们的路线图：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">https://github.com/dotnet/maui/wiki/roadmap</code></pre></section><p style="white-space: normal;text-align: center;"><br></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(136, 136, 136);">- EOF -</span></p><section donone="shifuMouseDownCard('shifu_c_030')" label="Copyright Reserved by PLAYHUDONG." style="margin-top: 1em;margin-bottom: 1em;white-space: normal;text-align: start;max-width: 100%;caret-color: rgb(0, 0, 0);color: rgb(0, 0, 0);border-width: 0px;border-style: initial;border-color: initial;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-left: 1em;max-width: 100%;line-height: 1.4;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding: 3px 8px;max-width: 100%;border-radius: 4px;color: rgb(255, 255, 255);background-color: rgb(255, 105, 31);font-family: inherit;text-align: inherit;text-decoration: inherit;font-size: 16px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐阅读</span>&nbsp;&nbsp;<span style="margin-left: 4px;padding: 3px 8px;max-width: 100%;border-radius: 1.2em;color: rgb(255, 255, 255);line-height: 1.2;background-color: rgb(204, 204, 204);font-family: inherit;text-align: inherit;text-decoration: inherit;border-color: rgb(249, 110, 87);font-size: 12px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击标题可跳转</span></section><section style="margin-top: -11px;padding: 22px 16px 16px;max-width: 100%;border-width: 1px;border-style: solid;border-color: rgb(255, 105, 31);color: rgb(51, 51, 51);font-size: 1em;font-family: inherit;text-align: inherit;text-decoration: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117073&amp;idx=3&amp;sn=20f742d5d3d2ac5346582ba42ca4f68e&amp;chksm=80398eb7b74e07a1265340414979a18b0ecb15c1187d6b31b954fd7e91982ea255b82c32a60f&amp;scene=21#wechat_redirect');" textvalue=".NET Core with 微服务 - Elastic APM" data-itemshowtype="11" tab="innerlink" data-linktype="2" style="font-family: inherit;font-size: 1em;"><span style="font-size: 12px;"><span style="font-family: inherit;text-align: inherit;text-decoration: inherit;">.NET Core with 微服务 - Elastic APM</span></span></a><span style="text-decoration: underline;font-size: 13px;"></span></p><section style="white-space: normal;caret-color: rgb(0, 0, 0);text-align: left;line-height: 1.75em;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117067&amp;idx=1&amp;sn=41581c6ec39c1f93aa17aedf7b6bb2cd&amp;chksm=80398eadb74e07bbc84a8a9becd2bc85a855e9a8cc10bb6d4644fee245b26233daa5aec6503f&amp;scene=21#wechat_redirect');" textvalue=".NET Core/.NET5/.NET6 开源项目汇总：电商项目" data-itemshowtype="0" tab="innerlink" data-linktype="2"><span style="font-size: 12px;">.NET Core/.NET5/.NET6 开源项目汇总：电商项目</span></a><span style="font-size: 12px;"></span></section><section style="white-space: normal;caret-color: rgb(0, 0, 0);text-align: left;line-height: 1.75em;"><span style="font-size: 12px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117066&amp;idx=1&amp;sn=95671e0840eb6f49ae480a6395cb3ecf&amp;chksm=80398eacb74e07ba198697ecad403cb0d99442551ff8a1d55825a59917aed34a81105bf28e71&amp;scene=21#wechat_redirect');" textvalue=".NET 6 中不使用VPN，如何完整体验 MAUI" data-itemshowtype="0" tab="innerlink" data-linktype="2">.NET 6 中不使用VPN，如何完整体验 MAUI</a></span></section></section></section><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);color: rgb(44, 44, 44);font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 14px;box-sizing: border-box !important;overflow-wrap: break-word !important;">看完本文有收获？请转发分享给更多人</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐关注「DotNet」，提升.Net技能&nbsp;</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: center;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-ratio="0.9166666666666666" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640?wx_fmt=jpeg" data-type="jpeg" data-w="600" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 328px !important; height: 300.833px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: right;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="font-size: 14px;"><span style="letter-spacing: 0.544px;">点赞和在看就是最大的支持❤️</span></span></p>                </div><div>来源:https://mp.weixin.qq.com/s/jE0kNrrmfFznQUmGvrTvHw</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="156" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="156" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/sz_mmbiz_gif/TIcgLjdQYUxDo7uibjBYIYoEIJ5HBE5JsHCsDLvnFDL7vicmAIPyOuLLayT0phdpbdVDicG4zZTiaxNnb001mfs26w/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="156" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>282</span> 次浏览</li>
+        <li>发布日期：2021-07-06 13:26:39</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/156.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="155.html">推荐一个基于 Python + Vue 的海报生成器</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="157.html">Spring Boot + Web Socket 实现扫码登录，这种方式太香了！！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QsoH4TRj4FwGVlPuCnqCRWUDvKBIX7aQRsa997Uq7K6BibYpSibxWq0GmrjIO6Yc0pqn66hfiaJXoDHQ/640" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="9e3df2d98c41c220fc49c57b33456844">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="156">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

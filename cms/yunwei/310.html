@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>.NET Core + Jenkins + Github 自动化部署到 Docker - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="40">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="e9e814a1a899baef9079bf917efe5af1">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../yunwei.html">运维</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">.NET Core + Jenkins + Github 自动化部署到 Docker</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 214 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="white-space: normal;text-align: center;"><span style="color: rgb(255, 169, 0);font-size: 15px;">↓推荐关注↓</span></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzAxMDM0MzQ4Mg==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibStMRcibJLd4TkNlt53KNZj0A2IicORH4REC4ics87icsx703M5giby2wuofz3dicMsHVcXDMXTM6t6VBQw/0?wx_fmt=png" data-nickname="开源前哨" data-alias="osfront" data-signature="点击获取10万+ star的开发资源库。 日常分享热门、有趣和实用的开源项目～" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzAxMDM0MzQ4Mg==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/DSU8cv1j3ibStMRcibJLd4TkNlt53KNZj0A2IicORH4REC4ics87icsx703M5giby2wuofz3dicMsHVcXDMXTM6t6VBQw/0.jpg" alt="开源前哨">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                开源前哨                           </strong>           <div class="wx_profile_desc">点击获取10万+ star的开发资源库。 日常分享热门、有趣和实用的开源项目～</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">119篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="white-space: normal;"><span style="font-size: 16px;color: rgb(171, 25, 66);"><strong>前言</strong></span></p><p style="white-space: normal;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;text-align: left;"><br></span></p><p style="white-space: normal;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;text-align: left;">环境 centos7.9，.NET5</span></p><p style="white-space: normal;"><span style="color: rgb(171, 25, 66);font-family: Helvetica;font-size: 16px;font-weight: bold;letter-spacing: 0px;text-align: left;"><br></span></p><p style="white-space: normal;"><span style="color: rgb(171, 25, 66);font-family: Helvetica;font-size: 16px;font-weight: bold;letter-spacing: 0px;text-align: left;">一、Jenkins搭建</span></p><p style="white-space: normal;"><strong style="font-size: 16px;color: black;font-family: Helvetica;letter-spacing: 0px;text-align: left;"><br></strong></p><p style="white-space: normal;"><strong style="font-size: 16px;color: black;font-family: Helvetica;letter-spacing: 0px;text-align: left;">1、下载Jenkins的war包</strong></p><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Helvetica;"><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在\\home目录建一个jenkins目录放jenkins的包</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#进入\\home目录</span><br>cd&nbsp;\\home<br><span style="color: #61aeee;line-height: 26px;">#创建&nbsp;jenkins目录</span><br>mkdir&nbsp;jenkins<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在jenkins目录下载war包</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#进入jenkin目录</span><br>cd&nbsp;\\home\\jenkins<br><span style="color: #61aeee;line-height: 26px;">#下载jenkins的war包</span><br>wget&nbsp;http:<span style="color: #5c6370;font-style: italic;line-height: 26px;">//mirrors.jenkins.io/war-stable/latest/jenkins.war</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">如果包wget命令用不了的话，安装一下</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#如果wget命令用不了的话,执行以下命令</span><br>yum&nbsp;-y&nbsp;install&nbsp;wget&nbsp;<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">下载完后jenkins目录下产生一个jenkins.war文件</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="37" data-backw="305" data-ratio="0.12131147540983607" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRucue3HzN4iaBzcVZBQ1xUJRnMNI3gmYwXLZte134mYAScbwiaFndWKZHQ/640?wx_fmt=png" data-type="png" data-w="305" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 37.3639px !important;" _width="100%" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><strong>2、安装java jdk</strong></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">看到war，可以知道jenkins是java写的，所以要安装java，官网上提示安装java1.8或java11，这里安装java1.8</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#下载java&nbsp;jdk的rpm文件</span><br>wget&nbsp;--no-check-certificate&nbsp;--no-cookies&nbsp;--header&nbsp;<span style="color: #98c379;line-height: 26px;">"Cookie:&nbsp;oraclelicense=accept-securebackup-cookie"</span>&nbsp;\\<br>http:<span style="color: #5c6370;font-style: italic;line-height: 26px;">//download.oracle.com/otn-pub/java/jdk/8u301-b09/d3c52aa6bfa54d3ca74e617f18309292/jdk-8u301-linux-x64.rpm</span><br><span style="color: #61aeee;line-height: 26px;">#授权限</span><br>chmod&nbsp;+x&nbsp;jdk<span style="color: #d19a66;line-height: 26px;">-8u</span>301-linux-x64.rpm<br><span style="color: #61aeee;line-height: 26px;">#安装</span><br>rpm&nbsp;-ivh&nbsp;jdk<span style="color: #d19a66;line-height: 26px;">-8u</span>301-linux-x64.rpm<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">如果报 Unable to establish SSL connection 执行一下下面命令</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#如果报Unable&nbsp;to&nbsp;establish&nbsp;SSL&nbsp;connection.执行下面命令</span><br>yum&nbsp;install&nbsp;openssl&nbsp;openssl-devel&nbsp;-y<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">执行完上面3个命令，看下java版本信息</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">java&nbsp;-version<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">看到已经安装好了</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="91" data-backw="558" data-ratio="0.1619217081850534" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuE8LsG8YOuriaMOYtAw2qphTial3FT0YEOKniabATmzFbbDqjy2PZOoWqQ/640?wx_fmt=png" data-type="png" data-w="562" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuE8LsG8YOuriaMOYtAw2qphTial3FT0YEOKniabATmzFbbDqjy2PZOoWqQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><strong><br>3、安装Jenkins</strong></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">进入到上面的jenkins.war包的目录\\home\\jenkins</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#启动，调通前用这个，没问题后再用后台启动，关闭窗体就停止，或ctrl+c停止</span><br><span style="color: #61aeee;line-height: 26px;">#java&nbsp;-jar&nbsp;jenkins.war&nbsp;--httpPort=8081</span><br><span style="color: #61aeee;line-height: 26px;">#后台运行&nbsp;--后台启动,窗体关闭了,也在后台启动</span><br>nohup&nbsp;java&nbsp;-jar&nbsp;jenkins.war&nbsp;--httpPort=<span style="color: #d19a66;line-height: 26px;">8081</span>&nbsp;&amp;<br><span style="color: #61aeee;line-height: 26px;">#输入jps&nbsp;查看当前jenkins启动的进程号</span><br><span style="color: #61aeee;line-height: 26px;">#ps&nbsp;ef|grep&nbsp;jenkins&nbsp;查询当前启动的jenkins的进程号</span><br><span style="color: #61aeee;line-height: 26px;">#如果要关闭,kill&nbsp;-9&nbsp;端口号</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">执行上面命令中的 nohup java -jar jenkins.war --httpPort=8081 &amp; 后，浏览器打开ip:8081，这里安装过程要小等一会才能打开</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="348" data-backw="558" data-ratio="0.6236766121270453" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRur25MSfEEwteGTAF8FBsSRO3hzUIHJiaV7uIgZCFujL78kJzZF5YxLdw/640?wx_fmt=png" data-type="png" data-w="1039" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 192.845px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRur25MSfEEwteGTAF8FBsSRO3hzUIHJiaV7uIgZCFujL78kJzZF5YxLdw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后按提示命令打开 vi /root/.jenkins/secrets/initialAdminPassword 文件把密码复制到输入框上</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">vi&nbsp;/root/.jenkins/secrets/initialAdminPassword<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后到这个界面，如果不熟悉，就用推荐的。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="256" data-backw="558" data-ratio="0.45916666666666667" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu5os8uoCUZCtB2MBeT3XKD1icfzflS25pr4c61MlQPAXV8nMy7YjfFtg/640?wx_fmt=png" data-type="png" data-w="1200" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 142.505px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu5os8uoCUZCtB2MBeT3XKD1icfzflS25pr4c61MlQPAXV8nMy7YjfFtg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">一直等待安装完，如果有失败是网络原因，重试就能装上了。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="345" data-backw="558" data-ratio="0.6182741116751269" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu5R87HdymPicdickYUNFnPVUNZBXcM7pgzhgHdqP9zY1Tq8Qtu4YMSRhw/640?wx_fmt=png" data-type="png" data-w="985" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 191.192px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu5R87HdymPicdickYUNFnPVUNZBXcM7pgzhgHdqP9zY1Tq8Qtu4YMSRhw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">装完后跳到这个界面，输入用户名密码，邮件。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="407" data-backw="558" data-ratio="0.7305751765893037" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueDwU2jPMOSZ0OxPFQ6J3riaUcRe4ONBFOC5pP0Mu9Enpa7vrVmf8kew/640?wx_fmt=png" data-type="png" data-w="991" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 225.556px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueDwU2jPMOSZ0OxPFQ6J3riaUcRe4ONBFOC5pP0Mu9Enpa7vrVmf8kew/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后到这个界面，直接保存。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="417" data-backw="558" data-ratio="0.7464212678936605" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRul3mXhV0eiaGzbPibCIvVEl7ukm4be3ibFcK1CicytfpHialXDDwEIdWOcHg/640?wx_fmt=png" data-type="png" data-w="978" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 230.405px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRul3mXhV0eiaGzbPibCIvVEl7ukm4be3ibFcK1CicytfpHialXDDwEIdWOcHg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后开始使用，来到jenkins界面，右上方有个铃，点击升级。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="276" data-backw="558" data-ratio="0.49416666666666664" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRub1HSZbKIRZWsY2Vu8jA57XkNzgcLoyyeECjxtC9tMRj4n2gn8lKkyg/640?wx_fmt=png" data-type="png" data-w="1200" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 153.215px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRub1HSZbKIRZWsY2Vu8jA57XkNzgcLoyyeECjxtC9tMRj4n2gn8lKkyg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">装完重启</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="225" data-backw="558" data-ratio="0.4033333333333333" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu2EgnBNN4LUQuMAx0ktEqeOVSdON66DflbicN3xJppFDuiahtOQBgNdrw/640?wx_fmt=png" data-type="png" data-w="1200" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 125.42px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRu2EgnBNN4LUQuMAx0ktEqeOVSdON66DflbicN3xJppFDuiahtOQBgNdrw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">安装完成。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="316" data-backw="558" data-ratio="0.5666666666666667" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuONJupOp5TQfCafVHib49BeNy20b9oHTHwj1TI1MKUA3A4tTeGphjm2g/640?wx_fmt=png" data-type="png" data-w="1200" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 175.4px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuONJupOp5TQfCafVHib49BeNy20b9oHTHwj1TI1MKUA3A4tTeGphjm2g/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><span style="font-size: 16px;"><strong>如果遇到升级慢的问题解决</strong></span></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">1、修改/home/jenkins/hudson.model.UpdateCenter.xml文件</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">vi&nbsp;/home/jenkins/hudson.model.UpdateCenter.xml<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">修改为:</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">&lt;sites&gt;<br>&nbsp;&nbsp;&lt;site&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;id&gt;<span style="color: #c678dd;line-height: 26px;">default</span>&lt;/id&gt;<br>&lt;url&gt;http:<span style="color: #5c6370;font-style: italic;line-height: 26px;">//mirror.xmission.com/jenkins/updates/update-center.json&lt;/url&gt;</span><br>&nbsp;&nbsp;&lt;/site&gt;<br>&lt;/sites&gt;<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">2、设置 default.json 权限 安装插件什么的时候,不需要google.com，改成百度</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">&nbsp;cd&nbsp;/root/.jenkins/updates/<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后执行下面的</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">sed&nbsp;-i&nbsp;<span style="color: #98c379;line-height: 26px;">'s/http:\\/\\/updates.jenkins�ci.org\\/download/https:\\/\\/mirrors.tuna.tsinghua.edu<br>.cn\\/jenkins/g'</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">default</span>.json&nbsp;&amp;&amp;&nbsp;sed&nbsp;-i<br><span style="color: #98c379;line-height: 26px;">'s/http:\\/\\/www.google.com/https:\\/\\/www.baidu.com/g<br>'</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">default</span>.json<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">修改完之后,需要重新启动</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><strong style="font-size: 24px;letter-spacing: 0px;"><span style="font-size: 16px;color: rgb(171, 25, 66);">二、github .NET&nbsp;Core项目准备</span></strong></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">github创建一个私有仓库</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="415" data-backw="558" data-ratio="0.7439655172413793" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuzLd4QFhOWEghicHosT65mfaD2HJ3Wzbd5IcrqbbRx1CO8E4icYKRep9w/640?wx_fmt=png" data-type="png" data-w="1160" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuzLd4QFhOWEghicHosT65mfaD2HJ3Wzbd5IcrqbbRx1CO8E4icYKRep9w/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">创建完后进入仓库，把地址复制出来</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="309" data-backw="558" data-ratio="0.5526057030481809" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuNH8G2a5E3iaUFiaUiax8q7ibBw8QBBibia7453426uhciakicw3K9FhZmcKYQg/640?wx_fmt=png" data-type="png" data-w="1017" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 171.097px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuNH8G2a5E3iaUFiaUiax8q7ibBw8QBBibia7453426uhciakicw3K9FhZmcKYQg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">把项目克隆到本地，这里用vs2019的git功能</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="341" data-backw="558" data-ratio="0.611681136543015" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRulRoudQSSh6sPx96ccDpYnnURJepFbbFktyWSM5uxHm9UiaNpjMN91mQ/640?wx_fmt=png" data-type="png" data-w="1267" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 189.174px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRulRoudQSSh6sPx96ccDpYnnURJepFbbFktyWSM5uxHm9UiaNpjMN91mQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">点克隆后会弹出一个github的授权页面授权给vs，然后成功把项目克隆到本地。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="142" data-backw="558" data-ratio="0.25492610837438423" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRumwXF16F2QgkmHd5VlJlbrB0ggwrVV4amKd5evGm6fRKsj0B1kCRktA/640?wx_fmt=png" data-type="png" data-w="812" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 80.0074px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRumwXF16F2QgkmHd5VlJlbrB0ggwrVV4amKd5evGm6fRKsj0B1kCRktA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">创建一个.NetCore程序，并放到刚才克隆的目录</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="168" data-backw="558" data-ratio="0.3006060606060606" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuEcnM5aJ9DBRlbicBTHC1asMjaeUdbvyJIOq9gA94JWLArXma4fNY8ww/640?wx_fmt=png" data-type="png" data-w="825" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 93.9855px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuEcnM5aJ9DBRlbicBTHC1asMjaeUdbvyJIOq9gA94JWLArXma4fNY8ww/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">运行一下查看界面</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="124" data-backw="558" data-ratio="0.22266401590457258" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuJ6MZQ8Mt0kyGxqmXgJ6TG931NiaB2jicibJwUzLNeg2gnscePYlnEvdeg/640?wx_fmt=png" data-type="png" data-w="1006" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 70.1352px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuJ6MZQ8Mt0kyGxqmXgJ6TG931NiaB2jicibJwUzLNeg2gnscePYlnEvdeg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">因为我们要把.NetCore程序部署到Docker,所以建一个DockerFile文件</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="507" data-backw="558" data-ratio="0.9091928251121076" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuicJweLHZE2HwQhHx2t0SlS7RhZOBklziarGOtGzbicR5hcXClDCbvOUzQ/640?wx_fmt=png" data-type="png" data-w="892" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 280.213px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuicJweLHZE2HwQhHx2t0SlS7RhZOBklziarGOtGzbicR5hcXClDCbvOUzQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">点了后会会产生一个Dockerfile文件，在根目录，需要把它移动到外面，和项目文件夹同级。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="181" data-backw="558" data-ratio="0.32546583850931676" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuVQzDHRs2rPzPic90VeuzwO4tDGRQhfu5l9vawp8fHHaS1fx5kX6mO6g/640?wx_fmt=png" data-type="png" data-w="805" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuVQzDHRs2rPzPic90VeuzwO4tDGRQhfu5l9vawp8fHHaS1fx5kX6mO6g/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">然后提交修改。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="901" data-backw="512" data-ratio="1.759765625" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRux9ujueiaRcs0n9seXnHUEWRfXFlpCkccU2v0B0QH3FBtscoTf52C02g/640?wx_fmt=png" data-type="png" data-w="512" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRux9ujueiaRcs0n9seXnHUEWRfXFlpCkccU2v0B0QH3FBtscoTf52C02g/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">把项目推到github</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="334" data-backw="449" data-ratio="0.7438752783964365" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueGRzx5iaibnxJGRYDQ40QbuP5rxdf6WZFqZZobGETazg2RTHbAalLHhQ/640?wx_fmt=png" data-type="png" data-w="449" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueGRzx5iaibnxJGRYDQ40QbuP5rxdf6WZFqZZobGETazg2RTHbAalLHhQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">打开githug看到项目已经提交成功</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="269" data-backw="558" data-ratio="0.4818181818181818" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuDAmR7qeOnEdVgAYMNiboSzf4DcH5bfVx2coKpB6Xyib450g3Ydl4hqLg/640?wx_fmt=png" data-type="png" data-w="1430" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuDAmR7qeOnEdVgAYMNiboSzf4DcH5bfVx2coKpB6Xyib450g3Ydl4hqLg/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><h1 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 24px;"><span style="font-size: 16px;color: rgb(171, 25, 66);">三、服务器git客户端安装</span></h1><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">回到服务器，执行安装git客户端命令</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#安装git客户端</span><br>yum&nbsp;install&nbsp;-y&nbsp;git<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">安装完客户端后，执行命令生成ssh key命令，一直回车确认即可。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#生成ssh&nbsp;key</span><br>ssh-keygen&nbsp;-t&nbsp;rsa&nbsp;-C&nbsp;<span style="color: #98c379;line-height: 26px;">'284743503@qq.com'</span><br></code></pre><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="301" data-backw="558" data-ratio="0.5393759286775631" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuzo8sSeiclhJBnMX6TYa97q91fqIXH077VhUTibz24ibHpoFBHxmRwbCpg/640?wx_fmt=png" data-type="png" data-w="673" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuzo8sSeiclhJBnMX6TYa97q91fqIXH077VhUTibz24ibHpoFBHxmRwbCpg/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">执行完命令后，可以看到把ssh key生成到了/root/.ssh目录下了，id_rsa文件为私钥,id_rsa.pub为公钥。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">执行vi /root/.ssh/id_rsa.pub打开公钥。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.08792742498255408" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuUdtmYiaUahAxJVVYlHTG5rPAAVAknlbhQvjZOlw1ZkNXjqlZ9XZKgsA/640?wx_fmt=png" data-type="png" data-w="1433" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 27.0816px !important;" _width="328px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">把上面的公钥复制到github上的ssh key里。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="283" data-backw="558" data-ratio="0.506993006993007" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuWEgYyjjFWHf5CWhuOO4VAZmiaGCGq4ZnAPDM72buTYtTx11vAPlgc7g/640?wx_fmt=png" data-type="png" data-w="1430" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 157.14px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuWEgYyjjFWHf5CWhuOO4VAZmiaGCGq4ZnAPDM72buTYtTx11vAPlgc7g/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="244" data-backw="558" data-ratio="0.43719639139486466" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuNju7n7kcz98UL13GyK0KS4yrEZm8paWs0iboWk67ricQgpvgsGkdEBzg/640?wx_fmt=png" data-type="png" data-w="1441" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 135.782px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuNju7n7kcz98UL13GyK0KS4yrEZm8paWs0iboWk67ricQgpvgsGkdEBzg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><h1 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 24px;"><span style="font-size: 16px;color: rgb(171, 25, 66);">四、Jenkins自动化构建任务创建</span></h1><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">回到jenkins，新建任务</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="261" data-backw="558" data-ratio="0.46830723340790453" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuvWpmKquRIYkzu3qG9ccJdkqFAc8KZdMU9StdU1UmC2jXHdpE1as6TQ/640?wx_fmt=png" data-type="png" data-w="1341" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 145.302px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuvWpmKquRIYkzu3qG9ccJdkqFAc8KZdMU9StdU1UmC2jXHdpE1as6TQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">输入任务名称，构建自由风格项目</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="255" data-backw="558" data-ratio="0.45733222866611434" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRucp97ozpZiaNMjTibRoibuzRia4VcfhDVv99OibZsiaXHxveEDYgOiaZkjTFZw/640?wx_fmt=png" data-type="png" data-w="1207" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRucp97ozpZiaNMjTibRoibuzRia4VcfhDVv99OibZsiaXHxveEDYgOiaZkjTFZw/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">进去源码管理，选择Git，仓库URL填上面克隆github项目的ssh地址，因为项目是私有的，因为是私有的，所以也要把git的私钥凭证加进来。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">复制github上的地址</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="305" data-backw="558" data-ratio="0.5454545454545454" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuHKOyLpibHee1Nb8wprKWgV6XEGXh93JibsMjUvCiccWaE1GP5kdQ5WibRA/640?wx_fmt=png" data-type="png" data-w="1089" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuHKOyLpibHee1Nb8wprKWgV6XEGXh93JibsMjUvCiccWaE1GP5kdQ5WibRA/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">填到jenkins的git上，把分支改为github的默认main分支，然后添加github凭证。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="355" data-backw="558" data-ratio="0.6362083689154568" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuyBicrlVHefBEFWa9FtVb2xuAUpJtF9qMedOicuSQziaZNHj9rptP5SibLw/640?wx_fmt=png" data-type="png" data-w="1171" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 196.68px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuyBicrlVHefBEFWa9FtVb2xuAUpJtF9qMedOicuSQziaZNHj9rptP5SibLw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">凭证填上面的id_rsa文件里面的私钥，命令 vi /root/.ssh/id_rsa然后复制里面的私钥填到sshkey凭证里面。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="410" data-backw="558" data-ratio="0.7345050878815911" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuiajsnnIWvOsxysbrfd0D2Wqr8JxF8bZCYoCic2WHv08VmAYNCVROP4mg/640?wx_fmt=png" data-type="png" data-w="1081" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 226.759px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuiajsnnIWvOsxysbrfd0D2Wqr8JxF8bZCYoCic2WHv08VmAYNCVROP4mg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">配置完后外面选刚才的配置。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="233" data-backw="558" data-ratio="0.4166666666666667" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuBzTL1wtlsVicnDZb1nk6rHUJicCAA0OCIfWbmzsoYibPJibKVlkC5rl5Hg/640?wx_fmt=png" data-type="png" data-w="1188" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 129.5px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuBzTL1wtlsVicnDZb1nk6rHUJicCAA0OCIfWbmzsoYibPJibKVlkC5rl5Hg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><strong>构建环境</strong>，把超时时间设10分钟，因为访问github网络可能会有点慢，项目文件大的时候拉取需要时间。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="320" data-backw="558" data-ratio="0.5737976782752903" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuESJgYKJfIuiaPJr50M8KiaXUkdgbMGwG1x2rlibHzbSx3WN1YXl0KvhBg/640?wx_fmt=png" data-type="png" data-w="1206" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 177.582px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuESJgYKJfIuiaPJr50M8KiaXUkdgbMGwG1x2rlibHzbSx3WN1YXl0KvhBg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">构建，选择执行shell命令，命令如下，生成docker镜像，然后运行容器实例，然后完成。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #61aeee;line-height: 26px;">#!/bin/bash</span><br><span style="color: #61aeee;line-height: 26px;">#&nbsp;获取短版本号</span><br>GITHASH=`git&nbsp;rev-parse&nbsp;--<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;HEAD`<br>echo&nbsp;---------------开始编译程序...------------------<br>echo&nbsp;---------------Building&nbsp;Docker&nbsp;Image...--------<br>----------<br>docker&nbsp;build&nbsp;-t&nbsp;jkdemo:$GITHASH&nbsp;.<br>docker&nbsp;tag&nbsp;jkdemo:$GITHASH&nbsp;jkdemo:latest<br>echo&nbsp;---------------Launching&nbsp;Container...----------<br>--------<br>docker&nbsp;rm&nbsp;-f&nbsp;jkdemo1<br>docker&nbsp;run&nbsp;-d&nbsp;-p&nbsp;<span style="color: #d19a66;line-height: 26px;">5001</span>:<span style="color: #d19a66;line-height: 26px;">80</span>&nbsp;--name&nbsp;jkdemo1&nbsp;jkdemo:latest<br></code></pre><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="384" data-backw="558" data-ratio="0.6881810561609388" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuKVN97PViaiauR56SPTmVv1HkiaJkeBbCogVtk373jJBkITvG4lYdOKUaw/640?wx_fmt=png" data-type="png" data-w="1193" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuKVN97PViaiauR56SPTmVv1HkiaJkeBbCogVtk373jJBkITvG4lYdOKUaw/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在这个任务下点击立即构建，就会自动拉取代码，然后执行里面的shell命令发布。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="270" data-backw="558" data-ratio="0.48369188063844554" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuRnmX7vvNMHDuZBEaw8k84LU47kI7EVtgblTVRrBadiaobp5kgk1JdIA/640?wx_fmt=png" data-type="png" data-w="1441" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 150.01px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuRnmX7vvNMHDuZBEaw8k84LU47kI7EVtgblTVRrBadiaobp5kgk1JdIA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">构建成功</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="278" data-backw="558" data-ratio="0.49791376912378305" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuRsAuPSs6icv82NcMPPxz7z61iaRHYicmicc4CpcIhRhxRDiajNeOAuASQtQ/640?wx_fmt=png" data-type="png" data-w="1438" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 154.362px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuRsAuPSs6icv82NcMPPxz7z61iaRHYicmicc4CpcIhRhxRDiajNeOAuASQtQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">访问部署的.NetCore ，ip:5001，访问成功</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="124" data-backw="558" data-ratio="0.22211981566820277" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuJLCEwNDukjASZuxCDNuA4sJ1d3nfibe1bxIpaB85BxIlWSuyF52NX1A/640?wx_fmt=png" data-type="png" data-w="1085" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 69.9687px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuJLCEwNDukjASZuxCDNuA4sJ1d3nfibe1bxIpaB85BxIlWSuyF52NX1A/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">更新站点，提交</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="141" data-backw="558" data-ratio="0.25251076040172166" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRutLDK7zJWO8ibUO2M8unBxibxOUOOI00Ej5QMzMgZMhMHowbqwT0BRTtQ/640?wx_fmt=png" data-type="png" data-w="1394" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 79.2683px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRutLDK7zJWO8ibUO2M8unBxibxOUOOI00Ej5QMzMgZMhMHowbqwT0BRTtQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="198" data-backw="558" data-ratio="0.35524256651017216" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuyv9148dmpJFsAH4XGjiawPcUyRvXGETcRUJlrdVBicWDvNehSyaV8PFA/640?wx_fmt=png" data-type="png" data-w="1278" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 110.704px !important;" _width="100%" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuyv9148dmpJFsAH4XGjiawPcUyRvXGETcRUJlrdVBicWDvNehSyaV8PFA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">再点击立即构建，构建成功，点进去还能看到提交的内容</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="336" data-backw="558" data-ratio="0.6027131782945736" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuN4Ede657oll6XdfPuz5Bic9b6jia1ElRE6umxiaC5zEFudowia0ojphRibw/640?wx_fmt=png" data-type="png" data-w="1032" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuN4Ede657oll6XdfPuz5Bic9b6jia1ElRE6umxiaC5zEFudowia0ojphRibw/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="229" data-backw="558" data-ratio="0.4101338432122371" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuibqrIDCd5dxn136ksNReNDcj7Q8cAibXWleibnPF5fKbe3MjcAhic9Unvg/640?wx_fmt=png" data-type="png" data-w="1046" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRuibqrIDCd5dxn136ksNReNDcj7Q8cAibXWleibnPF5fKbe3MjcAhic9Unvg/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">再访问站点，发现更新了。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="159" data-backw="558" data-ratio="0.2839024390243902" data-src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueHtuJ1r1z1NhibiasAC5wWclIhtf6FuBnxicZDuq5yOrGN6Us871v9jOQ/640?wx_fmt=png" data-type="png" data-w="1025" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QtSkD0RHKpl2ia9iculALHaRueHtuJ1r1z1NhibiasAC5wWclIhtf6FuBnxicZDuq5yOrGN6Us871v9jOQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">后面的修改，提交后，只需要点击构建就可以自动发布啦！公司中一般都是用自己搭的gitlab，只要把github的操作换成gitlab，操作过程也是一样的。</p></section><p style="white-space: normal;"><br></p><blockquote style="white-space: normal;caret-color: rgb(0, 0, 0);font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><p><span style="font-size: 14px;">转自：包子wxl</span></p><p><span style="font-size: 14px;">链接：cnblogs.com/wei325/p/15154918.html</span></p></blockquote><p style="white-space: normal;text-align: center;"><br></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(136, 136, 136);">- EOF -</span></p><section donone="shifuMouseDownCard('shifu_c_030')" label="Copyright Reserved by PLAYHUDONG." style="margin-top: 1em;margin-bottom: 1em;white-space: normal;text-align: start;max-width: 100%;caret-color: rgb(0, 0, 0);color: rgb(0, 0, 0);border-width: 0px;border-style: initial;border-color: initial;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-left: 1em;max-width: 100%;line-height: 1.4;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding: 3px 8px;max-width: 100%;border-radius: 4px;color: rgb(255, 255, 255);background-color: rgb(255, 105, 31);font-family: inherit;text-align: inherit;text-decoration: inherit;font-size: 16px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐阅读</span>&nbsp;&nbsp;<span style="margin-left: 4px;padding: 3px 8px;max-width: 100%;border-radius: 1.2em;color: rgb(255, 255, 255);line-height: 1.2;background-color: rgb(204, 204, 204);font-family: inherit;text-align: inherit;text-decoration: inherit;border-color: rgb(249, 110, 87);font-size: 12px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击标题可跳转</span></section><section style="margin-top: -11px;padding: 22px 16px 16px;max-width: 100%;border-width: 1px;border-style: solid;border-color: rgb(255, 105, 31);color: rgb(51, 51, 51);font-size: 1em;font-family: inherit;text-align: inherit;text-decoration: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="line-height: 1.5em;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660118411&amp;idx=2&amp;sn=caf0a475a0c00612c99b9391ae8375a3&amp;chksm=80398b6db74e027b7293bf36178e40cb80617739f672a5083d652c9876a77d44b468eb3255d6&amp;scene=21#wechat_redirect');" textvalue=".NET 某智慧水厂API 非托管内存泄漏分析" data-itemshowtype="11" tab="innerlink" data-linktype="2" hasload="1"><span style="font-size: 12px;">.NET 某智慧水厂API 非托管内存泄漏分析</span></a></section><section style="line-height: 1.5em;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660118399&amp;idx=1&amp;sn=5b7c77eee24bbe552378689c9b4739fa&amp;chksm=80398b99b74e028f22481ba1ccbec5d2eb92d5031ea6bd445bf03c00fbc66c67092f29982589&amp;scene=21#wechat_redirect');" textvalue=".NET 生态现状：超一半 .NET 开发者使用 C# 8" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1"><span style="font-size: 12px;">.NET 生态现状：超一半 .NET 开发者使用 C# 8</span></a><span style="font-size: 12px;"></span></section><section style="line-height: 1.5em;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660118356&amp;idx=1&amp;sn=56f855e31d0671cdda2bdb6c42ca1a6f&amp;chksm=80398bb2b74e02a4091b014048a7dbe4d5769535b27e82a09cc9a3b8c43c8c783c3441456641&amp;scene=21#wechat_redirect');" textvalue="体验 ASP.NET Core 6 预览版本 最小API新特性" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1"><span style="font-size: 12px;">体验 ASP.NET Core 6 预览版本 最小API新特性</span></a></section></section></section><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);color: rgb(44, 44, 44);font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;"></strong></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 14px;box-sizing: border-box !important;overflow-wrap: break-word !important;">看完本文有收获？请转发分享给更多人</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐关注「DotNet」，提升.Net技能&nbsp;</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: center;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-ratio="0.9166666666666666" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640?wx_fmt=jpeg" data-type="jpeg" data-w="600" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 328px !important; height: auto !important;" _width="328px" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: right;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="font-size: 14px;letter-spacing: 0.544px;">点赞和在看就是最大的支持❤️</span></p>                </div><div>来源:https://mp.weixin.qq.com/s/RVn4bz2rdKsvic3kLkUV-A</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="310" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="310" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="../../assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="310" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../yunwei.html">运维</a></li>
+        <li>本文标签：<a href="../t/.net.html" class="tag" rel="tag">. net</a></li>
+        <li>浏览次数：<span>214</span> 次浏览</li>
+        <li>发布日期：2021-08-20 12:01:48</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/yunwei/310.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="297.html">超赞，腾讯开源运维必备海量服务器管理系统！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt=".NET Core + Jenkins + Github 自动化部署到 Docker" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">.NET Core + Jenkins + Github 自动化部署到 Docker</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/303.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="利用 PGO 提升 .NET 程序性能" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/303.html">利用 PGO 提升 .NET 程序性能</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/302.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/nZI4EDLl0LOia2o2Y5GUQA0ciaiaDqycdJHZS4icA3bCPhJAuia6fqsbAcMiaRHTTdafvtQBY9GInRgLnrlibruY7ibxgg/640" alt="HttpClient 禁用自动重定向" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/302.html">HttpClient 禁用自动重定向</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/281.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/gak2lhVxV6Kgmhgc4NgiadsVeLh5Nef7gmticoBSRcSIgn08Zm6lGzS3GvLcv4NSv1iaDfRMMv2Tf9z6xTrD86h1g/640" alt=".NetCore从零开始使用Skywalking分布式追踪系统" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/281.html">.NetCore从零开始使用Skywalking分布式追踪系统</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="e9e814a1a899baef9079bf917efe5af1">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="310">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

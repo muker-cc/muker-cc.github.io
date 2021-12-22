@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>.NET对象池的使用 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="03acf3366f40d1650d5b6fb35171dba3">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">.NET对象池的使用</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 438 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-powered-by="md2x" data-website="https://github.com/liamwang" style="color: rgb(1, 1, 1);word-break: break-word;overflow-wrap: break-word;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 15px;line-height: 2;padding-right: 8px;padding-left: 8px;letter-spacing: 0.54px;"><p style="margin-bottom: 22px;">今天展开详细讲讲这个知识点。</p><p style="margin-bottom: 22px;"><span style="color: rgb(25, 182, 215);">池</span>这个概念大家都很熟悉，比如我们经常听到数据库连接池和线程池。它是一种基于使用预先分配资源集合的性能优化思想。</p><p style="margin-bottom: 22px;">简单说，对象池就是对象的容器，旨在优化资源的使用，通过在一个容器中<span style="color: rgb(25, 182, 215);">池化</span>对象，并根据需要重复使用这些池化对象来满足性能上的需求。当一个对象被激活时，便被从池中取出。当对象被停用时，它又被放回池中，等待下一个请求。对象池一般用于对象的初始化过程代价较大或使用频率较高的场景。</p><p style="margin-bottom: 22px;">那在 .NET 中如何实现或使用对象池呢？</p><p style="margin-bottom: 22px;">在 ASP.NET Core 框架里已经内置了一个对象池功能的实现：<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Microsoft.Extensions.ObjectPool</code>。如果是控制台应用程序，可以单独安装这个扩展库。</p><h2 style="margin-bottom: 22px;line-height: 35px;margin-top: 40px;color: rgb(0, 179, 139);text-align: left;font-size: 20px;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-position: left 28px;background-size: 100% 6px;background-repeat: no-repeat;"><span style="display: none;"></span><span style="display: block;font-size: 32px;padding-left: 12px;margin-bottom: 8px;">1</span><span style="display: block;line-height: 1.5;">池化策略</span><span style="display: none;"></span></h2><p style="margin-bottom: 22px;">首先，要使用 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">ObjectPool</code>，需要创建一个池化策略，告诉对象池你将如何创建对象，以及如何归还对象。</p><p style="margin-bottom: 22px;">该策略通过实现接口 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">IPooledObjectPolicy</code> 来定义，下面是一个最简单的策略实现：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">class</span>&nbsp;<span style="color: #ffc66d;">FooPooledObjectPolicy</span> : <span style="color: #ffc66d;">IPooledObjectPolicy</span>&lt;<span style="color: #ffc66d;">Foo</span>&gt;<br>{<br>    <span style="color: #cc7832;">public</span> Foo <span style="color: #ffc66d;">Create</span>()<br>    {<br>        <span style="color: #cc7832;">return</span>&nbsp;<span style="color: #cc7832;">new</span> Foo();<br>    }<br><br>    <span style="color: #cc7832;">public</span>&nbsp;bool&nbsp;<span style="color: #ffc66d;">Return</span>(Foo obj)<br>    {<br>        <span style="color: #cc7832;">return</span>&nbsp;<span style="color: #6897bb;">true</span>;<br>    }<br>}</code></pre><p style="margin-bottom: 22px;">如果每次编码都要定义这样的策略，会比较麻烦，可以自己定义一个通用的泛型实现。<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Microsoft.Extensions.ObjectPool</code> 中也提供了一个默认的泛型实现：<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">DefaultPooledObjectPolicy&lt;T&gt;</code>。如果不需要定义复杂的构造逻辑，使用默认的就行。下面我们来看看怎么使用。</p><h2 style="margin-bottom: 22px;line-height: 35px;margin-top: 40px;color: rgb(0, 179, 139);text-align: left;font-size: 20px;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-position: left 28px;background-size: 100% 6px;background-repeat: no-repeat;"><span style="display: none;"></span><span style="display: block;font-size: 32px;padding-left: 12px;margin-bottom: 8px;">2</span><span style="display: block;line-height: 1.5;">对象池的使用</span><span style="display: none;"></span></h2><p style="margin-bottom: 22px;">对象池使用的原则是：<span style="color: rgb(25, 182, 215);">有借有还，再借不难。</span></p><figure style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 24px;"><img data-ratio="0.8622100954979536" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="733" style="display: block; margin-right: auto; margin-left: auto; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px; width: 312px !important; height: 269.285px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyYnbzk864uO3AswibLYtUEicj5HZTpMe3WSFHrSo6I11mXUiamDaDRh4Nw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p style="margin-bottom: 22px;">当对象池中没有实例时，则创建实例并返回给调用组件；当对象池中已有实例时，则直接取一个现有实例返回给调用组件。而且这个过程是线程安全的。</p><p style="margin-bottom: 22px;"><code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Microsoft.Extensions.ObjectPool</code> 提供了默认的对象池实现：<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">DefaultObjectPool&lt;T&gt;</code>，它提供了借 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Get</code> 和还 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Return</code> 操作接口。创建对象池时需要提供池化策略 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">IPooledObjectPolicy&lt;T&gt;</code> 作为其构造参数。</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">var</span> policy = <span style="color: #cc7832;">new</span> DefaultPooledObjectPolicy&lt;Foo&gt;();<br><span style="color: #cc7832;">var</span> pool = <span style="color: #cc7832;">new</span> DefaultObjectPool&lt;Foo&gt;(policy);</code></pre><p style="margin-bottom: 22px;">我们来看一个常规示例(C# 9.0 单文件完整代码)：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">using</span> Microsoft.Extensions.ObjectPool;<br><span style="color: #cc7832;">using</span> System;<br><br><span style="color: #cc7832;">var</span> policy = <span style="color: #cc7832;">new</span> DefaultPooledObjectPolicy&lt;Foo&gt;();<br><span style="color: #cc7832;">var</span> pool = <span style="color: #cc7832;">new</span> DefaultObjectPool&lt;Foo&gt;(policy);<br><br><span style="color: #808080;">// 借</span><br><span style="color: #cc7832;">var</span> item1 = pool.Get();<br><span style="color: #808080;">// 还</span><br>pool.Return(item1);<br>Console.WriteLine(<span style="color: #6a8759;">"item 1: {0}"</span>, item1.Id);<br><br><span style="color: #808080;">// 借</span><br><span style="color: #cc7832;">var</span> item2 = pool.Get();<br><span style="color: #808080;">// 还</span><br>pool.Return(item2);<br>Console.WriteLine(<span style="color: #6a8759;">"item 2: {0}"</span>, item2.Id);<br><br>Console.ReadKey();<br><br><span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">class</span>&nbsp;<span style="color: #ffc66d;">Foo</span><br>{<br>    <span style="color: #cc7832;">public</span>&nbsp;string Id { <span style="color: #cc7832;">get</span>; <span style="color: #cc7832;">set</span>; } = Guid.NewGuid().ToString(<span style="color: #6a8759;">"N"</span>);<br>}</code></pre><p style="margin-bottom: 22px;">打印结果：</p><figure style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 24px;"><img data-ratio="0.1777434312210201" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="647" style="display: block; margin-right: auto; margin-left: auto; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px; width: 312px !important; height: 57.1005px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyjX6AMqp9QMsWE58IKzjysILy1BAv5QHmltIficqTXp6f1JGoniczib1fw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p style="margin-bottom: 22px;">通过打印的 Id 知道，<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item1</code> 和 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item2</code> 是同一样对象。我们再来试试只借不还会是什么样子。</p><figure style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 24px;"><img data-ratio="0.18335901386748846" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="649" style="display: block; margin-right: auto; margin-left: auto; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px; width: 312px !important; height: 58.8413px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyLP4ZUfiaj866jr0ffF9GlyuGPwJCu9s9nRCB2rl2Wfy6D9icoibZl7EEQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p style="margin-bottom: 22px;">可以看到，两个对象是不同的实例。所以，当调用组件从对象池中借走一个对象实例，使用完后应立即归还给对象池，以便重复使用，避免因构造新对象消耗过多资源。</p><h2 style="margin-bottom: 22px;line-height: 35px;margin-top: 40px;color: rgb(0, 179, 139);text-align: left;font-size: 20px;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-position: left 28px;background-size: 100% 6px;background-repeat: no-repeat;"><span style="display: none;"></span><span style="display: block;font-size: 32px;padding-left: 12px;margin-bottom: 8px;">3</span><span style="display: block;line-height: 1.5;">指定对象池容量</span><span style="display: none;"></span></h2><p style="margin-bottom: 22px;">在创建 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">DefaultObjectPool&lt;T&gt;</code> 时，还可以指定第二个参数：对象池的容量。它表示最大可从该对象池取出的对象数量，指定数量以外的被取走的对象将不会被池化。我来演示一下，大家就知道什么意思了，请看示例：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">using</span> Microsoft.Extensions.ObjectPool;<br><span style="color: #cc7832;">using</span> System;<br><br><span style="color: #cc7832;">var</span> policy = <span style="color: #cc7832;">new</span> DefaultPooledObjectPolicy&lt;Foo&gt;();<br><br><span style="color: #808080;">// 指定容量为 2。</span><br><span style="color: #cc7832;">var</span> pool = <span style="color: #cc7832;">new</span> DefaultObjectPool&lt;Foo&gt;(policy, <span style="color: #6897bb;">2</span>);<br><br><span style="color: #808080;">// 借走 3 个</span><br><span style="color: #cc7832;">var</span> item1 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 1: {0}"</span>, item1.Id);<br><span style="color: #cc7832;">var</span> item2 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 2: {0}"</span>, item2.Id);<br><span style="color: #cc7832;">var</span> item3 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 3: {0}"</span>, item3.Id);<br><br><span style="color: #808080;">// 再还会 3 个</span><br>pool.Return(item1);<br>pool.Return(item2);<br>pool.Return(item3);<br><br><br><span style="color: #808080;">// 再借走 3 个</span><br><span style="color: #cc7832;">var</span> item4 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 4: {0}"</span>, item4.Id);<br><span style="color: #cc7832;">var</span> item5 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 5: {0}"</span>, item5.Id);<br><span style="color: #cc7832;">var</span> item6 = pool.Get();<br>Console.WriteLine(<span style="color: #6a8759;">"item 6: {0}"</span>, item6.Id);<br><br>Console.ReadKey();</code></pre><p style="margin-bottom: 22px;">注意示例代码中我给对象池指定了容量为 2，然后借走 3 个再归还 3 个，后面再借走 3 个。来看看打印结果：</p><figure style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 24px;"><img data-ratio="0.3140604467805519" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="761" style="display: block; margin-right: auto; margin-left: auto; box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px; width: 312px !important; height: 99.3587px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyOlUl7ojfqImVbMCLJNSgcZgqWXkzjWRNfnWnLYdJfompEDF1A9hN6Q/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></figure><p style="margin-bottom: 22px;">我们看到，<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item1</code> 与 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item4</code> 是同一个对象，<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item2</code> 与 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item5</code> 是同一个对象。<code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item3</code> 与 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">item6</code> 却不是同一个对象。</p><p style="margin-bottom: 22px;">也就是说，当对象从池中取出超过指定容量的对象数量，虽然归还了相同数量的对象，但对象池只允许容纳 2 个对象，第三个对象不会被池化。</p><h2 style="margin-bottom: 22px;line-height: 35px;margin-top: 40px;color: rgb(0, 179, 139);text-align: left;font-size: 20px;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-position: left 28px;background-size: 100% 6px;background-repeat: no-repeat;"><span style="display: none;"></span><span style="display: block;font-size: 32px;padding-left: 12px;margin-bottom: 8px;">4</span><span style="display: block;line-height: 1.5;">在 ASP.NET Core 中使用</span><span style="display: none;"></span></h2><p style="margin-bottom: 22px;">ASP.NET Core 框架内置好了 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Microsoft.Extensions.ObjectPool</code>，不需要单独安装。官方文档有个基于 ASP.NET Core 的使用示例：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;">https://docs.microsoft.com/en-us/aspnet/core/performance/objectpool</code></pre><p style="margin-bottom: 22px;">这个例子把 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">StringBuilder</code> 做了池化。我这里就直接贴官方的例子了，为了更直观些，我把无关的代码简化掉了。</p><p style="margin-bottom: 22px;">先定义一个中间件：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">class</span>&nbsp;<span style="color: #ffc66d;">BirthdayMiddleware</span><br>{<br>    <span style="color: #cc7832;">private</span>&nbsp;<span style="color: #cc7832;">readonly</span> RequestDelegate _next;<br><br>    <span style="color: #cc7832;">public</span>&nbsp;<span style="color: #ffc66d;">BirthdayMiddleware</span>(RequestDelegate next)<br>    {<br>        _next = next;<br>    }<br><br>    <span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">async</span> Task <span style="color: #ffc66d;">InvokeAsync</span>(HttpContext context, ObjectPool&lt;StringBuilder&gt; builderPool)<br>    {<br>        <span style="color: #cc7832;">var</span> stringBuilder = builderPool.Get();<br>        <span style="color: #cc7832;">try</span><br>        {<br>            stringBuilder.Append(<span style="color: #6a8759;">"Hi"</span>);<br>            <span style="color: #808080;">// 其它处理</span><br>            <span style="color: #cc7832;">await</span> context.Response.WriteAsync(stringBuilder.ToString());<br>        }<br>        <span style="color: #cc7832;">finally</span>&nbsp;<span style="color: #808080;">// 即使出错也要保证归还对象</span><br>        {<br>            builderPool.Return(stringBuilder);<br>        }<br>    }<br>}</code></pre><p style="margin-bottom: 22px;">在 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Startup</code> 中注册相应的服务和中间件：</p><pre style="background: rgb(40, 43, 46);border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 4px;margin-bottom: 24px;"><code style="color: #a9b7c6;overflow-x: auto;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;-webkit-overflow-scrolling: touch;font-size: 12px;line-height: 1.5;border-radius: 0px;padding: 16px;letter-spacing: normal;"><span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">class</span>&nbsp;<span style="color: #ffc66d;">Startup</span><br>{<br>    <span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">void</span>&nbsp;<span style="color: #ffc66d;">ConfigureServices</span>(IServiceCollection services)<br>    {<br>        services.TryAddSingleton&lt;ObjectPoolProvider, DefaultObjectPoolProvider&gt;();<br><br>        services.TryAddSingleton&lt;ObjectPool&lt;StringBuilder&gt;&gt;(serviceProvider =&gt;<br>        {<br>            <span style="color: #cc7832;">var</span> provider = serviceProvider.GetRequiredService&lt;ObjectPoolProvider&gt;();<br>            <span style="color: #cc7832;">var</span> policy = <span style="color: #cc7832;">new</span> StringBuilderPooledObjectPolicy();<br>            <span style="color: #cc7832;">return</span> provider.Create(policy);<br>        });<br>    }<br><br>    <span style="color: #cc7832;">public</span>&nbsp;<span style="color: #cc7832;">void</span>&nbsp;<span style="color: #ffc66d;">Configure</span>(IApplicationBuilder app, IHostingEnvironment env)<br>    {<br>        app.UseMiddleware&lt;BirthdayMiddleware&gt;();<br>    }<br>}</code></pre><p style="margin-bottom: 22px;">这个示例用了 <code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">DefaultObjectPoolProvider</code>，它是默认的对象池 Provider，所以你也可以自定义自己的对象池 Provider。</p><h2 style="margin-bottom: 22px;line-height: 35px;margin-top: 40px;color: rgb(0, 179, 139);text-align: left;font-size: 20px;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-position: left 28px;background-size: 100% 6px;background-repeat: no-repeat;"><span style="display: none;"></span><span style="display: block;font-size: 32px;padding-left: 12px;margin-bottom: 8px;">5</span><span style="display: block;line-height: 1.5;">总结</span><span style="display: none;"></span></h2><p style="margin-bottom: 22px;"><code style="font-size: 0.9em;letter-spacing: 0;word-wrap: break-word;word-break: break-all;padding: 2px 4px;border-radius: 4px;background-color: rgba(27, 31, 35, 0.05);font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;color: rgb(25, 182, 215);">Microsoft.Extensions.ObjectPool</code> 提供的对象池功能还是挺灵活的。普通场景使用使用默认的池化策略、默认的对象池和默认的对象池提供者就可以满足需求，也可以自定义其中任意某部件来实现比较特殊或复杂的需求。</p><p style="margin-bottom: 22px;">对象池的使用原则是：有借有还，再借不难。当调用组件从对象池中借走一个对象实例，使用完后应立即归还给对象池，以便重复利用，避免因过多的对象初始化影响系统性能。</p><p style="text-align: center;margin-top: 25px;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="1.2204545454545455" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="880" style="border-radius: 10px; width: 312px !important; height: 380.341px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyQia4TOEFguYFd25NibULzb0G9ZboiayCeILtj3Uicq6AfoUQZ4a9Xnu3Og/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p></section>                </div><div>来源:https://mp.weixin.qq.com/s/1UK33TnidAofJdKQjI1efw</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="247" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="247" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/sz_mmbiz_png/TIcgLjdQYUyVG0J93hFw9T8Ind5Y8QuyYnbzk864uO3AswibLYtUEicj5HZTpMe3WSFHrSo6I11mXUiamDaDRh4Nw/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="247" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/.net.html" class="tag" rel="tag">. net</a><a href="../t/netstat.html" class="tag" rel="tag"> 对象</a></li>
+        <li>浏览次数：<span>438</span> 次浏览</li>
+        <li>发布日期：2021-07-16 09:23:30</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/247.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="246.html">彻底掌握分布式事务2PC、3PC模型</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="248.html">如何将 Numpy 加速 700 倍？用 CuPy 呀</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../yunwei/310.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt=".NET Core + Jenkins + Github 自动化部署到 Docker" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../yunwei/310.html">.NET Core + Jenkins + Github 自动化部署到 Docker</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="303.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="利用 PGO 提升 .NET 程序性能" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="303.html">利用 PGO 提升 .NET 程序性能</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="302.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/nZI4EDLl0LOia2o2Y5GUQA0ciaiaDqycdJHZS4icA3bCPhJAuia6fqsbAcMiaRHTTdafvtQBY9GInRgLnrlibruY7ibxgg/640" alt="HttpClient 禁用自动重定向" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="302.html">HttpClient 禁用自动重定向</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="281.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/gak2lhVxV6Kgmhgc4NgiadsVeLh5Nef7gmticoBSRcSIgn08Zm6lGzS3GvLcv4NSv1iaDfRMMv2Tf9z6xTrD86h1g/640" alt=".NetCore从零开始使用Skywalking分布式追踪系统" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="281.html">.NetCore从零开始使用Skywalking分布式追踪系统</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="03acf3366f40d1650d5b6fb35171dba3">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="247">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

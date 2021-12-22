@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>YOLOv5 实现无人机识别 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="3e0d12a28ec47176a1d120f4ac0d3b0b">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">YOLOv5 实现无人机识别</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 349 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);" data-mpa-powered-by="yiban.io"><section style="overflow: hidden;text-align: center;"><section style="width: 30px;display: inline-block;"><img class="__bg_gif" data-ratio="1" data-src="../../mmbiz_gif/urgCdYOG5Qe8yh7GutBoXnRNKGZ56K5ywgC88GRl5vvPDMmLej3oice4eIfBtHuaaict7St7ONSD3Y5m4HF9aICg/640.jpg" data-type="gif" data-w="400" style="margin-right: auto; margin-left: auto; display: inline-block; vertical-align: middle; box-sizing: border-box !important; visibility: visible !important; width: 30px !important; height: auto !important;" _width="30px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/urgCdYOG5Qe8yh7GutBoXnRNKGZ56K5ywgC88GRl5vvPDMmLej3oice4eIfBtHuaaict7St7ONSD3Y5m4HF9aICg/640?wx_fmt=gif" data-order="0" alt="图片" data-fail="0"></section><section style="margin-left: 5px;display: inline-block;vertical-align: middle;"><p style="white-space: pre-wrap;font-size: 12px;color: rgb(121, 121, 121);min-width: 1px;"><span style="letter-spacing: 1px;">点击上方<span style="color: rgb(0, 82, 255);">蓝字</span>关注我们</span></p></section></section></section><blockquote style="color: rgba(0, 0, 0, 0.5);font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><p style="color: inherit;letter-spacing: 0.544px;font-size: inherit;line-height: inherit;"><span style="font-size: 12px;"><span style="letter-spacing: 1px;">微信公众号：</span><span style="color: rgb(0, 82, 255);letter-spacing: 1px;"><strong style="color: inherit;font-size: inherit;line-height: inherit;">OpenCV学堂</strong></span></span></p><p style="font-size: inherit;line-height: inherit;"><span style="font-size: 12px;letter-spacing: 1px;color: rgb(154, 154, 154);">关注获取更多计算机视觉与深度学习知识</span></p><p style="font-size: inherit;line-height: inherit;"><span style="font-size: 12px;letter-spacing: 1px;color: rgb(154, 154, 154);">编辑:&nbsp;gloomyfish</span></p><p style="font-size: inherit;line-height: inherit;"><span style="font-size: 12px;">作者:&nbsp;陈金光</span><br></p></blockquote><section style="font-size: 16px;"><section style="margin: 10px 0%;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: bottom;width: auto;min-width: 10%;height: auto;background-color: rgba(56, 204, 255, 0.09);align-self: flex-end;"><section style="margin-top: 2px;margin-right: 0%;margin-left: 0%;" powered-by="xiumi.us"><section style="text-align: right;color: rgb(31, 196, 253);letter-spacing: 2px;line-height: 1.7;padding-right: 10px;padding-left: 10px;"><p style="text-align: left;"><strong>引言</strong></p></section></section><section style="margin-right: 0%;margin-bottom: 5px;margin-left: 0%;" powered-by="xiumi.us"><section style="background-color: rgb(31, 196, 253);height: 1px;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: 15px;align-self: flex-end;height: auto;"><section style="margin: 10px 0% 5px;" powered-by="xiumi.us"><section style="background-color: rgb(31, 196, 253);height: 1px;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><section powered-by="xiumi.us"><p style="white-space: normal;">YOLOv5发布至今，已经迭代多个版本，是唯一基于pytorch框架的YOLO系列的模型框。简单易用，特别适合自定义目标检测与对象检测。只要用了Pytorch版本YOLOv5框架，可以毫不夸张的说两个小时就可以学会目标检测。</p><p><br></p></section><section style="margin: 10px 0%;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-left: 10px;min-width: 10%;height: auto;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;" powered-by="xiumi.us"><section style="display: inline-block;min-width: 10%;vertical-align: top;transform: matrix(1, 0, -0.2, 1, 0, 0);border-style: none none none solid;border-width: 1px 5px 1px 0px;border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgb(92, 107, 192) rgb(223, 46, 0);padding: 5px 10px;background-color: rgb(92, 107, 192);box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px;line-height: 1;letter-spacing: 0px;width: auto;height: auto;"><section style="text-align: justify;color: rgb(255, 255, 255);" powered-by="xiumi.us"><p style="white-space: normal;">01</p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;min-width: 10%;height: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-right: 20px;padding-left: 10px;box-shadow: rgb(0, 0, 0) 0px 0px 0px;"><section style="color: rgb(92, 107, 192);" powered-by="xiumi.us"><p style="white-space: normal;"><strong>第一步数据准备</strong></p></section></section></section><section powered-by="xiumi.us"><p style="white-space: normal;">想用视觉识别一下空中飞行的无人机，识别对象有：</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li><li></li></ul><pre class="code-snippet__js"><code><span class="code-snippet_outer">1：鸟类bird</span></code><code><span class="code-snippet_outer">2：无人机UAV</span></code><code><span class="code-snippet_outer">3：直升机helicopter</span></code></pre></section><p style="white-space: normal;">想通过自己创建一个数据集，训练yolov5，在调用detect.py来识别一下效果。<br></p><p><iframe class="video_iframe rich_pages" data-vidtype="2" data-mpvid="wxv_1945684666808582144" data-cover="http%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FurgCdYOG5QcK7AecJaUib8gkkYhCgicUD0622zjK9o90qadRtdnh9HpAjnXicox5pzzicwGua73R8WEn3EmQSrrKOQ%2F0%3Fwx_fmt%3Djpeg" allowfullscreen="" frameborder="0" data-ratio="1.9047619047619047" data-w="640" data-src="https://mp.weixin.qq.com/mp/readtemplate?t=pages/video_player_tmpl&amp;auto=0&amp;vid=wxv_1945684666808582144" width="328" height="197" data-vh="184.5" data-vw="328" style="width: 328px !important; height: 197px !important; overflow: hidden; top: 0px;" scrolling="no" marginwidth="0" marginheight="0" src="javascript:window.open('https://muker.cc/mp/videoplayer?video_h=184.5&amp;video_w=328&amp;scene=&amp;random_num=1947&amp;article_title=YOLOv5 实现无人机识别&amp;source=4&amp;vid=wxv_1945684666808582144&amp;mid=2247493827&amp;idx=1&amp;__biz=MzA4MDExMDEyMw==&amp;nodetailbar=0&amp;uin=&amp;key=&amp;pass_ticket=&amp;version=&amp;devicetype=&amp;wxtoken=777&amp;sessionid=svr_dcc14dd35d2&amp;preview=0&amp;is_in_pay_subscribe=0&amp;nickname=OpenCV学堂&amp;roundHeadImg=http://mmbiz.qpic.cn/mmbiz_png/urgCdYOG5Qe2StKz3SA0sYqz8XicwZ5rhOKempzncoV95XF85ib3ZVSnyaTXBO8v9EgcN5dpBrKsyEkmvjVAtM3w/0?wx_fmt=png&amp;enterid=1625573642&amp;subscene=');"></iframe></p><p style="white-space: normal;">百度了一下，发现无法获取别人已经标注好的数据集。（这里提醒大家，自己做数据集不费时间，给100多张图打标签label就行，用不了半个小时）图片就从百度搜索就行，我们的目的是感性的认识这套牛掰的算法，100张图训练个几个小时就可以出来很好的效果，还有不用非要显卡，虽然我的电脑有显卡，但是装pytorch的显卡cuda版本的总是出错，索性不弄了，直接用cpu版本，cpu版本的pytorch包还小，一会儿就能安装好，这100张图我训练了100个epoch花费了3到4个小时，我的电脑的cpu是i7-9700的）</p><p style="white-space: normal;">我是从百度上找了大概130多张图片，我截个图：</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.490625" data-s="300,640" data-src="../../sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0a9nxlavjYu9XImbPvFYd9Uu4btib2QTIIa0I0ZddxCXwWFZDENJZBeQ/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 161.944px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0a9nxlavjYu9XImbPvFYd9Uu4btib2QTIIa0I0ZddxCXwWFZDENJZBeQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">用labelimage打上标签，所有的标签数量大概也就200来个吧！不会用labelimgage制作数据集的同学可以看这里：</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li></ul><pre class="code-snippet__js" data-lang="javascript"><code><span class="code-snippet_outer">https:<span class="code-snippet__comment">//github.com/tzutalin/labelImg</span></span></code></pre></section><p style="white-space: normal;">yolo的数据文件夹格式又要巩固一下了，先建一个数据文件夹data，在数据文件夹data目录下面建图像文件夹images和标签文件夹labels，然后在images文件夹下面建立训练数据集train和验证集val（validation的缩写，验证校验的意思），在labels的文件夹下面也是建立train和val两个文件夹，分别放训练集和验证集的标签。</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">另外说一下验证集，验证集里面我找了26张图片，标记了40个左右的labels吧，所以所有的数据加起来大概150张图片。</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">我放一个图片看一下验证集里面的图片如下图：</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.28515625" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 94.9609px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD08L2Ftjb3zJGYupyDYRB5tqyRnXmPM3fMqzu0JlGicFyuaCibnpxtXicHw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">到这里为止，所有的数据基本整理完毕，另外还需要几张测试的图片，到测试的时候再从网上找就是了。</p><p style="white-space: normal;"><br></p></section><section style="margin: 10px 0%;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-left: 10px;min-width: 10%;height: auto;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;" powered-by="xiumi.us"><section style="display: inline-block;min-width: 10%;vertical-align: top;transform: matrix(1, 0, -0.2, 1, 0, 0);border-style: none none none solid;border-width: 1px 5px 1px 0px;border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgb(92, 107, 192) rgb(223, 46, 0);padding: 5px 10px;background-color: rgb(92, 107, 192);box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px;line-height: 1;letter-spacing: 0px;width: auto;height: auto;"><section style="text-align: justify;color: rgb(255, 255, 255);" powered-by="xiumi.us"><p style="white-space: normal;">02</p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;min-width: 10%;height: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-right: 20px;padding-left: 10px;box-shadow: rgb(0, 0, 0) 0px 0px 0px;"><section style="color: rgb(92, 107, 192);" powered-by="xiumi.us"><p style="white-space: normal;"><strong>配置与修改参数</strong></p></section></section></section><section powered-by="xiumi.us"><p style="white-space: normal;">这里下载yolov5的源码就不写怎么下载了，自己百度就好，相对难度低，我是从gitee上下载的，github总是卡，这个源码也没有多大，几分钟的时间就下载好了。下面直接写怎么改一下代码训练自己制作好的无人机的数据集。</p><p style="white-space: normal;">分步骤写吧</p><p style="white-space: normal;"><br></p><p style="white-space: normal;"><strong>首先：明确思路</strong></p><p style="white-space: normal;">怎么训练这个算法？我要训练什么模型？我要拿这个模型做什么？这些问题是在训练这个算法的时候首先要想的问题。</p><p style="white-space: normal;"><strong>回答：</strong></p><p style="white-space: normal;">我要训练一个模型能够识别空中飞行的无人机，并打上红框label，空中的复杂环境下可能不只有无人机，会有鸟、树、白云、直升机、飞机等等其他干扰因素印象，简单起见，我又加上了鸟bird和直升机helicopter，所以用yolov5分类nc（number class）为3个，也就是无人机UAV、鸟bird、直升机、helicopter，看下图，建立一个数据信息文件，文件格式yaml</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.35390625" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 117.373px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0A8TcRS0slwiaE8SCzkmqxeOibDenx6135Uy0zDPNyVtOm2qrcO8yl7lA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><br></p><p style="white-space: normal;">我把这个文件名保存成了chenchen.yaml</p><p style="white-space: normal;">训练集图片train在uav_train下面的data里面，训练集也是，这个文件不用写标签label的地址，因为文件夹结构是定的，程序会自动判断出label的位置。</p><p style="white-space: normal;">chenchen.yaml文件里面的<strong>nc改成2，names改成自己的，也就是uav bird 和helicopter</strong></p><p style="white-space: normal;"><strong><br></strong></p><p style="white-space: normal;">下面我贴两张图片，这两张图片是我训练了100张图后，测试的标签和测试的预测，基本上框的位置已经很好了，只有左上角的这个直升机helicopter没有被识别出来，这个我感觉是因为我找的直升机图片的问题，这个直升机图片有点特别，训练数据中这样的图片少的原因。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.9671875" data-s="300,640" data-src="../../sz_mmbiz_jpg/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0L7SdtG0ibp9pSShOfXP8SwA3Ekib2jxqGOlIzvia4VsYUiapA5VpFVKTeQ/640.jpg" data-type="jpeg" data-w="1280" style="width: 328px !important; height: 317.303px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_jpg/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0L7SdtG0ibp9pSShOfXP8SwA3Ekib2jxqGOlIzvia4VsYUiapA5VpFVKTeQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><strong>总结：</strong>思路明确了，就是做一个三分类模型，无人机、鸟、直升机，</p><p style="white-space: normal;"><br></p><p style="white-space: normal;"><strong>其次修改train.py文件</strong></p><p style="white-space: normal;">思路确定了后就是训练这个模型了，我们已经把数据集准备好了，现在就训练这个模型。下载下来的yolo源码里面的train.py文件，我截图一下：</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.60703125" data-s="300,640" data-src="../../sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0MR3d2Gt2Zt9Ee58FIib4XHeMDFHzicmAicqaIj83WQgqchgQULibwq0EeQ/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 199.892px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0MR3d2Gt2Zt9Ee58FIib4XHeMDFHzicmAicqaIj83WQgqchgQULibwq0EeQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">这个是train.py文件</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li><li></li></ul><pre class="code-snippet__js"><code><span class="code-snippet_outer">第一：导入各种依赖包；</span></code><code><span class="code-snippet_outer">第二：定义train函数方法，主要的就是这个train方法；</span></code><code><span class="code-snippet_outer">第三：主程序；</span></code></pre></section><p style="white-space: normal;">解释一下，各种依赖包不用解释，train方法就是作者的核心了，简单解释就是yolo算法的原理，主程序里面就是调用tran方法画框框，（到目前位置我能给的解释也只有这么多，我没有花费时间研究，我感性上的理解应该是这样）</p><p style="white-space: normal;">这个文件中主要要修改的参数是什么呢？</p><p style="white-space: normal;">下面这张图中我给出了箭头</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.56640625" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 186.648px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0eB7S7UxVzt9OjjsoAceuZSn9PbQDOkTsrPtb1u1IaiasqRyibHvvSzDw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><strong>第一个箭头：</strong></p><p style="white-space: normal;">yolov5s.pt，这个是权重文件，用的是s版本，small，yolov5的权重文件不同分为几个不同版本，这里我用的是s版本，这里可以认为是模型的初始权重，</p><p style="white-space: normal;"><strong>第二个箭头：</strong></p><p style="white-space: normal;">这个yolov5s.yaml文件我保存到了uav_train文件夹里面，这个文件是配置yolov5模型的，叫做配置文件吧，等下这个文件我截图一下，这个文件也要改一个地方。</p><p style="white-space: normal;"><strong>第三个箭头：</strong></p><p style="white-space: normal;">就是数据文件，就是上面定义的一个chenchen.yaml文件，这里有训练数据集的地址。</p><p style="white-space: normal;"><strong>第四个箭头：</strong></p><p style="white-space: normal;">是epoch，我写的是100，大家也可以改成10试一下，20分钟训练完成，我当时做了一下，10个epoch效果很差，100个的时候效果就是我视频的效果，都能到70%准确率以上。</p><p style="white-space: normal;"><strong>第五个箭头：</strong></p><p style="white-space: normal;">是batch，我是16张图片一个batch</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">第二个箭头解释图片如下：</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.525" data-s="300,640" data-src="../../sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0UD1Ix40uJaC0R6ViagKT9jib7ywQoCtHSgWMPh1hlzyiaNgwmqiaUNicr8Q/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 173.15px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0UD1Ix40uJaC0R6ViagKT9jib7ywQoCtHSgWMPh1hlzyiaNgwmqiaUNicr8Q/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">这里是这个算法的配置文件，最终输出的类别是3，这改成3保存就行，其他的能看出来这个里面是yolo的架构，我也不会解释，有想了解的可以自己百度。</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">总结：到这里train.py就修改完毕了</p><p style="white-space: normal;"><br></p></section><section style="margin: 10px 0%;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;width: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-left: 10px;min-width: 10%;height: auto;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;" powered-by="xiumi.us"><section style="display: inline-block;min-width: 10%;vertical-align: top;transform: matrix(1, 0, -0.2, 1, 0, 0);border-style: none none none solid;border-width: 1px 5px 1px 0px;border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgb(92, 107, 192) rgb(223, 46, 0);padding: 5px 10px;background-color: rgb(92, 107, 192);box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px;line-height: 1;letter-spacing: 0px;width: auto;height: auto;"><section style="text-align: justify;color: rgb(255, 255, 255);" powered-by="xiumi.us"><p style="white-space: normal;">03</p></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;min-width: 10%;height: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-right: 20px;padding-left: 10px;box-shadow: rgb(0, 0, 0) 0px 0px 0px;"><section style="color: rgb(92, 107, 192);" powered-by="xiumi.us"><p style="white-space: normal;"><strong>训练与测试</strong></p></section></section></section><section powered-by="xiumi.us"><p style="white-space: normal;">到这里就可以训练了，我用的是pycharm这个集成环境，所以选中train.py文件直接右键运行就可以</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="1.238828967642527" data-s="300,640" data-src="../../sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0ibGVl6S5agGXfadshjh01C4RlrmT2YvI16GNZSXkKoicCcDAF7sQ8DNA/640.jpg" data-type="png" data-w="649" style="width: 328px !important; height: 405.858px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0ibGVl6S5agGXfadshjh01C4RlrmT2YvI16GNZSXkKoicCcDAF7sQ8DNA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">下面就是漫长的训练时间，只有等着</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">其实这一步可以不用，test.py文件主要是用来测试验证集val的，这里和训练一样，不要把训练好的权重文件的地址换一下，就是best.pt文件，data的参数改一下，改成chenchen.yaml就可以。最激动人心的是第五步，就是训练好的模型验证一下其他的图片，看看效果怎么样。</p><p style="white-space: normal;"><br></p></section><section style="text-align: center;justify-content: center;margin: 10px 0%;" powered-by="xiumi.us"><section style="display: inline-block;width: auto;vertical-align: top;min-width: 10%;height: auto;border-top: 1px solid rgb(92, 107, 192);border-top-left-radius: 0px;padding-right: 20px;padding-left: 20px;"><section style="margin-right: 0%;margin-left: 0%;" powered-by="xiumi.us"><section style="display: inline-block;min-width: 10%;vertical-align: top;transform: matrix(1, 0, -0.2, 1, 0, 0);border-style: none none none solid;border-width: 1px 5px 1px 0px;border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgb(92, 107, 192) rgb(223, 46, 0);padding: 5px 10px;background-color: rgb(92, 107, 192);box-shadow: rgba(255, 255, 255, 0) 0px 0px 0px;line-height: 1;letter-spacing: 0px;width: auto;height: auto;"><section style="text-align: justify;color: rgb(255, 255, 255);font-size: 17px;letter-spacing: 4px;line-height: 1;" powered-by="xiumi.us"><p style="white-space: normal;">测试新图片，新视频看效果</p></section></section></section></section></section><section powered-by="xiumi.us"><p style="white-space: normal;">这个文件是detect.py，我截图看下：</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.4359375" data-s="300,640" data-src="../../sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0qRHc72YGqia6O9EO0tuvgkqRYw63HgTalulzsFR0ULUiaVpiaO3sRibRmw/640.jpg" data-type="png" data-w="1280" style="width: 328px !important; height: 144.116px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QcK7AecJaUib8gkkYhCgicUD0qRHc72YGqia6O9EO0tuvgkqRYw63HgTalulzsFR0ULUiaVpiaO3sRibRmw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;">这里有四个箭头</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li><li></li><li></li></ul><pre class="code-snippet__js" data-lang="css"><code><span class="code-snippet_outer">第一个：训练好的最好的权重文件，加载上</span></code><code><span class="code-snippet_outer">第二个：我从百度找了一个视频文件保存成了666<span class="code-snippet__selector-class">.mp4</span></span></code><code><span class="code-snippet_outer">第三个：置信度，我这里其实可以写0<span class="code-snippet__selector-class">.7</span>，</span></code><code><span class="code-snippet_outer">第四个：<span class="code-snippet__selector-tag">iou</span>，</span></code></pre></section><p style="white-space: normal;">解释：如果训练的epoch少，可以把三四箭头改小点，要不然视频和图片中不会被标记出，会让你误认为自己训练的不对。测试效果如下：</p><p><iframe class="video_iframe rich_pages" data-vidtype="2" data-mpvid="wxv_1945682879598870531" data-cover="http%3A%2F%2Fmmbiz.qpic.cn%2Fsz_mmbiz_jpg%2FurgCdYOG5QcK7AecJaUib8gkkYhCgicUD0YbCyvB199tJgGRW157XJQuW8aIvfxTBjpOvUqpKe21Lb4FGIP8plOQ%2F0%3Fwx_fmt%3Djpeg" allowfullscreen="" frameborder="0" data-ratio="1.6666666666666667" data-w="640" data-src="https://mp.weixin.qq.com/mp/readtemplate?t=pages/video_player_tmpl&amp;auto=0&amp;vid=wxv_1945682879598870531" width="328" height="197" data-vh="184.5" data-vw="328" style="width: 328px !important; height: 197px !important; overflow: hidden; top: 0px;" scrolling="no" marginwidth="0" marginheight="0" src="javascript:window.open('https://muker.cc/mp/videoplayer?video_h=184.5&amp;video_w=328&amp;scene=&amp;random_num=1947&amp;article_title=YOLOv5 实现无人机识别&amp;source=4&amp;vid=wxv_1945682879598870531&amp;mid=2247493827&amp;idx=1&amp;__biz=MzA4MDExMDEyMw==&amp;nodetailbar=0&amp;uin=&amp;key=&amp;pass_ticket=&amp;version=&amp;devicetype=&amp;wxtoken=777&amp;sessionid=svr_dcc14dd35d2&amp;preview=0&amp;is_in_pay_subscribe=0&amp;nickname=OpenCV学堂&amp;roundHeadImg=http://mmbiz.qpic.cn/mmbiz_png/urgCdYOG5Qe2StKz3SA0sYqz8XicwZ5rhOKempzncoV95XF85ib3ZVSnyaTXBO8v9EgcN5dpBrKsyEkmvjVAtM3w/0?wx_fmt=png&amp;enterid=1625573642&amp;subscene=');"></iframe></p><p style="white-space: normal;"><br></p><p style="white-space: normal;"><br></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 1px;white-space: normal;background-color: rgb(255, 255, 255);">PS:&nbsp;从原理到实践，学习YOLOv5自定义对象检测从训练到部署视频，直接扫码进入课程学习：<strong style="text-align: center;">扫码查看 《YOLOv5自定义对象检测》 视频教程</strong></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 1px;white-space: normal;background-color: rgb(255, 255, 255);"><br></p><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);"><section powered-by="xiumi.us" style="line-height: 2;letter-spacing: 1px;"><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="1" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="jpeg" data-w="1280" style="box-sizing: border-box !important; visibility: visible !important; width: 245px !important; height: 245px !important;" _width="245px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_jpg/urgCdYOG5Qc9XANued80Aa5bj8ib0cYehTib1oPIECia2438yfbmoEZF1V2sjheYriasTO5QXp7ObxhFNFbLwIwxKw/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p></section></section><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);"><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><span style="color: rgb(0, 82, 255);background-color: rgb(214, 214, 214);font-size: 20px;letter-spacing: 1px;"><strong><span style="text-decoration: underline;">&nbsp;推荐阅读&nbsp;</span></strong></span></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA4MDExMDEyMw==&amp;mid=2247493712&amp;idx=1&amp;sn=444dbc9730eff63f0721c421a7345aa0&amp;chksm=9fab9f14a8dc16028597acc1b373480993aa433a1959862a814eb6cb73c6394f0a70bb5a591e&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="text-decoration: underline;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">大道至简 | CV系统化学习路线图发布了！</a></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA4MDExMDEyMw==&amp;mid=2247492452&amp;idx=1&amp;sn=9dbfda66b10ba77fcabee8070d049c2d&amp;chksm=9fab9420a8dc1d36cbbee2fc6b77a8950ffb7d36b63d21ed7513a7064c1da5d6adaba34fa621&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="text-decoration: underline;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">Pytorh轻松学系列 - 视频课程版本发布了！</a><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA4MDExMDEyMw==&amp;mid=2247493520&amp;idx=1&amp;sn=f3d1ad323d987fcd7bca946c67dfa08d&amp;chksm=9fab90d4a8dc19c2de8c9aa2f37aaa96a594f18fa689d82a223c990f6e9a80d6fdf7dfa5b29f&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="text-decoration: underline;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">OpenCV4 C++学习 必备基础语法知识三</a><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA4MDExMDEyMw==&amp;mid=2247492256&amp;idx=1&amp;sn=3b327a7493d3a9e1b72e7b7d59283c7a&amp;chksm=9fab95e4a8dc1cf2ed55eb51bef15a8f3b737fc213c8276f205426b9cf6dd63767776ae05d6a&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="text-decoration: underline;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">OpenCV4 C++学习 必备基础语法知识二</a><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA4MDExMDEyMw==&amp;mid=2247493728&amp;idx=1&amp;sn=e512c21bb2c818bc7cb56ed90f301062&amp;chksm=9fab9f24a8dc1632e0b83188d1125f7fc0b65ccd64abc963a083ab0b553a092a13e6638aaf26&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" style="font-size: 12px;text-decoration: underline;" data-linktype="2"><span style="font-size: 12px;">YOLOv5x6模型来了! 同样支持CPU上ONNX部署与推理</span></a><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;color: rgb(62, 62, 62);font-size: 14px;"><br></p><p style="font-size: 16px;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><img data-ratio="0.5181347150259067" data-src="../../sz_mmbiz_png/urgCdYOG5QdTamTia8J6DPxhNCDWexjmia6niaiaF9erYvdEQvobadKsusIlic57dWb5UficxFgUw5nWFDZkbblBrOSg/640.jpg" data-type="png" data-w="772" style="box-sizing: border-box !important; visibility: visible !important; width: 328px !important; height: 170.912px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/sz_mmbiz_png/urgCdYOG5QdTamTia8J6DPxhNCDWexjmia6niaiaF9erYvdEQvobadKsusIlic57dWb5UficxFgUw5nWFDZkbblBrOSg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/700WcJJ1S--Qy6KAeSmmDw</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="175" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="175" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/urgCdYOG5Qe8yh7GutBoXnRNKGZ56K5ywgC88GRl5vvPDMmLej3oice4eIfBtHuaaict7St7ONSD3Y5m4HF9aICg/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="175" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/Opencv.html" class="tag" rel="tag">Opencv</a><a href="../t/jenkis4.html" class="tag" rel="tag">图像识别</a></li>
+        <li>浏览次数：<span>349</span> 次浏览</li>
+        <li>发布日期：2021-07-06 20:14:29</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/175.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="174.html">区块链如何弥补业务流程缺陷？</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="176.html">高并发场景下 disk io 引发的高时延问题</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_gif/urgCdYOG5Qe8yh7GutBoXnRNKGZ56K5ywgC88GRl5vvPDMmLej3oice4eIfBtHuaaict7St7ONSD3Y5m4HF9aICg/640" alt="YOLOv5 实现无人机识别" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">YOLOv5 实现无人机识别</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="3e0d12a28ec47176a1d120f4ac0d3b0b">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="175">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

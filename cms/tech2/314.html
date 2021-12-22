@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>这 2 个工作流自动化工具 yyds - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="3ce758b606499f9f7b1b5d98dc29f388">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">这 2 个工作流自动化工具 yyds</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 138 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="margin-bottom: 20px;line-height: 2em;margin-left: 8px;margin-right: 8px;" data-mpa-powered-by="yiban.io"><span style="font-size: 14px;">很多读者可能听说过工作流，但是不知道这是什么东西。<span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">简单来说，<strong>它是一个与其他应用集成的应用程序，目标是自动化各应用之间的流程。</strong></span></span></section><section style="margin-bottom: 20px;line-height: 2em;margin-left: 8px;margin-right: 8px;"><span style="font-size: 14px;">有一款非常火的工作流自动化工具在 GitHub 上开源了，这个名为 n8n 工作流项目在 GitHub 上斩获了 17K 的 Star。</span></section><section style="text-align: center;line-height: 2em;margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.6423236514522822" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="2410" style="border-color: rgb(237, 237, 237); border-width: 1px; border-style: solid; width: 312px !important; height: 201.12px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruzoIYncUthqlaSYyZHYqDkIGicZUe2nqg6tOsUHRw77NbMqqMVD9lYxtnsHcWsPdSYqc3bNzhTTTaA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="margin: 20px 8px 25px;line-height: 2em;"><span style="font-size: 14px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;">比如你需要从数据库中获取一些数据后下载为 excel 然后通过邮件发送给其他人，这个场景就是一个流程，完全可以通过 n8n 实现流程的自动化，它作为一个桥梁，将数据库 Excel 邮箱这三个应用程序连接起来。</span><br></section><section style="line-height: 2em;margin-bottom: 25px;margin-left: 8px;margin-right: 8px;"><span style="font-size: 14px;">你想将什么应用程序串联起来，可以通过开源工具的平台自定义配置。<br></span></section><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.5811447811447812" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1485" style="border-color: rgb(244, 244, 244); border-width: 1px; border-style: solid; width: 312px !important; height: 182.155px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2y6ibS9ZEQBM8MKPjX7L4cblHVm4o0c8qOBd7UfSzNwMcOXE3cfdnDKg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="margin: 20px 8px;line-height: 2em;"><span style="font-size: 14px;">不仅仅是数据库、邮箱，开源工具 n8n 支持 200 多种不同的应用程序，如果你明确知道自己想要的功能也可以集成几乎任何具有 API 的应用程序，从而充分利用 n8n 的开源和多功能特性。</span></section><section style="margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.4315352697095436" data-s="300,640" data-src="../../mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2Tg8qveRwnRgZUjichiboVfaFpw70Jia4m64vKKrUoxX5zc2t4LFtcUSfA/640.jpg" data-type="png" data-w="2410" style="width: 312px !important; height: 135.776px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2Tg8qveRwnRgZUjichiboVfaFpw70Jia4m64vKKrUoxX5zc2t4LFtcUSfA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.42520325203252035" data-s="300,640" data-src="../../mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2ppCZZvS9PXhUJ8fTicXbvYia4ePRGfeCA2aeJDcXojYRiaWCqmwPsJEiaw/640.jpg" data-type="png" data-w="2460" style="width: 312px !important; height: 133.813px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2ppCZZvS9PXhUJ8fTicXbvYia4ePRGfeCA2aeJDcXojYRiaWCqmwPsJEiaw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="white-space: normal;line-height: 2em;margin: 25px 8px 20px;"><span style="background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;">n8n 的工作原理也非常简单，上图中这些应用都会开放一些 API ，通过应用程序的 API 连接到应用程序就是 n8n 开源工具的职责。</span><br></section><h1 data-key="fd245a0b20464c4d835251e573a6be6f" style="margin-bottom: 0.5rem;outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><section data-mpa-template="t" mpa-paragraph-type="ignored" style="outline: 0px;letter-spacing: 0.544px;"><hr style="margin-top: 1rem;margin-bottom: 1rem;outline: 0px;height: 0px;overflow: visible;border-right: 0px solid rgba(0, 0, 0, 0.1);border-bottom: 0px solid rgba(0, 0, 0, 0.1);border-left: 0px solid rgba(0, 0, 0, 0.1);border-top-style: solid;border-top-color: rgba(0, 0, 0, 0.1);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;transform-origin: 0px 0px 0px;transform: scale(1, 0.5);"></section></h1><section style="margin: 20px 8px;outline: 0px;letter-spacing: 0.544px;white-space: normal;word-break: break-word;color: rgb(64, 72, 91);font-family: -apple-system, system-ui, &quot;Segoe UI&quot;, Helvetica, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Liberation Sans&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Hiragino Sans GB&quot;, &quot;Wenquanyi Micro Hei&quot;, &quot;WenQuanYi Zen Hei&quot;, &quot;ST Heiti&quot;, SimHei, SimSun, &quot;WenQuanYi Zen Hei Sharp&quot;, sans-serif;font-size: 16px;text-align: left;background-color: rgb(255, 255, 255);line-height: 2em;"><strong style="color: rgb(51, 51, 51);font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: justify;font-size: 14px;"><span style="font-size: 17px;color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;">国内的工作流工具</span></strong></section><section style="white-space: normal;line-height: 2em;margin: 10px 8px 20px;"><span style="font-size: 14px;"><span style="background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;">n8n 是国外的工作流自动化工具，集成的应用程序都是国外的产品，比如 Facebook、Airtable、Google doc 等等。显然，这款开源工具在国内没有使用场景，毕竟大部分国内的用户都是用本土的互联网产品。</span><strong style="font-size: 14px;font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><span style="background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;"><br></span></strong></span></section><section style="text-align: start;white-space: normal;line-height: 2em;margin: 10px 8px 20px;"><span style="font-size: 14px;"><span style="color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);">疫情过后，国内企业有了线上办公的趋势，线上办公就会用到很多产品，比如文档、会议、CRM、销售系统等等产品，</span><span style="background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;">但是各产品之间相互割裂，数据流转需要人工介入，照成效率低下。</span></span></section><section style="text-align: start;white-space: normal;line-height: 2em;margin: 10px 8px 20px;"><span style="font-size: 14px;color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);">国内大厂也在布局流程自动化，为企业做数字化转型，比如腾讯出品的<strong>腾讯千帆场景连接器</strong>可以将国内的应用互联互通，包括企业微信、腾讯问卷、腾讯文档、维格表、金数据等。</span></section><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.514817950889077" data-s="300,640" data-src="../../mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2cPDOEIE4Lial3hja1pn6Yibq5TMADlQplHgmibsbrV8oVaOCIluzkMUHw/640.jpg" data-type="png" data-w="2362" style="width: 312px !important; height: 161.594px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruylISBc713TobZk805gegX2cPDOEIE4Lial3hja1pn6Yibq5TMADlQplHgmibsbrV8oVaOCIluzkMUHw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="text-align: start;white-space: normal;line-height: 2em;margin: 15px 8px 10px;"><span style="font-size: 14px;color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);">腾讯千帆场景连接器提供了一些常用的场景模板，只需要通过傻瓜式的拖拉拽操作就能快速配置下面的功能。</span><br></section><section style="margin-bottom: 10px;line-height: 2em;margin-left: 8px;margin-right: 8px;"><strong><span style="font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);font-size: 14px;color: rgb(85, 83, 83);">1. </span></strong><span style="font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);font-size: 14px;color: rgb(85, 83, 83);">当用户在【腾讯问卷】填写活动报名信息后，自动将信息写入【维格表】中进行整合归档，同时通过【企业微信】通知对应人员及时跟进。</span></section><section style="margin-bottom: 10px;line-height: 2em;margin-left: 8px;margin-right: 8px;"><strong><span style="font-size: 14px;color: rgb(85, 83, 83);">2. </span></strong><span style="font-size: 14px;color: rgb(85, 83, 83);">当客户在【腾讯问卷】填写活动报名信息后，实时通过【企业微信群机器人】通知对应销售人员及时跟进。</span></section><section style="margin-bottom: 10px;line-height: 2em;margin-left: 8px;margin-right: 8px;"><strong><span style="background-color: rgb(255, 255, 255);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;color: rgb(85, 83, 83);">3. </span></strong><span style="background-color: rgb(255, 255, 255);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;color: rgb(85, 83, 83);">当有客户提交【腾讯问卷】时，自动将客户信息写入【维格表】中以便营销人员整合归档。</span></section><section style="margin-bottom: 10px;line-height: 2em;margin-left: 8px;margin-right: 8px;"><strong><span style="background-color: rgb(255, 255, 255);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;color: rgb(85, 83, 83);">4.</span></strong><span style="background-color: rgb(255, 255, 255);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;color: rgb(85, 83, 83);"> 当企业员工更新【腾讯文档】内容时，通过【企业微信自建应用】推送员工操作记录。</span></section><section style="line-height: 2em;margin-bottom: 20px;margin-left: 8px;margin-right: 8px;"><span style="background-color: rgb(255, 255, 255);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;text-align: start;font-size: 14px;color: rgb(85, 83, 83);">...</span></section><section style="line-height: 2em;margin-bottom: 20px;margin-left: 8px;margin-right: 8px;"><span style="text-align: start;font-size: 14px;color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;background-color: rgb(255, 255, 255);">还有其他玩法，这个产品已经开始进行内测，内测期间名额有限，如果有想要申请试用的读者可以电脑网页端登录：https://ssp.cloud.tencent.com 进行申请，同时</span><span style="text-align: start;background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;font-size: 14px;">可加入腾讯千帆场景连接器的企业微信群，进行沟通交流。</span></section><section style="text-align: start;white-space: normal;line-height: 2em;margin: 10px 8px;"><section style="text-align: start;white-space: normal;margin: 10px 8px 25px;line-height: 2em;"><span style="background-color: rgb(255, 255, 255);color: rgb(77, 77, 77);font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif, SimHei, SimSun;font-size: 14px;"></span></section></section><section style="outline: 0px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);font-family: Optima-Regular, PingFangTC-light;font-size: 15px;caret-color: rgb(51, 51, 51);text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-croporisrc="https://mmbiz.qlogo.cn/mmbiz_png/vQ3Ff4zOzicU4uTTDXFXOwcUoDicdoASxhKciaWBo6ibFfdq3oFXeJRRDHWIWlNHgQ2J3sUAZ922J65nSuicvhI13RA/0?wx_fmt=png" data-cropx1="0" data-cropx2="1080" data-cropy1="95.29411764705883" data-cropy2="1207.0588235294117" data-ratio="1.0287037037037037" data-s="300,640" data-src="../../mmbiz_jpg/vQ3Ff4zOzicU4uTTDXFXOwcUoDicdoASxhFatzFrdiatpQZPtCu4eIyH6XTfK1p1FJTM9LXANJjsf6iaQdFMrxiafdA/640.jpg" data-type="jpeg" data-w="1080" style="outline: 0px; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 271px !important; height: 278.779px !important;" _width="271px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/vQ3Ff4zOzicU4uTTDXFXOwcUoDicdoASxhFatzFrdiatpQZPtCu4eIyH6XTfK1p1FJTM9LXANJjsf6iaQdFMrxiafdA/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></section><section data-mpa-template="t" mpa-paragraph-type="ignored" style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><hr style="margin-top: 1rem;margin-bottom: 1rem;outline: 0px;height: 0px;overflow: visible;border-right: 0px solid rgba(0, 0, 0, 0.1);border-bottom: 0px solid rgba(0, 0, 0, 0.1);border-left: 0px solid rgba(0, 0, 0, 0.1);border-top-style: solid;border-top-color: rgba(0, 0, 0, 0.1);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;transform-origin: 0px 0px 0px;transform: scale(1, 0.5);"></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><section style="margin: 25px 8px 10px;outline: 0px;font-size: inherit;line-height: 1.6 !important;"><span style="outline: 0px;color: rgb(84, 83, 83);font-weight: bolder;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;text-align: start;">推荐阅读</span></section></section><section style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;margin-left: 8px;margin-right: 8px;"><span style="outline: 0px;font-family: Optima-Regular, PingFangTC-light;font-size: 14px;"><span style="outline: 0px;font-weight: bolder;"><em style="outline: 0px;"><span style="outline: 0px;color: rgb(18, 18, 18);">1.&nbsp;</span></em></span><span style="outline: 0px;color: rgb(18, 18, 18);"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247498662&amp;idx=1&amp;sn=0087c4f3b79ba3420e917e9b42d45eda&amp;chksm=f9a2286fced5a1794eb9a73d0be7c2e16eaceabf3a0420647c40cb4202bd116d9a15dd57c008&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" wah-hotarea="click" style="outline: 0px;background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">GitHub 上有什么好玩的项目？</a></span></span></section><section style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;margin-left: 8px;margin-right: 8px;"><span style="outline: 0px;font-size: 14px;"><em style="outline: 0px;"><span style="outline: 0px;font-weight: bolder;font-family: Optima-Regular, PingFangTC-light;">2.&nbsp;</span></em></span><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247504502&amp;idx=1&amp;sn=f8081506400f64e2e91244dc545945b1&amp;chksm=f9a201bfced588a9575d4746aef867d6823043eb48f98b4dddab387fc07851cf0cfe3563cf47&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" wah-hotarea="click"><span style="font-size: 14px;">盘点 8 月份 yyds 的开源项目</span></a></section><section style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;margin-left: 8px;margin-right: 8px;"><span style="outline: 0px;font-family: Optima-Regular, PingFangTC-light;font-size: 14px;"><em style="outline: 0px;"><span style="outline: 0px;font-weight: bolder;">3.&nbsp;</span></em><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247500031&amp;idx=1&amp;sn=b4349fc85264c255bf9a22e1f25b035a&amp;chksm=f9a21336ced59a20518444a3e2bddb584f6d02266e831546ee5c00935d01d5bd61ed86ab606f&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" wah-hotarea="click" style="outline: 0px;background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">基于 Spring Boot 的百度云高仿项目</a></span></section><section style="margin-bottom: 25px;outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: start;line-height: 2em;margin-left: 8px;margin-right: 8px;"><span style="outline: 0px;font-family: Optima-Regular, PingFangTC-light;font-size: 14px;"><em style="outline: 0px;letter-spacing: 0.544px;"><span style="outline: 0px;font-weight: bolder;">4.&nbsp;</span></em><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzUxNjg4NDEzNA==&amp;mid=2247498464&amp;idx=1&amp;sn=4f85123d6ca67578ca7bad8f7dc71453&amp;chksm=f9a22929ced5a03ffded2c41fd257d3eb96be02195de3ca66a083177bf5f73e2f418728f7f06&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" wah-hotarea="click" style="outline: 0px;background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">盘点百度 4 个牛逼哄哄的开源项目</a></span></section><section style="outline: 0px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;line-height: 2em;margin-left: 8px;margin-right: 8px;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="172" data-cropsely1="0" data-cropsely2="172" data-ratio="1.005449591280654" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruxW7LMX2Iz5DfjRIbFTS7UROhxibBmicicT0HpjIh1yniaJJibSnLFuicMHRx5NEdiaOh2OOACfr6MvR38ibQ/640?wx_fmt=png" data-type="png" data-w="734" style="outline: 0px; vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 172px !important; height: 172.937px !important;" _width="172px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruxW7LMX2Iz5DfjRIbFTS7UROhxibBmicicT0HpjIh1yniaJJibSnLFuicMHRx5NEdiaOh2OOACfr6MvR38ibQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section>                </div><div>来源:https://mp.weixin.qq.com/s/nhC1RYc5Tw-YhgMOrc90Dg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="314" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="314" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/ePw3ZeGRruzoIYncUthqlaSYyZHYqDkIGicZUe2nqg6tOsUHRw77NbMqqMVD9lYxtnsHcWsPdSYqc3bNzhTTTaA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="314" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>138</span> 次浏览</li>
+        <li>发布日期：2021-09-01 19:56:33</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/314.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="313.html">Blazor+Dapr+K8s微服务之开发环境调试</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="315.html">抽丝剥茧！Source Generators原理讲解</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QsoH4TRj4FwGVlPuCnqCRWUDvKBIX7aQRsa997Uq7K6BibYpSibxWq0GmrjIO6Yc0pqn66hfiaJXoDHQ/640" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="3ce758b606499f9f7b1b5d98dc29f388">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="314">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

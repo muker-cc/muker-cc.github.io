@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>Blazor Server 和 WebAssembly 应用程序入门指南 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="d57d5dde2b963783bfc43563a171736e">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">Blazor Server 和 WebAssembly 应用程序入门指南</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 341 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="margin-top: 20px;white-space: normal;max-width: 100%;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;" data-mpa-powered-by="yiban.io"><section data-v-09862f0b="" data-tools="新媒体排版" style="list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;color: rgb(0, 0, 0);font-family: &quot;Microsoft YaHei&quot;;font-size: medium;text-align: start;white-space: normal;zoom: 0.7;max-width: 100%;"><section style="list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;max-width: 100%;"><p style="list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;"><img data-ratio="0.10555555555555556" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="gif" data-w="720" style="list-style: none; box-sizing: border-box; border-width: initial; border-style: none; border-color: initial; scroll-behavior: smooth; width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/BAXuLsDQkjlHUcCr6ibNf7mKv9gia5gSPicTrjJKdZdPXSbxsYnicLEo7O3Qd6mN1MFicawNrZavFtDHO8DOulOrs9g/640?wx_fmt=gif" class="__bg_gif" data-order="0" alt="图片" data-fail="0"></p></section></section><section><br></section><blockquote style="margin-top: 0px;margin-bottom: 0px;padding: 0.15em 0.6em;border-width: 1px 1px 1px 0.4em;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-color: rgb(238, 238, 238) rgb(238, 238, 238) rgb(238, 238, 238) rgb(204, 221, 239);color: rgb(106, 115, 125);font-size: 16px;background: none rgb(255, 255, 255);border-radius: 0.3em;font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;"><p style="font-size: 14px;color: rgb(119, 119, 119);">翻译自 Waqas Anwar 2021年3月12日的文章&nbsp;《A Beginner’s Guide To Blazor Server and WebAssembly Applications》&nbsp;<sup>[1]</sup></p></blockquote><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="303" data-backw="578" data-ratio="0.525" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1080" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: auto !important;" _width="328px" class="" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RVEVeo27qfRxiaXh70UgFL3lkG0oyWMeeKNytClQB4f0fQBNpTsPv3og/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">如果您一直紧跟 .NET 世界的最新发展趋势，那么现在您一定听说过 Blazor。目前在 .NET 社区中有很多关于 Blazor 的宣传，这种宣传最常见的原因是它引入了一些大多数 .NET 开发人员十几年来一直梦寐以求的东西，即：既可以在服务端又可以在浏览器中运行 C# 的能力。Blazor 允许我们使用 HTML、CSS 和 C#（而不是 JavaScript）来构建交互式 Web 应用程序。在本教程中，我将介绍 Blazor 的基本概念，并概述可用于 Blazor 的不同的托管模型。我还将介绍每种托管模型的优缺点，以便您可以为下一个 Blazor 项目托管模型做出最佳的决定。</p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor 是什么？</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor 是一个免费、开源的单页应用程序（SPA）开发框架，使开发人员能够在服务端和客户端上使用 C# 构建交互式 Web 应用程序。Blazor 不需要在客户端上安装任何插件来在浏览器中执行 C#/.NET 代码。它使用 WebAssembly 执行 .NET 代码，WebAssembly 是所有主流浏览器都支持的 Web 标准。Blazor 还可以在服务端运行 .NET 代码并构建 UI，然后通过 SignalR 连接仅将更新的 DOM 传输到客户端。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="289" data-backw="578" data-ratio="0.5" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="800" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 169px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RHDlEh8xcVyM7AXKtHicPXwF4oibAOoHu3icVPJicyLtxLZ1orDW5BWwElg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">WebAssembly 是什么？</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">WebAssembly（有时简写为&nbsp;<strong>Wasm</strong>）是一种可移植的二进制格式（低级指令集），被设计用于在任何能够解释这些指令的主机上运行。WebAssembly 的主要目标是允许开发人员构建高性能的 Web 应用程序，但其格式也被设计为可执行于和集成到其他环境中。WebAssembly 目前受到了所有主流浏览器的支持，比如 Chrome、Android 版 Chrome、Edge、Firefox、Safari、Opera 等。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="289" data-backw="578" data-ratio="0.5" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="800" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 169px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RxhxHQYdg7qM3CznPm1jic8ibDw56WpRpI0NxNZNl5gaH48mH18mC3eUg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor 托管模型</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor 组件模型是 Blazor 的核心，它的设计方式使计算 UI 更改和呈现 UI 彼此分离。这就是为什么无论您使用何种方式渲染您的应用程序，基本的组件模型都保持不变的原因。在撰写本文时，有四种渲染/托管模型可用，它们都处于不同的开发阶段。</p><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>Blazor Server</p></li><li style="list-style-type: decimal;"><p>Blazor WebAssembly</p></li><li style="list-style-type: decimal;"><p>Blazor Electron</p></li><li style="list-style-type: decimal;"><p>Mobile Blazor Bindings</p></li></ol><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor Electron 和 Mobile Blazor Bindings 目前处于实验阶段，Microsoft 尚未承诺发布这些托管模型，因此我不会在本文中讨论它们。</p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor Server App 是什么？</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor Server 应用程序在服务器上运行，可享受完整的 .NET Core 运行时支持。所有处理都在服务器上完成，UI/DOM 更改通过 SignalR 连接回传给客户端。这种双向 SignalR 连接是在用户第一次从浏览器中加载应用程序时建立的。由于 .NET 代码已经在服务器上运行，因此您无需为前端创建 API。您可以直接访问服务、数据库等，并在传统的服务端技术上做任何您想做的事情。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="434" data-backw="578" data-ratio="0.75" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="800" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 248.5px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65ReLb0GUk8QNhZMPydCpsdtNMBzGOgbyLZ4xzF7FIlY5SRibzGBd1nymg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>何时使用 Blazor Server</h3><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>当您想在完整的 .NET Core 运行时上运行应用程序时</p></li><li style="list-style-type: decimal;"><p>当您想要保持应用程序的初始下载大小非常小时</p></li><li style="list-style-type: decimal;"><p>当您想保持应用启动时间非常快时</p></li><li style="list-style-type: decimal;"><p>当您想把应用程序的代码保留在服务器上，而不希望它被下载到客户端时</p></li><li style="list-style-type: decimal;"><p>当您想要一个快速的应用开发周期，而现有的 .NET 开发人员几乎不需要学习曲线时</p></li><li style="list-style-type: decimal;"><p>当您想让您的应用对搜索引擎友好时</p></li><li style="list-style-type: decimal;"><p>当您希望应用程序在旧的浏览器上运行，而不依赖于 WebAssembly 时</p></li><li style="list-style-type: decimal;"><p>当您想在 Visual Studio 中像调试普通 .NET 应用程序一样调试 .NET 代码时</p></li><li style="list-style-type: decimal;"><p>当您想要构建内部网或低需求的面向公众的应用程序时</p></li></ol><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>何时不要使用 Blazor Server</h3><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>当您的应用程序在高延迟环境中运行时</p></li><li style="list-style-type: decimal;"><p>当您希望您的应用程序离线工作，而不需要一个与服务器的固定 SignalR 连接时</p></li><li style="list-style-type: decimal;"><p>当您不想增加服务器资源以响应大量连接的 SignalR 客户端时</p></li></ol><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Blazor WebAssembly App 是什么？</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这种托管模型是现代流行的 SPA 框架（比如 Angular、Vue 和 React）的直接竞争对手，也是大多数开发人员有兴趣学习 Blazor 的主要原因。它允许开发人员使用 C# 取代 JavaScript 编写所有前端 UI 逻辑。在这种托管模型中，第一次请求时，会将应用程序的 DLL 及其所有依赖项和小尺寸的 Mono .NET 运行时下载到客户端。然后，客户端中的 Mono 运行时就会加载并执行应用程序代码。Blazor WebAssembly 程序可以用 C、C# 等其他语言编写，然后编译成 WebAssembly 字节码。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="434" data-backw="578" data-ratio="0.75" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="800" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 248.5px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RunPLicRvAzFbM1g6qcluaIOBHABo7HKFNibDc4qahskDjmcTVY1CTPvA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>何时使用 Blazor WebAssembly</h3><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>当您想要将整个应用程序编译为静态文件，并将它们提供给客户端，而不需要服务器上的 .NET 运行时时。这意味着您的后端可以用 PHP、Node 或 Rails 编写，并服务于用 Blazor 编写的前端应用程序。</p></li><li style="list-style-type: decimal;"><p>当您想要构建可以在客户端脱机运行而无需持续连接到服务端的应用程序时。</p></li><li style="list-style-type: decimal;"><p>当您想要将处理转移到客户端并减少服务端的负载时。</p></li><li style="list-style-type: decimal;"><p>当您想在客户端和服务端之间共享代码和库时。</p></li></ol><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>何时不要使用 Blazor WebAssembly</h3><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>当由于下载到客户端的文件/DLL 太多，而您无法在有效负载上妥协时。</p></li><li style="list-style-type: decimal;"><p>当您无法在缓慢的启动时间上（特别是在网络连接不佳的情况下）妥协时。</p></li><li style="list-style-type: decimal;"><p>当您无法妥协于应用程序必须运行在具有完整的安全限制的浏览器沙箱环境中时。</p></li></ol><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">为了更好地理解 Blazor 托管模型，让我们在 Visual Studio 2019 中分别创建一个 Blazor Server 和 Blazor WebAssembly 应用程序。</p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在 Visual Studio 2019 中创建 Blazor Server 应用</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">打开 Visual Studio 2019 并点击<em style="margin-right: 3px;margin-left: 2px;">创建新项目</em>。从可用的模板列表中选择&nbsp;<strong>Blazor App</strong>&nbsp;模板并点击<em style="margin-right: 3px;margin-left: 2px;">下一步</em>。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="405" data-backw="578" data-ratio="0.7" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="900" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 232.6px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RwdF0N1Z25slyCzicBM6wYGTRpZpHDWhP01Krwf4ehph2KW3wicKdja9Q/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">指定项目名称（比如 BlazorServerApp）并点击<em style="margin-right: 3px;margin-left: 2px;">下一步</em>。您将看到下面的对话框，询问您选择要创建的 Blazor 应用程序的类型。我们要创建 Blazor Server 应用，所以请选择&nbsp;<strong>Blazor Server App</strong>&nbsp;并点击&nbsp;<em style="margin-right: 3px;margin-left: 2px;">创建</em>&nbsp;按钮。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="401" data-backw="578" data-ratio="0.693359375" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1024" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 230.488px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65Ribck3zwgYHFiasbuyicOtvm7jfcQcVy6wKefGZw8X8HuGgomFAWnL0bhg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Visual Studio 将为我们创建一个 Blazor Server 应用程序，其中在解决方案资源管理器中包含以下文件夹和文件。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="1.4674220963172804" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="353" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 476.64px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65Ryc81BVaD7j9Fmsq20U0B2bPBHomtuN5kSjic1x8ibT0urPSL5Lm9KFhg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">让我们来讨论一下 Blazor Server App 中可用的一些重要文件和文件夹。</p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>Program.cs</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这个文件包含&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">Main</code>&nbsp;方法，它是项目的入口点。<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">Main</code>&nbsp;方法中调用&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">CreateHostBuilder</code>&nbsp;方法，为我们配置默认的 ASP.NET Core 宿主。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">class</span> <span style="color: rgb(163, 21, 21);">Program</span><br>{<br>    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">static</span> <span style="color: rgb(0, 0, 255);">void</span> <span style="color: rgb(163, 21, 21);">Main</span>(<span style="color: rgb(0, 0, 255);">string</span>[] args)<br>    {<br>        CreateHostBuilder(args).Build().Run();<br>    }<br> <br>    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">static</span> IHostBuilder <span style="color: rgb(163, 21, 21);">CreateHostBuilder</span>(<span style="color: rgb(0, 0, 255);">string</span>[] args) =&gt;<br>        Host.CreateDefaultBuilder(args)<br>            .ConfigureWebHostDefaults(webBuilder =&gt;<br>            {<br>                webBuilder.UseStartup&lt;startup&gt;();<br>            });<br>}<br></code></pre><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>Startup.cs</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">它与我们在标准 ASP.NET Core 项目中使用的文件相同。需要重点注意的一点是&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">ConfigureServices</code>&nbsp;方法中调用了&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">AddServerSideBlazor</code>，该方法添加与 Blazor Server App 相关的服务。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> <span style="color: rgb(163, 21, 21);">ConfigureServices</span>(IServiceCollection services)<br>{<br>    services.AddRazorPages();<br>    services.AddServerSideBlazor();<br>    services.AddSingleton&lt;weatherforecastservice&gt;();<br>}<br></code></pre><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在此文件的&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">Configure</code>&nbsp;方法中我们还有以下两行重要的代码。<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">MapBlazorHub</code>&nbsp;方法配置 Blazor Server App 所需的 SignalR Hub Endpoints。<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">MapFallbackToPage</code>&nbsp;方法会将所有未与任何控制器、razor 页面等匹配的请求映射到&nbsp;<strong>_Host</strong>&nbsp;页面，这将允许所有动态内容请求路由到 SPA 框架，而不是抛出&nbsp;<em style="margin-right: 3px;margin-left: 2px;">404 Not Found</em>。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;">app.UseEndpoints(endpoints =&gt;<br>{<br>    endpoints.MapBlazorHub();<br>    endpoints.MapFallbackToPage(<span style="color: rgb(163, 21, 21);">"/_Host"</span>);<br>});<br></code></pre><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>_Host.cshtml</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这是应用程序的根页面，每个 Razor 组件/页面都将在此 host 页面中呈现。它具有基本的 HTML 元素，例如 html、head 和 body，以及一些特殊元素。请注意，Blazor 是一个基于组件的框架，Blazor 中的每一内容都是一个组件。<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">&lt;component&gt;</code>&nbsp;指定了我们想让应用程序根组件呈现的位置。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">&lt;component <span style="color: rgb(255, 0, 0);">type</span>=<span style="color: rgb(163, 21, 21);">"typeof(App)"</span> <span style="color: rgb(255, 0, 0);">render-mode</span>=<span style="color: rgb(163, 21, 21);">"ServerPrerendered"</span>&gt;</span><br></code></pre><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">该文件还在末尾注入了&nbsp;<strong>blazor.server.js</strong>&nbsp;文件，此 JavaScript 文件包含设置 SignalR 连接到服务端的代码。此连接在浏览器加载应用程序后立即建立，然后被用于服务端和客户端浏览器之间的实时通信。如果您想了解有关 SignalR 的更多知识，请阅读我的文章 Display Live Sports Updates using ASP.NET Core SignalR<sup>[2]</sup>。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">&lt;script <span style="color: rgb(255, 0, 0);">src</span>=<span style="color: rgb(163, 21, 21);">"_framework/blazor.server.js"</span>&gt;</span><span style="color: rgb(0, 0, 255);">&lt;/script&gt;</span><br></code></pre><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>App.razor</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">这是 Blazor App 的主要组件，其主要工作是拦截路由并呈现&nbsp;<strong>Found</strong>&nbsp;或&nbsp;<strong>NotFound</strong>&nbsp;组件。如果找到与路由匹配的组件，则呈现&nbsp;<strong>Found</strong>&nbsp;组件，如果未找到匹配的组件，则呈现&nbsp;<strong>NotFound</strong>&nbsp;组件。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">&lt;router <span style="color: rgb(255, 0, 0);">appassembly</span>=<span style="color: rgb(163, 21, 21);">"@typeof(Program).Assembly"</span> <span style="color: rgb(255, 0, 0);">preferexactmatches</span>=<span style="color: rgb(163, 21, 21);">"@true"</span>&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;found <span style="color: rgb(255, 0, 0);">context</span>=<span style="color: rgb(163, 21, 21);">"routeData"</span>&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;routeview <span style="color: rgb(255, 0, 0);">routedata</span>=<span style="color: rgb(163, 21, 21);">"@routeData"</span> <span style="color: rgb(255, 0, 0);">defaultlayout</span>=<span style="color: rgb(163, 21, 21);">"@typeof(MainLayout)"</span>&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;/routeview&gt;</span><span style="color: rgb(0, 0, 255);">&lt;/found&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;notfound&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;layoutview <span style="color: rgb(255, 0, 0);">layout</span>=<span style="color: rgb(163, 21, 21);">"@typeof(MainLayout)"</span>&gt;</span><br>            <span style="color: rgb(0, 0, 255);">&lt;p&gt;</span>Sorry, there's nothing at this address.<span style="color: rgb(0, 0, 255);">&lt;/p&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;/layoutview&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;/notfound&gt;</span><br><span style="color: rgb(0, 0, 255);">&lt;/router&gt;</span><br></code></pre><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>MainLayout.cshtml</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">MainLayout 文件包含应用程序的主布局，其标记可以被多个 Razor 组件共享。这个布局组件通常包含应用程序的常见 UI 元素，例如页眉、菜单、页脚、侧边栏等。为我们生成的默认 MainLayout 有一个侧边栏，用来渲染&nbsp;<strong>NavMenu</strong>&nbsp;组件，它还使用 Razor 语法&nbsp;<strong>@Body</strong>&nbsp;来指定其他组件的内容将在布局标记中呈现的位置。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;">@inherits LayoutComponentBase<br> <br><span style="color: rgb(0, 0, 255);">&lt;div <span style="color: rgb(255, 0, 0);">class</span>=<span style="color: rgb(163, 21, 21);">"page"</span>&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;div <span style="color: rgb(255, 0, 0);">class</span>=<span style="color: rgb(163, 21, 21);">"sidebar"</span>&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;navmenu&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;/navmenu&gt;</span><span style="color: rgb(0, 0, 255);">&lt;/div&gt;</span><br> <br>    <span style="color: rgb(0, 0, 255);">&lt;div <span style="color: rgb(255, 0, 0);">class</span>=<span style="color: rgb(163, 21, 21);">"main"</span>&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;div <span style="color: rgb(255, 0, 0);">class</span>=<span style="color: rgb(163, 21, 21);">"top-row px-4"</span>&gt;</span><br>            <span style="color: rgb(0, 0, 255);">&lt;a <span style="color: rgb(255, 0, 0);">href</span>=<span style="color: rgb(163, 21, 21);">"https://docs.microsoft.com/aspnet/"</span> <span style="color: rgb(255, 0, 0);">target</span>=<span style="color: rgb(163, 21, 21);">"_blank"</span>&gt;</span>About<span style="color: rgb(0, 0, 255);">&lt;/a&gt;</span><br>        <span style="color: rgb(0, 0, 255);">&lt;/div&gt;</span><br> <br>        <span style="color: rgb(0, 0, 255);">&lt;div <span style="color: rgb(255, 0, 0);">class</span>=<span style="color: rgb(163, 21, 21);">"content px-4"</span>&gt;</span><br>            @Body<br>        <span style="color: rgb(0, 0, 255);">&lt;/div&gt;</span><br>    <span style="color: rgb(0, 0, 255);">&lt;/div&gt;</span><br><span style="color: rgb(0, 0, 255);">&lt;/div&gt;</span><br></code></pre><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>wwwroot 文件夹</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">该文件夹包含静态文件，例如图片、字体、图标、CSS 和 JavaScript 文件等。</p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>Pages 和 Shared 文件夹</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">该文件夹包含我们之前讨论过的&nbsp;<em style="margin-right: 3px;margin-left: 2px;">_Host.cshtml</em>&nbsp;文件以及一些 Razor 组件。Blazor 应用程序是具有&nbsp;<strong>.razor</strong>&nbsp;扩展名的 Razor 组件的集合。其中一些组件称为可路由组件，因为可以使用其路由访问它们。例如，当我们导航到应用程序根 URL 时，将呈现下面的&nbsp;<strong>Index.razor</strong>&nbsp;组件。该 URL 是使用&nbsp;<strong>Index.razor</strong>&nbsp;组件顶部的&nbsp;<strong>@page</strong>&nbsp;指令指定的。</p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>Index.razor</h3><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;">@page "/"<br> <br><span style="color: rgb(0, 0, 255);">&lt;h1&gt;</span>Hello, world!<span style="color: rgb(0, 0, 255);">&lt;/h1&gt;</span><br> <br>Welcome to your new app.<br> <br><span style="color: rgb(0, 0, 255);">&lt;surveyprompt <span style="color: rgb(255, 0, 0);">title</span>=<span style="color: rgb(163, 21, 21);">"How is Blazor working for you?"</span>&gt;</span><br></code></pre><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">请注意，上面的页面还使用了一个子组件&nbsp;<strong>SurveyPrompt</strong>，之所以称它为子组件，是因为它没有&nbsp;<strong>@page</strong>&nbsp;指令，它可以被嵌入到其他组件中。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Pages 文件夹中还有一些其他的 razor 组件，这些组件都可以使用文件顶部指定的路径进行访问。例如，当我们导航到&nbsp;<em style="margin-right: 3px;margin-left: 2px;">/counter</em>&nbsp;路径时，<strong>Counter</strong>&nbsp;组件将呈现。类似地，<strong>FetchData</strong>&nbsp;组件将使用&nbsp;<em style="margin-right: 3px;margin-left: 2px;">/fetchdata</em>&nbsp;路径呈现。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Razor Server 应用程序还有一个包含共享组件的 Shared 文件夹。这些组件可以被整个应用程序中的任何组件使用，就像我们上面看到的 SurveyPrompt 组件一样。Shared 文件夹中另一个有趣的共享组件是 NavMenu 组件，它呈现 Blazor Server 应用程序的顶部导航栏。</p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>_Imports.razor</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">该文件类似于我们在 ASP.NET MVC Web 应用程序中的&nbsp;<em style="margin-right: 3px;margin-left: 2px;">_ViewImports.cshtml</em>&nbsp;文件，它包含我们可以在不同 razor 组件中使用的命名空间列表。在&nbsp;<em style="margin-right: 3px;margin-left: 2px;">_Imports.razor</em>&nbsp;文件中声明所有这些命名空间的好处是我们不需要在每个 razor 组件中重复引入它们。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;">@using System.Net.Http<br>@using Microsoft.AspNetCore.Authorization<br>@using Microsoft.AspNetCore.Components.Authorization<br>@using Microsoft.AspNetCore.Components.Forms<br>@using Microsoft.AspNetCore.Components.Routing<br>@using Microsoft.AspNetCore.Components.Web<br>@using Microsoft.AspNetCore.Components.Web.Virtualization<br>@using Microsoft.JSInterop<br></code></pre><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">现在是时候运行我们的 Blazor Server 应用程序并在浏览器中查看它的运行情况了。在 Visual Studio 中按&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">F5</code>，您将看到一个漂亮的默认 Blazor Server 应用程序。试试从侧边栏导航到不同的页面，并尝试在 Counter 页面上使用计数器，您会注意到没有页面刷新或回传到服务器。一切都像经典的 SPA 那样流畅和快速，浏览器和服务端的所有通信都是使用 SignalR 连接进行的。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="0.618925831202046" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="782" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 206.818px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RTiaWvvutl4WoboXMBPuGzGVBXxvMfF9fXKDOetjGxcO1saXgA9vIvDg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">您也可以打开浏览器开发者工具，您会注意到所有标准的 CSS 和 JavaScript 文件（包括 blazor.server.js 文件）都下载到了客户端，并通过 Web Sockets 建立了一个 SignalR 连接。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="324" data-backw="578" data-ratio="0.5607476635514018" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="963" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 188.318px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RANVhJQS0OIIPRgArwic40dAm6htWJYeoqTH7ae6K4qRPmtw2fx4CpkA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在 Visual Studio 2019 中 创建 Blazor WebAssembly 应用</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">我们已经了解了 Blazor Server App 的基础知识，并在浏览器中看到了它的运行情况。现在让我们创建一个 Blazor WebAssembly App，以便我们可以理解它们的不同之处。按照我们上面提到的相同步骤，并使用&nbsp;<strong>Blazor App</strong>&nbsp;模板在 Visual Studio 中创建一个新的 Blazor 应用程序。当您被询问选择 Blazor App 的类型时，这次需要选择&nbsp;<strong>Blazor WebAssembly App</strong>。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="401" data-backw="578" data-ratio="0.693359375" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1024" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 230.488px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RiaHToKOcibUcM6Sa4KjuoBicmBk6XBCeNLuUd7txbAzPRwvSacXWI4vtw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">Visual Studio 将为我们创建一个 Blazor WebAssembly 应用程序，其中在解决方案资源管理器中包含以下文件夹和文件。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="1.3786127167630058" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="346" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 448.399px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65Rsn9J3RusS0axTribbiboVsMLKT2zMFuj1qXianb1gFNVUxKqGl0ZTNInw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">您可以轻松发现这两种类型的应用程序之间的一些差异。例如，在 Blazor WebAssembly 应用程序中没有以下文件：</p><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><li style="list-style-type: decimal;"><p>_Host.cshtml</p></li><li style="list-style-type: decimal;"><p>Error.cshtml</p></li><li style="list-style-type: decimal;"><p>Startup.cs</p></li><li style="list-style-type: decimal;"><p>appsettings.json</p></li></ol><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>index.html</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在 Blazor WebAssembly 应用程序中，我们会在&nbsp;<strong>wwwroot</strong>&nbsp;文件夹中有一个&nbsp;<strong>index.html</strong>&nbsp;文件，作为主页面， 该文件在末尾注入了&nbsp;<strong>blazor.webassembly.js</strong>&nbsp;文件，此文件由框架提供以处理下载 .NET 运行时、Blazor 应用程序及其所有依赖项。它还包含为了运行应用而初始化运行时的代码。</p><h3 style="margin-top: 1rem;margin-bottom: 10px;padding: 2px 6px;font-weight: bold;line-height: 1.5;font-family: Roboto, 微软雅黑, 宋体, 黑体, Arial;color: rgb(0, 0, 34);background-color: rgb(245, 250, 255);border-radius: 1px 22px 0px 1px;border-left: 1px dotted rgba(180, 200, 255, 0.8);border-right: 1px dotted rgba(180, 200, 255, 0.5);text-align: start;white-space: normal;"><span style="margin-right: 6px;color: rgb(51, 51, 85);font-family: Roboto, 微软雅黑;font-size: 0.9em;line-height: 1.6;">§</span>Program.cs</h3><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在 Blazor WebAssembly 应用程序中，应用程序的根组件在&nbsp;<em style="margin-right: 3px;margin-left: 2px;">Program.cs</em>&nbsp;文件中的 Main 方法中指定。应用程序的根组件是&nbsp;<strong>App.razor</strong>，你可以看到它是如何被添加到 RootComponents 集合中的。</p><pre style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;color: rgb(17, 17, 17);font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);overflow-x: auto !important;"><code style="margin: auto;overflow-wrap: normal;vertical-align: middle;display: block;overflow-x: auto;color: rgb(0, 0, 0);word-break: normal;height: auto;box-shadow: rgba(132, 161, 168, 0.7) 1px 2px 5px;-webkit-box-flex: 1;flex: 1 1 0%;padding: 10px !important;line-height: 1.5 !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 13px !important;background: rgb(244, 245, 242) !important;border-width: 1px !important;border-style: dotted !important;border-color: rgb(112, 161, 159) !important;border-radius: 2px 2px 3px 3px !important;"><span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">class</span> <span style="color: rgb(163, 21, 21);">Program</span><br>{<br>    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">static</span> <span style="color: rgb(0, 0, 255);">async</span> Task <span style="color: rgb(163, 21, 21);">Main</span>(<span style="color: rgb(0, 0, 255);">string</span>[] args)<br>    {<br>        <span style="color: rgb(0, 0, 255);">var</span> builder = WebAssemblyHostBuilder.CreateDefault(args);<br>        builder.RootComponents.Add&lt;app&gt;(<span style="color: rgb(163, 21, 21);">"#app"</span>);<br> <br>        builder.Services.AddScoped(sp =&gt; <span style="color: rgb(0, 0, 255);">new</span> HttpClient { BaseAddress = <span style="color: rgb(0, 0, 255);">new</span> Uri(builder.HostEnvironment.BaseAddress) });<br> <br>        <span style="color: rgb(0, 0, 255);">await</span> builder.Build().RunAsync();<br>    }<br>}<br></code></pre><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在 Visual Studio 中按&nbsp;<code style="line-height: 1.8;vertical-align: middle;display: inline-block;overflow-x: auto;color: rgb(255, 80, 32);word-break: break-all;text-indent: 0px;padding: 0.05em 0.3em !important;font-family: &quot;Lucida Console&quot;, &quot;Courier New&quot;, sans-serif !important;font-size: 14px !important;background-color: transparent !important;border-width: initial !important;border-style: none !important;border-color: initial !important;border-radius: 2px 2px 3px 3px !important;">F5</code>，您将看到一个相似的 Blazor WebAssembly 应用程序。尝试从侧边栏导航到不同的页面，并尝试像之前在 Blazor Server App 中所做的那样在 Counter 页面上使用计数器。一切看起来感觉一模一样，也没有服务器端回传。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="358" data-backw="578" data-ratio="0.618925831202046" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="782" style="margin: auto; border-width: initial; border-style: none; border-color: initial; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; cursor: zoom-in; padding: 5px !important; visibility: visible !important; width: 328px !important; height: 206.818px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RTiaWvvutl4WoboXMBPuGzGVBXxvMfF9fXKDOetjGxcO1saXgA9vIvDg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">正如我们已经知道的那样，Blazor WebAssembly 应用程序会在客户端下载应用程序及其所有依赖项，因此如果您打开浏览器开发者工具，会看到客户端下载了大量 DLL（<em style="margin-right: 3px;margin-left: 2px;">只会在第一次浏览时下载</em>）。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="364" data-backw="578" data-ratio="0.6296296296296297" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1080" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 210.222px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65Rpba7dcyFe6lQziaiaBwKB0ibuaFBkhHeVuQqDXJM0zQn4zKkwamR7aQfg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">以上所有文件只会在第一次请求时下载，然后它们被缓存在浏览器中。如果您再次刷新页面，将会看到这一次下载的文件很少。</p><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><img data-backh="364" data-backw="578" data-ratio="0.6296296296296297" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1080" style="margin: auto; border-width: initial; border-style: none; border-color: initial; cursor: zoom-in; box-shadow: rgba(152, 181, 188, 0.5) 1px 2px 5px; display: block; padding: 5px !important; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s !important; visibility: visible !important; width: 328px !important; height: 210.222px !important;" _width="328px" class="img_loading" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/pAdPOatCTkMwIaFI28PgnFicZkZt5H65RXC6ic1j06xV8BxZA0lGD02THWAGCQhVayT6JxEFAYW6YyOy7vxEsprg/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><h2 style="margin-top: 1.5rem;margin-right: 8px;margin-bottom: 1rem;padding: 5px 10px 2px;font-weight: bold;font-size: 21px;line-height: 1.5;border-bottom: 1px double rgb(38, 143, 242);border-radius: 25px 25px 9px;border-left: 2px dotted rgb(22, 159, 246);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">总结</h2><p style="margin: 13px auto 12px;text-indent: 1em;font-size: 16px;color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);">在本文中，我试图为您介绍 Blazor SPA 框架的基本概念，我们看到了两个 Blazor 应用程序使用两种不同的托管模型进行托管。因为 Blazor 框架严重依赖于 razor 组件，所以两个项目中的大部分代码和文件都是相同的。这些组件是 Blazor 应用程序的构建块，无论使用哪种托管模型，我们都可以以相似的方式构建这些组件。如果您喜欢本文，请分享它并传播知识。</p><hr style="margin: 1.5em auto;border-width: 0px;border-style: initial;border-color: initial;height: 1px;background: linear-gradient(to right, rgb(223, 223, 223), rgb(153, 153, 153), rgb(223, 223, 223)) rgb(102, 102, 102);color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;"><section style="color: rgb(17, 17, 17);font-family: Roboto, 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 16px;text-align: start;white-space: normal;background-color: rgb(255, 255, 255);"><p>相关链接：</p><ol class="list-paddingleft-2" style="margin-bottom: 1em;padding-left: 2em;width: 577.422px;font-size: 14px;"><li style="list-style-type: decimal;"><p style="margin: 13px auto 12px;">https://www.ezzylearning.net/tutorial/a-beginners-guide-to-blazor-server-and-webassembly-applications&nbsp;A Beginner’s Guide To Blazor Server and WebAssembly Applications&nbsp;↩︎</p></li><li style="list-style-type: decimal;"><p style="margin: 13px auto 12px;">https://www.ezzylearning.net/tutorial/display-live-sports-updates-using-asp-net-core-signalr&nbsp;Display Live Sports Updates using ASP.NET Core SignalR&nbsp;↩︎</p></li></ol><p style="font-size: 13px;color: rgb(119, 119, 119);"><br></p><section style="font-family: 微软雅黑, 宋体, 黑体, Verdana, Arial, Helvetica, sans-serif;font-size: 15px;"><blockquote style="margin-top: 0px;margin-bottom: 0px;padding-top: 0px;padding-right: 0.6em;padding-left: 0.6em;border-width: 1px 1px 1px 0.4em;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-color: rgb(238, 238, 238) rgb(238, 238, 238) rgb(238, 238, 238) rgb(204, 221, 239);color: rgb(106, 115, 125);background-image: none;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-radius: 0.3em;"><p style="font-size: 14px;color: rgb(119, 119, 119);"><span style="font-size: 13px;">作者 ：</span><span style="font-size: 13px;">Waqas Anwar</span><br style="font-size: 13px;"><span style="font-size: 13px;">译者 ：技术译民</span><br style="font-size: 13px;"><span style="font-size: 13px;">出品 ：技术译站（</span><span style="font-size: 13px;letter-spacing: 0.544px;">https://ITTranslator.cn/</span><span style="font-size: 13px;">）</span></p></blockquote><section><p><br></p></section></section><section style="color: rgb(36, 41, 46);font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Tahoma, Arial, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;;font-size: 14px;"><section style="margin-right: auto;margin-left: auto;display: flex;justify-content: center;align-items: center;"><section style="width: 100px;height: 1px;border-top: 1px dashed rgb(51, 51, 51);flex-shrink: 0;"><br></section><section style="margin-right: 12px;margin-left: 12px;padding-right: 4px;padding-left: 4px;background-image: none;background-position: 0% 0%;background-size: initial;background-repeat: repeat;background-attachment: scroll;background-origin: initial;background-clip: initial;border-radius: 10px;border-width: 1px;border-style: solid;border-color: rgb(49, 49, 49);"><section style="padding-right: 4px;padding-left: 4px;background-image: none;background-position: 0% 0%;background-size: initial;background-repeat: repeat;background-attachment: scroll;background-origin: initial;background-clip: initial;border-radius: 10px;border-color: rgb(49, 49, 49);border-style: solid;border-width: 0px 1px;"><p style="font-size: 13px;line-height: 1.75;text-align: center;color: rgb(51, 51, 51);letter-spacing: 0px;">END</p></section></section><section style="width: 100px;height: 1px;border-top: 1px dashed rgb(51, 51, 51);flex-shrink: 0;"><br></section></section></section></section><section><br></section><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.28515625" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="jpeg" data-w="1280" style="width: 328px !important; height: 94.9609px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/BAXuLsDQkjkgYufCKCwN9MdyGlOuUQtQ34hJ2pcB4NIpicMwmz5ekfzdvVarKYXc8jP7YVX7ialUm899ibsdh0eCQ/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><section data-brushtype="text" data-width="100%" style="max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;background-color: rgb(255, 255, 255);font-size: 16px;line-height: 25.6px;widows: 1;width: 677px;color: rgb(114, 114, 114);letter-spacing: 2px;text-align: center;font-weight: bold;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">往期</span><span style="max-width: 100%;color: rgb(1, 182, 139);box-sizing: border-box !important;overflow-wrap: break-word !important;">精彩</span><span style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">回顾</span></section><section style="margin-top: 10px;max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-size: 16px;line-height: 25.6px;widows: 1;display: flex;justify-content: center;align-items: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-width="100%" style="margin-top: -20px;max-width: 100%;box-sizing: border-box;width: 329.609px;border-bottom: 1px solid rgb(114, 114, 114);overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section style="margin-right: auto;margin-left: auto;padding-right: 5px;padding-left: 5px;max-width: 100%;box-sizing: border-box;overflow-wrap: break-word !important;"><section style="margin-top: -2px;margin-right: auto;margin-left: auto;max-width: 100%;box-sizing: border-box;height: 0px;width: 0px;border-width: 8px;border-style: solid;border-color: rgb(254, 110, 40) transparent transparent;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section data-bdless="spin" data-bdlessp="280" data-bdopacity="50%" style="margin-top: -7px;margin-right: auto;margin-left: auto;max-width: 100%;box-sizing: border-box;height: 0px;width: 0px;border-width: 6px;border-style: solid;border-color: rgba(254, 110, 40, 0.4) transparent transparent;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section><section data-width="100%" style="margin-top: -20px;max-width: 100%;box-sizing: border-box;width: 329.609px;border-bottom: 1px solid rgb(114, 114, 114);overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section><section data-width="100%" style="margin-top: -1px;max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);widows: 1;width: 677px;font-size: 14px;text-align: center;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tools="135编辑器" data-id="90215" style="max-width: 100%;box-sizing: border-box;letter-spacing: 1px;color: rgb(101, 170, 206);overflow-wrap: break-word !important;"><section><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484664&amp;idx=1&amp;sn=002bfa098300389e02aa204431997bf2&amp;chksm=fdb3b362cac43a747817519ec6feaac300d56631df53ebd56b3aac043cf74860fd7ead37bf3c&amp;scene=21#wechat_redirect');" textvalue="【推荐】.NET Core开发实战视频课程&nbsp;★★★" data-itemshowtype="0" tab="innerlink" data-linktype="2">【推荐】.NET Core开发实战视频课程<span style="max-width: 100%;color: rgb(101, 170, 206);letter-spacing: 1px;text-align: center;widows: 1;background-color: rgb(255, 255, 255);font-family: 微软雅黑;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;</span><span style="max-width: 100%;letter-spacing: 1px;text-align: center;widows: 1;background-color: rgb(255, 255, 255);font-family: 微软雅黑;font-size: 15px;color: rgb(1, 182, 139);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">★★★</strong></span></a></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483686&amp;idx=3&amp;sn=83d76b1119f9409fad1eb54662652013&amp;chksm=fdb3b6bccac43faa4ecb6dc1fc37bc6ce79ae74caaa0e6e5e39f67f70e91c1b0022e4d38d683&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">.NET Core实战项目之CMS 第一章 入门篇-开篇及总体规划</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483686&amp;idx=2&amp;sn=0a192a9462bf008e19d44c81930ffcfa&amp;chksm=fdb3b6bccac43faa3a912a108534fad46629ae92cbd2f6101de31a17257819c0793556f08f75&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">【.NET Core微服务实战-统一身份认证】开篇及目录索引</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483964&amp;idx=1&amp;sn=985b1f06841b73c6cd73d4107a0c4573&amp;chksm=fdb3b5a6cac43cb0e3973200daf3ca5d904f278ff54485abc68e8d1d687fe23ac0ebb4745daa&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">Redis基本使用及百亿数据量中的使用技巧分享（附视频地址及观看指南）</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484100&amp;idx=1&amp;sn=0b28b556aa9435e5d970ccf739fd6967&amp;chksm=fdb3b55ecac43c485892956f50dcb7a8d816d971fef2803d6bf51f2457122ea4199e30efb14e&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">.NET Core中的一个接口多种实现的依赖注入与动态选择看这篇就够了</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484315&amp;idx=1&amp;sn=ec3ea2509a8a00082ca855d844edcefe&amp;chksm=fdb3b401cac43d17037dbfa73e79a872631a6f5f019414d93dd9453d1e876d724cb4dd9dcfb4&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">10个小技巧助您写出高性能的ASP.NET Core代码</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484274&amp;idx=1&amp;sn=922b2e4832881b8aa50d19433e2c6619&amp;chksm=fdb3b4e8cac43dfe886df33fbe430a36d0851b3d267fa2cd1891327cbd3dc3406057e74e9274&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">用abp vNext快速开发Quartz.NET定时任务管理界面</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484881&amp;idx=1&amp;sn=813d612b8dccaa73065ee64df1953e7b&amp;chksm=fdb3b24bcac43b5d0cdb4bfabaaf6b0db0d7e1be814ae73c50d23f1fdb00b343ad146a75d909&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">在ASP.NET Core中创建基于Quartz.NET托管服务轻松实现作业调度</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484351&amp;idx=1&amp;sn=21d5176bc8a96e32b1f046e8858d049d&amp;chksm=fdb3b425cac43d3381008c89ced86cddb00734f5693c63f4c1cf1068df3d3a659c31fc756871&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">现身说法：实际业务出发分析百亿数据量下的多表查询优化</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484640&amp;idx=1&amp;sn=12ddde96d02996ad9abe51f10ad4f44a&amp;chksm=fdb3b37acac43a6c0128eede8bd2940e6cffe4128e0e8aad7ea0de39746ca4979bddaa7da5a8&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">关于C#异步编程你应该了解的几点建议</a><br></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484625&amp;idx=1&amp;sn=e5f2d18f8e224633f67a94eec5a05ac2&amp;chksm=fdb3b34bcac43a5d711c2d6edf326ffd8458764ae177f4e23b1d988620df3020c1e82c1ff29e&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">C#异步编程看这篇就够了</a></p></section></section></section></section><p><br></p>                </div><div>来源:https://mp.weixin.qq.com/s/WStycrbvp53roZRWs-fw-g</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="181" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="181" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/BAXuLsDQkjlHUcCr6ibNf7mKv9gia5gSPicTrjJKdZdPXSbxsYnicLEo7O3Qd6mN1MFicawNrZavFtDHO8DOulOrs9g/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="181" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/blazor1.html" class="tag" rel="tag">Blazor</a></li>
+        <li>浏览次数：<span>341</span> 次浏览</li>
+        <li>发布日期：2021-07-07 09:03:33</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/181.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="180.html">Jenkins声明式管道语法快速参考指南</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="182.html">Dotnet Core 优雅的命令行实现</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" alt="Blazor Server 和 WebAssembly 应用程序入门指南" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">Blazor Server 和 WebAssembly 应用程序入门指南</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="d57d5dde2b963783bfc43563a171736e">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="181">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

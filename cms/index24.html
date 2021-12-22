@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>穆客智能 - 技术改变生活</title>
+    <meta name="keywords" content="Muker Studio">
+    <meta name="description" content="Muker Studio">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="0">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="p/reload.html">充值缴费</a></li>
+                                                        <li><a href="weixingongju.html">微信工具</a></li>
+                                                        <li><a href="dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="fuwuqi.html">服务器</a></li>
+                                                        <li><a href="caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="cea619d4dffa050cde236adbd4d013a5">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <!--<div style="margin-bottom:20px;">-->
+    <!---->
+    <!--</div>-->
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="swiper-container index-focus">
+                <!-- S 焦点图 -->
+                <div id="index-focus" class="carousel slide carousel-focus" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                                                <li data-target="#index-focus" data-slide-to="0" class="active"></li>
+                                                <li data-target="#index-focus" data-slide-to="1" class=""></li>
+                                                <li data-target="#index-focus" data-slide-to="2" class=""></li>
+                                                <li data-target="#index-focus" data-slide-to="3" class=""></li>
+                                            </ol>
+                    <div class="carousel-inner" role="listbox">
+                                                <div class="item active">
+                            <a href="">
+                                <div class="carousel-img" style="background-image:url('../uploads/20210615/7c8ece43c3841e4405c063b276080900.png');"></div>
+                                <div class="carousel-caption hidden-xs">
+                                    <h3>江湖之大,唯有你我他(她)</h3>
+                                </div>
+                            </a>
+                        </div>
+                                                <div class="item ">
+                            <a href="javascript:window.open('https://www.muker.club/cms/p/reload.html');">
+                                <div class="carousel-img" style="background-image:url('../uploads/20210615/e9cb9a23f665b075bbc8226d263fb2b8.png');"></div>
+                                <div class="carousel-caption hidden-xs">
+                                    <h3>穆微充值 - WeRMS</h3>
+                                </div>
+                            </a>
+                        </div>
+                                                <div class="item ">
+                            <a href="javascript:window.open('https://www.muker.club/cms/weixingongju/111.html');">
+                                <div class="carousel-img" style="background-image:url('../uploads/20210615/7ccd9ad79e9a6bdccbe5c07785d45a0b.png');"></div>
+                                <div class="carousel-caption hidden-xs">
+                                    <h3>微信群发助手</h3>
+                                </div>
+                            </a>
+                        </div>
+                                                <div class="item ">
+                            <a href="javascript:window.open('https://www.muker.club/cms/dianshangxitong/112.html');">
+                                <div class="carousel-img" style="background-image:url('../uploads/20210615/ca6e3921d19f1b7bb958b9ca511fc538.png');"></div>
+                                <div class="carousel-caption hidden-xs">
+                                    <h3>Shopee - Facebook 商品同步程序</h3>
+                                </div>
+                            </a>
+                        </div>
+                                            </div>
+                    <a class="left carousel-control" href="#index-focus" role="button" data-slide="prev">
+                        <span class="icon-prev fa fa-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#index-focus" role="button" data-slide="next">
+                        <span class="icon-next fa fa-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- E 焦点图 -->
+            </div>
+
+            <div class="panel panel-default index-gallary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>热门图集</span>
+                        <div class="more">
+                            <a href="product.html">查看更多</a>
+                        </div>
+                    </h3>
+
+                </div>
+                <div class="panel-body">
+                    <div class="related-article">
+                        <div class="row">
+                            <!-- S 热门图集 -->
+                                                        <div class="col-sm-3 col-xs-6">
+                                <a href="weixingongju/111.html" class="img-zoom">
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                        <img src="../uploads/20210615/7ccd9ad79e9a6bdccbe5c07785d45a0b.png" alt="微信群发助手" class="embed-responsive-item">
+                                    </div>
+                                </a>
+                                <h5>微信群发助手</h5>
+                            </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                <a href="reload/110.html" class="img-zoom">
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                        <img src="../uploads/20210615/e9cb9a23f665b075bbc8226d263fb2b8.png" alt="马来西亚生活充值缴费系统" class="embed-responsive-item">
+                                    </div>
+                                </a>
+                                <h5>马来西亚生活充值缴费系统</h5>
+                            </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                <a href="dianshangxitong/112.html" class="img-zoom">
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                        <img src="../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" alt="Shopee2Facebook 商品同步程序" class="embed-responsive-item">
+                                    </div>
+                                </a>
+                                <h5>Shopee2Facebook 商品同步程序</h5>
+                            </div>
+                                                        <div class="col-sm-3 col-xs-6">
+                                <a href="dianshangxitong/113.html" class="img-zoom">
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                        <img src="../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" alt="东南亚电商多平台多店铺库存同步程序" class="embed-responsive-item">
+                                    </div>
+                                </a>
+                                <h5>东南亚电商多平台多店铺库存同步程序</h5>
+                            </div>
+                                                        <!-- E 热门图集 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>最近更新</span>
+
+                        <div class="more hidden-xs">
+                            <ul class="list-unstyled list-inline">
+                                <!-- E 栏目筛选 -->
+                                                                <li><a href="weixingongju.html">微信工具</a></li>
+                                                                <li><a href="dianshangxitong.html">电商系统</a></li>
+                                                                <li><a href="zaixianjiaoyu.html">在线教育</a></li>
+                                                                <li><a href="quanziluntan.html">圈子论坛</a></li>
+                                                                <li><a href="neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                                <li><a href="yunwei.html">运维</a></li>
+                                                                <!-- E 栏目筛选 -->
+                            </ul>
+                        </div>
+                    </h3>
+                </div>
+                <div class="panel-body p-0">
+                    <div class="article-list">
+                        
+<!-- S 首页列表 -->
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="t/jenkis4.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/287/800/600" alt="Autodesk MayaLT 2019 最牛3D动画软件">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="t/jenkis4.html">Autodesk MayaLT 2019 最牛3D动画软件</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                Autodesk Maya 是一款Mac OS平台上的业界顶级的三维动画软件，由todesk公司出品的。可以说是三维动画制作必备工具，集成 Bifrost , Bifrost Node Editor 材质编辑器, 渲染窗口, 建模工具, 菜单显示优化, 插件管理器优化, XGEN正是集成。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 287 点赞</span>
+                <span itemprop="comments"><a href="t/jenkis4.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 6486 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/58.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/320/800/600" alt="iRingg 1.0.38 iPhone铃声制作">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/58.html">iRingg 1.0.38 iPhone铃声制作</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                iRingg可以帮助我们在Mac电脑上非常方便高效地制作iPhone铃声，并且一键发送至设备。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 228 点赞</span>
+                <span itemprop="comments"><a href="media/58.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 7185 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/57.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/251/800/600" alt="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/57.html">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                Camtasia Studio是一套专业的屏幕录像软件，同时包含Camtasia 录像器、Camtasia Studio（编辑器）、Camtasia 菜单制作器、Camtasia 剧场、Camtasia 播放器和Screencast的内置功能。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 83 点赞</span>
+                <span itemprop="comments"><a href="media/57.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 5557 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="t/jenkis4.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/197/800/600" alt="Joyoshare Screen Recorder 2.0.0.22 Mac屏幕录制应用">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="t/jenkis4.html">Joyoshare Screen Recorder 2.0.0.22 Mac屏幕录制应用</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                Joyoshare Screen Recorder可以用来录制视频、音频等任何屏幕上的活动，一键即可开始录制，非常便捷。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 49 点赞</span>
+                <span itemprop="comments"><a href="t/jenkis4.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 4199 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/55.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/450/800/600" alt="DRmare Audio Converter 2.0.2.16 DRM音频清除转换应用">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/55.html">DRmare Audio Converter 2.0.2.16 DRM音频清除转换应用</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                DRmare Audio Converter是mac平台上一款强大的DRM音频清除转换工具，它可以帮助您从受保护的Apple Music，iTunes歌曲和Audible有声读物中删除DRM，自定义输出音频格式和质量，整理专辑标签信息等。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 93 点赞</span>
+                <span itemprop="comments"><a href="media/55.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 448 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/54.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/167/800/600" alt="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/54.html">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                Meta将帮助您管理不断增长的数字音乐收藏。它支持大多数音频格式的编辑，如MP3，MP4，M4A，FLAC，OGG，OGA，SPX，WAV等等。 AIFF和各种元数据格式，包括ID3v1，ID3v2.3，ID3v2.4，ITunes MP4，Vorbis注释和APE标签。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 191 点赞</span>
+                <span itemprop="comments"><a href="media/54.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 3810 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/53.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/368/800/600" alt="Sidify Music Converter 1.3.2 优秀的音乐转换工具">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/53.html">Sidify Music Converter 1.3.2 优秀的音乐转换工具</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                Sidify Music Converter是一款苹果音乐转换软件，可以去除DRM的软件。它可以把苹果音乐转换为MP3或M4A格式，从而可以在其他设备播放。这个软件还可以将iTunes M4P音乐, M4A/M4B有声读物，以及AA/AAX 有声读物的DRM去掉，转换为自由播放的MP3, M4A和M4B。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 25 点赞</span>
+                <span itemprop="comments"><a href="media/53.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 3491 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/52.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/265/800/600" alt="SPlayerX 4.1.4 射手播放器">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/52.html">SPlayerX 4.1.4 射手播放器</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                射手播放器, 国内著名字幕发布网站旗下的播放器            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 265 点赞</span>
+                <span itemprop="comments"><a href="media/52.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 3595 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/51.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/1005/800/600" alt="RightFont 5.4.1(2474) 超级好用的字体管理工具">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/51.html">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                RightFont是 Mac OS X 上一款非常轻巧的字体管理工具，目前已经完成了与 PhotoShop、Sketch 两大设计应用的集成。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月27日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 191 点赞</span>
+                <span itemprop="comments"><a href="media/51.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 6063 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="media/50.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="https://picsum.photos/id/866/800/600" alt="VideoProc 3.2(2019013001) 视频格式转换">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="media/50.html">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                VideoProc是Mac平台上的一款视频处理软件，旨在通过全硬件加速来剪切，修剪，合并，调整，转码，编辑4k视频。            </div>
+            <div class="article-tag">
+                <a href="media.html" class="tag tag-primary">媒体工具</a>
+                <span itemprop="date">2019年03月25日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 38 点赞</span>
+                <span itemprop="comments"><a href="media/50.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 129 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+<!-- E 首页列表 -->
+
+    <div class="text-center">
+        <a href="index25.html" data-page="25" class="btn btn-default my-4 px-4 btn-loadmore" data-autoload="false">加载更多</a>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+            <div class="panel panel-default lasest-update">
+                <!-- S 最近更新 -->
+                <div class="panel-heading">
+                    <h3 class="panel-title">最新更新</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/334.html" title="浅议Linq和MoreLinq">浅议Linq和MoreLinq</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/333.html" title="浅议Linq和MoreLinq">浅议Linq和MoreLinq</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/332.html" title="Yarp+AgileConfig 配置热更新的代理网关">Yarp+AgileConfig 配置热更新的代理网关</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/331.html" title="在业务层实现校验请求参数">在业务层实现校验请求参数</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/330.html" title="使用 CliWrap 让C#中的命令行交互举重若轻">使用 CliWrap 让C#中的命令行交互举重若轻</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/329.html" title="零代码爬虫神器 -- Web Scraper 的使用！">零代码爬虫神器 -- Web Scraper 的使用！</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="news2.html">资讯</a>]</span>
+                            <a class="link-dark" href="news2/328.html" title="低代码 火火火！">低代码 火火火！</a>
+                        </li>
+                                                <li>
+                            <span>[<a href="tech2.html">技术</a>]</span>
+                            <a class="link-dark" href="tech2/327.html" title="干掉 PowerDesigner！这款国人开源的数据库设计工具真香！">干掉 PowerDesigner！这款国人开源的数据库设计工具真香！</a>
+                        </li>
+                                            </ul>
+                </div>
+                <!-- E 最近更新 -->
+            </div>
+
+            <div class="panel panel-blockimg">
+
+            </div>
+
+            
+<div class="panel panel-blockimg">
+    <p><img src="../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+
+        </aside>
+    </div>
+</div>
+
+<div class="container hidden-xs j-partner">
+    <div class="panel panel-default">
+        <!-- S 合作伙伴 -->
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                合作伙伴
+                <small>感谢以下的合作伙伴的大力支持</small>
+                <a href="javascript:window.open('https://wpa.qq.com/msgrd?v=3&uin=252482230&site=&menu=yes');" target="_blank" class="more">联系我们</a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-unstyled list-partner">
+                <li><a href="../index.html"><img src="../assets/addons/cms/img/logo/58.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/360.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/alipay.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/baidu.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/boc.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/cctv.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/didi.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/iqiyi.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/qq.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/suning.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/taobao.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/tuniu.png"></a></li><li><a href="../index.html"><img src="../assets/addons/cms/img/logo/weibo.png"></a></li>
+            </ul>
+        </div>
+        <!-- E 合作伙伴 -->
+
+        <!-- S 友情链接 -->
+        <div class="panel-heading">
+            <h3 class="panel-title">友情链接
+                <small>申请友情链接请务必先做好本站链接</small>
+                <a href="javascript:window.open('https://wpa.qq.com/msgrd?v=3&uin=252482230&site=&menu=yes');" target="_blank" class="more">申请友链</a></h3>
+        </div>
+        <div class="panel-body">
+            <div class="list-unstyled list-links">
+                <p>
+<a href="javascript:window.open('https://silkroute.cc/');" target="_blank">丝路文化交流协会</a>
+<a href="javascript:window.open('https://yushangmy.org/');" target="_blank">马来西亚豫商联合会</a>&nbsp; <a href="javascript:window.open('https://www.huazongme.com/');" target="_blank">华纵机械设备有限公司</a>&nbsp;<a href="javascript:window.open('http://zghzxw.com/');" target="_blank">回族学网</a>&nbsp;<a href="javascript:window.open('https://github.com/');" title="FastAdminGithub仓库" target="_blank">Github</a>&nbsp;</p>
+            </div>
+        </div>
+        <!-- E 友情链接 -->
+    </div>
+
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

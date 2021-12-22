@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>开源项目barcodelib-C＃条形码图像生成库 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="d76a6f41e70db619b0a76a6e92a74d05">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">开源项目barcodelib-C＃条形码图像生成库</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 314 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="margin-top: 20px;white-space: normal;max-width: 100%;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;" data-mpa-powered-by="yiban.io"><section style='list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;color: rgb(0, 0, 0);font-family: "Microsoft YaHei";font-size: medium;text-align: start;white-space: normal;zoom: 0.7;max-width: 100%;' data-tools="新媒体排版" data-v-09862f0b=""><section style="list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;max-width: 100%;"><p style="list-style: none;box-sizing: border-box;border-width: initial;border-style: none;border-color: initial;scroll-behavior: smooth;"><img class="__bg_gif" style="border-width: initial; border-style: none; border-color: initial; list-style: none; width: 677px !important; height: auto !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/BAXuLsDQkjlHUcCr6ibNf7mKv9gia5gSPicTrjJKdZdPXSbxsYnicLEo7O3Qd6mN1MFicawNrZavFtDHO8DOulOrs9g/640?wx_fmt=gif" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-w="720" data-type="gif" data-ratio="0.10555555555555556" _width="677px" data-fail="0" data-order="0"></p></section></section><section><br></section><h2 style='margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 1.3em;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;text-align: left;border-bottom: 2px solid rgb(239, 112, 96);' data-tool="mdnice编辑器"><span style="margin-right: 3px;padding: 3px 10px 1px;display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);border-top-right-radius: 3px;border-top-left-radius: 3px;">介绍</span></h2><p>该库旨在为开发人员提供一个简单的类，以便他们在需要根据数据字符串生成条形码图像时使用。<br></p><h2 style='margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 1.3em;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;text-align: left;border-bottom: 2px solid rgb(239, 112, 96);' data-tool="mdnice编辑器"><span style="margin-right: 3px;padding: 3px 10px 1px;display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);border-top-right-radius: 3px;border-top-left-radius: 3px;">用法</span></h2><p>该库包含一个名为BarcodeLib的类，其中包含三个构造函数：</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li><li></li></ul><pre class="code-snippet__js" data-lang="cs"><code><span class="code-snippet_outer">Barcode();</span></code><code><span class="code-snippet_outer">Barcode(<span class="code-snippet__keyword">string</span>);</span></code><code><span class="code-snippet_outer">Barcode(<span class="code-snippet__keyword">string</span>, BarcodeLib.TYPE);</span></code></pre></section><p><br></p><p>如果决定使用参数创建实例，则参数如下：字符串是要编码到条形码中的数据，而BarcodeLib.TYPE是用于编码数据的符号体系。如果在创建实例时未选择指定数据和类型，则可以稍后（但在编码之前）通过适当的属性指定它们。</p><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li></ul><pre class="code-snippet__js" data-lang="javascript"><code><span class="code-snippet_outer">BarcodeLib.Barcode b = <span class="code-snippet__keyword">new</span> BarcodeLib.Barcode();</span></code><code><span class="code-snippet_outer">Image img = b.Encode(BarcodeLib.TYPE.UPCA, <span class="code-snippet__string">"038000356216"</span>, Color.Black, Color.White, <span class="code-snippet__number">290</span>, <span class="code-snippet__number">120</span>);</span></code></pre></section><section class="code-snippet__fix code-snippet__js"><ul class="code-snippet__line-index code-snippet__js"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><pre class="code-snippet__js" data-lang="typescript"><code><span class="code-snippet_outer"> <span class="code-snippet__keyword">private</span> <span class="code-snippet__built_in">void</span> btnEncode_Click(object sender, EventArgs e)</span></code><code><span class="code-snippet_outer">        {</span></code><code><span class="code-snippet_outer">            errorProvider1.Clear();</span></code><code><span class="code-snippet_outer">            int W = Convert.ToInt32(<span class="code-snippet__keyword">this</span>.txtWidth.Text.Trim());</span></code><code><span class="code-snippet_outer">            int H = Convert.ToInt32(<span class="code-snippet__keyword">this</span>.txtHeight.Text.Trim());</span></code><code><span class="code-snippet_outer">            b.Alignment = AlignmentPositions.CENTER;</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">            <span class="code-snippet__comment">//barcode alignment</span></span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">switch</span> (cbBarcodeAlign.SelectedItem.ToString().Trim().ToLower())</span></code><code><span class="code-snippet_outer">            {</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"left"</span>: b.Alignment = AlignmentPositions.LEFT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"right"</span>: b.Alignment = AlignmentPositions.RIGHT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">default</span>: b.Alignment = AlignmentPositions.CENTER; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">            }<span class="code-snippet__comment">//switch</span></span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">            TYPE <span class="code-snippet__keyword">type</span> = TYPE.UNSPECIFIED;</span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">switch</span> (cbEncodeType.SelectedItem.ToString().Trim())</span></code><code><span class="code-snippet_outer">            {</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"UPC-A"</span>: <span class="code-snippet__keyword">type</span> = TYPE.UPCA; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"UPC-E"</span>: <span class="code-snippet__keyword">type</span> = TYPE.UPCE; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"UPC 2 Digit Ext."</span>: <span class="code-snippet__keyword">type</span> = TYPE.UPC_SUPPLEMENTAL_2DIGIT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"UPC 5 Digit Ext."</span>: <span class="code-snippet__keyword">type</span> = TYPE.UPC_SUPPLEMENTAL_5DIGIT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"EAN-13"</span>: <span class="code-snippet__keyword">type</span> = TYPE.EAN13; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"JAN-13"</span>: <span class="code-snippet__keyword">type</span> = TYPE.JAN13; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"EAN-8"</span>: <span class="code-snippet__keyword">type</span> = TYPE.EAN8; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"ITF-14"</span>: <span class="code-snippet__keyword">type</span> = TYPE.ITF14; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Codabar"</span>: <span class="code-snippet__keyword">type</span> = TYPE.Codabar; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"PostNet"</span>: <span class="code-snippet__keyword">type</span> = TYPE.PostNet; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Bookland/ISBN"</span>: <span class="code-snippet__keyword">type</span> = TYPE.BOOKLAND; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 11"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE11; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 39"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE39; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 39 Extended"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE39Extended; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 39 Mod 43"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE39_Mod43; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 93"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE93; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"LOGMARS"</span>: <span class="code-snippet__keyword">type</span> = TYPE.LOGMARS; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"MSI"</span>: <span class="code-snippet__keyword">type</span> = TYPE.MSI_Mod10; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Interleaved 2 of 5"</span>: <span class="code-snippet__keyword">type</span> = TYPE.Interleaved2of5; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Interleaved 2 of 5 Mod 10"</span>: <span class="code-snippet__keyword">type</span> = TYPE.Interleaved2of5_Mod10; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Standard 2 of 5"</span>: <span class="code-snippet__keyword">type</span> = TYPE.Standard2of5; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Standard 2 of 5 Mod 10"</span>: <span class="code-snippet__keyword">type</span> = TYPE.Standard2of5_Mod10; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 128"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE128; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 128-A"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE128A; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 128-B"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE128B; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Code 128-C"</span>: <span class="code-snippet__keyword">type</span> = TYPE.CODE128C; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Telepen"</span>: <span class="code-snippet__keyword">type</span> = TYPE.TELEPEN; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"FIM"</span>: <span class="code-snippet__keyword">type</span> = TYPE.FIM; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"Pharmacode"</span>: <span class="code-snippet__keyword">type</span> = TYPE.PHARMACODE; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">default</span>: MessageBox.Show(<span class="code-snippet__string">"Please specify the encoding type."</span>); <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">            }<span class="code-snippet__comment">//switch</span></span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">try</span></span></code><code><span class="code-snippet_outer">            {</span></code><code><span class="code-snippet_outer">                <span class="code-snippet__keyword">if</span> (<span class="code-snippet__keyword">type</span> != TYPE.UNSPECIFIED)</span></code><code><span class="code-snippet_outer">                {</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">try</span></span></code><code><span class="code-snippet_outer">                    {</span></code><code><span class="code-snippet_outer">                        b.BarWidth = textBoxBarWidth.Text.Trim().Length &lt; <span class="code-snippet__number">1</span> ? <span class="code-snippet__literal">null</span> : (int?)Convert.ToInt32(textBoxBarWidth.Text.Trim());</span></code><code><span class="code-snippet_outer">                    }</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">catch</span> (Exception ex)</span></code><code><span class="code-snippet_outer">                    {</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">throw</span> <span class="code-snippet__keyword">new</span> Exception(<span class="code-snippet__string">"Unable to parse BarWidth: "</span> + ex.Message, ex);</span></code><code><span class="code-snippet_outer">                    }</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">try</span></span></code><code><span class="code-snippet_outer">                    {</span></code><code><span class="code-snippet_outer">                        b.AspectRatio = textBoxAspectRatio.Text.Trim().Length &lt; <span class="code-snippet__number">1</span> ? <span class="code-snippet__literal">null</span> : (double?)Convert.ToDouble(textBoxAspectRatio.Text.Trim());</span></code><code><span class="code-snippet_outer">                    }</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">catch</span> (Exception ex)</span></code><code><span class="code-snippet_outer">                    {</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">throw</span> <span class="code-snippet__keyword">new</span> Exception(<span class="code-snippet__string">"Unable to parse AspectRatio: "</span> + ex.Message, ex);</span></code><code><span class="code-snippet_outer">                    }</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    b.IncludeLabel = <span class="code-snippet__keyword">this</span>.chkGenerateLabel.Checked;</span></code><code><span class="code-snippet_outer">                    b.RotateFlipType = (RotateFlipType)Enum.Parse(<span class="code-snippet__keyword">typeof</span>(RotateFlipType), <span class="code-snippet__keyword">this</span>.cbRotateFlip.SelectedItem.ToString(), <span class="code-snippet__literal">true</span>);</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">if</span> (!<span class="code-snippet__built_in">String</span>.IsNullOrEmpty(<span class="code-snippet__keyword">this</span>.textBox1.Text.Trim()))</span></code><code><span class="code-snippet_outer">                        b.AlternateLabel = <span class="code-snippet__keyword">this</span>.textBox1.Text;</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">else</span></span></code><code><span class="code-snippet_outer">                        b.AlternateLabel = <span class="code-snippet__keyword">this</span>.txtData.Text;</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__comment">//label alignment and position</span></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">switch</span> (<span class="code-snippet__keyword">this</span>.cbLabelLocation.SelectedItem.ToString().Trim().ToUpper())</span></code><code><span class="code-snippet_outer">                    {</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"BOTTOMLEFT"</span>:  b.LabelPosition = LabelPositions.BOTTOMLEFT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"BOTTOMRIGHT"</span>: b.LabelPosition = LabelPositions.BOTTOMRIGHT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"TOPCENTER"</span>: b.LabelPosition = LabelPositions.TOPCENTER; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"TOPLEFT"</span>: b.LabelPosition = LabelPositions.TOPLEFT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">case</span> <span class="code-snippet__string">"TOPRIGHT"</span>: b.LabelPosition = LabelPositions.TOPRIGHT; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                        <span class="code-snippet__keyword">default</span>: b.LabelPosition = LabelPositions.BOTTOMCENTER; <span class="code-snippet__keyword">break</span>;</span></code><code><span class="code-snippet_outer">                    }<span class="code-snippet__comment">//switch</span></span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__comment">//===== Encoding performed here =====</span></span></code><code><span class="code-snippet_outer">                    barcode.BackgroundImage = b.Encode(<span class="code-snippet__keyword">type</span>, <span class="code-snippet__keyword">this</span>.txtData.Text.Trim(), <span class="code-snippet__keyword">this</span>.btnForeColor.BackColor, <span class="code-snippet__keyword">this</span>.btnBackColor.BackColor, W, H);</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__comment">//===================================</span></span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__comment">//show the encoding time</span></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">this</span>.lblEncodingTime.Text = <span class="code-snippet__string">"("</span> + <span class="code-snippet__built_in">Math</span>.Round(b.EncodingTime, <span class="code-snippet__number">0</span>, MidpointRounding.AwayFromZero).ToString() + <span class="code-snippet__string">"ms)"</span>;</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    txtEncoded.Text = b.EncodedValue;</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    tsslEncodedType.Text = <span class="code-snippet__string">"Encoding Type: "</span> + b.EncodedType.ToString();</span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__comment">// Read dynamically calculated Width/Height because the user is interested.</span></span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">if</span> (b.BarWidth.HasValue)</span></code><code><span class="code-snippet_outer">                        txtWidth.Text = b.Width.ToString();</span></code><code><span class="code-snippet_outer">                    <span class="code-snippet__keyword">if</span> (b.AspectRatio.HasValue)</span></code><code><span class="code-snippet_outer">                        txtHeight.Text = b.Height.ToString();</span></code><code><span class="code-snippet_outer">                }<span class="code-snippet__comment">//if</span></span></code><code><span class="code-snippet_outer"><br></span></code><code><span class="code-snippet_outer">                <span class="code-snippet__comment">//reposition the barcode image to the middle</span></span></code><code><span class="code-snippet_outer">                barcode.Location = <span class="code-snippet__keyword">new</span> Point((<span class="code-snippet__keyword">this</span>.barcode.Location.X + <span class="code-snippet__keyword">this</span>.barcode.Width / <span class="code-snippet__number">2</span>) - barcode.Width / <span class="code-snippet__number">2</span>, (<span class="code-snippet__keyword">this</span>.barcode.Location.Y + <span class="code-snippet__keyword">this</span>.barcode.Height / <span class="code-snippet__number">2</span>) - barcode.Height / <span class="code-snippet__number">2</span>);</span></code><code><span class="code-snippet_outer">            }<span class="code-snippet__comment">//try</span></span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">catch</span> (Exception ex)</span></code><code><span class="code-snippet_outer">            {</span></code><code><span class="code-snippet_outer">                MessageBox.Show(ex.Message);</span></code><code><span class="code-snippet_outer">            }<span class="code-snippet__comment">//catch</span></span></code><code><span class="code-snippet_outer">        }<span class="code-snippet__comment">//btnEncode_Click</span></span></code></pre></section><h2 style='margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 1.3em;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;text-align: left;border-bottom: 2px solid rgb(239, 112, 96);' data-tool="mdnice编辑器"><span style="margin-right: 3px;padding: 3px 10px 1px;display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);border-top-right-radius: 3px;border-top-left-radius: 3px;">版权和许可</span></h2><p>&nbsp;Apache-2.0 License</p><h2 style='margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 1.3em;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;text-align: left;border-bottom: 2px solid rgb(239, 112, 96);' data-tool="mdnice编辑器"><span style="margin-right: 3px;padding: 3px 10px 1px;display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);border-top-right-radius: 3px;border-top-left-radius: 3px;">开源地址</span></h2><p>https://github.com/barnhill/barcodelib</p><p><br></p><p style="text-align: center;"><img class="rich_pages img_loading" style="width: 578px !important; height: 300.41px !important;" alt="图片" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/ia9mEhlib6icjSzZOtqpIgL9Q0z1Yiba8SBCxmgDTkp7KfQib6eurTPibA6oRApJyw3RFT4w8Qv5CDFBgvxMuEPAVwcQ/640?wx_fmt=png" crossorigin="anonymous" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-w="1438" data-type="png" data-ratio="0.5180806675938804" _width="578px" data-s="300,640" data-backw="578" data-backh="299"></p><p><br style="white-space: normal;"></p><section><br></section><p style="text-align: center;"><img class="rich_pages img_loading" style="width: 677px !important; height: 194.48px !important;" alt="图片" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/BAXuLsDQkjkgYufCKCwN9MdyGlOuUQtQ34hJ2pcB4NIpicMwmz5ekfzdvVarKYXc8jP7YVX7ialUm899ibsdh0eCQ/640?wx_fmt=jpeg" crossorigin="anonymous" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-w="1280" data-type="jpeg" data-ratio="0.28515625" _width="677px" data-s="300,640"></p><section style='max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;background-color: rgb(255, 255, 255);font-size: 16px;line-height: 25.6px;widows: 1;width: 677px;color: rgb(114, 114, 114);letter-spacing: 2px;text-align: center;font-weight: bold;box-sizing: border-box !important;overflow-wrap: break-word !important;' data-brushtype="text" data-width="100%"><span style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">往期</span><span style="max-width: 100%;color: rgb(1, 182, 139);box-sizing: border-box !important;overflow-wrap: break-word !important;">精彩</span><span style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">回顾</span></section><section style='margin-top: 10px;max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);font-size: 16px;line-height: 25.6px;widows: 1;display: flex;justify-content: center;align-items: center;box-sizing: border-box !important;overflow-wrap: break-word !important;'><section style="margin-top: -20px;max-width: 100%;box-sizing: border-box;width: 329.609px;border-bottom: 1px solid rgb(114, 114, 114);overflow-wrap: break-word !important;" data-width="100%"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section style="margin-right: auto;margin-left: auto;padding-right: 5px;padding-left: 5px;max-width: 100%;box-sizing: border-box;overflow-wrap: break-word !important;"><section style="margin-top: -2px;margin-right: auto;margin-left: auto;max-width: 100%;box-sizing: border-box;height: 0px;width: 0px;border-width: 8px;border-style: solid;border-color: rgb(254, 110, 40) transparent transparent;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section style="margin-top: -7px;margin-right: auto;margin-left: auto;max-width: 100%;box-sizing: border-box;height: 0px;width: 0px;border-width: 6px;border-style: solid;border-color: rgba(254, 110, 40, 0.4) transparent transparent;overflow-wrap: break-word !important;" data-bdopacity="50%" data-bdlessp="280" data-bdless="spin"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section><section style="margin-top: -20px;max-width: 100%;box-sizing: border-box;width: 329.609px;border-bottom: 1px solid rgb(114, 114, 114);overflow-wrap: break-word !important;" data-width="100%"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section><section style='margin-top: -1px;max-width: 100%;font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;font-variant-numeric: normal;font-variant-east-asian: normal;white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);widows: 1;width: 677px;font-size: 14px;text-align: center;line-height: 1.75em;box-sizing: border-box !important;overflow-wrap: break-word !important;' data-width="100%"><section style="max-width: 100%;box-sizing: border-box;letter-spacing: 1px;color: rgb(101, 170, 206);overflow-wrap: break-word !important;" data-id="90215" data-tools="135编辑器"><section><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484664&amp;idx=1&amp;sn=002bfa098300389e02aa204431997bf2&amp;chksm=fdb3b362cac43a747817519ec6feaac300d56631df53ebd56b3aac043cf74860fd7ead37bf3c&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0" textvalue="【推荐】.NET Core开发实战视频课程&nbsp;★★★">【推荐】.NET Core开发实战视频课程<span style="max-width: 100%;color: rgb(101, 170, 206);letter-spacing: 1px;text-align: center;widows: 1;background-color: rgb(255, 255, 255);font-family: 微软雅黑;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp;</span><span style="max-width: 100%;letter-spacing: 1px;text-align: center;widows: 1;background-color: rgb(255, 255, 255);font-family: 微软雅黑;font-size: 15px;color: rgb(1, 182, 139);box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">★★★</strong></span></a></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483686&amp;idx=3&amp;sn=83d76b1119f9409fad1eb54662652013&amp;chksm=fdb3b6bccac43faa4ecb6dc1fc37bc6ce79ae74caaa0e6e5e39f67f70e91c1b0022e4d38d683&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">.NET Core实战项目之CMS 第一章 入门篇-开篇及总体规划</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483686&amp;idx=2&amp;sn=0a192a9462bf008e19d44c81930ffcfa&amp;chksm=fdb3b6bccac43faa3a912a108534fad46629ae92cbd2f6101de31a17257819c0793556f08f75&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">【.NET Core微服务实战-统一身份认证】开篇及目录索引</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247483964&amp;idx=1&amp;sn=985b1f06841b73c6cd73d4107a0c4573&amp;chksm=fdb3b5a6cac43cb0e3973200daf3ca5d904f278ff54485abc68e8d1d687fe23ac0ebb4745daa&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">Redis基本使用及百亿数据量中的使用技巧分享（附视频地址及观看指南）</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484100&amp;idx=1&amp;sn=0b28b556aa9435e5d970ccf739fd6967&amp;chksm=fdb3b55ecac43c485892956f50dcb7a8d816d971fef2803d6bf51f2457122ea4199e30efb14e&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">.NET Core中的一个接口多种实现的依赖注入与动态选择看这篇就够了</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484315&amp;idx=1&amp;sn=ec3ea2509a8a00082ca855d844edcefe&amp;chksm=fdb3b401cac43d17037dbfa73e79a872631a6f5f019414d93dd9453d1e876d724cb4dd9dcfb4&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">10个小技巧助您写出高性能的ASP.NET Core代码</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484274&amp;idx=1&amp;sn=922b2e4832881b8aa50d19433e2c6619&amp;chksm=fdb3b4e8cac43dfe886df33fbe430a36d0851b3d267fa2cd1891327cbd3dc3406057e74e9274&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">用abp vNext快速开发Quartz.NET定时任务管理界面</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484881&amp;idx=1&amp;sn=813d612b8dccaa73065ee64df1953e7b&amp;chksm=fdb3b24bcac43b5d0cdb4bfabaaf6b0db0d7e1be814ae73c50d23f1fdb00b343ad146a75d909&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">在ASP.NET Core中创建基于Quartz.NET托管服务轻松实现作业调度</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484351&amp;idx=1&amp;sn=21d5176bc8a96e32b1f046e8858d049d&amp;chksm=fdb3b425cac43d3381008c89ced86cddb00734f5693c63f4c1cf1068df3d3a659c31fc756871&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">现身说法：实际业务出发分析百亿数据量下的多表查询优化</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484640&amp;idx=1&amp;sn=12ddde96d02996ad9abe51f10ad4f44a&amp;chksm=fdb3b37acac43a6c0128eede8bd2940e6cffe4128e0e8aad7ea0de39746ca4979bddaa7da5a8&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">关于C#异步编程你应该了解的几点建议</a><br></p><p><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4Mjc4NzgyOQ==&amp;mid=2247484625&amp;idx=1&amp;sn=e5f2d18f8e224633f67a94eec5a05ac2&amp;chksm=fdb3b34bcac43a5d711c2d6edf326ffd8458764ae177f4e23b1d988620df3020c1e82c1ff29e&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="0">C#异步编程看这篇就够了</a></p></section></section></section></section><p><br></p>                </div><div>来源:https://mp.weixin.qq.com/s/pGZMRL4QGn9LTMdY3YqQZA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="163" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="163" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/BAXuLsDQkjlHUcCr6ibNf7mKv9gia5gSPicTrjJKdZdPXSbxsYnicLEo7O3Qd6mN1MFicawNrZavFtDHO8DOulOrs9g/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="163" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>314</span> 次浏览</li>
+        <li>发布日期：2021-07-06 17:29:34</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/163.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="161.html">TypeScript 4.4首个Beta版本发布</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="165.html">写了个鸿蒙应用，如何安装到真机上？</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/sz_mmbiz_png/7fxWIIIo4QsoH4TRj4FwGVlPuCnqCRWUDvKBIX7aQRsa997Uq7K6BibYpSibxWq0GmrjIO6Yc0pqn66hfiaJXoDHQ/640" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="d76a6f41e70db619b0a76a6e92a74d05">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="163">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

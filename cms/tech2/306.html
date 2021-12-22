@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="2db43709ea5adfcebffdc2b761c16125">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 226 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="text-align: center;margin-bottom: 10px;" data-mpa-powered-by="yiban.io"><img class="rich_pages wxw-img" data-backh="172" data-backw="578" data-ratio="0.29765625" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1280" style="width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouic8oLpMu9ZFUQ9X3BggeexT8t7bO2MrsLTwMkJ7TMcFks9oicXkhn7BCw/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></section><section style="text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);"><em><span style="color: rgb(147, 147, 147);font-size: 14px;">作者 / Anna-Chiara Bellini, Product Manager, Nick Butcher, Developer Relations</span></em></span></section><p><br></p><section style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">今天，我们正式发布 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Jetpack Compose</span><span style="font-size: 15px;"> 的 1.0 版本，这是 Android 的现代原生 UI 工具包，可以帮助您更快地打造更好的应用。这是 Compose 的稳定版本，可供大家在生产中使用。在过去的两年里，我们一直在努力开发 Compose，并得到了 Android 社区的积极反馈和参与 (点击文末 "</span><strong><span style="font-size: 15px;color: rgb(61, 220, 132);">阅读原文</span></strong><span style="font-size: 15px;">"&nbsp;继续提交您对 Compose 的产品反馈和建议想法)。在我们发布 1.0 的当下，Play Store 中已经有超过 2,000 个应用在使用 Compose 了。事实上，Play Store 应用本身也在使用 Compose！但这还不是全部，我们一直在与一些顶级的应用开发者合作，他们的反馈和支持帮助我们使 1.0 版本更加强大。例如，</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Square</span><span style="font-size: 15px;"> 告诉我们，通过使用 Compose，他们可以 "专注于 Square 所特有的东西以及 UI 基础设施，而不用解决建立声明性 UI 框架这样宽泛的问题"。</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Monzo</span><span style="font-size: 15px;"> 表示，Compose 让他们能够 "更快构建出更高质量的界面"。</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Twitter</span><span style="font-size: 15px;"> 则做出了很好的</span><span style="font-size: 15px;color: rgb(51, 105, 232);">总结</span><span style="font-size: 15px;">: "我们喜欢它！❤️"&nbsp;</span></section><section style="line-height: normal;"><br></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Jetpack Compose</span></section><section style="line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Square</span></section><section style="color: rgb(147, 147, 147);line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://squareup.com/</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Monzo</span></section><section style="color: rgb(147, 147, 147);line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://monzo.com/</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Twitter</span></section><section style="color: rgb(147, 147, 147);line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://twitter.com/</span></section></li><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">为什么要采用 Jetpack Compose</span></section><section style="color: rgb(147, 147, 147);line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developer.android.google.cn/jetpack/compose/why-adopt</span></section></li></ul><section style="margin-top: 10px;"><iframe class="video_iframe rich_pages" data-vidtype="2" data-mpvid="wxv_1978515167206277126" data-cover="http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FicFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouicc1y5nxqH9NnAm9FLBiaWosuczL5aia4tzcocia652etInorphp5qFqOTQ%2F0%3Fwx_fmt%3Djpeg" allowfullscreen="" frameborder="0" data-ratio="1.7777777777777777" data-w="1920" data-src="https://mp.weixin.qq.com/mp/readtemplate?t=pages/video_player_tmpl&amp;auto=0&amp;vid=wxv_1978515167206277126" width="328" height="197" data-vh="184.5" data-vw="328" style="width: 328px !important; height: 197px !important; overflow: hidden; top: 0px;" scrolling="no" marginwidth="0" marginheight="0" src="javascript:window.open('https://muker.cc/mp/videoplayer?video_h=184.5&amp;video_w=328&amp;scene=&amp;random_num=4733&amp;article_title=Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包&amp;source=4&amp;vid=wxv_1978515167206277126&amp;mid=2247495222&amp;idx=1&amp;__biz=Mzk0NDIwMTExNw==&amp;nodetailbar=0&amp;uin=&amp;key=&amp;pass_ticket=&amp;version=&amp;devicetype=&amp;wxtoken=777&amp;sessionid=svr_b8274854893&amp;preview=0&amp;is_in_pay_subscribe=0&amp;nickname=Android 开发者&amp;roundHeadImg=http://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKzzcb07hp7EuCFPhs9pPbXHSXdUdJQVrdiaVtwmiadKzFIIqpLOFeG20LSiaAlEoDKIjep1wenVfmBnw/0?wx_fmt=png&amp;enterid=1627540321&amp;subscene=');"></iframe></section><p style="text-align: center;line-height: normal;margin-bottom: 10px;"><span style="color: rgb(136, 136, 136);font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 12px;letter-spacing: 0.544px;text-align: center;background-color: rgb(255, 255, 255);">△ Jetpack Compose 1.0 正式发布</span></p><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">我们设计 Compose 的目的是让您更快、更轻松地构建原生 Android 应用。通过完全的声明式方法，您只需描述您的用户界面，剩下的就交给 Compose 来处理。随着应用状态的变化，您的 UI 会自动更新，这使得快速构建 UI 变得更加简单。直观的 Kotlin API 可以帮助您用更少的代码构建出漂亮的应用。Compose 可以原生访问既有的 Android 代码，这意味着您可以按自己的节奏采用它。强大的布局 API 和代码驱动的 UI 使得适配不同规格的设备更加轻松，比如平板电脑和可折叠设备，Compose 还将支持 WearOS 以及 Homescreen Widgets 等更多使用场景！</span></p><p style="text-align: left;line-height: 1.75em;"><br></p><section style="text-align: left;line-height: 1.75em;margin-bottom: 10px;"><span style="font-size: 15px;">1.0 版本可以在生产中使用，您所需的核心功能尽在其中，包括:</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;">互操作性</span></strong><span style="font-size: 15px;">:&nbsp;Compose 可以和既有的应用进行</span><span style="font-size: 15px;color: rgb(51, 105, 232);">互操作</span><span style="font-size: 15px;">。您可以将 Compose UI 嵌入 View，反之亦然。您可以只在屏幕上添加一个按钮，也把自己创建的自定义视图保留在现在用 Compose 打造的界面中。</span></section></li><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;">Jetpack 集成</span></strong><span style="font-size: 15px;">:&nbsp;Compose 和大家熟知且喜爱的 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Jetpack 开发库</span><span style="font-size: 15px;">天然整合。通过与 Navigation、Paging、LiveData (或 Flow/RxJava)、ViewModel 和 Hilt 的整合，Compose 可以与您现有的架构完美共存。</span></section></li><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;">Material</span></strong><span style="font-size: 15px;">:&nbsp;Compose 提供了 Material Design 组件和</span><span style="font-size: 15px;color: rgb(51, 105, 232);">主题</span><span style="font-size: 15px;">的实现，使您能够轻松构建符合您的品牌个性的美观应用。Material 主题系统更容易理解和追踪，再也不需要翻阅多个 XML 文件。</span></section></li><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;">列表</span></strong><span style="font-size: 15px;">: Compose 的 Lazy 组件为数据</span><span style="font-size: 15px;color: rgb(51, 105, 232);">列表</span><span style="font-size: 15px;">的呈现提供了一种简单扼要且功能强大的方式，而且将模版代码精简到了最少。</span></section></li><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;">动画</span></strong><span style="font-size: 15px;">:&nbsp;Compose 简明的</span><span style="font-size: 15px;color: rgb(51, 105, 232);">动画</span><span style="font-size: 15px;"> API 让您可以更轻松地打造出让用户眼前一亮的体验。</span></section></li></ul><section style="line-height: normal;"><br></section><ul class="list-paddingleft-2" style="list-style-type: circle;"><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">在应用中采用 Compose</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/interop</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose 和其他库</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/libraries</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose 中的主题</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/themes</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">列表</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/lists</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">动画</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developer.android.google.cn/jetpack/compose/animation</span></section></li></ul><section style="line-height: normal;"><br></section><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-size: 16px;"><section style="margin: 10px 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: auto;vertical-align: top;min-width: 10%;max-width: 100%;height: auto;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 30px;flex: 0 0 auto;height: auto;align-self: center;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;font-size: 0px;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;height: auto;box-sizing: border-box;"><img data-cropselx1="0" data-cropselx2="30" data-cropsely1="0" data-cropsely2="30" data-ratio="0.8529411764705882" data-src="../../mmbiz_png/icFp8MFO4IKw3e270tvR4utZCblJpib8ebWLryp86TVeLL0QJAje88Use2BXmibDH7JRic00Grv8GTDu6rKk2E8H4g/640.jpg" data-type="png" data-w="1054" style="vertical-align: middle; box-sizing: border-box; width: 30px !important; height: 25.5882px !important;" _width="35px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></section></section></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 90 90 0%;height: auto;padding-right: 3px;padding-left: 8px;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 19px;color: rgb(7, 48, 66);line-height: 1.5;letter-spacing: 1px;box-sizing: border-box;"><p style="box-sizing: border-box;"><strong style="box-sizing: border-box;"></strong><strong>新工具</strong><strong style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box;"></strong></p></section></section></section><section style="display: inline-block;vertical-align: bottom;width: 13px;align-self: flex-end;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><br></section></section></section></section><section style="margin-top: 2px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-image: linear-gradient(135deg, rgb(61, 220, 132) 10%, rgb(7, 48, 66) 100%);height: 2px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section></section><p style="text-align: left;line-height: normal;"><br></p><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">Jetpack Compose 的完全声明式方法从根本上改变了用户界面的开发方式。为了支持新的工作流程和不同的思维方式，我们正在提供新的工具，专为 Compose 而设计，并在一些现有工具中增加对 Compose 的支持。</span></p><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-size: 16px;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: center;margin: 16px 0% 4px;display: flex;flex-flow: row nowrap;justify-content: center;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: middle;flex: 0 0 0%;height: auto;border-style: none solid;border-width: 3px;border-color: rgb(58, 66, 94);padding-right: 3px;padding-left: 3px;align-self: center;margin-right: 5px;margin-left: 5px;line-height: 0;box-sizing: border-box;"><section style="margin-top: -6px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 3px;height: 20px;vertical-align: top;overflow: hidden;background-color: rgb(61, 220, 132);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: middle;align-self: center;width: auto;flex: 100 100 0%;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 15px;color: rgb(62, 62, 62);padding-right: 2px;padding-left: 2px;letter-spacing: 0px;line-height: 1.75;box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(7, 48, 66);"><strong>Compose Preview</strong></span></p></section></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: left;line-height: 1.75em;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247491055&amp;idx=1&amp;sn=b8eee68ff26de6cfd833f379818ce19a&amp;chksm=c329111df45e980b29c23989cd5394260b603ab18d88e27f7eeac1dc5a422ca726b0487d3664&amp;scene=21#wechat_redirect');" textvalue="Android Studio Arctic Fox" data-itemshowtype="0" tab="innerlink" style="text-decoration: underline;" data-linktype="2"><span style="font-size: 15px;">Android Studio Arctic Fox</span></a><span style="font-size: 15px;"> 中新加入的 Compose Preview 可以让您同时查看不同状态、浅色和深色主题，或是不同字号的 Composables，使组件的开发更容易，再也不必先将整个应用部署到设备中了。通过对字词的实时编辑，您可以实时看到更新，而无需重新编译项目。</span></p><section style="line-height: normal;"><br></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Android Studio Arctic Fox</span></section><section style="text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developer.android.google.cn/studio</span></section></li></ul><section style="text-align: center;margin-top: 10px;"><img class="rich_pages wxw-img img_loading" data-backh="361" data-backw="578" data-galleryid="" data-ratio="0.6253126563281641" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1999" style="width: 328px !important; height: 205.852px !important;" _width="100%" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouicz9H3dbfxhoXznWzAdoLrDly0r3Zo2HONYOZrH9Ip0IS4W6rQjZfKSQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><p><br></p><section style="box-sizing: border-box;font-size: 16px;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: center;margin: 16px 0% 4px;display: flex;flex-flow: row nowrap;justify-content: center;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: middle;flex: 0 0 0%;height: auto;border-style: none solid;border-width: 3px;border-color: rgb(58, 66, 94);padding-right: 3px;padding-left: 3px;align-self: center;margin-right: 5px;margin-left: 5px;line-height: 0;box-sizing: border-box;"><section style="margin-top: -6px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 3px;height: 20px;vertical-align: top;overflow: hidden;background-color: rgb(61, 220, 132);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: middle;align-self: center;width: auto;flex: 100 100 0%;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 15px;color: rgb(62, 62, 62);padding-right: 2px;padding-left: 2px;letter-spacing: 0px;line-height: 1.75;box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(7, 48, 66);"><strong>Deploy Preview</strong></span></p></section></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">如果您曾经希望能够直接在设备上测试 UI 的一部分，而不需要通过导航一步步浏览到您正在调整的界面中，那么您一定会喜欢新的 Deploy Preview:&nbsp;只需为您的 Composable 创建一个预览，就可将其直接部署到设备上，从而快速进行迭代。</span></p><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-size: 16px;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: center;margin: 16px 0% 4px;display: flex;flex-flow: row nowrap;justify-content: center;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: middle;flex: 0 0 0%;height: auto;border-style: none solid;border-width: 3px;border-color: rgb(58, 66, 94);padding-right: 3px;padding-left: 3px;align-self: center;margin-right: 5px;margin-left: 5px;line-height: 0;box-sizing: border-box;"><section style="margin-top: -6px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 3px;height: 20px;vertical-align: top;overflow: hidden;background-color: rgb(61, 220, 132);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: middle;align-self: center;width: auto;flex: 100 100 0%;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 15px;color: rgb(62, 62, 62);padding-right: 2px;padding-left: 2px;letter-spacing: 0px;line-height: 1.75;box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(7, 48, 66);"><strong>Layout Inspector 支持 Compose</strong></span></p></section></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">Layout Inspector 增加了对 Composables 的支持，让您可以放心地混用 Compose 与既有的 Views。</span></p><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-size: 16px;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: center;margin: 16px 0% 4px;display: flex;flex-flow: row nowrap;justify-content: center;box-sizing: border-box;"><section style="display: inline-block;width: auto;vertical-align: middle;flex: 0 0 0%;height: auto;border-style: none solid;border-width: 3px;border-color: rgb(58, 66, 94);padding-right: 3px;padding-left: 3px;align-self: center;margin-right: 5px;margin-left: 5px;line-height: 0;box-sizing: border-box;"><section style="margin-top: -6px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 3px;height: 20px;vertical-align: top;overflow: hidden;background-color: rgb(61, 220, 132);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: middle;align-self: center;width: auto;flex: 100 100 0%;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 15px;color: rgb(62, 62, 62);padding-right: 2px;padding-left: 2px;letter-spacing: 0px;line-height: 1.75;box-sizing: border-box;"><p style="box-sizing: border-box;"><span style="color: rgb(7, 48, 66);"><strong>Compose 发布路线图</strong></span></p></section></section></section></section></section></section><section style="line-height: normal;"><br></section><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">采用任何新的框架都需要经过评估，尤其是像新的 UI 工具包这样意义深远的东西。为了帮助您做出明智的决策，确定现在是否是采用 Compose 的合适时机，我们给出了一个</span><span style="font-size: 15px;color: rgb(51, 105, 232);">公开的路线图</span><span style="font-size: 15px;">，和大家分享我们对 Jetpack Compose 的后续构建计划:</span></p><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/androidx/compose-roadmap</span></section><section style="text-align: center;margin-top: 10px;"><img class="rich_pages wxw-img img_loading" data-backh="227" data-backw="578" data-galleryid="" data-ratio="0.3924387646432375" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1878" style="width: 328px !important; height: 129.935px !important;" _width="100%" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouicvaYld3iaA0CRPMxiaLw455WvxT7ZrObGoRCxytuRO654icIvRZBAl61VQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></section><section style="line-height: normal;"><br></section><p><br></p><section style="box-sizing: border-box;font-size: 16px;"><section style="margin: 10px 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: auto;vertical-align: top;min-width: 10%;max-width: 100%;height: auto;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 30px;flex: 0 0 auto;height: auto;align-self: center;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;font-size: 0px;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;height: auto;box-sizing: border-box;"><img data-cropselx1="0" data-cropselx2="30" data-cropsely1="0" data-cropsely2="30" data-ratio="0.8529411764705882" data-src="../../mmbiz_png/icFp8MFO4IKw3e270tvR4utZCblJpib8ebWLryp86TVeLL0QJAje88Use2BXmibDH7JRic00Grv8GTDu6rKk2E8H4g/640.jpg" data-type="png" data-w="1054" style="vertical-align: middle; box-sizing: border-box; width: 30px !important; height: 25.5882px !important;" _width="35px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></section></section></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 90 90 0%;height: auto;padding-right: 3px;padding-left: 8px;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 19px;color: rgb(7, 48, 66);line-height: 1.5;letter-spacing: 1px;box-sizing: border-box;"><p style="box-sizing: border-box;"><strong>学习 Compose</strong><strong style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box;"></strong></p></section></section></section><section style="display: inline-block;vertical-align: bottom;width: 13px;align-self: flex-end;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><br></section></section></section></section><section style="margin-top: 2px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-image: linear-gradient(135deg, rgb(61, 220, 132) 10%, rgb(7, 48, 66) 100%);height: 2px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section></section><p style="text-align: left;line-height: normal;"><br></p><p style="text-align: left;line-height: 1.75em;margin-bottom: 10px;"><span style="font-size: 15px;">为了帮助您和您的团队掌握 Compose，我们准备了大量的学习资源:</span></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: 1.75em;"><span style="color: rgb(51, 105, 232);"><strong><span style="font-size: 15px;">教程</span></strong></span><span style="font-size: 15px;"> - 快速实际体验 Compose，以及了解声明式编程:</span></section><section style="text-align: left;line-height: normal;margin-bottom: 10px;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/tutorial</span></section></li><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">文档</span></strong><span style="font-size: 15px;"> - 从 "</span><span style="font-size: 15px;color: rgb(51, 105, 232);">Compose 编程思想</span><span style="font-size: 15px;">"&nbsp;、"</span><span style="font-size: 15px;color: rgb(51, 105, 232);">状态和 Jetpack Compose</span><span style="font-size: 15px;">"&nbsp;以及 "</span><span style="font-size: 15px;color: rgb(51, 105, 232);">架构式层级</span><span style="font-size: 15px;">"&nbsp;这样的基础话题，到核心 API 的使用指南，包括</span><span style="font-size: 15px;color: rgb(51, 105, 232);">布局</span><span style="font-size: 15px;">、</span><span style="font-size: 15px;color: rgb(51, 105, 232);">导航</span><span style="font-size: 15px;">和</span><span style="font-size: 15px;color: rgb(51, 105, 232);">测试</span><span style="font-size: 15px;">，以及针对</span><span style="font-size: 15px;color: rgb(51, 105, 232);">开发者工效</span><span style="font-size: 15px;">或者</span><span style="font-size: 15px;color: rgb(51, 105, 232);">工具</span><span style="font-size: 15px;">等内容。覆盖任何您需要了解的课题。</span></section></li></ul><p style="text-align: left;line-height: normal;"><br></p><ul class="list-paddingleft-2" style="list-style-type: circle;"><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Jetpack Compose 使用入门</span></section><section style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/documentation</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose 编程思想</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/mental-model</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">状态和 Jetpack Compose</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/state</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">架构式层级</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/layering</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose 中的布局</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/layouts</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">使用 Compose 进行导航</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/navigation</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">测试 Compose 布局</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/testing</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">开发者工效</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/jetpack/compose/ergonomics</span></section></li><li><section style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose 工具</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developer.android.google.cn/jetpack/compose/tooling</span></section></li></ul><p><br></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li style="text-align: left;"><p style="line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">Codelab</span></strong><span style="font-size: 15px;"> - 如果您更喜欢边用边学，我们准备了 9 个 codelab 来帮助您全面掌握 Compose (别忘了来试试全新的<span style="color: rgb(51, 105, 232);">高级状态和副作用 codelab</span>)。</span></p></li></ul><section style="text-align: left;line-height: 1.75em;"><br></section><ul class="list-paddingleft-2" style="list-style-type: circle;"><li><p style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">Compose codelab</span></p><p style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/courses/pathways/compose</span></p></li><li><p style="list-style-type: disc;text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(51, 105, 232);">高级状态和副作用 codelab</span></p><p style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://developer.android.google.cn/codelabs/jetpack-compose-advanced-state-side-effects#0</span></p></li></ul><p><br></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">视频</span></strong><span style="font-size: 15px;"> - 准备点零食，然后跟着视频学习 Compose 的一切:</span></section><p style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://www.youtube.com/c/AndroidDevelopers/search?query=%23JetpackCompose</span></p></li></ul><p><br></p><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><section style="text-align: left;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(51, 105, 232);">示例应用</span></strong><span style="font-size: 15px;"> - 我们准备了 8 个官方示例，它们展示了一系列的 API 及其用例:</span></section><section style="color: rgb(147, 147, 147);text-align: left;line-height: normal;"><span style="color: rgb(147, 147, 147);font-size: 12px;">https://github.com/android/compose-samples</span></section></li></ul><p><br></p><section style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">学海无涯呀！这时不妨试试 </span><span style="font-size: 15px;color: rgb(51, 105, 232);">Jetpack Compose Pathway</span><span style="font-size: 15px;">，这是一个循序渐进的学习指南，通过关键的 codelab、视频和文档来帮助您了解 Compose 的一切:</span></section><p style="text-align: left;line-height: normal;"><span style="font-size: 12px;color: rgb(147, 147, 147);">https://developer.android.google.cn/courses/pathways/compose</span></p><section style="line-height: normal;"><br></section><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-size: 16px;"><section style="margin: 10px 0%;text-align: left;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: auto;vertical-align: top;min-width: 10%;max-width: 100%;height: auto;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 30px;flex: 0 0 auto;height: auto;align-self: center;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;font-size: 0px;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;height: auto;box-sizing: border-box;"><img data-cropselx1="0" data-cropselx2="30" data-cropsely1="0" data-cropsely2="30" data-ratio="0.8529411764705882" data-src="../../mmbiz_png/icFp8MFO4IKw3e270tvR4utZCblJpib8ebWLryp86TVeLL0QJAje88Use2BXmibDH7JRic00Grv8GTDu6rKk2E8H4g/640.jpg" data-type="png" data-w="1054" style="vertical-align: middle; box-sizing: border-box; width: 30px !important; height: 25.5882px !important;" _width="35px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"></section></section></section><section style="display: inline-block;vertical-align: middle;width: auto;align-self: center;flex: 90 90 0%;height: auto;padding-right: 3px;padding-left: 8px;box-sizing: border-box;"><section style="box-sizing: border-box;" powered-by="xiumi.us"><section style="font-size: 19px;color: rgb(7, 48, 66);line-height: 1.5;letter-spacing: 1px;box-sizing: border-box;"><p style="box-sizing: border-box;"><strong style="box-sizing: border-box;"></strong><strong>祝 Compose 开发愉快！</strong><strong style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;box-sizing: border-box;"></strong></p></section></section></section><section style="display: inline-block;vertical-align: bottom;width: 13px;align-self: flex-end;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><br></section></section></section></section><section style="margin-top: 2px;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-image: linear-gradient(135deg, rgb(61, 220, 132) 10%, rgb(7, 48, 66) 100%);height: 2px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section></section><p style="text-align: left;line-height: normal;"><span style="font-size: 15px;"></span><br></p><p style="text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">我们坚信，Jetpack Compose 是一次巨大的飞跃，让我们得以更快、更轻松地打造卓越的 UI；我们非常期待看到大家使用 Compose 打造的成果。现在 Compose 1.0 稳定版本已经到来，是时候开始使用了，没有任何事情比得上亲自上手编写代码哟！祝大家创作愉快！</span></p><p style="text-align: left;line-height: 1.75em;"><br></p><p style="white-space: normal;text-align: left;line-height: 1.75em;"><span style="font-size: 15px;">您对产品的反馈及问题对我们非常重要，欢迎通过下方二维码向我们提交反馈。您的问题有可能出现在下一期的 FAQ 中并获得解答。感谢您的支持！</span></p><section style="white-space: normal;text-align: left;line-height: normal;"><span style="font-size: 15px;"><br></span></section><p style="white-space: normal;text-align: center;line-height: 1.75em;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="396" data-cropsely1="0" data-cropsely2="111" data-galleryid="" data-ratio="0.2798029556650246" data-s="300,640" data-src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" data-type="png" data-w="1015" style="text-align: center; white-space: normal; width: 328px !important; height: 93.2158px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/gQOwib4zALd0yvN4OpJibujaHYibteyz2nKjnl2Y59srFicibIsbRy9o6ZHHSbNZovdCics6y1CCNryT9BBQg19iagBbA/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></span></p><section style="line-height: normal;"><br></section><section style="line-height: normal;text-align: center;margin-left: 16px;margin-right: 16px;"><span class=""><iframe scrolling="no" frameborder="0" class="vote_iframe js_editor_vote_card" data-display-style="height: 280px;" data-display-src="/cgi-bin/readtemplate?t=vote/vote-new_tmpl&amp;__biz=Mzk0NDIwMTExNw==&amp;supervoteid=913716480&amp;token=1046131118&amp;lang=zh_CN" data-src="/mp/newappmsgvote?action=show&amp;__biz=Mzk0NDIwMTExNw==&amp;supervoteid=913716480#wechat_redirect" data-supervoteid="913716480" allowfullscreen="" src="javascript:window.open('https://muker.cc/mp/newappmsgvote?action=show&amp;__biz=Mzk0NDIwMTExNw==&amp;supervoteid=913716480&amp;uin=&amp;key=&amp;pass_ticket=&amp;wxtoken=777&amp;mid=2247495222&amp;idx=1&amp;appmsg_token=');" style="height: 609px;"></iframe><span></span><span></span></span></section><section style="line-height: normal;"><br></section><section style="line-height: normal;"><br></section><p style="white-space: normal;max-width: 100%;min-height: 1em;text-align: left;line-height: 1.75em;overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="max-width: 100%;letter-spacing: 0px;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;background-color: rgb(255, 255, 255);font-weight: bold;color: rgb(79, 79, 79);font-size: 15px;overflow-wrap: break-word !important;box-sizing: border-box !important;"><img class="__bg_gif" data-ratio="0.6197183" data-src="https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640?wx_fmt=gif" data-type="gif" data-w="71" style="vertical-align: middle; overflow-wrap: break-word !important; box-sizing: border-box !important; visibility: visible !important; width: 29px !important; height: 17.9718px !important;" width="29px" _width="29px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640?wx_fmt=gif" data-order="0" alt="图片">&nbsp;</span><span style="font-size: 15px;"><span style="font-size: 15px;max-width: 100%;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;overflow-wrap: break-word !important;box-sizing: border-box !important;">点击屏末</span><strong style="max-width: 100%;letter-spacing: 0.544px;color: rgb(72, 133, 237);overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;overflow-wrap: break-word !important;box-sizing: border-box !important;">&nbsp;</span><strong style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;overflow-wrap: break-word !important;box-sizing: border-box !important;">|&nbsp;</strong></strong></span><strong style="max-width: 100%;overflow-wrap: break-word !important;box-sizing: border-box !important;"><span style="font-size: 15px;max-width: 100%;color: rgb(61, 220, 132);overflow-wrap: break-word !important;box-sizing: border-box !important;">阅读原文</span></strong><span style="font-size: 15px;max-width: 100%;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);overflow-wrap: break-word !important;box-sizing: border-box !important;"><strong style="max-width: 100%;letter-spacing: 0.544px;color: rgb(72, 133, 237);overflow-wrap: break-word !important;box-sizing: border-box !important;"><strong style="max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;overflow-wrap: break-word !important;box-sizing: border-box !important;">&nbsp;|</strong><span style="font-size: 15px;max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;overflow-wrap: break-word !important;box-sizing: border-box !important;">&nbsp;</span></strong><span style="font-size: 15px;max-width: 100%;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;text-align: center;overflow-wrap: break-word !important;box-sizing: border-box !important;"><strong style="max-width: 100%;letter-spacing: 0.544px;text-align: left;overflow-wrap: break-word !important;box-sizing: border-box !important;">即刻分享您的使用反馈</strong></span></span></span></p><p style="margin-bottom: 10px;white-space: normal;max-width: 100%;text-align: center;line-height: normal;overflow-wrap: break-word !important;box-sizing: border-box !important;"><br></p><section style="margin-bottom: 10px;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247494033&amp;idx=1&amp;sn=a0168634c153f5f32d94c5df0ce7555d&amp;chksm=c32ae563f45d6c754895306c64b0d2e24ed920c0e3ddabddcd173baad2af54245d70f884d995&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" data-itemshowtype="11" tab="innerlink" data-linktype="1"><span style="font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: left;font-weight: bold;color: rgb(79, 79, 79);letter-spacing: 0px;font-size: 15px;"><strong style="font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;text-align: center;"><span class="js_jump_icon h5_image_link" data-positionback="static" style="inset: auto;margin: 0px;"><img class="rich_pages img_loading __bg_gif" data-cropselx1="0" data-cropselx2="146" data-cropsely1="0" data-cropsely2="146" data-ratio="1" data-s="300,640" data-src="../../mmbiz_gif/icFp8MFO4IKysTQrjFsUKlL8yZtvn70mydq0NT4cVHk2zw4SJjbRWYvvsfEtTeA8aDTGiaUXSvllLm1WoMibjUGlA/640.jpg" data-type="gif" data-w="240" style="margin: 0px; box-sizing: border-box !important; visibility: visible !important; width: 146px !important; height: 146px !important;" _width="146px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/icFp8MFO4IKysTQrjFsUKlL8yZtvn70mydq0NT4cVHk2zw4SJjbRWYvvsfEtTeA8aDTGiaUXSvllLm1WoMibjUGlA/640?wx_fmt=gif" data-order="1" alt="图片"></span></strong></span></a></section><section style="font-size: 16px;"><section style="margin-top: 10px;margin-bottom: 10px;" powered-by="xiumi.us"><section style="display: flex;align-items: center;"><section style="flex: 1 1 auto;height: 1px;background-image: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section><section style="flex: 0 1 auto;"><section opera-tn-ra-cell="_$.pages:0.layers:0.comps:0.col1" style="padding-right: 15px;padding-left: 15px;"><section style="text-align: center;color: rgb(70, 70, 70);font-size: 15px;" powered-by="xiumi.us"><p><span style="font-size: 17px;"><strong>推荐阅读</strong></span></p></section></section></section><section style="flex: 1 1 auto;height: 1px;transform: matrix(-1, 0, 0, 1, 0, 0);background-image: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><section style="font-size: 16px;"><section powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;"><section style="display: inline-block;vertical-align: bottom;width: 100px;flex: 0 0 auto;height: auto;align-self: flex-end;border-width: 0px;"><section style="text-align: left;justify-content: flex-start;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;overflow: hidden;height: 70px;width: 70px;background-color: rgb(61, 220, 132);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;flex: 100 100 0%;height: auto;align-self: flex-start;margin: 10px -90px;z-index: 1;border-style: none;border-width: 6px;border-color: rgb(255, 255, 255);background-color: rgb(255, 255, 255);padding: 10px;box-shadow: rgb(189, 189, 189) 0px 0px 3px;"><section name="preview-19" style="-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow: hidden;text-align: center;line-height: 0;"><section powered-by="jzeditor" label="404.tech_svg_8" copyright="404 新媒体编辑器版权所有 禁止任何个人或主体出于商业目的的引用和复用以及模板化行为 违者必究" style="overflow: hidden;line-height:0;margin-top:-1px;"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 722 308" style="display: block;margin: 0 auto;" width="100%" powered-by="jzeditor" label="404.tech_svg_8" copyright="404 新媒体编辑器版权所有 禁止任何个人或主体出于商业目的的引用和复用以及模板化行为 违者必究"><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247487326&amp;idx=1&amp;sn=c9677bae1fa8018ed34400bb8f6e71e7&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;../../mmbiz_png/icFp8MFO4IKz8OmE810LwzuurpVKaWI6wHIfvTm43dTIedSSobSgtruRFIUsI7mBfY15ic8qUdY3Lh91WyJog7rQ/640.jpg&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-7.5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247494992&amp;idx=1&amp;sn=e48a566d68916872372bd4f3094cb9b2&amp;chksm=c32ae1a2f45d68b40936487faaa43c341ba69454a2300271789aad3507274d6809b4fb781ee7&amp;token=1893814340&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247495061&amp;idx=1&amp;sn=fd82368415a71354bd122b13dc67a714&amp;chksm=c32ae167f45d68710d6eafbf2fb41554994229b9729e16d7dcd3120f4c38e64382b74d9b7a5b&amp;token=2138462026&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;../../mmbiz_png/icFp8MFO4IKxsaaAQ8cdHSOdaKoicicUHLHLhza85VccXLWzlFwHfMlc9gcXqxicbpoLCtt527wDSCZK46kHIAIQaA/640.jpg&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="-2.5s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g><g><foreignobject x="0" y="0" width="722" height="308"><a href="javascript:window.open('https://mp.weixin.qq.com/s?__biz=Mzk0NDIwMTExNw==&amp;mid=2247494352&amp;idx=1&amp;sn=fb20aa956947358f3d6108352f9fb373&amp;chksm=c32ae622f45d6f34a4cd3297a9595b1b0d35e834a9b6c9577f917b43906992c6ee4fef966508&amp;token=582766938&amp;lang=zh_CN&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2"><svg style="display: block;background-image: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;);background-size: 100%;background-repeat: no-repeat;" viewbox="0 0 722 308" width="100%" xmlns="http://www.w3.org/2000/svg"></svg></a></foreignobject><animatetransform attributename="transform" type="translate" repeatcount="indefinite" values="722 0;0 0;-722 0;-722 0" fill="freeze" begin="0s" dur="7.5s" calcmode="spline" keysplines="0.8 0 0.2 1.0; 0.8 0 0.2 1.0; 0.8 0 0.2 1.0"></animatetransform></g></svg><section style="height: 0 !important;margin-top: 0 !important;overflow: hidden;" powered-by="jzeditor" label="404.tech_svg_2">如页面未加载，请刷新重试</section></section></section></section><section style="display: inline-block;vertical-align: top;width: 100px;flex: 0 0 auto;align-self: flex-start;height: auto;"><section style="text-align: right;justify-content: flex-end;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: top;overflow: hidden;height: 70px;width: 70px;background-color: rgb(61, 220, 132);"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section></section></section><p><br></p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.7295" data-s="300,640" data-src="../../mmbiz_png/icFp8MFO4IKxRu5VMU69icQzAdwRMPqicP0KqnkVpnibowicCkgiaHnADzSOI90Z7teKnUpMo1wia8m2khZSibNTUtjLgQ/640.jpg" data-type="png" data-w="2000" style="width: 328px !important; height: 239.817px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKxRu5VMU69icQzAdwRMPqicP0KqnkVpnibowicCkgiaHnADzSOI90Z7teKnUpMo1wia8m2khZSibNTUtjLgQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p>                </div><div>来源:https://mp.weixin.qq.com/s/y8ZkwVKE1v3cXd66cb37cQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="306" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="306" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouic8oLpMu9ZFUQ9X3BggeexT8t7bO2MrsLTwMkJ7TMcFks9oicXkhn7BCw/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="306" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/安卓.html" class="tag" rel="tag">安卓</a></li>
+        <li>浏览次数：<span>226</span> 次浏览</li>
+        <li>发布日期：2021-07-29 14:32:07</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/tech2/306.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="305.html">【建议收藏】MMU是如何完成地址翻译的？</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="307.html">15 个边玩游戏边学编程的网站（包含 Python）</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/icFp8MFO4IKwA3Bqx7dqicice1IoTDL8ouic8oLpMu9ZFUQ9X3BggeexT8t7bO2MrsLTwMkJ7TMcFks9oicXkhn7BCw/640" alt="Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">Jetpack Compose 1.0 正式发布！打造原生 UI 的 Android 现代工具包</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../news2/226.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" alt="让 2021 不止于分享 | 开发者说·DTalk 年中鉴赏" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../news2/226.html">让 2021 不止于分享 | 开发者说·DTalk 年中鉴赏</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../news2/183.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/yZKeoO6Qq03nJQIEeXkKFcl3G1Gm6m3hlCNkswE6wkZOqUA6V5Cjz99icjV6fXAf8FhFLu9icoQQD5bMHNjxkNRA/640.jpg" alt="重要变更: Android App Bundle 的未来计划" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../news2/183.html">重要变更: Android App Bundle 的未来计划</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="2db43709ea5adfcebffdc2b761c16125">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="306">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

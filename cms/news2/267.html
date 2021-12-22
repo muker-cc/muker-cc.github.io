@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>手撸了个操作系统，变强了！ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="35">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="2089c21c294ee120344317a1b0a24166">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../news2.html">资讯</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">手撸了个操作系统，变强了！</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 236 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;" data-mpa-powered-by="yiban.io">大家好，我是小林哥。</section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">熟悉我的读者都知道，我写了个图解操作系统，我先来说说我当初是怎么学操作系统的？</section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">当年我也有这样的心态，在还没开始学操作系统的时候，总感觉这玩意会很难，迟迟不敢迈出第一步。<br></section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">这最困难的一步我还是踏出去了，我在 B 站看了清华大学和哈工大的操作系统课程，以及刷了操作系统一些经典书籍，功夫不负有心人嘛，很快我就掌握了操作系统的基本理论知识。</section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">后面的故事大家都知道了，我为了大家破除操作系统的恐惧，而且刚好我有通熟易懂的话术，所以写了很多图解操作系统文章，还真有奇效，很多之前恐惧操作系统的朋友都跟我说，看我的图解系统豁然开朗。<br></section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">但是可惜的是，我的功力也有限，只能从理论的方面带大家熟知操作系统，没办法从源码的方面带大家更深入。</section><section style="margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;margin-top: 5px;">可能很多人觉得操作系统单纯学个理论，很容易忘记，<span style="color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 2px;text-align: start;word-spacing: 2px;caret-color: rgb(62, 62, 62);">没有实践的话感觉学的好虚。</span></section><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">实践才能见真知，所以最好的方式就是<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">手撸一个操作系统</strong>。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">说起来容易，但是手撸操作系统这件事我们真的能做到吗？当然可以，如果我们只是实现一个「微型」的操作系统的话，那还是可以实现的。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">具体怎么做呢？请听我娓娓道来。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">先来认识认识操作系统（简称 OS），它是直接运行在“裸机”上的最基本的系统软件，任何其他程序都必须在操作系统的支持下才能运行。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">我们经常会用「<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">灵魂、大脑、内核、基石</strong>」等词来形容他，不外乎都是在说操作系统对计算机而言有多么重要。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">在实际工作中也确实如此，跟操作系统打交道是常事。比如程序运行期间会遭遇各种问题，很多都是和操作系统密切相关的：</p><ul style="padding-left: 32px;list-style-position: initial;list-style-image: initial;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;" class="list-paddingleft-2"><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><span style="font-size: inherit;color: inherit;line-height: inherit;">内存为什么会泄漏、服务进程为什么会 dang 掉、文件为什么打不开？</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><span style="font-size: inherit;color: inherit;line-height: inherit;">MySQL 的 IO 性能还能不能再提升？</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><span style="font-size: inherit;color: inherit;line-height: inherit;">网络服务为什么会掉线？</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><span style="font-size: inherit;color: inherit;line-height: inherit;">Redis 中经典的 Reactor设计模式靠什么技术支撑？</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><span style="font-size: inherit;color: inherit;line-height: inherit;">Node.js 的 I/O 模型长什么模样？</span></p></li></ul><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">除此之外，在做<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">高性能服务端编程</strong>的时候，经常会用到内存、进程、线程、IO相关的知识。对于<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">运维、测试</strong>等研发来说，很多问题也是基于操作系统的：比如给服务配置多大的内存、多大的缓存空间? 怎样根据操作系统给出的信息，判断服务器的问题出现在哪里？</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">这些问题只有掌握操作系统底层知识，才能定位到原因，进一步排查监控。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">一句话概括：“<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">学好操作系统，能直接解决你在工作中遇到的问题</strong>”。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">光这一个原因，操作系统就已经是每个程序员必须好好修炼的“<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">基本功</strong>”了。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">学懂了这些基本功，再去琢磨那些被“追捧”的流行技术啊、demo 啊，都能轻松地理解背后高级的设计，理解系统中的性能瓶颈。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">所以不夸张地说，学懂了操作系统，同时具备不错的编程能力，找工作就很有优势。要知道，很多在职的工程师其实很多这里面的概念都不懂，工作多年，还得回来补课。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;"><strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">操作系统很难，有什么学习的 “捷径”？</strong></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">捷径没有，心得有一点。操作系统需要具有大量的知识储备，但是现在大多的课程、学习资料，往往都是根据目前已有的一些操作系统，做局部解读。所以，学的时候，前后的知识是无法串联在一起的，结果就会越看越迷惑。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">我的经验是，理论是要补充的，而且要体系化；其次，实践很重要，学习操作系统一定不要去死看书，要跟着<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">有配套实验完成一个 OS</strong>&nbsp;的课程学。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">在这里，我推荐一张<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">计算机“鬼才”彭东</strong>（网名 LMOS）梳理的「<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">操作系统知识体系图</strong>」，内容自于彭东的《<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">操作系统实战 45讲</strong>》专栏，建议先马后看。</p><p style="text-align: center;"><img class="rich_pages" data-ratio="1.05546875" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoBawYiau8IicVNiaqNVfj2npO4CJJXFLDKPCtyb1ib32Fdx6jhZ9Lf8EdDg/640?wx_fmt=jpeg" data-type="jpeg" data-w="1280" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoBawYiau8IicVNiaqNVfj2npO4CJJXFLDKPCtyb1ib32Fdx6jhZ9Lf8EdDg/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="text-align: center;"><span style="caret-color: rgb(73, 73, 73);color: rgb(73, 73, 73);font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;font-size: 13.333333015441895px;text-align: center;background-color: rgb(255, 255, 255);">操作系统简化知识体系图</span></p><h1 data-foldable-wrapper="" style="text-align: start;white-space: normal;margin-top: 0.67em;margin-bottom: 0.67em;outline: none;font-size: 2em;box-sizing: border-box;caret-color: rgb(0, 0, 0);color: rgb(0, 0, 0);font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimHei, sans-serif;"><p><span style="font-size: 17px;"><strong style="font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: inherit;letter-spacing: 2px;word-spacing: 2px;caret-color: rgb(62, 62, 62);color: rgb(48, 79, 254);line-height: inherit;">关于计算机“鬼才”彭东</strong></span><br></p></h1><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">彭东非科班出身，却凭借惊人的意志和热爱，自学微机原理，编程语言，数据结构与算法，翻遍操作系统和硬件层相关书籍，独立开发了 LMOS 操作系统。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">LMOS 现在已经发布了 8 个测试版本，是多进程、多线程、多 CPU、支持虚拟内存的 x86_64 体系下的全 64 位操作系统内核，代码量已经有 10 万多行了。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">不止于此，强烈的兴趣促使他又开发了基于 Linux 的嵌入式操作系统——LMOSEM。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">他还是《深度探索嵌入式操作系统：从零开始设计、架构和开发》的作者，Intel 傲腾项目的关键开发者。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">数十年深入研究操作系统，他精通&nbsp;<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">Linux、BSD、SunOS 等开源操作系统内核、熟悉Windows 的 NT 内核</strong>，了解计算机底层技术，在编译器，数据库等基础架构方面也颇有研究。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">可以说彭东非常了解，在操作系统的学习过程中，有哪些难点和阻碍，会踩哪些坑。其实，当我知道他要出专栏时，非常惊讶，早在专栏在上线前，我就迫不及待地从运营同学那里要样章来看了，确实让我很惊喜。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">总结来说，他会带着你，一步步实现一个基于 x86 平台的 64 位多进程的操作系统——Cosmos，这真是<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;"><span style="font-size: inherit;color: rgb(197, 17, 98);line-height: inherit;">从 0 到 1，手把手教你自制一个操作系统了</span></strong>，不仅如此，专栏中对于 Linux 内核也讲解得很透彻。</p><p style="text-align: center;"><img class="rich_pages" data-galleryid="" data-ratio="0.943127962085308" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1SupouibTTiaOn6ibcboEooicGAWO4GW4hqN71lv5sOR92slxYYNS0LraTcLGQ/640?wx_fmt=png" data-type="png" data-w="633" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1SupouibTTiaOn6ibcboEooicGAWO4GW4hqN71lv5sOR92slxYYNS0LraTcLGQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></p><p line="tybh" linespacing="150" style="text-align:center;white-space: normal;margin-top: 0pt;margin-bottom: 0pt;outline: none;box-sizing: border-box;font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="outline: none;box-sizing: border-box;font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;"></span></p><p line="tybh" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="outline: none;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">扫码免费试读👆</span></p><p line="tybh" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="font-size: 11pt;outline: none;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;"></span></p><p line="o5tE" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="font-size: 15px;"><span style="outline: none;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">限时特惠&nbsp;</span><span style="outline: none;color: rgb(255, 120, 0);font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">¥99</span><span style="outline: none;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">，立省&nbsp;</span><span style="outline: none;color: rgb(255, 120, 0);font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">¥30</span></span></p><p line="KcIY" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="outline: none;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 15px;">原价&nbsp;¥129，仅限前&nbsp;200人</span></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">相比市面上难啃的大部头教材，这门课真的太友好了，只可惜当初没有早点遇到，不然我在学操作系统的过程中，也能少走不少弯路。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">专栏相比教材的好处，在于老师可以随时答疑你的问题，这点很重要！</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;"><span style="color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 2px;text-align: start;word-spacing: 2px;caret-color: rgb(62, 62, 62);">彭东</span>老师建了个专栏的<strong>答疑技术群</strong>，我也在里面潜水很久了，讲真即使不说话，都感觉学到很多东西。<br></p><p style="text-align: center;"><img class="rich_pages" data-galleryid="" data-ratio="1.4725536992840096" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1Sup2zhic4S94JTtRLbFic29D979XRL1BS1MRSQlDLT2AvgTvjWsadrjLAdQ/640?wx_fmt=png" data-type="png" data-w="419" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1Sup2zhic4S94JTtRLbFic29D979XRL1BS1MRSQlDLT2AvgTvjWsadrjLAdQ/640?wx_fmt=png" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">看过几篇后，我发现这门课除了能手把手教你实现一个自己的操作系统，还有几点也非常值得称赞：<span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;color: rgb(73, 73, 73);"></span></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;"><strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">1.“保姆级”图示+代码解析，小白也适用</strong></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">为了方便“计算机小白”理解，快速上手实操，课程中加入了大量图示和详细的代码注释，这个体量的代码注释是非常少见的，足以看出老师的用心。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">当然如果你是老手，也能根据课程中的提示，快速定位到关键性的核心代码。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.3171875" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoXqpqbzibjkFSxNLMpRhBs1TENKeH7X4MwEVeARa0HYaCYxZic2frjwrw/640?wx_fmt=png" data-type="png" data-w="1280" style="width: 328px !important; height: 105.403px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoXqpqbzibjkFSxNLMpRhBs1TENKeH7X4MwEVeARa0HYaCYxZic2frjwrw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p line="XvW6" linespacing="150" style="text-align:center;white-space: normal;margin-top: 0pt;margin-bottom: 0pt;outline: none;box-sizing: border-box;font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="outline: none;box-sizing: border-box;background-color: rgb(255, 255, 255);font-size: 10pt;font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;">摘自《操作系统实战 45讲》第9讲</span></p><p line="vJlU" style="text-align:center;white-space: normal;margin-top: 0pt;margin-bottom: 0pt;outline: none;box-sizing: border-box;font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;box-sizing: border-box;background-color: rgb(255, 255, 255);font-size: 10pt;font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;">瞧一瞧-Linux的自旋锁和信号量如何实现？</span></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;"><strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">2. 边学边练，对比分析，强化理解 Linux</strong></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">在介绍每个内核组件实现时，都会先讲清原理，再带你基于设计理解去动手实现；然后与 Linux内核的实现做前后对比。既能边学边练，又能帮你从“上帝视角”审视 Linux 内核。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.7640625" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoanzjhHXdIJfj1zibN8oDQJ3ZOxe6zczOnxM2yqOjEIobZ9C1BCqWJLA/640?wx_fmt=jpeg" data-type="jpeg" data-w="1280" style="width: 328px !important; height: 251.084px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoanzjhHXdIJfj1zibN8oDQJ3ZOxe6zczOnxM2yqOjEIobZ9C1BCqWJLA/640?wx_fmt=jpeg" crossorigin="anonymous" alt="图片"></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;"><strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">3. 配套源码，真正动手“run”起来</strong></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">专栏中的每一讲，都会匹配可以工作的代码，传在gitee上；你可以跟着课程一步步的实现，也可以直接使用每节课提供的代码进行调试，直到最终实现一个操作系统。</p><p style="text-align: center;"><img class="rich_pages img_loading __bg_gif" data-ratio="0.574468085106383" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_gif/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2Co6tc5L3JsYiap1JU9bpU8FQhk7TiaqibgJrYBTF4q4OibiblKAPlsjJC39Tw/640?wx_fmt=gif" data-type="gif" data-w="799" style="width: 328px !important; height: 189.277px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_gif/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2Co6tc5L3JsYiap1JU9bpU8FQhk7TiaqibgJrYBTF4q4OibiblKAPlsjJC39Tw/640?wx_fmt=gif" data-order="0" alt="图片"></p><p style="text-align: center;"><span style="caret-color: rgb(73, 73, 73);color: rgb(73, 73, 73);font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;font-size: 13.333333015441895px;text-align: center;background-color: rgb(255, 255, 255);">Cosmos系统运行演示</span><span style="color: rgb(73, 73, 73);font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;text-align: justify;"></span></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">整个专栏学下来，操作系统架构设计能力肯定会大幅提升，还可以学到<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">系统级别的软件编程技巧</strong>，这对我们拓展技术深度和广度是大有裨益的。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">在日常开发中遇到问题的时候，也就能从更多维度去解决了。当然，<strong style="color: rgb(48, 79, 254);font-size: inherit;line-height: inherit;">求职也一定会是加分项</strong>，自己动手写过操作系统，简历自然增色不少。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">说了这么多，来看看目录吧。反正我第一眼看目录，就知道这门课绝对错不了。</p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="5.22" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcXJ8n9ufCTqnMgI1R2crG1UfhgxlHNWZOZxOzFsibDibBhZ9jDu0o6OwPp6AceM4QBycHlicQ1a3bkw/640?wx_fmt=png" data-type="png" data-w="800" style="width: 328px !important; height: 1703.72px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcXJ8n9ufCTqnMgI1R2crG1UfhgxlHNWZOZxOzFsibDibBhZ9jDu0o6OwPp6AceM4QBycHlicQ1a3bkw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p style="text-align:justify;white-space: normal;margin-top: 0pt;margin-bottom: 0pt;outline: none;box-sizing: border-box;font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;box-sizing: border-box;font-size: 12pt;font-family: 'Microsoft YaHei', 微软雅黑, sans-serif;"></span></p><p style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">还要再次强调，</span><span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;">课程限时</span><span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;">特惠</span><span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;">，</span></p><p style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">到手仅&nbsp;</span><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">¥99，</span><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">立省</span><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">&nbsp;¥30，</span><span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 12pt;"></span></p><p style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;"><span style="caret-color: rgb(73, 73, 73);color: rgb(73, 73, 73);font-size: 12pt;outline: none;">新人只需&nbsp;</span><span style="font-size: 12pt;outline: none;">¥59.9，</span><span style="caret-color: rgb(73, 73, 73);color: rgb(73, 73, 73);font-size: 12pt;">不到半价就能入手！</span></span></p><p style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><br></p><p line="N0cS" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 22px;font-size: 11pt;color: rgb(73, 73, 73);"><span style="font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">订阅后，在课程详情页，点击链接可以入群</span></p><p style="text-align: left;"><br></p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="1.7777777777777777" data-s="300,640" data-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1SupglJpKQJK8PXsNKT9JEbrKXAn1dR4NBPq4oKpcicHY9604PV545HdCkw/640?wx_fmt=png" data-type="png" data-w="1080" style="width: 328px !important; height: 581.556px !important;" _width="328px" src="https://muker.cc/index/index/wx?img=https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdLPmMFIssgdY0EWKOa1SupglJpKQJK8PXsNKT9JEbrKXAn1dR4NBPq4oKpcicHY9604PV545HdCkw/640?wx_fmt=png" crossorigin="anonymous" alt="图片"></p><p line="tybh" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><span style="caret-color: rgb(73, 73, 73);font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;font-size: 14.6667px;">扫码免费试读👆</span><span style="outline: none;color: rgb(255, 120, 0);font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;"></span></p><p line="tybh" linespacing="150" style="margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;outline: none;font-size: 11pt;line-height: 22px;color: rgb(73, 73, 73);"><strong><span style="font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">一次订阅，永久有效</span></strong></p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">很多人都觉得，学好操作系统很难，编写一个操作系统更是大佬们才能做到的事。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">其实不然，彭东和我们一样，是一个普通人，最开始的基础也远远不如科班出身的同学。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">你可以想象，他在学习过程中面临了怎样的困难，但这依然没有阻碍他在操作系统的海洋里乘风破浪。</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">我们又有什么理由学不好呢？</p><p style="margin-top: 1.7em;margin-bottom: 1.7em;font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;caret-color: rgb(62, 62, 62);font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 2px;text-align: start;white-space: normal;word-spacing: 2px;text-size-adjust: auto;">难者不会，会者不难，不要给自己设限，办法总比困难多。</p><p line="Bn43" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">点击</span><strong><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">「阅读原文」</span></strong><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">，最低&nbsp;</span><strong><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">￥59.9</span></strong><span style="outline: none;color: rgb(255, 120, 0);font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;"></span></p><p line="Bn43" style="margin-top: 0pt;margin-bottom: 0pt;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);outline: none;font-family: -apple-system, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, SimHei, sans-serif;font-size: 11pt;line-height: 1.7;color: rgb(73, 73, 73);"><span style="outline: none;font-size: 12pt;font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, sans-serif;">带你实现一个自己的操作系统！</span></p>                </div><div>来源:https://mp.weixin.qq.com/s/q5DaZ7DrhgLAsRzbsEK5BA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="267" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="267" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoBawYiau8IicVNiaqNVfj2npO4CJJXFLDKPCtyb1ib32Fdx6jhZ9Lf8EdDg/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="267" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../news2.html">资讯</a></li>
+        <li>本文标签：<a href="../t/操作系统.html" class="tag" rel="tag">操作系统</a></li>
+        <li>浏览次数：<span>236</span> 次浏览</li>
+        <li>发布日期：2021-07-18 19:54:00</li>
+        <li>本文链接：<a href="">https://muker.cc/cms/news2/267.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="266.html">公司起诉技术总监索赔 90 万元，称其拖延研发进度</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="269.html">清华大一 Python 作业太难上热榜！只上 3 节课，手撸 AI 算法！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/305.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_png/vYkxJW0b4R7ha7iaPshnz2n49nPmqYgZwY9Uic0YXc2xw5f8XiaODRjKr8Q4Fn2VrcEQt8aiacEegDdufiaeKtROptA/640" alt="【建议收藏】MMU是如何完成地址翻译的？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/305.html">【建议收藏】MMU是如何完成地址翻译的？</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="https://mmbiz.qpic.cn/mmbiz_jpg/k2QSZGa30euHsibQnRhJ3Imtqv5icqu2CoBawYiau8IicVNiaqNVfj2npO4CJJXFLDKPCtyb1ib32Fdx6jhZ9Lf8EdDg/640" alt="手撸了个操作系统，变强了！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">手撸了个操作系统，变强了！</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="2089c21c294ee120344317a1b0a24166">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="267">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>
