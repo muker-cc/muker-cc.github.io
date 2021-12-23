@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>SLAM的正确学习姿势 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="66c224ec4c7522a9d9965dfe1b0e6758">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">SLAM的正确学习姿势</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 285 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="text-align: center;" data-mpa-powered-by="yiban.io"><span style="color: rgb(178, 178, 178);letter-spacing: 1px;font-size: 14px;">点击上方“</span><span style="letter-spacing: 1px;font-size: 14px;color: rgb(0, 82, 255);">计算机视觉life</span><span style="color: rgb(178, 178, 178);letter-spacing: 1px;font-size: 14px;">”，选择“星标”</span></p><p style="text-align: center;"><span style="font-size: 14px;color: rgb(178, 178, 178);">快速获得最新干货</span></p><p style="text-align: center;"><br></p><p style="white-space: normal;">前天直播，我给大家推荐了SLAM学习过程，如下图所示。第一点提到如果你身边没有SLAM学习伙伴，一定要加入学习圈子，不管是 「计算机视觉life」的课程学习交流群、知识星球，还是普通交流群，都能让你快速进步，少走弯路。很多同学（尤其是单打独斗的同学）表示深有感触，相见恨晚！</p><p style="white-space: normal;"><br></p><p style="text-align: center;"><img class="rich_pages" data-galleryid="" data-ratio="0.5625" data-s="300,640" data-src="../../mmbiz_png/rqpicxXx8cNnKz6rxRH5Eh260l7pibWPNakbIzb3djxplpY5ZdOgpOHZ22OqohGu4JIKwEQM4dbsXk2TEGxC5RxA/640.jpg" data-type="png" data-w="1920" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="../../mmbiz_png/rqpicxXx8cNnKz6rxRH5Eh260l7pibWPNakbIzb3djxplpY5ZdOgpOHZ22OqohGu4JIKwEQM4dbsXk2TEGxC5RxA/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="white-space: normal;"><br></p><p style="white-space: normal;">扫描二维码看直播回放</p><p style="white-space: normal;text-align: center;"><img data-ratio="0.9946380697050938" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="373" style="width: 209px !important; height: 207.89px !important;" _width="209px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><br></p><p style="white-space: normal;">相信很多学习SLAM的小伙伴通常会经历以下阶段：</p><ol class="list-paddingleft-2" style="width: 577.188px;white-space: normal;"><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">看SLAM相关的论文，发现很多公式、理论看不懂，好不容易努力看了个大概，也不知道具体怎么用。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">于是去跑开源代码，安装调试出错，网上也找不到解决方案。不知道是环境配置问题还是代码有bug。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">好不容易跑通了代码。在实际测试时发现问题很多，远不如论文里写的那么牛逼，不知道这个算法的适用场景是什么。抓不住重点瞎折腾，浪费了时间。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">没办法，硬着头皮去看代码，代码量又非常大，看起来非常痛苦，急需大牛帮忙梳理思路。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">摸索了很久，终于发现有几个点（藏的很深）好像比较影响算法性能，还发现了一些trick的东西。自己也不会改进，感觉被骗了，纠结要不要换个开源试试。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">反反复复好不容易找到适合自己的开源方案，发现上面过程要再来一遍，想要理清代码，搞懂原理也要花费大量精力，更别提改进代码了。</span></p></li><li><p style="line-height: 1.75em;"><span style="font-size: inherit;color: inherit;line-height: inherit;">哭晕在SLAM的汪洋大海里。。。</span></p></li></ol><figure style="white-space: normal;"><img data-ratio="0.3063013698630137" data-type="jpeg" data-w="1825" data-src="../../mmbiz_png/rqpicxXx8cNm6hmAQnX4ibJG3UoukFXRSicTpqSeT9goqOY4AftOdbkTS7nkXW6OXxgOVJmJkIwOXO3eGaWsK9Y2g/640.jpg" style="margin-right: auto; margin-left: auto; vertical-align: middle; border-style: none; font-size: inherit; color: inherit; line-height: inherit; display: block; box-sizing: border-box !important; visibility: visible !important; width: 328px !important; height: 100.467px !important;" title="" _width="328px" class="img_loading" src="../../mmbiz_png/rqpicxXx8cNm6hmAQnX4ibJG3UoukFXRSicTpqSeT9goqOY4AftOdbkTS7nkXW6OXxgOVJmJkIwOXO3eGaWsK9Y2g/640.jpg" crossorigin="anonymous" alt="图片"></figure><p style="white-space: normal;"><br></p><p style="white-space: normal;">学习SLAM中经历上述阶段是令人痛苦的，关键是浪费了很多宝贵的时间，即使是SLAM大神，我估计或多或少都经历过上述阶段。如果一开始有人能指点一下，肯定能绕开不少坑吧！</p><p style="white-space: normal;"><br></p><p style="white-space: normal;">「从零开始学习SLAM」知识星球是全国最大的SLAM/三维视觉学习社区，星球里包括<span style="color: rgb(0, 82, 255);"><strong>小白入门图文/视频教程、学习过程疑难点解答、每日最新论文/开源代码/数据集分享、在线学习小组、笔试面试题、实习/校招/社招岗位推荐、星主直播交流</strong></span>等<span style="color: rgb(255, 41, 65);"><strong>从入门到精通，从学生到职场</strong></span>的所有内容。见下图。很多小伙伴加入我们的知识星球后，感慨：“<strong><span style="color: rgb(255, 41, 65);">终于找到组织了！</span></strong>”<br></p><p style="white-space: normal;"><br></p><p style="white-space: normal;text-align: center;"><strong>SLAM知识星球内容有哪些？</strong><br></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="1.0145797598627788" data-s="300,640" data-type="png" data-w="2332" data-src="../../mmbiz_png/rqpicxXx8cNmX14adfBV6gXSoZ71icel7tgyPZGvXeM2p3tqbIqd4gXgnO6xu3mLINpeoiawpV1AVmzPehC2zZ6ow/640.jpg" _width="328px" src="../../mmbiz_png/rqpicxXx8cNmX14adfBV6gXSoZ71icel7tgyPZGvXeM2p3tqbIqd4gXgnO6xu3mLINpeoiawpV1AVmzPehC2zZ6ow/640.jpg" style="width: 328px !important; height: 332.753px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(255, 0, 0);">有效期3天</span><span style="font-size: 15px;">，扫码加入，不满意3天内</span><span style="font-size: 15px;color: rgb(255, 0, 0);">无条件退款</span><span style="font-size: 15px;">！<br></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="1" data-cropselx2="289" data-cropsely1="0" data-cropsely2="386" data-ratio="1.3323863636363635" data-s="300,640" data-type="png" data-w="352" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="letter-spacing: 1px; vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 290px !important; height: 386.392px !important;" _width="290px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p style="white-space: normal;">最近SLAM星球内部组织了学习小组，星球陆续推出以下<strong><span style="color: rgb(0, 82, 255);">独家系列视频教程</span></strong>：<br></p><p style="white-space: normal;"><strong><span style="color: rgb(255, 41, 65);">《一个月搞定代码调试：从小白到老手》<br></span></strong></p><p style="white-space: normal;"><strong><span style="color: rgb(255, 41, 65);">《两个月搞懂G2O库：从入门到精通》<br></span></strong></p><p style="white-space: normal;"><strong><span style="color: rgb(255, 41, 65);">《两个月学会Ceres库：从入门到精通》</span></strong></p><p style="white-space: normal;">目前<strong>OpenCV，PCL库</strong> 学习小组已经开始，后续还会更多的源码解析，重点突破等学习计划~<span style="color:#ff2941;"><strong><br></strong></span><br></p><p style="white-space: normal;"><br></p><p style="white-space: normal;text-align: center;">下面是部分已开放视频（可直接在星球内学习）<br><br></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6874051593323217" data-s="300,640" data-type="png" data-w="659" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 226.094px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-ratio="0.9117276166456494" data-s="300,640" data-type="png" data-w="793" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 299.223px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.6931297709923664" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="655" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 227.96px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.807061790668348" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="793" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 265.102px !important;" crossorigin="anonymous" alt="图片"></p><p><br></p><p><span style="font-size: 16px;">以上视频内容每个都会有几十个视频陆续在<span style="font-size: 16px;">「</span><span style="font-size: 16px;">从零开始学习SLAM</span><span style="font-size: 16px;">」</span>放出，</span><span style="font-size: 16px;color: rgb(0, 82, 255);">从入门到进阶，从小白到老手</span><span style="font-size: 16px;">！最近还整理了星球里的部分优质内容（见后），星球成员直接复制链接到浏览器即可查看。</span><br></p><p style="white-space: normal;"><br></p><p style="white-space: normal;"><span style="font-size: 16px;"><span style="font-size: 16px;letter-spacing: 0.544px;">如果不在星球里，可以领一张星球立减优惠券，加入全国最优质的SLAM学习社区，一起交流学习，完成</span><span style="font-size: 16px;letter-spacing: 0.544px;color: rgb(0, 82, 255);"><strong>从小白到老手，从学生到职场</strong></span><span style="font-size: 16px;letter-spacing: 0.544px;">的蜕变！不管是刚刚入门的新手，还是已经是行业的从业者，都能收获满满！</span></span><span style="font-size: 15px;">早期加入的成员很多已经进入业界知名公司、高校研究机构开启了精彩的人生。希望SLAM知识星球能够</span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>帮助更多的小伙伴快速找到组织，能够高效的进入学习状态，少走弯路，共同进步</strong>！</span><span style="color: rgb(0, 82, 255);font-size: 15px;"></span></p><p style="white-space: normal;"><br></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(255, 0, 0);">有效期3天</span><span style="font-size: 15px;">，扫码加入，不满意3天内</span><span style="font-size: 15px;color: rgb(255, 0, 0);">无条件退款</span><span style="font-size: 15px;">！<br></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="1" data-cropselx2="289" data-cropsely1="0" data-cropsely2="386" data-ratio="1.3323863636363635" data-s="300,640" data-type="png" data-w="352" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="font-size: 15px; letter-spacing: 1px; text-align: center; white-space: normal; vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 290px !important; height: 386.392px !important;" _width="290px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p><span style="font-size: 16px;"><br></span>以下是最近一段时间星球里的部分优质内容整理，<span style="color: rgb(255, 0, 0);font-size: 16px;">星球成员直接复制链接到浏览器即可查看</span><span style="font-size: 16px;">。</span><span style="color: rgb(87, 76, 76);letter-spacing: 1px;text-align: center;background-color: rgb(255, 255, 255);">&nbsp; &nbsp;&nbsp;</span></p><section data-mpa-template="t"><section style="font-size: 16px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><section style="margin-top: 10px;margin-bottom: 10px;"><section style="padding-right: 20px;padding-left: 20px;text-align: center;font-size: 12px;color: rgb(160, 160, 160);line-height: 1.9;letter-spacing: 1px;"><p>/ 向下滑动查看&nbsp;/</p></section></section></section><section style="font-size: 16px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><section style="text-align: center;"><section style="margin-right: auto;margin-left: auto;background-image: url(&quot;../../mmbiz_png/HhcYpm9d0zSHePnWa5qrtcrF8WKrdlRAPmDQWQhHiaUibtZUvoSxEm9MicHwOVvD2hNboMhqaQNVUYG3neUu7ljIA/640.jpg&quot;);background-position: 0% 100%;background-repeat: no-repeat;background-size: 100%;background-attachment: scroll;width: 677px;"><section style="display: inline-block;width: 677px;height: 480px;vertical-align: top;overflow-y: auto;box-shadow: rgb(0, 0, 0) 0px 0px 0px;"><section style="overflow-x: hidden;"><section><section><section style="text-align: left;"><p><br></p></section></section></section><section><section style="margin-top: 40px;margin-bottom: 20px;"><section style="padding: 15px;display: inline-block;width: 594px;vertical-align: top;background-position: 0% 0%;background-repeat: repeat;background-size: 9.4512%;background-attachment: scroll;border-width: 0px;box-shadow: rgb(171, 171, 171) 0px 0px 5px;background-image: url(&quot;../../mmbiz_png/HhcYpm9d0zSHePnWa5qrtcrF8WKrdlRAbN5ZI5LqprurSavc16fqDdicQ7BBDCZiaU59ztkT3POBplIofNwyKfyw/640.jpg&quot;);"><section><section><section style="padding-right: 10px;padding-left: 10px;font-size: 14px;color: rgb(131, 131, 131);text-align: left;line-height: 2;letter-spacing: 1px;"><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;"><span style="font-size: 20px;font-weight: 700;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);">传感器使用及标定</span></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;"><span style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);">T265 D435 相机标定</span></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/FYz3zjm</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">双目标定问题&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/myRby7e</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">相机选择方法&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/7QjmIQR</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">ros修改相机分辨率方法&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/iyrnmeQ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">相机在线光度标定&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/qZRFYf6</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">深度相机对比</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/UBQfEey</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">imu位姿积分及误差标定代码&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/zzbeyZZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">Imu各种噪声参数详解&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/6ImAeMR</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">标定单目-激光雷达外参标定代码</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/7iEIMjM</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">鱼眼MEI模型详解&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/EmQnUFE</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">点线面特征</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">如何计算图像特征点匹配中匹配点的个数和错误匹配的个数？</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/NBMj2vF</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">适合长直走廊场景点线融合slam&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/NN7iiuR</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">初始化地图点分布不均匀或者太少影响及IMU的累计误差对恢复的尺度的影响分析 https://t.zsxq.com/U7i6iuf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">点云特征提取的相关算法实验</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/feeeQZz</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">小车平面运动约束相关论文推荐&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/Iaaa2Zf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">浙大章国峰组新开源！基于多平面先验的高效VIO</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/UVbMVR7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">图像匹配算法推荐https://t.zsxq.com/fma6iEA</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">深度学习的特征提取匹配方法&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/bIaMJmu</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">ORB-SLAM2/3的改进方案及代码</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">快速剔除特征匹配中动态物体&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/JyfMzfY</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">单目模式生成稠密地图论文&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/MvvVnUZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">使用深度相机得到较稠密的大型场景点云地图方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/yZVjIYV</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">实现室内无人小车定位建图的教程、方案</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/BQFeQz3</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">采用点特征线特征结合的开源方案&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/BEIaUNJ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">结合图像处理去模糊https://t.zsxq.com/Iq7i6yr</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">ORB-SLAM2课程群里问答汇总https://t.zsxq.com/ujiayvb</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">不同系统安装ORB-SLAM2的详细方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/MFEmuvZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">orbslam2代替amcl做视觉导航的方案</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/2fUJ6ei</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">地图构建类中加入octomap地图方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/Z3J2fmy</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">ORB-SLAM2中的相机配置文件参数说明&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/vZzzzBA</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">orbslam3注释代码 https://t.zsxq.com/Zzj6mmA</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">基于orbslam2和yolo的语义slam论文</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/33zVFIM</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">orbslam2特征提取和匹配加速方案https://t.zsxq.com/vVFmuF6</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGBD ORBSLAM2 with Octomap代码&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/mAAUJY7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">Orb-slam2/3相关改进代码汇总</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/6IMbMzJ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">orb-slam2改成直接法https://t.zsxq.com/bujUFqf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGB-D模式建立大环境三维点云图及语义方法&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/NRneufu</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">orbslam2里处理外点方法 https://t.zsxq.com/3FYJaQn</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">ORB-SLAM在不同平台的移植https://t.zsxq.com/YfaEImM</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">ORB-SLAM2/3地图加载和存储代码 https://t.zsxq.com/2bmeyzj</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">TUM做的ORB-SLAM2的拓展版本，地图存储及重定位</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/yrRJe6e</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">激光SLAM</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光雷达和IMU标定的文章https://t.zsxq.com/NR3nmYZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光slam代码资料汇总https://t.zsxq.com/EiiIiQ3</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光雷达imu硬同步https://t.zsxq.com/vvjMRRZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">BA用在激光slam中应用方案 https://t.zsxq.com/yJYV7eE</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">3D激光slam开源算法综合性能高的推荐方案 https://t.zsxq.com/FeurNZn</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光slam开源资料https://t.zsxq.com/3NFIAYf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">无人车定位 如激光定位或者多传感器融合定位方面的资料和方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/YF6qrb2</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">VIO及多传感器融合</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">多传感器融合方面的综述或者论文https://t.zsxq.com/Jia2VZ7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGB-D和IMU松耦合的定位方案https://t.zsxq.com/meyFmau</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGB-D 和IMU紧融合的开源方案https://t.zsxq.com/MrRJQnI</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">EKF多传感器融合教程及公开课 https://t.zsxq.com/bynYbyn</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">VIO或者多传感器融合的论文https://t.zsxq.com/u3rjmqj</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">开源的松耦合的vio系统https://t.zsxq.com/EqvjaAy</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">二维(单线)激光雷达和RGBD相机融合的开源SLAM建图方案</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/7Q3Rnmi</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光雷达和相机的融合方案 https://t.zsxq.com/ufEUN3N</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">机器人避障及路径规划</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">基于视觉的移动机器人避障项目推荐https://t.zsxq.com/NfyjYzN</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">实现机器人在离线模式下腔体内的避障https://t.zsxq.com/vnaQVJ6</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">移动机器人主动环境探索，路径规划相关的SLAM论文及代码汇总</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/i6aeuRr</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">移动机器人平台资料https://t.zsxq.com/vf2R7E6</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">深度相机做机器人导航的开源案例https://t.zsxq.com/3ZzZbY7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">动态路径规划和避障项目及论文 https://t.zsxq.com/7miyNjY</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">不同场景下SLAM开源方案</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">动态场景下视觉slam开源框架汇总：https://t.zsxq.com/fa6Qz3B</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">基于支持向量机svm的视觉slam开源代码https://t.zsxq.com/nIUJqZF</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">slam实验室大全，以及83种slam开源方案https://t.zsxq.com/EEImUbm</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">svo在平视相机的改进的论文或者代码https://t.zsxq.com/MrFm6A6</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">小场景、弱纹理、光照差的巷道SLAM方案https://t.zsxq.com/iURVNnE</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">自主代客泊车视觉定位方案探索https://t.zsxq.com/vvnq7YB</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">动态背景下的视觉slam方案推荐 https://t.zsxq.com/n6AEEQV</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">三维重建及地图</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">在线构建稠密地图或八叉树地图的开源推荐</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/FeIIYz3</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">点云表面重建泊松重建https://t.zsxq.com/3FiAQbM</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">双目数据集实现三维重建https://t.zsxq.com/ZFIeeu3</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">三维重建各方面的课程论文资料 https://t.zsxq.com/i6uNrfq</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">较高精度的室内三维建模https://t.zsxq.com/mmIIYNR</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGB-D稠密重建方案汇总 https://t.zsxq.com/3ZFyVf2</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">将直接稀疏里程计转为稠密三维重建https://t.zsxq.com/iEufeM7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGBD 3D点云重建论文及开源汇总 https://t.zsxq.com/ZJEyNz7</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">学习教程</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">学习G2O有比较好的资料推荐https://t.zsxq.com/3fEYzbq</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">视觉惯性里程计的相关资料汇总https://t.zsxq.com/QFaqj6M</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">光流的资料汇总 https://t.zsxq.com/RfQNrvZ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">视觉SLAM十四讲 第13讲的代码解读https://t.zsxq.com/zBurJaU</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">回环检测关于深度学习的文献以及相对应的源代码</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/Qrr3JUj</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">视觉SLAM/里程计资源汇总 https://t.zsxq.com/aYB6Yji</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">激光点云目标检测、目标跟踪、动态语义SLAM</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/j2b2bAu</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">CMake 系列视频讲解https://t.zsxq.com/EaUNJiU</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">理解李群李代数https://t.zsxq.com/N7UJYfE</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">EPnP的推导文档https://t.zsxq.com/uzVfEq3</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">如何快速查找研究领域论文、代码、资料的方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/eQzR76M</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">无人驾驶技术电子书 https://t.zsxq.com/2zfyFmI</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">PCL视频教程 https://t.zsxq.com/AMVnuNf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">深度学习相关的slam论文https://t.zsxq.com/2bqn6IQ</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">RGB-D SLAM相关的主要论文&nbsp;</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/3JI2JuZ https://t.zsxq.com/3JI2JuZ</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;white-space: normal;">数据集及效果评估方法</h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">EVO工具评估TUM、KITTI、EuRoC 数据集方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/JY7yJ2n</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">实际单目摄像头怎么评判误差及尺度 https://t.zsxq.com/YN3fIub</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">单目没有尺度怎么衡量误差？https://t.zsxq.com/EAUFuRj</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">特征点匹配的准确率该怎么评判https://t.zsxq.com/rJa6eea</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">回环检测标准及评估方法汇总 https://t.zsxq.com/vJm2b2v</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">单目没有尺度如何评估准确率https://t.zsxq.com/aaeia6U</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">怎么评价slam建图效果？https://t.zsxq.com/jim6qVf</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">特征点匹配的准确度公开数据集和测试方法</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/3NBI2NN</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">在自定义场景做实验时，评价定位精度误差等指标，评价方法工具推荐</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">https://t.zsxq.com/IaQvNna</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">SLAM最全数据集汇总 https://t.zsxq.com/b6URfU7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">SFM有什么通用的定量评价指标https://t.zsxq.com/RrFq7qv</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">如何能评价建图的精度https://t.zsxq.com/YFujYv7</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">画出真实轨迹与估计轨迹误差图https://t.zsxq.com/BAaQNFm</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">户外的回环检测数据集https://t.zsxq.com/YJEMRbq</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">Kitti数据集的真值轨迹如何获取 https://t.zsxq.com/m2juj6m</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">无人驾驶的数据集汇总https://t.zsxq.com/qBIiYzV</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;white-space: normal;line-height: 26px;">......<span style="color: rgb(51, 51, 51);font-size: 16px;letter-spacing: 0.544px;text-align: center;">&nbsp;&nbsp;</span></p></section></section></section></section></section></section></section></section></section></section></section><section style="font-size: 16px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><section style="margin-top: -170px;margin-bottom: 10px;text-align: center;transform: translate3d(1px, 0px, 0px);"><span style="font-size: 20px;font-weight: bold;text-align: justify;"></span></section></section></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style=""><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">T265 D435 相机标定</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><br></p></section><p><span style="font-size: 16px;"></span><br></p><p><span style="font-size: 16px;">在星球里我还经常收到很多小伙伴的提问，比如：<span style="font-weight: bolder;">机械专业转行学SLAM难吗？C++不会能学SLAM吗？SLAM十四讲需要学到什么程度？<span style="color: inherit;letter-spacing: 0.476px;">学完十四讲后下一步</span></span></span></p><p><br></p><p><span style="font-size: 16px;"><span style="font-weight: bolder;"><span style="color: inherit;letter-spacing: 0.476px;">怎么办？小白入门SLAM需要多久？传统SLAM好发论文吗？导师不带一个人学怎么办？这个报错啥意思，怎么解决？有没有关于XXX的开源代码</span></span><span style="color: inherit;letter-spacing: 0.476px;">？......</span></span></p><p><br></p><p><span style="font-size: 16px;">说实话，这些迷茫我都经历过，所以深有体会。这些问题大部分来自「从零开始学习SLAM」知识星球，我在星球里也做了回复。</span></p><p><br></p><p><br></p><p style="text-align: center;"><strong>SLAM知识星球内容树</strong><br></p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="1.0145797598627788" data-s="300,640" data-type="png" data-w="2332" data-src="../../mmbiz_png/rqpicxXx8cNmX14adfBV6gXSoZ71icel7tgyPZGvXeM2p3tqbIqd4gXgnO6xu3mLINpeoiawpV1AVmzPehC2zZ6ow/640.jpg" style="width: 328px !important; height: 332.753px !important;" _width="328px" src="../../mmbiz_png/rqpicxXx8cNmX14adfBV6gXSoZ71icel7tgyPZGvXeM2p3tqbIqd4gXgnO6xu3mLINpeoiawpV1AVmzPehC2zZ6ow/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;">（点击看高清图）<br></p><p style="text-align: center;"><br></p><h2></h2><p><span style="letter-spacing: 0.544px;">这里送大家一张星球立减优惠券，加入全国最优质的SLAM学习社区，一起交流学习，完成</span><span style="letter-spacing: 0.544px;color: rgb(0, 82, 255);"><strong>从小白到老手，从学生到职场</strong></span><span style="letter-spacing: 0.544px;">的蜕变！不管是刚刚入门的新手，还是已经是行业的从业者，都能收获满满！</span></p><p style="text-align: center;"><br></p><p><span style="font-size: 15px;">早期加入的成员很多已经进入业界知名公司、高校研究机构开启了精彩的人生。希望SLAM知识星球能够</span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>帮助更多的小伙伴快速找到组织，能够高效的进入学习状态，少走弯路，共同进步</strong>！</span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">有效期3天</span><span style="text-align: center;font-size: 15px;">，扫码加入，不满意3天内</span><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">无条件退款</span><span style="text-align: center;font-size: 15px;">！</span><br></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="1" data-cropselx2="289" data-cropsely1="0" data-cropsely2="386" data-ratio="1.3323863636363635" data-s="300,640" data-type="png" data-w="352" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="font-size: 15px; letter-spacing: 1px; text-align: center; white-space: normal; vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 290px !important; height: 386.392px !important;" _width="290px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p><span style="font-size: 15px;"></span><br></p><p>我们的SLAM知识星球学习交流社区，包含：<br></p><p><br></p><section><ol class="list-paddingleft-2" style="padding-left: 32px;width: 577.188px;font-size: inherit;color: inherit;line-height: inherit;"><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>图文教程</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：从零开始学习SLAM图文教程、练习题及答案解析</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>视频教程</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：环境/第三方库配置使用、作业讲解、疑难/常见错误讲解、VO代码讲解、RGB-D SLAM教程、CMake系列教程、代码调试系列教程、G2O库系列教程、Ceres库系列教程</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>面试经验</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：SLAM常见面试题目及答案解析、SLAM笔试题目及答案、面试经验分享</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>参考资料</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：电子书、实用手册、每天SLAM最新论文、开源代码、开源数据集</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>工作机会</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：第一时间发布三维视觉、SLAM相关内推实习/校招/社招岗位、项目合作、硕博招生等</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>答疑解惑</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：包括作业解答、知识盲点梳理、科研问题答疑、调研调试方法、硕博方向选择等</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>交流机会</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：线上直播、线下聚会交流</span></p></li><li style="margin-bottom: 0.5em;font-size: inherit;color: inherit;line-height: inherit;"><p><strong>优秀同学</strong><span style="font-size: inherit;color: inherit;line-height: inherit;">：星球内嘉宾和学员都非常优秀上进，<span style="">早期加入的成员很多已经进入业界知名公司、高校研究机构开启了精彩的人生</span>。主要来自：</span></p><p><br></p><p><span style="font-size: inherit;color: inherit;line-height: inherit;">公司：大疆、旷世、商汤、虹软、百度、腾讯、阿里、华为、四维图新、中科创达、英特尔、momenta、上汽、小鹏汽车、驭势、海康威视、达闼、极智嘉、肇观、华捷艾米、优必选、银星智能、普渡、高仙、视辰、indemind、中科慧眼等公司的视觉SLAM/激光SLAM/三维重建/多传感器融合/点云处理算法工程师、技术leader</span></p><p><br></p><p><span style="font-size: inherit;color: inherit;line-height: inherit;">留学生：慕尼黑理工、KIT、柏林工大、东京大学、筑波大学、瑞典皇家理工、苏黎世大学、多伦多大学、卡迪夫大学、新南威尔士大学、阿德莱德大学、约翰霍普金斯大学、谢菲尔德大学、国立台湾大学、香港理工、香港中文等境外留学生</span></p><p><br></p><p><span style="font-size: inherit;color: inherit;line-height: inherit;">国内硕博：清华、北航、北邮、北理工、中科院、上交、复旦、华东理工、上大、浙大、杭电、南大、南航、南邮、矿大、中科大、哈工大、西交、西电、武大、华科、成电、华南理工、广东工大、国防科大、东大、深大等国内优秀硕博士</span></p></li></ol></section><p><br></p><p>不仅如此，计算机视觉life推出了系列精品课程，所有星球成员都能获得内部课程优惠券，详情见星球说明。今后我们将会推出更多<strong><span style="color: rgb(0, 82, 255);">机器人SLAM、自动驾驶、AR相关优质课程</span></strong>，<strong><span style="color: rgb(255, 41, 65);">星球成员都会第一时间享受内部优惠价</span></strong>。<br></p><p style="text-align: center;"><br></p><p style="margin-bottom: 1rem;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);">1、视觉SLAM必备基础课程：<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247521230&amp;idx=1&amp;sn=07b41c194e0d2a6381d883ee448889d8&amp;chksm=97d47659a0a3ff4fd88b78704b09e5e44f823673c884ffbe8253e56e279c43fd1b17b4d973d8&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">视觉SLAM必备！ORB-SLAM2源码解析第2期重磅升级！</a></p><p style="margin-bottom: 1rem;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);">2、深度学习三维重建课程：<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247519926&amp;idx=1&amp;sn=e751e3b1e01a81357d1635900e3b4224&amp;chksm=97d46b21a0a3e23766073c07f1faa5477ba895c746dcda3e9907434da6edf3a1d37e8452d790&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">当深度学习爱上三维重建</a></p><p style="margin-bottom: 1rem;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);">3、激光定位+建图课程：<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247517228&amp;idx=1&amp;sn=e4481ff9800f08c59465d78682ccdc91&amp;chksm=97d461bba0a3e8ad6b13ffde752b63f22a9dfc0697caaed0939867116ee6fce1bffa5b7cf9b6&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">激光SLAM怎么学？手把手教你Cartographer从入门到精通！</a></p><p style="margin-bottom: 1rem;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);">4、视觉+IMU定位课程&nbsp;<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247514564&amp;idx=1&amp;sn=ecda41179a1bf7503d6fd24f13ddbf0c&amp;chksm=97d45c53a0a3d5457f1d08ce326da67c9f1622e5e49422757b7cb9696fd757fa3e8eacafdba0&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">VINS-Mono：原理深剖+白板从零手推公式+源码逐行精讲！</a></p><p style="margin-bottom: 1rem;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;font-size: 14px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);">5、手把手图像三维重建课程：<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247517263&amp;idx=2&amp;sn=9b1341c5c0d20063967fb97ef375d9c8&amp;chksm=97d461d8a0a3e8ce1bdbc7ba066a93ed0997933576863a0f55b64d4f7b73ccf2b217b7b8d779&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" style="background-color: transparent;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;">三维重建教程：稠密匹配、点云融合、网格重建与优化、纹理贴图</a></p><p style="text-align: center;"><br></p><p style="white-space: normal;text-align: center;"><strong>星球里部分图文/视频教程见下：</strong><br></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="935" data-galleryid="" data-ratio="1.61953125" data-s="300,640" data-type="jpeg" data-w="1280" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 529.967px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;"><strong>星球里部分内容汇总见下：<br></strong></p><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="1.78203125" data-s="300,640" data-type="jpeg" data-w="1280" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 582.942px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;"><br></p><p style="text-align: center;"><br></p><p style="text-align: center;"><strong style="font-size: 20px;text-align: center;white-space: normal;">什么是SLAM？</strong><br></p><p style="white-space: normal;text-align: center;line-height: 1.75em;"><br></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">SLAM是 Simultaneous Localization And Mapping的 缩写，一般翻译为：同时定位与建图、同时定位与地图构建。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">SLAM的典型过程是这样的：</span><strong><span style="font-size: 15px;">当某种移动设备（如机器人/无人机、手机、汽车等）从一个未知环境里的未知地点出发，在运动过程中通过传感器（如激光雷达、摄像头等）观测定位自身在三维空间中的位置和姿态，再根据自身位置进行增量式的三维地图构建，从而达到同时定位和地图构建的目的</span></strong><span style="font-size: 15px;">。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><strong style="white-space: normal;font-size: 20px;text-align: center;"><img class="rich_pages img_loading __bg_gif" data-ratio="0.5978090766823161" data-type="gif" data-w="639" data-src="../../mmbiz_gif/rqpicxXx8cNnvoHqBKB3hWRrg2OZpHzr2xUersBQ5Kdg6IBhdXEtQ84LpibFszJic3sRVHSbsMTbpxLVjuicQ2ticmw/640.jpg" _width="328px" src="../../mmbiz_gif/rqpicxXx8cNnvoHqBKB3hWRrg2OZpHzr2xUersBQ5Kdg6IBhdXEtQ84LpibFszJic3sRVHSbsMTbpxLVjuicQ2ticmw/640.jpg" style="width: 328px !important; height: 196.886px !important;" data-order="0" alt="图片"></strong></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">传统的视觉算法主要是对针对二维图像的处理，借助深度学习在分类识别方面取得了超越人眼精度的巨大成就，就像人眼是通过双眼立体视觉来感知三维世界一样，智能移动终端（比如智能手机、无人汽车、无人机、智能机器人）需要能够像人类一样利用SLAM算法来快速精确的感知、理解三维空间。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">最近几年，以<strong>双目相机、结构光/TOF相机、激光雷达</strong>为代表的三维传感器硬件迭代更新迅猛，国内外已经形成了成熟的上下游产业链。三维视觉传感器也逐渐走入普通人的生活，在智能手机、智能眼镜等设备上应用越来越多，以手机为例，苹果、华为、小米、OPPO、VIVO等手机大厂都在积极推动结构光/TOF相机在手机上的普及。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-copyright="0" data-ratio="0.4745484400656814" data-s="300,640" data-type="jpeg" data-w="1827" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="font-size: 15px; white-space: normal; text-align: center; width: 328px !important; height: 156.703px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">SLAM技术为核心的三维视觉在学术界也是一个热门方向，从最近几年计算机视觉相关的顶级会议CVPR, ICCV, &nbsp;ECCV，IROS, ICRA 录用论文来看，视觉定位、三维点云识别分割、单目深度估计、无人驾驶高精度导航、语义SLAM等相关论文占比越来越高。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">因此SLAM技术在最近几年发展迅猛，广泛应用于<strong>增强现实感知、自动驾驶高精度定位、机器人自主导航、无人机智能飞行</strong>等前沿热门领域。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">关于SLAM的入门介绍及应用案例解析，可以看笔者在一次线下分享中，做的一个入门视频介绍，时长约55分钟</span></p><section data-mpa-preserve-tpl-color="t" data-mpa-template="t" mpa-from-tpl="t" style="white-space: normal;"><span data-ratio="1.7777777777777777" id="js_tx_video_container_0.8648692368545723" class="js_tx_video_container" style="display: block; width: 328px !important; height: 197px !important;"><iframe frameborder="0" width="328" height="184.5" allow="autoplay; fullscreen" allowfullscreen="true" src="../../txp/iframe/player.html"></iframe></span></section><p style="text-align: center;line-height: 1.75em;"><br></p><p style="text-align: center;line-height: 1.75em;"><br></p><p style="text-align: center;line-height: 1.75em;"><span style="font-size: 20px;"><strong style="text-align: center;white-space: normal;">学习SLAM如何入门？</strong></span></p><p style="text-align: center;line-height: 1.75em;"><span style="font-size: 20px;"><strong style="text-align: center;white-space: normal;"><br></strong></span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">SLAM是涵盖图像处理、多视角视觉几何、机器人学等综合性非常强的<strong>交叉学科。</strong></span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">学习SLAM涉及线性代数矩阵运算、李群李代数求导、三维空间刚体变换、相机成像模型、特征提取匹配、多视角几何、非线性优化、回环检测、集束调整、三维重建等专业知识。SLAM是强实践学科，需要具有一定的C++编程能力，掌握Linux操作系统、Eigen, Sophus, OpenCV, Dbow, g2o, ceres等第三方库，能够快速定位问题，解决bug。</span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="line-height: 1.75em;text-align: center;"><span style="font-size: 15px;text-align: center;">SLAM关联知识（点开查看大图）</span></p><p style="text-align: center;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="543" data-ratio="0.93984375" data-s="300,640" data-type="jpeg" data-w="1280" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 308.389px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">这对于初学者来说无疑具有较高的门槛，也需要花费不少的时间来摸索重点，打好基础。这个过程可能比较痛苦，但是熬过了这个过程，你就拥有了自己独有的</span><strong style="font-size: 15px;">核心竞争力，不用担心轻易被取代，未来会有非常强的竞争力</strong><span style="font-size: 15px;">。</span></p><p style="line-height: 1.75em;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">但是目前关于SLAM学习的资料不多，而且参差不齐，初学者推荐高翔的《视觉SLAM十四讲》，该书也是本教程的必备参考书籍</span></p><section><mpcps frameborder="0" class="" data-datakey="1586017309831_0.3090681730709408" style="width:100% !important;border:0;" data-uid="1586017309829" data-type="1" data-product="" data-templateid="list" data-pid="12666058" data-packid="" data-smartnum="" data-color="#fa7834" data-categoryid="3" data-appid="wxbdbc4659744ed70d" data-report="s0%3D3%26s1%3D0%26s2%3D0%26s3%3D%25E8%25A7%2586%25E8%25A7%2589SLAM%26s4%3D0%26s5%3D10%26s6%3Did_1586018335160_280792%26s7%3D%26s8%3D%26s9%3D%26s10%3D%26pid%3Dwxbdbc4659744ed70d_12666058%26uuid%3D3219739384966395737%26title%3D%25E8%25A7%2586%25E8%25A7%2589SLAM%25E5%258D%2581%25E5%259B%259B%25E8%25AE%25B2%25EF%25BC%259A%25E4%25BB%258E%25E7%2590%2586%25E8%25AE%25BA%25E5%2588%25B0%25E5%25AE%259E%25E8%25B7%25B5%25EF%25BC%2588%25E7%25AC%25AC2%25E7%2589%2588%25EF%25BC%2589(%25E9%2599%2590%25E9%2587%258F%25E7%25AD%25BE%25E5%2590%258D%2B%25E9%259A%258F%25E6%259C%25BA%25E5%258F%2591%25E6%2594%25BE)%26sid%3D1%26cid%3D3%26ratio%3D18.00%2525%26price%3D106.90%26" data-cpsstatus="hide" data-showed="no">     <section class="cps_inner cps_inner_list cps_inner_placeholder">         <div class="cps_inner_wrp" data-templateid="" data-pid="{{pid1}}" data-order="" data-packid="" data-wxaappid="{{wxa_appid1}}" data-wxapath="{{url_path1}}">             <!-- 数据加载成功模板 -->             <div class="cps_inner_content">                 <figure class="cps_inner_image_container">                     <span width="100%" class="cps_inner_image"></span>                 </figure>                 <div class="cps_inner_info">                     <div class="cps_inner_info_hd">                         <h2 class="cps_inner_info_title"></h2>                     </div>                     <div class="cps_inner_info_ft"></div>                 </div>             </div>         </div>     </section>         </mpcps></section><p style="line-height: 1.75em;text-align: center;"><span style="font-size: 15px;">计算机视觉life总结了SLAM学习资源树（点击看大图）</span></p><p style="text-align: center;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="777" data-ratio="1.34375" data-s="300,640" data-type="png" data-w="1280" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 440.062px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="line-height: 1.75em;text-align: center;"><br></p><p style="line-height: 1.75em;"><span style="font-size: 15px;">但很多小伙伴在学习期间仍然会遇到很多困难：公式看不懂，代码不会写，不知道怎么入手，没有人指导或者一起讨论，很容易不得要领，进度极慢，走弯路等，不仅浪费了时间和精力，甚至因此放弃了该方向的研究，以后可能再也没有机会进入这个领域了，</span><strong style="font-size: 15px;">错过了时代的风口</strong><span style="font-size: 15px;">。</span></p><p style="line-height: 1.75em;"><span style="font-size: 15px;"><br></span></p><p style="line-height: 1.75em;text-align: center;"><span style="font-size: 15px;">目前SLAM领域优秀企业列表<span style="text-align: center;">（点开查看大图）</span><br></span></p><p style="text-align: center;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="578" data-cropsely1="0" data-cropsely2="827" data-ratio="1.4295942720763724" data-s="300,640" data-type="png" data-w="1257" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 468.048px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><br></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">有没有好的教程和学习圈子，可以避免采坑，及时答疑解惑，少走弯路，快速入门？</span></p><p style="white-space: normal;"><br></p><p style="white-space: normal;line-height: 1.75em;text-align: center;"><span style="font-size: 20px;"><strong>《从零开始学习SLAM》知识星球</strong></span></p><p style="white-space: normal;line-height: 1.75em;"><br></p><p><span style="font-size: 15px;"></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">有效期3天</span><span style="text-align: center;font-size: 15px;">，扫码加入，不满意3天内</span><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">无条件退款</span><span style="text-align: center;font-size: 15px;">！</span><br></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="1" data-cropselx2="289" data-cropsely1="0" data-cropsely2="386" data-ratio="1.3323863636363635" data-s="300,640" data-type="png" data-w="352" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="font-size: 15px; letter-spacing: 1px; text-align: center; white-space: normal; vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 290px !important; height: 386.392px !important;" _width="290px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p><span style="font-size: 15px;"></span><br></p><p style="white-space: normal;"><br style="box-sizing: border-box;"></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">1、</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">技术介绍全面</span></strong><span style="font-size: 15px;">。学习过程从基础的知识开始<strong>循序渐进</strong>，内容涵盖</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">图文教程、视频教程、技术交流分享、工作机会</span></strong><span style="font-size: 15px;">。</span></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.6451301832208293" data-s="300,640" data-type="png" data-w="1037" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 212.312px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.6367041198501873" data-s="300,640" data-type="png" data-w="1068" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 209.566px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.6403345724907064" data-s="300,640" data-type="png" data-w="1076" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 210.749px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><br style="box-sizing: border-box;"></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">2、</span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>专门设计的练</strong><strong>习题</strong></span><span style="font-size: 15px;"><strong>，</strong></span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>重视实践</strong></span><span style="font-size: 15px;">。星主根据不同知识点设计一些实用性的练习题（推导、编程等），所有提交作业都会</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">批改</span></strong><span style="font-size: 15px;">。光看不做假把式，适当的练习能够加深读者的理解，把知识消化吸收为自己所用。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-ratio="0.6810526315789474" data-s="300,640" data-type="png" data-w="950" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="letter-spacing: 0.544px; white-space: normal; width: 328px !important; height: 224.023px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-ratio="0.7431289640591966" data-s="300,640" data-type="png" data-w="946" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="white-space: normal; width: 328px !important; height: 244.26px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p style="white-space: normal;"><br style="box-sizing: border-box;"></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">3、</span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>高质量的交流学习社区</strong></span><span style="font-size: 15px;">。星球成员来自</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">国内外硕博士</span></strong><span style="font-size: 15px;">及相关</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">公司研发人员</span></strong><span style="font-size: 15px;">。练习题，有<strong><span style="color: rgb(0, 82, 255);">专属内部实名微信群</span></strong> 帮助日常互助答疑解惑。所有成员都可以进行发布问题、分享知识、上传资源、点赞、留言、赞赏、收藏等操作。星球里提问均免费，星主会及时<strong>答疑解惑</strong>&nbsp;。</span></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.7263157894736842" data-s="300,640" data-type="png" data-w="950" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 238.779px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.6001908396946565" data-s="300,640" data-type="png" data-w="1048" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 197.662px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><img class="rich_pages img_loading" data-ratio="0.7430997876857749" data-s="300,640" data-type="png" data-w="942" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 244.251px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-ratio="0.6301747930082797" data-s="300,640" data-type="png" data-w="1087" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="white-space: normal; width: 328px !important; height: 207.437px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span><br></p><p style="white-space: normal;"><br></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">4、精选</span><span style="font-size: 15px;color: rgb(0, 82, 255);"><strong>SLAM常见面试题</strong></span><span style="font-size: 15px;">，定期发布在星球里，引导大家讨论，并提供参考答案，<strong>帮助找工作的同学从容面试</strong>。目前已经有几十条SLAM常见面试题目和详细解答。</span></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">见《<a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIxOTczOTM4NA==&amp;mid=2247487591&amp;idx=1&amp;sn=b5fd98e616760e5be5b8a1746bf99bb1&amp;chksm=97d7f5f0a0a07ce6ea2b7fdbc4a0ae40aabab6f0754a210cbf37311330d81a5d9fd96b5f44a0&amp;scene=21#wechat_redirect');" target="_blank" data-itemshowtype="0" data-linktype="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);letter-spacing: 0.544px;white-space: normal;">干货总结 | SLAM 面试常见问题及参考解答</a>》。星球内也会经常发布SLAM相关的</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">实习生/校园/社会招聘</span></strong><span style="font-size: 15px;">。</span></p><p style="text-align: center;"><img class="rich_pages img_loading" data-ratio="0.702920443101712" data-s="300,640" data-type="png" data-w="993" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 231.152px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p><img class="rich_pages img_loading" data-ratio="0.7536231884057971" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="966" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 247.681px !important;" crossorigin="anonymous" alt="图片"></p><p><img class="rich_pages img_loading" data-ratio="0.7125382262996942" data-s="300,640" data-type="png" data-w="981" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 234.287px !important;" crossorigin="anonymous" alt="图片"></p><p><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;"><br></p><p style="white-space: normal;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);line-height: 1.75em;text-align: center;"><strong style="font-size: 20px;text-align: center;white-space: normal;">如何加入知识星球</strong>？</p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">知识星球需</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">付费加入</span></strong><span style="font-size: 15px;">，价格随人数增加逐渐上涨，因此</span><span style="color: rgb(0, 82, 255);"><strong style="font-size: 15px;">越早加入越优惠</strong></span><span style="font-size: 15px;">。</span><span style="color: rgb(0, 82, 255);"><strong style="font-size: 15px;">有效期一年</strong></span><span style="font-size: 15px;">（从加入时间开始往后一年有效，到期仍可查看之前所有内容，查看新内容需续费），平时忙也没关系，有空可以反复看。</span></p><p style="white-space: normal;line-height: 1.75em;"><br></p><p style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">时间不等人，</span><strong><span style="font-size: 15px;color: rgb(0, 82, 255);">万事早为先</span></strong><span style="font-size: 15px;">。学习</span><span style="color: rgb(0, 82, 255);"><strong style="font-size: 15px;">切忌单打独斗</strong></span><span style="font-size: 15px;">，一个良好的学习圈子能够帮助你快速入门，交流讨论才能少走弯路，快速进步！加入SLAM学习星球，把握时代的风口，和国内外优秀的SLAM研究者一起交流进步</span></p><section powered-by="xiumi.us" style="letter-spacing: 1px;white-space: normal;font-size: 15px;line-height: 1.8;"><p><br></p></section><section powered-by="xiumi.us" style="letter-spacing: 1px;white-space: normal;font-size: 15px;line-height: 1.8;"><p style="text-align: center;"><span style="font-size: 15px;"></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">有效期3天</span><span style="text-align: center;font-size: 15px;">，扫码加入，不满意3天内</span><span style="text-align: center;font-size: 15px;color: rgb(255, 0, 0);">无条件退款</span><span style="text-align: center;font-size: 15px;">！</span><br></span></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;"><img class="rich_pages img_loading" data-cropselx1="1" data-cropselx2="289" data-cropsely1="0" data-cropsely2="386" data-ratio="1.3323863636363635" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="352" style="vertical-align: middle; border-style: none; letter-spacing: 1px; box-sizing: border-box !important; visibility: visible !important; width: 290px !important; height: 386.392px !important;" _width="290px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></p><p style="text-align: center;"><span style="font-size: 15px;"></span><br></p><p><br></p><p style="text-align: center;"><span style="text-align: justify;font-size: 14px;">加入之后，邀请其他人加入后双方都可以获得一定比例的返现。快快分享给爱学习的小伙伴吧~</span></p></section><p style="white-space: normal;line-height: 1.75em;"><br></p><p style="font-size: 16px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;"><img class="rich_pages img_loading" data-ratio="1" data-s="300,640" data-type="jpeg" data-w="258" data-src="../../mmbiz_jpg/rqpicxXx8cNm2RvzfPhoqBy7jamUw9eZuHHvbibicSgwN9RcJd7ialpHll3PRnR2gPySBW5efP0RnaWxicsepaA7UfQ/640.jpg" style="vertical-align: middle; border-style: none; visibility: visible !important; width: 133px !important; height: 133px !important;" _width="133px" src="../../mmbiz_jpg/rqpicxXx8cNm2RvzfPhoqBy7jamUw9eZuHHvbibicSgwN9RcJd7ialpHll3PRnR2gPySBW5efP0RnaWxicsepaA7UfQ/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="font-size: 16px;letter-spacing: 0.544px;white-space: normal;text-align: center;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;background-color: rgb(255, 255, 255);">长按关注计算机视觉life</p>                </div><div>来源:https://mp.weixin.qq.com/s/kkBwlEdG8t3-FYW9DmyERg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="238" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="238" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/rqpicxXx8cNnKz6rxRH5Eh260l7pibWPNakbIzb3djxplpY5ZdOgpOHZ22OqohGu4JIKwEQM4dbsXk2TEGxC5RxA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="238" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/jenkis5.html" class="tag" rel="tag">slam</a></li>
+        <li>浏览次数：<span>285</span> 次浏览</li>
+        <li>发布日期：2021-07-11 20:58:26</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/238.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="234.html">用“最好的语言”PHP，做一个机器学习数据集</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="240.html">注入一接口多实例，小心有坑</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/rqpicxXx8cNnKz6rxRH5Eh260l7pibWPNakbIzb3djxplpY5ZdOgpOHZ22OqohGu4JIKwEQM4dbsXk2TEGxC5RxA/640.jpg" alt="SLAM的正确学习姿势" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">SLAM的正确学习姿势</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="66c224ec4c7522a9d9965dfe1b0e6758">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="238">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

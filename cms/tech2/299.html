@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>【深度学习】Yolov5_DeepSort_Pytorch：基于 Yolov5 + Deep Sort 的实时多目标跟踪器 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="a850168322048ab75a3f8b9a4acae0ef">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">【深度学习】Yolov5_DeepSort_Pytorch：基于 Yolov5 + Deep Sort 的实时多目标跟踪器</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 323 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding-right: 10px;padding-left: 10px;white-space: normal;background-color: rgb(255, 255, 255);font-size: 16px;color: black;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: center;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;" data-mpa-powered-by="yiban.io"><span style="color: rgb(178, 178, 178);font-family: arial;font-size: 12px;letter-spacing: 1px;word-spacing: 1px;">Python视界分享</span></section><hr style="border-style: solid;border-width: 1px 0 0;border-color: rgba(0,0,0,0.1);-webkit-transform-origin: 0 0;-webkit-transform: scale(1, 0.5);transform-origin: 0 0;transform: scale(1, 0.5);"><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;"><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">简介</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">该存储库包含一个两阶段跟踪器。YOLOv5（一系列在 COCO 数据集上预训练的对象检测架构和模型）生成的检测被传递到跟踪对象的 Deep Sort 算法。它可以跟踪Yolov5 模型经过训练可以检测的任何对象。</p><p style="text-align: center;"><img class="rich_pages wxw-img img_loading __bg_gif" data-ratio="0.5625" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="gif" data-w="512" style="width: 308px !important; height: 174.125px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-order="0" alt="图片"></p><p style="text-align: center;"><br></p><p style="text-align: center;"><img class="rich_pages wxw-img img_loading __bg_gif" data-ratio="0.5625" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="gif" data-w="512" style="width: 308px !important; height: 174.125px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-order="1" alt="图片"></p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><br></figure><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">教程</h2><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Yolov5 自定义数据训练</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Deep Sort 训练（链接到外部存储库）</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Yolov5 deep_sort pytorch 评测</section></li></ul><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">安装依赖</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">递归克隆存储库：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">git&nbsp;<span style="color: #e6c07b;line-height: 26px;">clone</span>&nbsp;--recurse-submodules&nbsp;https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch.git<br><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">安装依赖库</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">pip&nbsp;install&nbsp;-r&nbsp;requirements.txt<br><br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">跟踪源</h2><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">python3&nbsp;track.py&nbsp;--<span style="color: #e6c07b;line-height: 26px;">source</span>&nbsp;...&nbsp;--show-vid&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;show&nbsp;live&nbsp;inference&nbsp;results&nbsp;as&nbsp;well</span><br><br><br></code></pre><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Video: --source file.mp4</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Webcam: --source 0</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">RTSP stream: --source rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">HTTP stream: --source http://wmccpinetop.axiscam.net/mjpg/video.mjpg</section></li></ul><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">选择 Yolov5 模型</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">权衡推理速度和准确率，选择合适的模型。可以选择合适的模型进行自动下载：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">python3&nbsp;track.py&nbsp;--<span style="color: #e6c07b;line-height: 26px;">source</span>&nbsp;0&nbsp;--yolo_weights&nbsp;yolov5s.pt&nbsp;--img&nbsp;640&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;smallest&nbsp;yolov5&nbsp;family&nbsp;model</span><br><br></code></pre><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">python3&nbsp;track.py&nbsp;--<span style="color: #e6c07b;line-height: 26px;">source</span>&nbsp;0&nbsp;--yolo_weights&nbsp;yolov5x6.pt&nbsp;--img&nbsp;1280&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;largest&nbsp;yolov5&nbsp;family&nbsp;model</span><br><br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;">过滤跟踪类别</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">默认跟踪器跟踪所有的 MS COCO 类别。如果你只想跟踪人，推荐使用这些权重来提升性能。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">python3&nbsp;track.py&nbsp;--<span style="color: #e6c07b;line-height: 26px;">source</span>&nbsp;0&nbsp;--yolo_weights&nbsp;yolov5/weights/crowdhuman_yolov5m.pt&nbsp;--classes&nbsp;0&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;tracks&nbsp;persons,&nbsp;only</span><br><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">如果要跟踪 MS COCO 类的子集，请在 classes 标志后添加相应的索引</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">python3&nbsp;track.py&nbsp;--<span style="color: #e6c07b;line-height: 26px;">source</span>&nbsp;0&nbsp;--yolo_weights&nbsp;yolov5s.pt&nbsp;--classes&nbsp;16&nbsp;17&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;tracks&nbsp;cats&nbsp;and&nbsp;dogs,&nbsp;only</span><br><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">这是在 MS COCO 上训练的 Yolov5 模型可以检测到的所有可能对象的列表。请注意，此 repo 中类的索引从零开始。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">部分类别截图：</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="1.1251980982567353" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="jpeg" data-w="631" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 346.311px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">项目地址：</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch</p></section><p><br></p><pre style="margin-right: 0.5em;margin-left: 0.5em;max-width: 100%;letter-spacing: 0.544px;font-size: 16px;background-color: rgb(255, 255, 255);color: rgb(62, 62, 62);text-align: center;widows: 1;caret-color: rgb(51, 51, 51);word-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;text-align: left;color: rgb(43, 43, 43);line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img class="rich_pages js_darkmode__81 img_loading" data-ratio="0.5816203143893591" data-s="300,640" data-src="../../mmbiz_jpg/87HjJEl4c1sQn87Bsr3syrM8PBleiaBujJG8XHDwp65hgs3jiaib3BEnric7BWvYyQy7sKwliaXaj4lbQ8S00fwsB6g/640.jpg" data-type="jpeg" data-w="827" style="color: rgb(0, 0, 0); font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif; font-weight: 700; letter-spacing: 0px; caret-color: rgb(62, 62, 62); text-align: -webkit-center; word-spacing: 1px; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 312px !important; height: 182.302px !important;" width="677px" _width="328px" src="../../mmbiz_jpg/87HjJEl4c1sQn87Bsr3syrM8PBleiaBujJG8XHDwp65hgs3jiaib3BEnric7BWvYyQy7sKwliaXaj4lbQ8S00fwsB6g/640.jpg" crossorigin="anonymous" alt="图片"></section><pre style="margin-right: 0.5em;margin-left: 0.5em;max-width: 100%;letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><pre style="margin-top: 10px;margin-bottom: 10px;max-width: 100%;color: rgb(0, 0, 0);text-align: left;letter-spacing: 0.544px;font-weight: 700;word-spacing: 1.6px;caret-color: rgb(62, 62, 62);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><pre style="max-width: 100%;font-size: 16px;letter-spacing: 0.544px;text-align: -webkit-center;word-spacing: 1px;color: rgb(51, 141, 175);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" data-style="letter-spacing: 0.544px; white-space: normal; background-color: rgb(255, 255, 255); max-width: 100%; font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; color: rgb(0, 0, 0); font-size: 16px; text-align: left; word-spacing: 1px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__82" style="max-width: 100%;color: rgb(0, 0, 0);text-align: left;white-space: normal;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="padding: 10px;max-width: 100%;letter-spacing: 0px;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;word-spacing: 2px;line-height: 1.6;word-break: break-word;box-sizing: border-box !important;overflow-wrap: break-word !important;"><pre data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: 10px;margin-bottom: 10px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;white-space: normal;letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;line-height: 1.9;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;line-height: 25.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section powered-by="xiumi.us" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section class="js_darkmode__83" style="max-width: 100%;min-height: 1em;color: rgb(62, 62, 62);font-variant-numeric: normal;letter-spacing: 0.544px;text-align: center;font-size: 14px;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 16px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span sans="sans" microsoft="microsoft" yahei="yahei" helvetica="helvetica" sans-serif="sans-serif" gb="gb" hiragino="hiragino" neue="neue" arial="arial" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(114, 114, 114)" data-darkmode-original-color-16019459903493="rgb(114, 114, 114)" style="max-width: 100%;color: rgb(114, 114, 114);letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;">往期</span><span sans="sans" microsoft="microsoft" yahei="yahei" helvetica="helvetica" rgb="rgb" sans-serif="sans-serif" gb="gb" hiragino="hiragino" neue="neue" arial="arial" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" data-style="max-width: 100%; color: rgb(0, 0, 0); letter-spacing: 2px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__84" style="max-width: 100%;color: rgb(0, 0, 0);letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;">精彩</span><span sans="sans" microsoft="microsoft" yahei="yahei" helvetica="helvetica" sans-serif="sans-serif" gb="gb" hiragino="hiragino" neue="neue" arial="arial" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(114, 114, 114)" data-darkmode-original-color-16019459903493="rgb(114, 114, 114)" style="max-width: 100%;color: rgb(114, 114, 114);letter-spacing: 2px;box-sizing: border-box !important;overflow-wrap: break-word !important;">回顾</span></span></section></section></section></section></section></section></section></section></section><section data-id="90215" data-tools="135编辑器" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;white-space: normal;border-width: 0px;border-style: none;border-color: initial;letter-spacing: 0.54px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: 10px;max-width: 100%;display: flex;justify-content: center;align-items: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-width="100%" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: -20px;max-width: 100%;width: 266px;border-bottom: 1px solid rgb(114, 114, 114);box-sizing: border-box !important;overflow-wrap: break-word !important;"><br data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-right: auto;margin-left: auto;padding-right: 5px;padding-left: 5px;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: -2px;margin-right: auto;margin-left: auto;max-width: 100%;height: 0px;width: 0px;border-width: 8px;border-style: solid;border-color: rgb(254, 110, 40) transparent transparent;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section><section data-bdopacity="50%" data-bdlessp="280" data-bdless="spin" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: -7px;margin-right: auto;margin-left: auto;max-width: 100%;height: 0px;width: 0px;border-width: 6px;border-style: solid;border-color: rgba(254, 110, 40, 0.4) transparent transparent;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section><section data-width="100%" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="margin-top: -20px;max-width: 100%;width: 266px;border-bottom: 1px solid rgb(114, 114, 114);box-sizing: border-box !important;overflow-wrap: break-word !important;"><br data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(0, 0, 0)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section></section><ul class="list-paddingleft-2" style="max-width: 100%;width: 541.797px;list-style-type: none;overflow-wrap: break-word !important;"><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwODI2NDkxNQ==&amp;mid=2247484737&amp;idx=1&amp;sn=27c52b4bc4ca98d3ab817344b84226cc&amp;chksm=97048efda07307eb78d4f4ec0039a386a658404156b051af0cb715fafa8d2ae66cbe49343bf3&amp;scene=21#wechat_redirect');" target="_blank" data-itemshowtype="0" data-linktype="2" hasload="1" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; letter-spacing: 0.54px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__86" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;letter-spacing: 0.54px;box-sizing: border-box !important;overflow-wrap: break-word !important;">适合初学者入门人工智能的路线及资料下载</a></section></li><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwODI2NDkxNQ==&amp;mid=2247488304&amp;idx=1&amp;sn=581944f63eab1822ca53b9a4eeedad79&amp;chksm=9704988ca073119a38a534adbedd51ca0b5705cdd6a104fed74b265bb092485e97c91bb5b347&amp;scene=21#wechat_redirect');" textvalue="机器学习及深度学习笔记等打印" data-itemshowtype="5" tab="innerlink" data-linktype="2" hasload="1" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__88" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">机器学习及深度学习笔记等资料打印</a></section></li><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwODI2NDkxNQ==&amp;mid=2247488051&amp;idx=1&amp;sn=e6539bf5715588c688f92b2333d8e0c0&amp;chksm=9704998fa0731099ddaa4add1c60f64acf079344ef787bca666b7f2ae0e4fbb86f23845adeeb&amp;scene=21#wechat_redirect');" textvalue="机器学习在线手册" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; letter-spacing: 0.54px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__90" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;letter-spacing: 0.54px;box-sizing: border-box !important;overflow-wrap: break-word !important;">机器学习在线手册</a></section></li><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwODI2NDkxNQ==&amp;mid=2247486718&amp;idx=1&amp;sn=0d4db93f3dab930b5b0876d982407251&amp;chksm=97048742a0730e544fd65df66a6ed516c2a5eca8f9501d23c40b15226d53f7f84b37943db094&amp;scene=21#wechat_redirect');" target="_blank" data-itemshowtype="0" data-linktype="2" hasload="1" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; letter-spacing: 0.54px; font-size: 14px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__92" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;letter-spacing: 0.54px;box-sizing: border-box !important;overflow-wrap: break-word !important;">深度学习笔记专辑</a></section></li><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&amp;album_id=1337257945842778113&amp;__biz=MzIwODI2NDkxNQ==#wechat_redirect');" textvalue="《统计学习方法》的代码复现专辑" tab="innerlink" data-linktype="2" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__94" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">《统计学习方法》的代码复现专辑</a><br data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></li><li style="max-width: 100%;color: rgb(2, 30, 170);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwODI2NDkxNQ==&amp;mid=2247487602&amp;idx=2&amp;sn=478d9893e85d564282334654b3be7fda&amp;chksm=97049bcea07312d8b74ac7e99e3a3dbea331315c1439888f4e16e912b18d3d8626f36e1fc0df&amp;scene=21#wechat_redirect');" textvalue="AI基础下载（" data-itemshowtype="0" tab="innerlink" data-linktype="2" hasload="1" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; font-size: 14px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__96" style="color: rgb(2, 30, 170);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">AI基础下载</a></section></li><li style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&amp;album_id=1339894193547837440&amp;__biz=MzIwODI2NDkxNQ==#wechat_redirect');" textvalue="机器学习的数学基础专辑" tab="innerlink" data-linktype="2" data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(39, 84, 255)" data-darkmode-original-color-16019459903493="rgb(2, 30, 170)" data-style="color: rgb(2, 30, 170); -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; max-width: 100%; letter-spacing: 0.54px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__98" style="color: var(--weui-LINK);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">机器学习的数学基础专辑</a></section></li><li style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><a target="_blank" href="javascript:window.open('https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIwODI2NDkxNQ==&amp;action=getalbum&amp;album_id=1790250376009433091#wechat_redirect');" textvalue="温州大学《机器学习课程》视频" tab="innerlink" data-linktype="2" style="color: var(--weui-LINK);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">温州大学《机器学习课程》视频</a></section></li></ul></section></pre></section></section><section style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;text-align: left;white-space: normal;letter-spacing: 0.54px;word-spacing: 2px;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(178, 178, 178);letter-spacing: 0.544px;box-sizing: border-box !important;overflow-wrap: break-word !important;">本站qq群851320808，加入微信群请</span><span data-darkmode-bgcolor-16019459903493="rgb(25, 25, 25)" data-darkmode-original-bgcolor-16019459903493="rgb(255, 255, 255)" data-darkmode-color-16019459903493="rgb(163, 163, 163)" data-darkmode-original-color-16019459903493="rgb(178, 178, 178)" data-style="max-width: 100%; color: rgb(178, 178, 178); letter-spacing: 0.544px; text-align: justify; font-size: 14px; box-sizing: border-box !important; overflow-wrap: break-word !important;" class="js_darkmode__105" style="max-width: 100%;color: rgb(178, 178, 178);letter-spacing: 0.544px;text-align: justify;box-sizing: border-box !important;overflow-wrap: break-word !important;">扫码：</span></section><section style="max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;white-space: normal;letter-spacing: 0.54px;word-spacing: 2px;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img class="rich_pages img_loading" data-ratio="1.0640732265446224" data-s="300,640" data-src="../../mmbiz_png/87HjJEl4c1vUSMHW0MHPHNgg7as7ia2XDIXvIBfBEFXkOr3uibbibPNUWvUxplwUv9ZdicAkOd7d2zocUa0VPQSzYw/640.jpg" data-type="png" data-w="437" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 167px !important; height: 177.572px !important;" width="167px" _width="167px" src="../../mmbiz_png/87HjJEl4c1vUSMHW0MHPHNgg7as7ia2XDIXvIBfBEFXkOr3uibbibPNUWvUxplwUv9ZdicAkOd7d2zocUa0VPQSzYw/640.jpg" crossorigin="anonymous" alt="图片"></section></pre></pre></pre></pre><section style="line-height: 2em;"><section data-mpa-template="t" mpa-from-tpl="t" style="margin-top: 5px;margin-bottom: 5px;line-height: 1.75em;"><p style="text-align: center;"><br></p></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/YC8vrHUL_YvG2pZVIMqYQA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="299" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="299" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_gif/iaYeuVE6ibhUiciaYSzXOaoHiaTtZQMlsPRLh83kY4QWz3qfwq78sEr0IEhQYNMRpfzzkC8bAWJuGMgDzoWHNRKeic8g/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="299" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/深度学习.html" class="tag" rel="tag">深度学习</a></li>
+        <li>浏览次数：<span>323</span> 次浏览</li>
+        <li>发布日期：2021-07-29 11:04:05</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/299.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="298.html">深度学习“四大名著”发布！Python、TensorFlow、机器学习、深度学习四件套（附免费下载）</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="300.html">深度好文|终极解密输入网址按回车到底发生了什么</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="【深度学习】Yolov5_DeepSort_Pytorch：基于 Yolov5 + Deep Sort 的实时多目标跟踪器" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">【深度学习】Yolov5_DeepSort_Pytorch：基于 Yolov5 + Deep Sort 的实时多目标跟踪器</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="298.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="深度学习“四大名著”发布！Python、TensorFlow、机器学习、深度学习四件套（附免费下载）" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="298.html">深度学习“四大名著”发布！Python、TensorFlow、机器学习、深度学习四件套（附免费下载）</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="a850168322048ab75a3f8b9a4acae0ef">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="299">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

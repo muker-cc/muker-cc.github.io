@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>clrs的文章 - 技术改变生活</title>
+    <meta name="keywords" content="Muker Studio">
+    <meta name="description" content="Muker Studio">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../cms/index.html"><img src="../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="0">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../cms/special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../cms/product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../cms/p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../cms/weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../cms/dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../cms/zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../cms/quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../cms/neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../cms/yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../cms/opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../cms/qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../cms/p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../cms/download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../cms/fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../cms/caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="837141cc4ac37055492216c114232604">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+<style>
+    body {
+        padding-top: 49px;
+    }
+
+    @keyframes wave-animation {
+        0% {
+            transform: translateX(0) translateZ(0) scaleY(1)
+        }
+        50% {
+            transform: translateX(-25%) translateZ(0) scaleY(0.55)
+        }
+        100% {
+            transform: translateX(-50%) translateZ(0) scaleY(1)
+        }
+    }
+
+    .wave-wrapper {
+        height: 430px;
+        position: relative;
+    }
+
+    .wave-inner {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        height: 430px;
+        bottom: -1px;
+        background: #374486;
+    }
+
+    .wave-bg-top {
+        z-index: 15;
+        opacity: 0.5;
+    }
+
+    .wave-bg-middle {
+        z-index: 10;
+        opacity: 0.75;
+    }
+
+    .wave-bg-bottom {
+        z-index: 5;
+    }
+
+    .wave-item {
+        position: absolute;
+        left: 0;
+        width: 200%;
+        height: 430px;
+        background-repeat: repeat no-repeat;
+        background-position: 0 bottom;
+        transform-origin: center bottom;
+    }
+
+    .wave-top {
+        background-size: 50% 100px;
+    }
+
+    .wave-animation .wave-top {
+        animation: wave-animation 3s;
+        -webkit-animation: wave-animation 3s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    .wave-middle {
+        background-size: 50% 120px;
+    }
+
+    .wave-animation .wave-middle {
+        animation: wave-animation 10s linear infinite;
+    }
+
+    .wave-bottom {
+        background-size: 50% 100px;
+    }
+
+    .wave-animation .wave-bottom {
+        animation: wave-animation 15s linear infinite;
+    }
+
+    .userinfo {
+        position: absolute;
+        z-index: 99;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        color: #fff;
+    }
+
+    .header-logo {
+        margin-top: 60px;
+    }
+
+    .userinfo-avatar {
+        background: rgba(0, 0, 0, 0.12);
+        display: inline-block;
+        position: relative;
+        padding: 20px;
+        border-radius: 50%;
+        min-width: 120px;
+    }
+
+    .userinfo-avatar img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nav-noborder > li.active > a, .nav-noborder > li.active > a:focus, .nav-noborder > li.active > a:hover {
+        border-color: #fff;
+    }
+
+    .nav-noborder {
+        border-bottom: none;
+    }
+
+    .comment-content {
+        border-radius: 3px;
+        padding: 12px;
+        border: none;
+        background: #fafafa;
+        margin-bottom: 0;
+    }
+
+    .comment-content div {
+        line-height: 20px !important;
+        margin-bottom: 0px;
+        margin-top: 0 !important;
+        font-size: 14px !important;
+        font-weight: 400;
+        color: #777;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .statistics-nums {
+        margin-top: 5px;
+        color: #999;
+    }
+</style>
+<div class="wave-wrapper wave-animation">
+  <div class="userinfo">
+      <div class="header-logo">
+        <a href="2.html" class="userinfo-avatar">
+            <img class="img-circle" src="../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" alt="clrs">
+        </a>
+    </div>
+      <h2 class="">
+        <span><strong>clrs</strong></span>
+    </h2>
+    <h5 class="">
+        <span>这家伙很懒，什么也没写</span>
+    </h5>
+  </div>
+  <div class="wave-inner wave-bg-top">
+    <div class="wave-item wave-top" style="background-image: url('../assets/addons/cms/img/wave-top.png')"></div>
+  </div>
+  <div class="wave-inner wave-bg-middle">
+    <div class="wave-item wave-middle" style="background-image: url('../assets/addons/cms/img/wave-mid.png')"></div>
+  </div>
+  <div class="wave-inner wave-bg-bottom">
+    <div class="wave-item wave-bottom" style="background-image: url('../assets/addons/cms/img/wave-bot.png')"></div>
+  </div>
+</div>
+
+<div class="container-fluid" style="padding:0px 0 50px 0;background:#fff;">
+    <header class="space-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-md-offset-4">
+                    <div class="row statistics pt-1 text-center" style="border-top:none;">
+                        <div class="col-xs-4">
+
+                            <div class="statistics-text">文章</div>
+                            <a href="2/archives.html">
+                                <div class="statistics-nums">195</div>
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="statistics-text">评论</div>
+                            <a href="2/comment.html">
+                                <div class="statistics-nums">0</div>
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="statistics-text">加入时间</div>
+                            <div class="statistics-nums">6月前</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="container" id="content-container">
+    <div class="row mt-4 mb-4">
+        <div class="col-md-8 col-sm-12">
+            <ul class="nav nav-tabs nav-noborder mb-10 mt-20">
+                <li class="active"><a href="javascript:;">TA的文章</a></li>
+            </ul>
+            <div class="tab-inner" style="background:#fff;padding:15px;">
+                                    <div class="article-list">
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/257.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="高并发下如何保证接口的幂等性？">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/257.html">高并发下如何保证接口的幂等性？</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月17日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/257.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 247 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/news2/256.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="CBL-Mariner —— 微软自己的 Linux 发行版，已发布 1.0 稳定版">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/news2/256.html">CBL-Mariner —— 微软自己的 Linux 发行版，已发布 1.0 稳定版</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/news2.html" class="tag tag-primary">资讯</a>
+                <span itemprop="date">2021年07月17日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/news2/256.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 455 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/yunwei/255.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="Argo Rollouts 基于 Analysis 的渐进式发布">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/yunwei/255.html">Argo Rollouts 基于 Analysis 的渐进式发布</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/yunwei.html" class="tag tag-primary">运维</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/yunwei/255.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 416 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/254.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="[005] .NET 的执行模型">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/254.html">[005] .NET 的执行模型</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/254.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 210 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/253.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="我为3岁女儿开发了个“古诗学习”鸿蒙卡片！">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/253.html">我为3岁女儿开发了个“古诗学习”鸿蒙卡片！</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/253.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 260 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/252.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/KmXPKA19gW9H89ysqPCTsutVyLGuiaFRibp6aW9F0AwurXyibx3Vwsh32Vwj8NeUUmBk48cdVZzt2zbc1ls9yIKLw/640.jpg" alt="有了这款神器，轻松用 Python 写个 APP">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/252.html">有了这款神器，轻松用 Python 写个 APP</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/252.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 173 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/news2/251.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="钱都去哪了？大数据解读年轻人的消费观">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/news2/251.html">钱都去哪了？大数据解读年轻人的消费观</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/news2.html" class="tag tag-primary">资讯</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/news2/251.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 505 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/250.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="整理了 34 个 Python 自动化办公库">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/250.html">整理了 34 个 Python 自动化办公库</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/250.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 484 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/249.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="用 Go 写一个轻量级的 ssh 批量操作工具">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/249.html">用 Go 写一个轻量级的 ssh 批量操作工具</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/249.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 347 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                                                    <article class="article-item">
+        <div class="media">
+        <div class="media-left">
+            <a href="../cms/tech2/248.html">
+                <div class="embed-responsive embed-responsive-4by3 img-zoom">
+                    <img src="../assets/addons/cms/img/noimage.jpg" alt="如何将 Numpy 加速 700 倍？用 CuPy 呀">
+                </div>
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="article-title">
+                <a href="../cms/tech2/248.html">如何将 Numpy 加速 700 倍？用 CuPy 呀</a>
+            </h3>
+            <div class="article-intro hidden-xs">
+                            </div>
+            <div class="article-tag">
+                <a href="../cms/tech2.html" class="tag tag-primary">技术</a>
+                <span itemprop="date">2021年07月16日</span>
+                <span itemprop="likes" title="点赞次数"><i class="fa fa-thumbs-up"></i> 0 点赞</span>
+                <span itemprop="comments"><a href="../cms/tech2/248.html#comments" target="_blank" title="评论数"><i class="fa fa-comments"></i> 0</a> 评论</span>
+                <span itemprop="views" title="浏览次数"><i class="fa fa-eye"></i> 248 浏览</span>
+            </div>
+        </div>
+    </div>
+    </article>
+
+                        
+                        <!--@formatter:off-->
+    
+    <!-- S 分页栏 -->
+    <div class="text-center pager">
+        <ul class="pagination"><li><a href="26.html">&laquo;</a></li> <li><a href="29.html">1</a></li><li><a href="21.html">2</a></li><li class="disabled"><span>...</span></li><li><a href="24.html">6</a></li><li><a href="25.html">7</a></li><li><a href="26.html">8</a></li><li class="active"><span>9</span></li><li><a href="211.html">10</a></li><li><a href="212.html">11</a></li><li><a href="214.html">12</a></li><li class="disabled"><span>...</span></li><li><a href="27.html">19</a></li><li><a href="28.html">20</a></li> <li><a href="211.html">&raquo;</a></li></ul>    </div>
+    <!-- E 分页栏 -->
+    <!--@formatter:on-->
+
+                    </div>
+                            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="article-sidebar">
+                <!-- S 会员菜单 -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked space-nav">
+                            <li class="active"><a href="2/archives.html">TA的文章</a></li>
+                            <li class=""><a href="2/comment.html">TA的评论</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- E 会员菜单 -->
+
+                <div class="panel panel-blockimg">
+                    <p><img src="../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

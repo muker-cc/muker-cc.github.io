@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch...... - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="d47951b5c971e2d5cda928077567093f">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 330 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="margin: 10px 8px 15px;padding-top: 8px;padding-bottom: 8px;white-space: normal;text-align: left;color: rgb(89, 89, 89);font-size: 16px;letter-spacing: 2px;background-color: rgb(255, 255, 255);word-spacing: 2px;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;line-height: 1.75em;" data-mpa-powered-by="yiban.io"><span style='caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>六月份TIOBE编程语言排行榜，<span style="caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);color: rgb(51, 51, 51);text-align: justify;">位居第二名的Python与第一名C语言之间的差距正在逐渐缩小</span>。Python如此受欢迎一方面得益于它崇尚简洁的编程哲学，另一方面是因为强大的第三方库生态。</span></p><p style="margin: 10px 8px 15px;padding-top: 8px;padding-bottom: 8px;white-space: normal;text-align: left;color: rgb(89, 89, 89);font-size: 16px;letter-spacing: 2px;background-color: rgb(255, 255, 255);word-spacing: 2px;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;line-height: 1.75em;"><img style='width: 663px !important; height: auto !important; letter-spacing: 1px; font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif; font-size: 15px; visibility: visible !important; box-sizing: border-box !important;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="663" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.2956259426847662" _width="663px" data-fail="0"><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;letter-spacing: 1px;caret-color: red;'>要说杀手级的库，很难排出个先后顺序，因为python的明星库非常多，在各个领域都算得上出类拔萃。</span></p><p style="margin: 10px 8px 15px;padding-top: 8px;padding-bottom: 8px;white-space: normal;text-align: left;color: rgb(89, 89, 89);font-size: 16px;letter-spacing: 2px;background-color: rgb(255, 255, 255);word-spacing: 2px;font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;line-height: 1.75em;"><span style='caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 1px;'>比如web框架-Django、深度学习框架-TensorFlow、自然语言处理框架-NLTK、图像处理库-PIL、爬虫库-requests、图形界面框架-PyQt、可视化库-Matplotlib、科学计算库-Numpy、数据分析库-Pandas......</span></p><p style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);'><img class="img_loading" style="margin: 20px auto; border-radius: 6px; width: 677px !important; height: 506.34px !important; letter-spacing: 0.54px; display: block; visibility: visible !important; box-sizing: border-box; object-fit: contain;" alt="图片" src="../../mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640.jpg" crossorigin="anonymous" data-w="886" data-type="png" data-src="../../mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640.jpg" data-ratio="0.7471783295711061" _width="677px"></p><p style='margin-right: 8px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;margin-bottom: 1.2em !important;'><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;color: rgb(0, 0, 0);caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);'>因此，今天给大家分享<strong>122</strong></span><strong style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;'><span style="caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);">篇【Python主流框架】精选学习资料</span></strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);'>，其中不仅详细讲解了Django、Matplotlib、Pandas、Numpy、PyTorch、Tensorflow、Keras、Scrapy、Scipy、Sympy、PythonRequest等知识点，也同样包含了大量各大厂的面试原题。</span><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;caret-color: red;'>同时还有</span><strong style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;caret-color: red;'>6本Python必读好书</strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;caret-color: red;'>，扫码即可获取，</span><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;caret-color: red;text-align: left;'>限额100名！</span><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;text-align: left;caret-color: red;'></span></p><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;'><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="color: rgb(0, 0, 0);text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);">同时，对于Python</span><span style="color: rgb(0, 0, 0);caret-color: red;">基础掌握不牢固的小伙伴们，我们推出了</span><strong style="color: rgb(0, 0, 0);caret-color: red;">C站软件工程师能力认证，</strong><span style="color: rgb(0, 0, 0);caret-color: red;">帮助大家进行系统化学习，充分建立编码学习思维，扎实编码能力。</span></span></p><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;'><span style='caret-color: red;font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>通过提供免费训练，在训练过程中采用基于“任务文档+任务视频+任务群交流+模拟题+知识点讲解”的学习模式，让大家实现面向实践、任务驱动、共同成长的目标。</span></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="text-align: center;"><img class="rich_pages img_loading" style="width: 661px !important; height: 372.68px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1920" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.5625" data-galleryid="" data-s="300,640" _width="677px"></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='color: rgb(0, 0, 0);text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>欢迎大家可以加入我们的学习小组一起系统学习！打好基础，为进大厂做准备！</span></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><br></p></section><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;letter-spacing: 1px;line-height: 1.75em;'><strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 18px;'><span style="text-align: justify;"><span style="caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);">Python主流框架</span></span></span></strong><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 18px;'><strong><span style="color: rgb(0, 0, 0);text-align: justify;">学习资料122篇</span></strong></span></p><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;letter-spacing: 1px;line-height: 1.75em;'><br></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="color: rgb(0, 0, 0);">为了方便大家学习，</span><strong style="color: rgb(0, 0, 0);">我们发起了C站百万知识库行动，其中包含了122</strong><strong>篇点击破万，收藏过千的<strong style="color: rgb(0, 0, 0);">【<strong><span style="caret-color: red;text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);">Python主流框架</span></strong>】学习资料总结</strong></strong><span style="color: rgb(0, 0, 0);">，包含Django、Matplotlib、Pandas、Numpy、Scipy、Sympy、PythonRequest、Scrapy、Tensorflow、Keras、PyTorch等知识点。无论你是刚刚接触Java、Python、前端的技术小白，还是已经有了一定基础的技术爱好者，在这里，你都可以找到你想要的资料。</span></span></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><strong><span style="color: rgb(0, 0, 0);text-decoration-style: solid;text-decoration-color: rgb(0, 0, 0);">扫码加入技术沙龙群，资料会在每天下午5点进行更新</span></strong></span></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 165px !important; height: 165px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="400" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1" data-galleryid="" data-s="300,640" _width="165px"></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>部分资料展示：</span></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="img_loading" style='outline: 0px !important; width: 645px !important; height: 995.48px !important; color: rgb(0, 0, 0); font-family: 微软雅黑,"Microsoft YaHei",sans-serif; visibility: visible !important; z-index: -1; cursor: pointer; box-sizing: border-box !important;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="477" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.5450733752620545" data-backw="477" data-backh="737" _width="645px"></p><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="img_loading" style="width: 645px !important; height: 963.87px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="490" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.4959183673469387" data-backw="490" data-backh="733" _width="645px"><img class="img_loading" style="background-position: center !important; border: 1px solid rgb(238, 237, 235); border-image: none; width: 645px !important; height: 583.91px !important; background-repeat: no-repeat !important; visibility: visible !important; box-sizing: border-box !important; background-size: 22px !important; background-color: rgb(238, 237, 235) !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="600" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.905" data-backw="546" data-backh="494" _width="645px"></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><br></p></section><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 18px;'><strong>Python好书免费领</strong></span></p><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><br></p><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>学习python，书籍是必不可少的学习工具之一，尤其是对于自学者而言。今天给在校的小伙伴们带来学习Python必看的6本好书，非常全面。</span></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='color: rgb(0, 0, 0);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>扫描海报二维码<span style="text-align: center;">加入技术沙龙群，资料会在每天下午5点进行更新</span>，学生免费领取图书，限额100名！</span></p><p style="text-align: center;"><img class="rich_pages img_loading" style="width: 661px !important; height: 1173.55px !important; visibility: visible !important; box-sizing: border-box !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1080" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.7777777777777777" data-galleryid="" data-s="300,640" _width="677px"></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><br></p></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;min-height: 1em;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 18px;'><strong style="caret-color: red;">百万知识库等你领取！</strong></span></p></section><p style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;border-width: initial;border-style: none;border-color: initial;letter-spacing: 1px;line-height: 1.75em;'><br></p><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="color: rgb(51, 51, 51);">目前已梳理</span><strong style="color: rgb(51, 51, 51);">Java<strong>知</strong></strong><strong style="color: rgb(51, 51, 51);">识库600篇、<strong>Python</strong>知识库600篇、前端知识库600篇，it软件工程师基础能力500篇，</strong><span style="color: rgb(51, 51, 51);">既包含小白+1的基础能力学习，也包含进大厂需要拥有的项目能力学习教程。知识库持续更新中，欢迎加入我们一起学习吧！</span></span></p></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><p style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='color: rgb(51, 51, 51);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>C站知识库覆盖以下知识点，每日更新中，欢迎进群一起系统学习！</span></p></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;line-height: 1.75em;"><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;line-height: 1.75em;"><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;line-height: 1.75em;"><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;line-height: 1.75em;"><section data-id="101146" data-tools="135编辑器"><section style="margin: 10px 8px 15px;line-height: 1.75em;"><section style="overflow-y: auto;height: 219px;width: 581px;display: inline-block;" data-width="100%"><section style="padding: 1em;"><section style="color: rgb(51, 51, 51);line-height: 1.75em;letter-spacing: 1.5px;font-size: 14px;" data-autoskip="1"><p><img class="rich_pages img_loading" style='outline: 0px !important; width: 534.68px !important; height: 1102.76px !important; text-align: center; letter-spacing: 1px; font-family: -apple-system-font,system-ui,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; font-size: 17px; visibility: visible !important; z-index: -1; cursor: pointer; box-sizing: border-box;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="632" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="2.0664556962025316" data-s="300,640" _width="534.68px"></p><p><img class="rich_pages img_loading" style='outline: 0px !important; width: 534.68px !important; height: 1174.66px !important; text-align: center; letter-spacing: 1px; font-family: -apple-system-font,system-ui,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; font-size: 17px; visibility: visible !important; z-index: -1; cursor: pointer; box-sizing: border-box;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="695" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="2.2014388489208634" data-s="300,640" _width="534.68px"></p><p><img class="rich_pages img_loading" style='outline: 0px !important; width: 534.68px !important; height: 850.5px !important; text-align: center; letter-spacing: 1px; font-family: -apple-system-font,system-ui,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; font-size: 17px; visibility: visible !important; z-index: -1; cursor: pointer; box-sizing: border-box;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="619" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.5928917609046849" data-s="300,640" _width="534.68px"></p><p><img class="rich_pages img_loading" style='outline: 0px !important; width: 534.68px !important; height: 1051.55px !important; text-align: center; letter-spacing: 1px; font-family: -apple-system-font,system-ui,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; font-size: 17px; visibility: visible !important; z-index: -1; cursor: pointer; box-sizing: border-box;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="775" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.9703225806451612" data-s="300,640" _width="534.68px"></p></section></section></section></section></section></section></section></section></section></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><strong>部分资料预览：</strong></span></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;white-space: normal;clear: both;min-height: 1em;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;text-align: center;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="background-position: center !important; border: 1px solid rgb(238, 237, 235); border-image: none; width: 629px !important; height: 515.06px !important; background-repeat: no-repeat !important; visibility: visible !important; box-sizing: border-box; background-size: 22px !important; background-color: rgb(238, 237, 235) !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="952" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.8182773109243697" data-s="300,640" _width="629px"></section></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;white-space: normal;clear: both;min-height: 1em;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;text-align: center;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 629px !important; height: 496.05px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="981" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.7879714576962283" data-s="300,640" _width="629px"></section></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;white-space: normal;clear: both;min-height: 1em;background-color: rgb(255, 255, 255);letter-spacing: 1px;line-height: 1.75em;text-align: center;font-family: -apple-system-font, system-ui, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 629px !important; height: 500.77px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="978" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.7955010224948875" data-s="300,640" _width="629px"></section></section></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='color: rgb(51, 51, 51);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>资料太多，无法一一截图，欢迎大家扫码进入技术沙龙群，资料会在每天下午5点进行更新~<br></span></section></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='color: rgb(51, 51, 51);font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>扫码领取</span></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 162px !important; height: 162px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="400" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1" data-galleryid="" data-s="300,640" _width="162px"></section></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="color: rgb(51, 51, 51);">下图是C站（CSDN）软件工程师能力认证标准中的</span><strong style="color: rgb(51, 51, 51);">C1/C4-能力认证图</strong><span style="color: rgb(51, 51, 51);">，分为基础能力和项目能力两大模块，可以看到模块中的技能点能够</span><strong style="color: rgb(51, 51, 51);">全覆盖</strong><span style="color: rgb(51, 51, 51);">一线大厂开发工程师的招聘JD要求。</span></span></section></section><section style='margin: 0pt 8px 15px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);min-height: 1em;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="img_loading" style='width: 645px !important; height: 688.46px !important; text-align: center; color: rgb(51, 51, 51); letter-spacing: 1.5px; font-family: -apple-system-font,system-ui,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei UI","Microsoft YaHei",Arial,sans-serif; font-size: 17px; visibility: visible !important; box-sizing: border-box;' alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1080" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.0675925925925926" _width="677px" data-cropsely2="627" data-cropsely1="0" data-cropselx2="578" data-cropselx1="0"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="caret-color: red;color: rgb(51, 51, 51);">通过以上，大家可以清晰地看到</span><strong style="caret-color: red;color: rgb(51, 51, 51);">大厂招聘要求与能力认证一一对应、紧密相连。</strong></span></section><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><strong><span style="color: rgb(0, 0, 0);">C认证企业奖学金计划</span></strong><span style="color: rgb(0, 0, 0);">为梦想加持，让努力发光。同时，C认证的成功离不开以下合作企业的赞助，感谢一路相伴~</span></span></section><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;text-align: center;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 645px !important; height: 1066.27px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="957" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1.6551724137931034" data-galleryid="" data-s="300,640" _width="645px"></section></section><section style='font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);' data-id="101632" data-tools="135编辑器"><section style="margin-bottom: -3px;margin-left: 10px;width: 40px;"><img style="width: 40px !important; height: 25.09px !important; display: block; visibility: visible !important; box-sizing: border-box;" alt="图片" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" data-w="161" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="0.6273291925465838" _width="40px" data-width="100%"></section><section style="margin: 10px 8px 15px;line-height: 1.75em;"><section style="display: flex;justify-content: space-between;"><section style="width: 6px;height: 6px;background-color: rgb(255, 181, 181);border-radius: 50%;overflow: hidden;"><br></section><section style="width: 6px;height: 6px;background-color: rgb(255, 181, 181);border-radius: 50%;overflow: hidden;"><br></section></section></section><section style="margin: -4px 8px 15px;border-top: 2px solid rgb(255, 181, 181);height: 2px;overflow: hidden;line-height: 1.75em;"><br></section></section><section style='margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1.5px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='text-align: justify;font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><strong>CSDN软件工程师能力认证</strong>（以下简称C系列认证）是由中国软件开发者网CSDN制定并推出的一个能力认证标准。C系列认证历经近一年的实际线下调研、考察、迭代、测试，并梳理出软件工程师开发过程中所需的各项技术技能，结合企业招聘需求和人才应聘痛点，基于公开、透明、公正的原则，甑别人才时确保真实业务场景、全部上机实操、所有过程留痕、存档不可篡改。</span></section></section></section><section style='margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1.5px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'><span style="background-color: rgb(255, 255, 0);"><strong><span style="text-align: justify;">C系列认证步骤</span></strong></span><strong><span style="text-align: justify;">：</span></strong></span></section></section></section><section style='margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1.5px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='text-align: justify;font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>1.打开官网（https://ac.csdn.net/），预约认证，报名成功。</span></section></section></section><section style='margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1.5px;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;min-height: 1em;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='text-align: justify;font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>2.扫描下方二维码，进群领取学习资料和学习任务，群内还有任务直播讲解以及答疑，一起来记录自己的成长过程吧~</span></section></section></section><section style='margin-top: 0pt;margin-bottom: 0pt;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;white-space: normal;background-color: rgb(255, 255, 255);text-align: left;font-size: 11pt;color: rgb(73, 73, 73);letter-spacing: 1.5px;line-height: 1.75em;'><section style="margin: 0pt 8px 15px;text-align: justify;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>预约后可进入C认证任务小组</span></section></section><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>小组内有：</span></section></section><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>1、C认证每阶段学习资料</span></section></section><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>2、C认证每阶段实践任务，完成后还可收获合作企业赞助奖学金红包！</span></section></section><section style="margin: 0pt 8px 15px;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>3、任务直播讲解以及大咖答疑</span></section></section><section style="margin: 0pt 8px 15px;text-align: justify;min-height: 1em;font-size: 11pt;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-size: 15px;font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;'>4、每天更新系统化的干货文章合集，汇集成系统性知识库，帮助大家自主学习</span></section><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><span style='font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;font-size: 15px;text-align: left;'>快快扫码进入技术沙龙群，一起来记录自己的成长过程吧~</span></section></section></section><section style='margin-right: 8px;margin-bottom: 15px;margin-left: 8px;font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;line-height: 1.75em;'><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;letter-spacing: 1px;line-height: 1.75em;"><section style="margin-right: 8px;margin-bottom: 15px;margin-left: 8px;line-height: 1.75em;"><img class="rich_pages img_loading" style="width: 136px !important; height: 136px !important; visibility: visible !important; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="400" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1" data-galleryid="" data-s="300,640" _width="136px"></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/CHiw8cMxJVhuq1zgG3x9VQ</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="208" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="208" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="208" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/jenkis5.html" class="tag" rel="tag">Python</a><a href="../t/Pandas.html" class="tag" rel="tag">Pandas</a><a href="../t/jenkis5.html" class="tag" rel="tag">Django</a><a href="../t/jenkis5.html" class="tag" rel="tag">Matplotlib</a><a href="../t/Numpy.html" class="tag" rel="tag">Numpy</a><a href="../t/PyTorch.html" class="tag" rel="tag">PyTorch</a></li>
+        <li>浏览次数：<span>330</span> 次浏览</li>
+        <li>发布日期：2021-07-08 22:05:47</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/208.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="../t/jenkis5.html">太酷了，Python 制作足球可视化图表 | 代码干货</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="../t/jenkis5.html">自动驾驶中实时车道检测和警报</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/g64sbb6Ffmf8BlRqqSlFHeQWmcyPGLbJk79Wr6BSLvZEX1aMKzs0e4QmJ2qYgK1iaBUj5uheXZzyGMRTPOeibv3w/640.jpg" alt="深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">深度盘点Python11个主流框架：Pandas、Django、Matplotlib、Numpy、PyTorch......</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="d47951b5c971e2d5cda928077567093f">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="208">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

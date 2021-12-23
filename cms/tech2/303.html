@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>利用 PGO 提升 .NET 程序性能 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="08c4bedee4165a7eaac849571836e8b2">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">利用 PGO 提升 .NET 程序性能</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 281 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="white-space: normal;text-align: center;"><span style="color: rgb(255, 169, 0);font-size: 15px;">↓推荐关注↓</span></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzAxMDM0MzQ4Mg==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/DSU8cv1j3ibStMRcibJLd4TkNlt53KNZj0A2IicORH4REC4ics87icsx703M5giby2wuofz3dicMsHVcXDMXTM6t6VBQw/0?wx_fmt=png" data-nickname="开源前哨" data-alias="osfront" data-signature="点击获取10万+ star的开发资源库。 日常分享热门、有趣和实用的开源项目～" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzAxMDM0MzQ4Mg==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/DSU8cv1j3ibStMRcibJLd4TkNlt53KNZj0A2IicORH4REC4ics87icsx703M5giby2wuofz3dicMsHVcXDMXTM6t6VBQw/0.jpg" alt="开源前哨">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                开源前哨                           </strong>           <div class="wx_profile_desc">点击获取10万+ star的开发资源库。 日常分享热门、有趣和实用的开源项目～</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">114篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="white-space: normal;text-align: left;"><span style="color:#ab1942;font-family:Helvetica;"><span style="font-size: 16px;"><strong>前言</strong></span></span></p><p style="white-space: normal;text-align: left;"><br></p><p style="white-space: normal;text-align: left;"><span style="text-align: left;color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">.NET 6 开始初步引入 PGO。PGO 即 Profile Guided Optimization，通过收集运行时信息来指导 JIT 如何优化代码，相比以前没有 PGO 时可以做更多以前难以完成的优化。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">下面我们用 .NET 6 的 nightly build 版本 </span><code style="letter-spacing: 0px;font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">6.0.100-rc.1.21377.6</code><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"> 来试试新的 PGO。</span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-weight: bold;font-family: Helvetica;letter-spacing: 0px;font-size: 16px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-weight: bold;font-family: Helvetica;letter-spacing: 0px;font-size: 16px;">PGO 工具</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">.NET 6 提供了静态 PGO 和动态 PGO。前者通过工具收集 profile 数据，然后应用到下一次编译当中指导编译器如何进行代码优化；后者则直接在运行时一边收集 profile 数据一边进行优化。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">另外由于从 .NET 5 开始引入了 OSR（On Stack Replacement），因此可以在运行时替换正在运行的函数，允许将正在运行的低优化代码迁移到高优化代码，例如替换一个热循环中的代码。</span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-size: 20px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-weight: bold;font-family: Helvetica;letter-spacing: 0px;font-size: 16px;">分层编译和 PGO</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">.NET 从 Core 3.1 开始正式引入了分层编译（Tiered Compilation），程序启动时 JIT 首先快速生成低优化的 tier 0 代码，由于优化代价小，因此 JIT 吞吐量很高，可以改善整体的延时。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">然后随着程序运行，对多次调用的方法进行再次 JIT 产生高优化的 tier 1 代码，以提升程序的执行效率。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">但是这么做对于程序的性能几乎没有提升，只是改善了延时，降低首次 JIT 的时间，却反而可能由于低优化代码导致性能倒退。</span><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">因此我个人通常在开发客户端类程序的时候会关闭分层编译，而在开发服务器程序时开启分层编译。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">然而 .NET 6 引入 PGO 后，分层编译的机制将变得非常重要。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">由于 tier 0 的代码是低优化代码，因此更能够收集到完整的运行时 profile 数据，指导 JIT 做更全面的优化。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">为什么这么说？</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">例如在 tier 1 代码中，某方法 B 被某方法 A 内联（inline），运行期间多次调用方法 A 后收集到了 profile 将只包含 A 的信息，而没有 B 的信息；</span><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">又例如在 tier 1 代码中，某循环被 JIT 做了 loop cloning，那此时收集到的 profile 则是不准确的。</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">因此为了发挥 PGO 的最大效果，我们不仅需要开启分层编译，还需要给循环启用 Quick Jit 在一开始生成低优化代码。</span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(171, 25, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;">进行</span><span style="color: rgb(171, 25, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;">优化</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">前面说了这么多，那 .NET 6 的 PGO 到底应该如何使用，又会如何对代码优化产生影响呢？</span><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">这里举个例子。</span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(61, 167, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: rgb(61, 167, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;">测试代</span><span style="color: rgb(61, 167, 66);font-size: 16px;font-weight: bold;font-family: Helvetica;letter-spacing: 0px;">码</span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;"><br></span></p><p style="white-space: normal;text-align: left;"><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">新建一个 .NET 6 控制台项目 </span><code style="letter-spacing: 0px;font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">PgoExperiment</code><span style="color: black;font-family: Helvetica;font-size: 16px;letter-spacing: 0px;">，考虑有如下代码：</span></p><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Helvetica;"><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="color: #c678dd;line-height: 26px;">interface</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">IGenerator</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">bool</span>&nbsp;ReachEnd&nbsp;{&nbsp;<span style="color: #c678dd;line-height: 26px;">get</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">int</span>&nbsp;Current&nbsp;{&nbsp;<span style="color: #c678dd;line-height: 26px;">get</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;"><span style="color: #c678dd;line-height: 26px;">bool</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">MoveNext</span>()</span>;<br>}<br><br><span style="color: #c678dd;line-height: 26px;">abstract</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">class</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">IGeneratorFactory</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;"><span style="color: #c678dd;line-height: 26px;">public</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">abstract</span>&nbsp;IGenerator&nbsp;<span style="color: #61aeee;line-height: 26px;">CreateGenerator</span>()</span>;<br>}<br><br><span style="color: #c678dd;line-height: 26px;">class</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">MyGenerator</span>&nbsp;:&nbsp;<span style="color: #61aeee;line-height: 26px;">IGenerator</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">private</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">int</span>&nbsp;_current;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">public</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">bool</span>&nbsp;ReachEnd&nbsp;{&nbsp;<span style="color: #c678dd;line-height: 26px;">get</span>;&nbsp;<span style="color: #c678dd;line-height: 26px;">private</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">set</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">public</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">int</span>&nbsp;Current&nbsp;{&nbsp;<span style="color: #c678dd;line-height: 26px;">get</span>;&nbsp;<span style="color: #c678dd;line-height: 26px;">private</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">set</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;"><span style="color: #c678dd;line-height: 26px;">public</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">bool</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">MoveNext</span>()</span><br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(ReachEnd)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;<span style="color: #56b6c2;line-height: 26px;">false</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_current++;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(_current&nbsp;&gt;&nbsp;<span style="color: #d19a66;line-height: 26px;">1000</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReachEnd&nbsp;=&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;<span style="color: #56b6c2;line-height: 26px;">false</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;=&nbsp;_current;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br><span style="color: #c678dd;line-height: 26px;">class</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">MyGeneratorFactory</span>&nbsp;:&nbsp;<span style="color: #61aeee;line-height: 26px;">IGeneratorFactory</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;"><span style="color: #c678dd;line-height: 26px;">public</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">override</span>&nbsp;IGenerator&nbsp;<span style="color: #61aeee;line-height: 26px;">CreateGenerator</span>()</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;<span style="color: #c678dd;line-height: 26px;">new</span>&nbsp;MyGenerator();<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">我们利用 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IGeneratorFactory</code> 产生 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IGenerator</code>，同时分别提供对应的一个实现 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">MyGeneratorFactory</code> 和 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">MyGenerator</code>。注意实现类并没有标注 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">sealed</code> 因此 JIT 并不知道是否能做去虚拟化（devirtualization），于是生成的代码会老老实实查虚表。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">然后我们编写测试代码：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">[<span style="color: #61aeee;line-height: 26px;">MethodImpl(MethodImplOptions.NoInlining)</span>]<br><span style="line-height: 26px;"><span style="color: #c678dd;line-height: 26px;">int</span>&nbsp;<span style="color: #61aeee;line-height: 26px;">Test</span>(<span style="line-height: 26px;">IGeneratorFactory&nbsp;factory</span>)</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;generator&nbsp;=&nbsp;factory.CreateGenerator();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;result&nbsp;=&nbsp;<span style="color: #d19a66;line-height: 26px;">0</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">while</span>&nbsp;(generator.MoveNext())<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;generator.Current;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;result;<br>}<br><br><span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;sw&nbsp;=&nbsp;Stopwatch.StartNew();<br><span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;factory&nbsp;=&nbsp;<span style="color: #c678dd;line-height: 26px;">new</span>&nbsp;MyGeneratorFactory();<br><br><span style="color: #c678dd;line-height: 26px;">for</span>&nbsp;(<span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;i&nbsp;=&nbsp;<span style="color: #d19a66;line-height: 26px;">0</span>;&nbsp;i&nbsp;&lt;&nbsp;<span style="color: #d19a66;line-height: 26px;">10</span>;&nbsp;i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;sw.Restart();<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">for</span>&nbsp;(<span style="color: #c678dd;line-height: 26px;">int</span>&nbsp;j&nbsp;=&nbsp;<span style="color: #d19a66;line-height: 26px;">0</span>;&nbsp;j&nbsp;&lt;&nbsp;<span style="color: #d19a66;line-height: 26px;">1000000</span>;&nbsp;j++)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test(factory);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;sw.Stop();<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span style="color: #98c379;line-height: 26px;">$"Iteration&nbsp;<span style="color: #e06c75;line-height: 26px;">{i}</span>:&nbsp;<span style="color: #e06c75;line-height: 26px;">{sw.ElapsedMilliseconds}</span>&nbsp;ms."</span>);<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">你可能会问为什么不用 BenchmarkDotNet，因为这里要测试出 分层编译和 PGO 前后的区别，因此不能进行所谓的“预热”。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;text-align: left;"><span style="color: rgb(61, 167, 66);font-size: 16px;">进行测试</span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">测试环境：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">CPU：2vCPU Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">内存：4G</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">系统：Ubuntu 20.04.2 LTS</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">程序运行配置：Release</section></li></ul><h4 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 18px;text-align: left;"><span style="font-size: 16px;">不使用 PGO</span></h4><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">首先采用默认参数运行：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet&nbsp;run&nbsp;-c&nbsp;Release<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">得到结果：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">Iteration&nbsp;0:&nbsp;740&nbsp;ms.<br>Iteration&nbsp;1:&nbsp;648&nbsp;ms.<br>Iteration&nbsp;2:&nbsp;687&nbsp;ms.<br>Iteration&nbsp;3:&nbsp;639&nbsp;ms.<br>Iteration&nbsp;4:&nbsp;643&nbsp;ms.<br>Iteration&nbsp;5:&nbsp;641&nbsp;ms.<br>Iteration&nbsp;6:&nbsp;641&nbsp;ms.<br>Iteration&nbsp;7:&nbsp;639&nbsp;ms.<br>Iteration&nbsp;8:&nbsp;644&nbsp;ms.<br>Iteration&nbsp;9:&nbsp;643&nbsp;ms.<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">Mean = 656.5ms</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">你会发现 Iteration 0 用时比其他都要长一点，这符合预期，因为一开始执行的是 tier 0 的低优化代码，然后随着调用次数增加，JIT 重新生成 tier 1 的高优化代码。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">然后我们关闭分层编译看看会怎么样：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet&nbsp;run&nbsp;-c&nbsp;Release&nbsp;/p:TieredCompilation=<span style="color: #56b6c2;line-height: 26px;">false</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">得到结果：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">Iteration&nbsp;0:&nbsp;677&nbsp;ms.<br>Iteration&nbsp;1:&nbsp;669&nbsp;ms.<br>Iteration&nbsp;2:&nbsp;677&nbsp;ms.<br>Iteration&nbsp;3:&nbsp;680&nbsp;ms.<br>Iteration&nbsp;4:&nbsp;683&nbsp;ms.<br>Iteration&nbsp;5:&nbsp;689&nbsp;ms.<br>Iteration&nbsp;6:&nbsp;677&nbsp;ms.<br>Iteration&nbsp;7:&nbsp;685&nbsp;ms.<br>Iteration&nbsp;8:&nbsp;676&nbsp;ms.<br>Iteration&nbsp;9:&nbsp;673&nbsp;ms.<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">Mean = 678.6ms</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">这下就没有区别了，因为一开始生成的就是 tier 1 的高优化代码。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">我们看看 JIT dump：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;rbp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;r14<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbp,[rsp+10h]<br>;&nbsp;&nbsp;&nbsp;factory.CreateGenerator()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,[rdi]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,[rax+40h]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax+20h]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbx,rax<br>;&nbsp;&nbsp;&nbsp;var&nbsp;result&nbsp;=&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14d,r14d<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.MoveNext())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r11,7F3357AE0008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,7F3357AE0008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #e6c07b;line-height: 26px;">test</span>&nbsp;&nbsp;&nbsp;&nbsp;eax,eax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;je&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;LBL_1<br><br>LBL_0:<br>;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;generator.Current;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r11,7F3357AE0010h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,7F3357AE0010h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14d,eax<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.MoveNext())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r11,7F3357AE0008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,7F3357AE0008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #e6c07b;line-height: 26px;">test</span>&nbsp;&nbsp;&nbsp;&nbsp;eax,eax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;LBL_0<br><br>LBL_1:<br>;&nbsp;&nbsp;&nbsp;<span style="color: #e6c07b;line-height: 26px;">return</span>&nbsp;result;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eax,r14d<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">我用注释标注出了生成的代码中关键地方对应的 C# 写法，还原成 C# 代码大概是这个样子：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;generator&nbsp;=&nbsp;factory.CreateGenerator();<br><span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;result&nbsp;=&nbsp;<span style="color: #d19a66;line-height: 26px;">0</span>;<br><br><span style="color: #c678dd;line-height: 26px;">do</span><br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.MoveNext())<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;generator.Current;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;result;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}&nbsp;<span style="color: #c678dd;line-height: 26px;">while</span>(<span style="color: #56b6c2;line-height: 26px;">true</span>);<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">这里有不少有趣的地方：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;"><code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">while</code> 循环被优化成了 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">do-while</code> 循环，做了一次 loop inversion，以此来节省一次循环</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;"><code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">generator.CreateGenerator</code>、<code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">generator.MoveNext</code> 以及 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">generator.Current</code> 完全没有去虚拟化</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">因为没有去虚拟化因此也无法做内联优化</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">这已经是 tier 1 代码了，也就是目前阶段 RyuJIT（.NET 6 的 JIT 编译器）在不借助任何指示编译器的 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Attribute</code> 以及 PGO 所能生成的最大优化等级的代码。</p><h4 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 18px;text-align: left;"><span style="font-size: 16px;">使用 PGO</span></h4><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">这一次我们先看看启用动态 PGO 能得到怎样的结果。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">为了使用动态 PGO，现阶段需要设置一些环境变量。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_ReadyToRun=0&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;禁用&nbsp;AOT</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_TieredPGO=1&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;开启分层&nbsp;PGO</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_TC_QuickJitForLoops=1&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;为循环启用&nbsp;Quick&nbsp;Jit</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">然后运行即可：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet&nbsp;run&nbsp;-c&nbsp;Release<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">得到如下结果：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">Iteration&nbsp;0:&nbsp;349&nbsp;ms.<br>Iteration&nbsp;1:&nbsp;190&nbsp;ms.<br>Iteration&nbsp;2:&nbsp;188&nbsp;ms.<br>Iteration&nbsp;3:&nbsp;189&nbsp;ms.<br>Iteration&nbsp;4:&nbsp;190&nbsp;ms.<br>Iteration&nbsp;5:&nbsp;190&nbsp;ms.<br>Iteration&nbsp;6:&nbsp;189&nbsp;ms.<br>Iteration&nbsp;7:&nbsp;188&nbsp;ms.<br>Iteration&nbsp;8:&nbsp;191&nbsp;ms.<br>Iteration&nbsp;9:&nbsp;189&nbsp;ms.<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">Mean = 205.3ms</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">得到了惊人的性能提升，只用了先前的 31% 的时间，相当于性能提升 322%。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">然后我们试试静态 PGO + AOT 编译，AOT 负责在编译时预先生成优化后的代码。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">为了使用静态 PGO，我们需要安装 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">dotnet-pgo</code> 工具生成静态 PGO 数据，由于正式版尚未发布，因此需要添加如下 nuget 源：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">configuration</span>&gt;</span><br>&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">packageSources</span>&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">add</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">key</span>=<span style="color: #98c379;line-height: 26px;">"dotnet-public"</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">value</span>=<span style="color: #98c379;line-height: 26px;">"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">add</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">key</span>=<span style="color: #98c379;line-height: 26px;">"dotnet-tools"</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">value</span>=<span style="color: #98c379;line-height: 26px;">"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">add</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">key</span>=<span style="color: #98c379;line-height: 26px;">"dotnet-eng"</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">value</span>=<span style="color: #98c379;line-height: 26px;">"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">add</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">key</span>=<span style="color: #98c379;line-height: 26px;">"dotnet6"</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">value</span>=<span style="color: #98c379;line-height: 26px;">"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6/nuget/v3/index.json"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 26px;">&lt;<span style="color: #e06c75;line-height: 26px;">add</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">key</span>=<span style="color: #98c379;line-height: 26px;">"dotnet6-transport"</span>&nbsp;<span style="color: #d19a66;line-height: 26px;">value</span>=<span style="color: #98c379;line-height: 26px;">"https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet6-transport/nuget/v3/index.json"</span>&nbsp;/&gt;</span><br>&nbsp;&nbsp;<span style="line-height: 26px;">&lt;/<span style="color: #e06c75;line-height: 26px;">packageSources</span>&gt;</span><br><span style="line-height: 26px;">&lt;/<span style="color: #e06c75;line-height: 26px;">configuration</span>&gt;</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">安装 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">dotnet-pgo</code> 工具：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet&nbsp;tool&nbsp;install&nbsp;dotnet-pgo&nbsp;--version&nbsp;6.0.0-*&nbsp;-g<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">先运行程序采集 profile：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_EnableEventPipe=1<br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_EventPipeConfig=Microsoft-Windows-DotNETRuntime:0x1F000080018:5<br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_EventPipeOutputPath=trace.nettrace&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;追踪文件输出路径</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_ReadyToRun=0&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;禁用&nbsp;AOT</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_TieredPGO=1&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;启用分层&nbsp;PGO</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_TC_CallCounting=0&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;永远不产生&nbsp;tier&nbsp;1&nbsp;代码</span><br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_TC_QuickJitForLoops=1<br><span style="color: #e6c07b;line-height: 26px;">export</span>&nbsp;DOTNET_JitCollect64BitCounts=1<br><br>dotnet&nbsp;run&nbsp;-c&nbsp;Release<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">等待程序运行完成，我们会得到一个 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">trace.nettrace</code> 文件，里面包含了追踪数据，然后利用 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">dotnet-pgo</code> 工具产生 PGO 数据。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet-pgo&nbsp;create-mibc&nbsp;-t&nbsp;trace.nettrace&nbsp;-o&nbsp;pgo.mibc<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">至此我们就得到了一个 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">pgo.mibc</code>，里面包含了 PGO 数据。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">然后我们使用 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">crossgen2</code>，在 PGO 数据的指导下对代码进行 AOT 编译：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">dotnet&nbsp;publish&nbsp;-c&nbsp;Release&nbsp;-r&nbsp;linux-x64&nbsp;/p:PublishReadyToRun=<span style="color: #56b6c2;line-height: 26px;">true</span>&nbsp;/p:PublishReadyToRunComposite=<span style="color: #56b6c2;line-height: 26px;">true</span>&nbsp;/p:PublishReadyToRunCrossgen2ExtraArgs=--embed-pgo-data%3b--mibc%3apgo.mibc<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">你可能会觉得这一系列步骤里面不少参数和环境变量都非常诡异，自然也是因为目前正式版还没有发布，因此名称和参数什么的都还没有规范化。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">编译后我们运行编译后代码：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;"><span style="color: #e6c07b;line-height: 26px;">cd</span>&nbsp;bin/Release/net6.0/linux-x64/publish<br>./PgoExperiment<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">得到如下结果：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">Iteration&nbsp;0:&nbsp;278&nbsp;ms.<br>Iteration&nbsp;1:&nbsp;185&nbsp;ms.<br>Iteration&nbsp;2:&nbsp;186&nbsp;ms.<br>Iteration&nbsp;3:&nbsp;187&nbsp;ms.<br>Iteration&nbsp;4:&nbsp;184&nbsp;ms.<br>Iteration&nbsp;5:&nbsp;187&nbsp;ms.<br>Iteration&nbsp;6:&nbsp;185&nbsp;ms.<br>Iteration&nbsp;7:&nbsp;183&nbsp;ms.<br>Iteration&nbsp;8:&nbsp;180&nbsp;ms.<br>Iteration&nbsp;9:&nbsp;186&nbsp;ms.<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">Mean = 194.1ms</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">相比动态 PGO 而言，可以看出第一次用时更小，因为不需要经过 profile 收集后重新 JIT 的过程。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">我们看看 PGO 数据指导下产生了怎样的代码：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><code style="overflow-x: auto;padding: 15px 16px 16px;color: rgb(171, 178, 191);display: -webkit-box;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;font-size: 12px;background: rgb(40, 44, 52);border-radius: 5px;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;rbp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;r15<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;r14<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;r12<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;&nbsp;&nbsp;rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbp,[rsp+<span style="color: #d19a66;line-height: 26px;">20</span>h]<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(factory.GetType()&nbsp;==&nbsp;<span style="color: #c678dd;line-height: 26px;">typeof</span>(MyGeneratorFactory))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,<span style="line-height: 26px;">offset&nbsp;<span style="color: #61aeee;line-height: 26px;">methodtable</span>(<span style="line-height: 26px;">MyGeneratorFactory</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rdi],rax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;near&nbsp;ptr&nbsp;LBL_11</span><br>;&nbsp;&nbsp;&nbsp;IGenerator&nbsp;generator&nbsp;=&nbsp;<span style="color: #c678dd;line-height: 26px;">new</span>&nbsp;MyGenerator()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,<span style="line-height: 26px;">offset&nbsp;<span style="color: #61aeee;line-height: 26px;">methodtable</span>(<span style="line-height: 26px;">MyGenerator</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;CORINFO_HELP_NEWSFAST<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbx,rax<br><br>LBL_0:</span><br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">var</span>&nbsp;result&nbsp;=&nbsp;<span style="color: #d19a66;line-height: 26px;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14d,r14d<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_4<br><br>LBL_1:<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.GetType()&nbsp;==&nbsp;<span style="color: #c678dd;line-height: 26px;">typeof</span>(MyGenerator))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,<span style="line-height: 26px;">offset&nbsp;<span style="color: #61aeee;line-height: 26px;">methodtable</span>(<span style="line-height: 26px;">MyGenerator</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r15,rdi<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_6</span><br>;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;generator.Current<br>LBL_2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r12d,[rbx+<span style="color: #d19a66;line-height: 26px;">0</span>Ch]<br><br>LBL_3:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">add</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14d,r12d<br><br>LBL_4:<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.GetType()&nbsp;==&nbsp;<span style="color: #c678dd;line-height: 26px;">typeof</span>(MyGenerator))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r15,[rbx]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,<span style="line-height: 26px;">offset&nbsp;<span style="color: #61aeee;line-height: 26px;">methodtable</span>(<span style="line-height: 26px;">MyGenerator</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r15,rax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_8</span><br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.ReachEnd)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">byte</span>&nbsp;ptr&nbsp;[rax+<span style="color: #d19a66;line-height: 26px;">10</span>h],<span style="color: #d19a66;line-height: 26px;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_7<br>;&nbsp;&nbsp;&nbsp;generator._current++<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eax,[rbx+<span style="color: #d19a66;line-height: 26px;">8</span>]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rbx+<span style="color: #d19a66;line-height: 26px;">8</span>],eax<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator._current&nbsp;&gt;&nbsp;<span style="color: #d19a66;line-height: 26px;">1000</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eax,<span style="color: #d19a66;line-height: 26px;">3E8</span>h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_5<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rbx+<span style="color: #d19a66;line-height: 26px;">0</span>Ch],eax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_2<br><br>LBL_5:<br>;&nbsp;&nbsp;&nbsp;ReachEnd&nbsp;=&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">byte</span>&nbsp;ptr&nbsp;[rbx+<span style="color: #d19a66;line-height: 26px;">10</span>h],<span style="color: #d19a66;line-height: 26px;">1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_10<br><br>LBL_6:<br>;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;generator.Current<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r11,<span style="color: #d19a66;line-height: 26px;">7F</span>5C42A70010h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,<span style="color: #d19a66;line-height: 26px;">7F</span>5C42A70010h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r12d,eax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_3<br><br>LBL_7:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r12d,r12d<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">short</span>&nbsp;LBL_9<br><br>LBL_8:<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">if</span>&nbsp;(generator.MoveNext())<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rdi,rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r11,<span style="color: #d19a66;line-height: 26px;">7F</span>5C42A70008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,<span style="color: #d19a66;line-height: 26px;">7F</span>5C42A70008h<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r12d,eax<br><br>LBL_9:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test&nbsp;&nbsp;&nbsp;&nbsp;r12d,r12d<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;near&nbsp;ptr&nbsp;LBL_1<br><br>LBL_10:<br>;&nbsp;&nbsp;&nbsp;<span style="color: #c678dd;line-height: 26px;">return</span>&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span>/<span style="color: #56b6c2;line-height: 26px;">false</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eax,r14d<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbx<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r12<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r14<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r15<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbp<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret<br><br>LBL_11:<br>;&nbsp;&nbsp;&nbsp;factory.CreateGenerator()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,[rdi]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rax,[rax+<span style="color: #d19a66;line-height: 26px;">40</span>h]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call&nbsp;&nbsp;&nbsp;&nbsp;qword&nbsp;ptr&nbsp;[rax+<span style="color: #d19a66;line-height: 26px;">20</span>h]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rbx,rax<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;near&nbsp;ptr&nbsp;LBL_0<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">同样，我用注释标注出来了关键地方对应的 C# 代码，这里由于稍微有些麻烦因此就不在这里还原回大概的 C# 逻辑了。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">同样，我们发现了不少有趣的地方：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">通过类型测试判断 factory 是否是 MyGeneratorFactory、generator 是否是 MyGenerator</section></li><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;list-style-type: square;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">如果是，则跳转到一个代码块，这里面将 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IGeneratorFactory.CreateFactory</code>、<code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IGenerator.MoveNext</code> 以及 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IGenerator.Current</code> 全部去虚拟化，这也叫做 guarded devirtualization，并且全部进行了内联</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">否则跳转到一个代码块，这里面的代码等同于不开启 PGO 的 tier 1 代码</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;">这里做了一次 loop cloning</section></li></ul><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);text-align: left;"><code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">while</code> 循环同样被优化成了 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">do-while</code>，做了一次 loop inversion</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">相比不开启 PGO 而言，显然优化幅度就大了很多。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">用一张图来对比首次运行、总体用时（毫秒）和比例（均为越低越好），从上至下分别是默认、关闭分层编译、动态 PGO、静态 PGO：</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;text-align: left;"><img data-backh="162" data-backw="558" data-ratio="0.29003021148036257" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="662" style="display: block; margin: 0px; inset: auto; width: 308px !important; height: 90.7492px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;text-align: left;"><span style="color: rgb(171, 25, 66);font-size: 16px;">总结</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">有了 PGO 之后，之前的很多性能经验就不再有效。最典型的例如在用 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">List&lt;T&gt;</code> 或者 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Array</code> 的时候 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IEnumerable&lt;T&gt;.Where(pred).FirstOrDefault()</code> 比 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IEnumerable&lt;T&gt;.FirstOrDefault(pred)</code> 快，这是因为 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IEnumerable&lt;T&gt;.Where</code> 在代码层面手动做了针对性的去虚拟化，而 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">FirstOrDefault&lt;T&gt;</code> 没有。但是在 PGO 的辅助下，即使不需要手动编写针对性去虚拟化的代码也能成功去虚拟化，而且不仅仅局限于 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">List&lt;T&gt;</code> 和 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">Array</code>，对所有实现 <code style="font-size: 14px;font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(233, 105, 0);background: rgb(248, 248, 248);">IEnumerable&lt;T&gt;</code> 的类型都适用。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">借助 PGO 我们可以预见大幅度的执行效率提升。例如在 TE-benchmark 非官方测试的 plaintext mvc 中，对比第一次请求时间（毫秒，从运行程序开始计算，越低越好）、RPS（越高越好）和比例（越高越好）结果如下：</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;text-align: left;"><img data-backh="131" data-backw="558" data-ratio="0.23564954682779457" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="662" style="display: block; margin: 0px; inset: auto; width: 308px !important; height: 74.1088px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"><p><br><span style="letter-spacing: 0px;">另外，PGO 在 .NET 6 中尚处于初步阶段，后续版本（.NET 7+）中将会带来更多基于 PGO 的优化。</span><br></p></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">至于其他的 JIT 优化方面，.NET 6 同样做了大量的改进，例如更多的 morphing pass、jump threading、loop inversion、loop alignment、loop cloning 等等，并且优化了 LSRA 和 register heuristic，以及解决了不少导致 struct 出现 stack spilling 的情况，以使其一直保持在寄存器中。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;text-align: left;">但是尽管如此，RyuJIT 在优化方面仍有很长的路要走，例如 loop unrolling、forward subsitituion 以及包含关系条件的 jump threading 之类的优化 .NET 6 目前并不具备，这些优化将会在 .NET 7 或者之后到来。</p></section><p style="white-space: normal;text-align: left;"><br></p><blockquote style="white-space: normal;caret-color: rgb(0, 0, 0);font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><p><span style="font-size: 14px;">转自：<span style="color: rgb(154, 154, 154);font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 14px;caret-color: rgb(0, 0, 0);">hez2010</span></span></p><p><span style="font-size: 14px;">链接：cnblogs.com/hez2010/p/optimize-using-pgo.html</span></p></blockquote><p style="white-space: normal;text-align: center;"><br></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(136, 136, 136);">- EOF -</span></p><section donone="shifuMouseDownCard('shifu_c_030')" label="Copyright Reserved by PLAYHUDONG." style="margin-top: 1em;margin-bottom: 1em;white-space: normal;text-align: start;max-width: 100%;caret-color: rgb(0, 0, 0);color: rgb(0, 0, 0);border-width: 0px;border-style: initial;border-color: initial;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-left: 1em;max-width: 100%;line-height: 1.4;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding: 3px 8px;max-width: 100%;border-radius: 4px;color: rgb(255, 255, 255);background-color: rgb(255, 105, 31);font-family: inherit;text-align: inherit;text-decoration: inherit;font-size: 16px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐阅读</span>&nbsp;&nbsp;<span style="margin-left: 4px;padding: 3px 8px;max-width: 100%;border-radius: 1.2em;color: rgb(255, 255, 255);line-height: 1.2;background-color: rgb(204, 204, 204);font-family: inherit;text-align: inherit;text-decoration: inherit;border-color: rgb(249, 110, 87);font-size: 12px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击标题可跳转</span></section><section style="margin-top: -11px;padding: 22px 16px 16px;max-width: 100%;border-width: 1px;border-style: solid;border-color: rgb(255, 105, 31);color: rgb(51, 51, 51);font-size: 1em;font-family: inherit;text-align: inherit;text-decoration: inherit;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117722&amp;idx=1&amp;sn=f11cb1510383045b394c13c7ac9ca02f&amp;chksm=8039883cb74e012a2480af86b7c9b3180e0bab47b381d6f0ace956655458047708b508159609&amp;scene=21#wechat_redirect');" textvalue="&nbsp;C#新手该如何规划学习【学习路线指南】" data-itemshowtype="11" tab="innerlink" data-linktype="2"><span style="font-size: 14px;">C#新手该如何规划学习【学习路线指南】</span></a></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117705&amp;idx=1&amp;sn=2480b1254777a7667b4cc0ddbb56cc54&amp;chksm=8039882fb74e013999a71412585f685fe6bd958dbd7f7dc2fa039ea64005031e61dad98b5894&amp;scene=21#wechat_redirect');" textvalue=".NET中创建对象的几种方式的对比" data-itemshowtype="11" tab="innerlink" data-linktype="2"><span style="font-size: 14px;">.NET 中创建对象的几种方式的对比</span></a></p><p><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzAxMTMxMDQ3Mw==&amp;mid=2660117705&amp;idx=1&amp;sn=2480b1254777a7667b4cc0ddbb56cc54&amp;chksm=8039882fb74e013999a71412585f685fe6bd958dbd7f7dc2fa039ea64005031e61dad98b5894&amp;scene=21#wechat_redirect');" textvalue=".NET中的高性能队列 Channel" data-itemshowtype="11" tab="innerlink" data-linktype="2"><span style="font-size: 14px;">.NET 中的高性能队列 Channel</span></a></p></section></section><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);color: rgb(44, 44, 44);font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 14px;box-sizing: border-box !important;overflow-wrap: break-word !important;">看完本文有收获？请转发分享给更多人</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;caret-color: rgb(51, 51, 51);font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐关注「DotNet」，提升.Net技能&nbsp;</span></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: center;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-ratio="0.9166666666666666" data-s="300,640" data-src="../../mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640.jpg" data-type="jpeg" data-w="600" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 328px !important; height: 300.833px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/7fxWIIIo4QvpZgnbC4SpnQIKMGCCvpG0qJWY7rVQWFeThoicn68PqwfbC1jxc7bxG03zV9icibbWAHUAvoIhEibbiaA/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;line-height: 25.6px;color: rgb(62, 62, 62);text-align: right;background-color: rgb(255, 255, 255);box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="font-size: 14px;letter-spacing: 0.544px;">点赞和在看就是最大的支持❤️</span></p>                </div><div>来源:https://mp.weixin.qq.com/s/MKYoCIXwL-8Us-Z8wrNboA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="303" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="303" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="../../assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="303" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/.net.html" class="tag" rel="tag">. net</a></li>
+        <li>浏览次数：<span>281</span> 次浏览</li>
+        <li>发布日期：2021-07-29 14:20:13</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/303.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="302.html">HttpClient 禁用自动重定向</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="304.html">十分钟完成Hi3516小型系统的编译烧录！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../yunwei/310.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt=".NET Core + Jenkins + Github 自动化部署到 Docker" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../yunwei/310.html">.NET Core + Jenkins + Github 自动化部署到 Docker</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="利用 PGO 提升 .NET 程序性能" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">利用 PGO 提升 .NET 程序性能</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="302.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="HttpClient 禁用自动重定向" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="302.html">HttpClient 禁用自动重定向</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="281.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt=".NetCore从零开始使用Skywalking分布式追踪系统" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="281.html">.NetCore从零开始使用Skywalking分布式追踪系统</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="08c4bedee4165a7eaac849571836e8b2">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="303">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>一个非常不错的 Go 练手项目 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="6274b920373d096e7ed1ec60d07c3923">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">一个非常不错的 Go 练手项目</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 210 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;" data-mpa-powered-by="yiban.io"><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><p style="text-align: center;"><span style="font-size: 15px;letter-spacing: 0px;text-align: left;">作者：</span><span style="font-size: 15px;letter-spacing: 0px;text-align: left;">HDT3213</span></p><span style="font-size: 15px;letter-spacing: 0px;"><br></span></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">今天给大家带来的开源项目是 Godis：一个用 Go 语言实现的 Redis 服务器。支持：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">5 种数据结构（string、list、hash、set、sortedset）</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">自动过期（TTL）</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">发布订阅、地理位置、持久化等功能</section></li></ul><p style="text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.2294736842105263" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1900" style="width: 308px !important; height: 72.2189px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">你或许不需要自己实现 Redis 服务，但你是否厌烦了每天都是写增删改查的业务代码，想提高编程水平试图从零写个项目打开 IDE 却发现无从下手？</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">动手造轮子一定是提高编程能力的好办法，下面就带大家用 Go 从零开始写一个 Redis 服务器（Godis），从中你将学到：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">如何编写 Go 语言 TCP 服务器</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">设计并实现安全可靠的通信协议（redis 协议）</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">如何使用 Go 语言开发高并发程序</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">设计和实现分布式集群以及分布式事务</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">熟悉链表、哈希表、跳表以及时间轮等常用数据结构</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">千万不要担心内容太难！！虽然示例代码是 Go，但就算你不会 Go 语言也不会影响你理解 Redis 的原理和底层协议以及高性能的秘密。而且作者为了照顾到广大读者，对技术的讲解做了优化。示例代码在原项目基础上做了简化，并逐行地加了注释。如果是高级玩家，请直接访问项目阅读源码：</p><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(239, 112, 96);background: rgb(255, 249, 249);"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;color: black;line-height: 26px;">https://github.com/HDT3213/godis</p></blockquote><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">下面让我们一起拨开 Redis 的迷雾。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"></figure><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">一、写个 TCP 服务器</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">众所周知 Redis 是 C/S 模型，使用 TCP 协议进行通信。接下来就从实现 TCP 服务端开始。作为广泛用于服务端的编程语言 Golang 提供了非常简洁的 TCP 接口，所以实现起来十分方便。示例代码：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">ListenAndServe</span><span style="line-height: 26px;">(address&nbsp;<span style="font-weight: bold;line-height: 26px;">string</span>)</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;绑定监听地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;listener,&nbsp;err&nbsp;:=&nbsp;net.Listen(<span style="color: #d14;line-height: 26px;">"tcp"</span>,&nbsp;address)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;err&nbsp;!=&nbsp;<span style="color: #008080;line-height: 26px;">nil</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.Fatal(fmt.Sprintf(<span style="color: #d14;line-height: 26px;">"listen&nbsp;err:&nbsp;%v"</span>,&nbsp;err))<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">defer</span>&nbsp;listener.Close()<br>&nbsp;&nbsp;&nbsp;&nbsp;log.Println(fmt.Sprintf(<span style="color: #d14;line-height: 26px;">"bind:&nbsp;%s,&nbsp;start&nbsp;listening..."</span>,&nbsp;address))<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">for</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;Accept&nbsp;会一直阻塞直到有新的连接建立或者listen中断才会返回</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conn,&nbsp;err&nbsp;:=&nbsp;listener.Accept()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;err&nbsp;!=&nbsp;<span style="color: #008080;line-height: 26px;">nil</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;通常是由于listener被关闭无法继续监听导致的错误</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.Fatal(fmt.Sprintf(<span style="color: #d14;line-height: 26px;">"accept&nbsp;err:&nbsp;%v"</span>,&nbsp;err))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;开启新的&nbsp;goroutine&nbsp;处理该连接</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">go</span>&nbsp;Handle(conn)<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">Handle</span><span style="line-height: 26px;">(conn&nbsp;net.Conn)</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;reader&nbsp;:=&nbsp;bufio.NewReader(conn)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">for</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;ReadString&nbsp;会一直阻塞直到遇到分隔符&nbsp;'\'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;遇到分隔符后&nbsp;ReadString&nbsp;会返回上次遇到分隔符到现在收到的所有数据</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;若在遇到分隔符之前发生异常,&nbsp;ReadString&nbsp;会返回已收到的数据和错误信息</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg,&nbsp;err&nbsp;:=&nbsp;reader.ReadString(<span style="color: #d14;line-height: 26px;">'\'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;err&nbsp;!=&nbsp;<span style="color: #008080;line-height: 26px;">nil</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;通常遇到的错误是连接中断或被关闭，用io.EOF表示</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;err&nbsp;==&nbsp;io.EOF&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.Println(<span style="color: #d14;line-height: 26px;">"connection&nbsp;close"</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.Println(err)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;:=&nbsp;[]<span style="font-weight: bold;line-height: 26px;">byte</span>(msg)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;将收到的信息发送给客户端</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conn.Write(b)<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">main</span><span style="line-height: 26px;">()</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;ListenAndServe(<span style="color: #d14;line-height: 26px;">":8000"</span>)<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">👌 至此只用了 40 行代码就搞定服务端啦！启动上面的 TCP 服务后，在终端中输入 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">telnet 127.0.0.1 8000</code> 就可以连接到刚写好的服务器，它会将你发送的消息原样返回给你（所以请不要骂它）：</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.2675925925925926" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1080" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 83.8833px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">这个 TCP 服务器的非常简单，主协程调用 accept 函数来监听端口，接受新连接后开启一个 Goroutine 来处理它。这种简单的阻塞 IO 模型有些类似于早期的 Tomcat/Apache 服务器。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">阻塞 IO 模型是使用<strong>一个线程处理一个连接</strong>，在没有收到新数据时监听线程处于阻塞状态，直到数据就绪后线程被唤醒进行处理。因为阻塞 IO 模型需要开启大量线程并且频繁地进行上下文切换，所以它的效率很低。而 Redis 使用的 epoll 技术（IO 多路复用）用<strong>一个线程处理大量连接</strong>，极大地提高了吞吐量。那么我们的 TCP 服务器会比 Redis 慢很多吗？</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">当然不会，Golang 利用 Goroutine 调度开销远远小于线程调度开销的优势封装出 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">goroutine-per-connection</code> 风格的极简接口，而且 net/tcp 库将 epoll 封装成了阻塞 IO 的样子，在享受 epoll 高性能的同时避免了原生 epoll 接口所需的复杂异步代码。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在作者的电脑上 Redis 每秒可以响应 10.6k 个 PING 命令，而 Godis（完整代码） 的吞吐量为 9.2 kqps 相差并不大。想了解更多 Golang 高性能的㊙️密，可以搜索 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">go netpoller</code> 或者 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">go 语言 网络轮询器</code> 关键字</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">另外，合格的 TCP 的服务器在关闭的时候不应该一停了之，而需要完成响应已接收的请求、释放 TCP 连接等必要的清理工作。这个功能我们一般称为 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">优雅关闭</code> 或者 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">graceful shutdown</code>，优雅关闭步骤：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">首先，关闭 listener 停止接受新连接</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">然后，遍历所有存活连接逐个关闭</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">优雅关闭的代码比较多，这里就不完整贴出了。</p><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">二、透视 Redis 协议</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在解决完通信后，下一步就是搞清楚 Redis 的协议，其实就是一套序列化协议类似 JSON、Protocol Buffers，你看底层其实也就是一些基础的知识。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">自 Redis 2.0 以后的通信统一为 RESP 协议（REdis Serialization Protocol)，该协议易于实现不仅可以高效的被程序解析，还能够被人类读懂容易调试。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">RESP 是一个二进制安全的文本协议，工作于 TCP 协议上。RESP 以行作为单位，客户端和服务器发送的命令或数据一律以 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\r\</code>（CRLF）作为换行符。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">二进制安全是指允许协议中出现任意字符而不会导致故障。比如 C 语言的字符串以 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\0</code> 作为结尾不允许字符串中间出现 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\0</code>，而 Go 语言的 string 则允许出现 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\0</code>，我们说 Go 语言的 string 是二进制安全的，而 C 语言字符串不是二进制安全的。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">RESP 的二进制安全性允许我们在 key 或者 value 中包含 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\r</code> 或者 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\</code> 这样的特殊字符。在使用 Redis 存储 protobuf、msgpack 等二进制数据时，二进制安全性尤为重要。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">RESP 定义了 5 种格式：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">简单字符串（Simple String）：服务器用来返回简单的结果，比如 "OK" 非二进制安全，且不允许换行</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">错误信息（Error）：服务器用来返回简单的错误信息，比如 "ERR Invalid Synatx" 非二进制安全，且不允许换行</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">整数（Integer）：llen、scard 等命令的返回值，64 位有符号整数</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">字符串（Bulk String）：二进制安全字符串，比如 get 等命令的返回值</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">数组（Array，又称 Multi Bulk Strings）：Bulk String 数组，客户端发送指令以及 lrange 等命令响应的格式</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">RESP 通过第一个字符来表示格式：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">简单字符串：以"+" 开始， 如："+OK\\r\"</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">错误：以"-" 开始，如："-ERR Invalid Synatx\\r\"</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">整数：以":"开始，如：":1\\r\"</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">字符串：以 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">$</code> 开始</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">数组：以 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">*</code> 开始</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">下面让我们通过一些实际例子来理解协议。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>2.1 字符串<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">字符串（Bulk String）有两行，第一行为 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">$</code>+正文长度，第二行为实际内容。如：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="color: #008080;line-height: 26px;">$3</span>\\r\SET\\r\<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">字符串（Bulk String）是二进制安全的，就是说可以在 Bulk String 内部包含 "\\r\" 字符（行尾的 CRLF 被隐藏）：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="color: #008080;line-height: 26px;">$4</span><br>a\\r\b<br></code></pre><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>2.2 空<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">$-1</code> 表示 nil，比如使用 get 命令查询一个不存在的 key 时，响应即为 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">$-1</code>。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>2.3 数组<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">数组（Array）格式第一行为 "*"+数组长度，其后是相应数量的 字符串（Bulk String）。比如 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">["foo", "bar"]</code> 的报文（传输时的内容）：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;">*2<br><span style="color: #008080;line-height: 26px;">$3</span><br>foo<br><span style="color: #008080;line-height: 26px;">$3</span><br>bar<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">客户端也使用 数组（Array）格式向服务端发送指令。命令本身将作为第一个参数，比如 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">SET key value</code> 指令的 RESP 报文：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;">*3<br><span style="color: #008080;line-height: 26px;">$3</span><br>SET<br><span style="color: #008080;line-height: 26px;">$3</span><br>key<br><span style="color: #008080;line-height: 26px;">$5</span><br>value<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">将换行符打印出来：</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">*3\\r\$3\\r\SET\\r\$3\\r\key\\r\$5\\r\value\\r\</code></p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>2.4 解析预备<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">知道常用的 RESP 报文内容后，就可以开始着手解析了。但需要注意的是 RESP 是 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">二进制安全</code> 的协议，它允许在正文中使用 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">\\r\</code> 字符。举例来说 Redis 可以正确接收并执行 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">SET "a\\r\b" hellogithub</code> 指令，这条指令的正确报文是这样的：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;">*3&nbsp;&nbsp;<br><span style="color: #008080;line-height: 26px;">$3</span><br>SET<br><span style="color: #008080;line-height: 26px;">$4</span><br>a\\r\b&nbsp;<br><span style="color: #008080;line-height: 26px;">$11</span><br>hellogithub<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">当 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">ReadBytes</code> 读取到第五行 "a\\r\b\\r\" 时会将其误认为两行：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;">*3&nbsp;&nbsp;<br><span style="color: #008080;line-height: 26px;">$3</span><br>SET<br><span style="color: #008080;line-height: 26px;">$4</span><br>a&nbsp;&nbsp;//&nbsp;错误的分行<br>b&nbsp;//&nbsp;错误的分行<br><span style="color: #008080;line-height: 26px;">$11</span><br>hellogithub<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">因此当读取到第四行 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">$4</code> 后，不应该继续使用 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">ReadBytes('\')</code> 读取下一行，应使用 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">io.ReadFull(reader, msg)</code> 方法来读取指定长度的内容。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;">msg&nbsp;=&nbsp;<span style="color: #0086b3;line-height: 26px;">make</span>([]<span style="font-weight: bold;line-height: 26px;">byte</span>,&nbsp;<span style="color: #008080;line-height: 26px;">4</span>&nbsp;+&nbsp;<span style="color: #008080;line-height: 26px;">2</span>)&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;正文长度4&nbsp;+&nbsp;换行符长度2</span><br>_,&nbsp;err&nbsp;=&nbsp;io.ReadFull(reader,&nbsp;msg)<br></code></pre><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>2.5 编写 RESP 协议解析器<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">解决完上面内容包含 "\\r\" 的问题，我们就可以开始放手编写 Redis 协议解析器啦！</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="font-weight: bold;line-height: 26px;">type</span>&nbsp;Payload&nbsp;<span style="font-weight: bold;line-height: 26px;">struct</span>&nbsp;{<br>&nbsp;Data&nbsp;redis.Reply<br>&nbsp;Err&nbsp;&nbsp;error<br>}<br><br><span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;ParseStream&nbsp;通过&nbsp;io.Reader&nbsp;读取数据并将结果通过&nbsp;channel&nbsp;将结果返回给调用者</span><br><span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;流式处理的接口适合供客户端/服务端使用</span><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">ParseStream</span><span style="line-height: 26px;">(reader&nbsp;io.Reader)</span>&nbsp;&lt;-<span style="color: #900;font-weight: bold;line-height: 26px;">chan</span>&nbsp;*<span style="color: #900;font-weight: bold;line-height: 26px;">Payload</span></span>&nbsp;{<br>&nbsp;ch&nbsp;:=&nbsp;<span style="color: #0086b3;line-height: 26px;">make</span>(<span style="font-weight: bold;line-height: 26px;">chan</span>&nbsp;*Payload)<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">go</span>&nbsp;parse0(reader,&nbsp;ch)<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;ch<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">由于解析器的代码比较多，这里只简单地介绍一下核心流程。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">parse0</span><span style="line-height: 26px;">(reader&nbsp;io.Reader,&nbsp;ch&nbsp;<span style="font-weight: bold;line-height: 26px;">chan</span>&lt;-&nbsp;*Payload)</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;初始化读取状态</span><br>&nbsp;&nbsp;&nbsp;&nbsp;readingMultiLine&nbsp;:=&nbsp;<span style="color: #008080;line-height: 26px;">false</span><br>&nbsp;&nbsp;&nbsp;&nbsp;expectedArgsCount&nbsp;:=&nbsp;<span style="color: #008080;line-height: 26px;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">var</span>&nbsp;args&nbsp;[][]<span style="font-weight: bold;line-height: 26px;">byte</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">var</span>&nbsp;bulkLen&nbsp;<span style="font-weight: bold;line-height: 26px;">int64</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">for</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;上文中我们提到&nbsp;RESP&nbsp;是以行为单位的</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;因为行分为简单字符串和二进制安全的&nbsp;BulkString，我们需要封装一个&nbsp;readLine&nbsp;函数来兼容</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line,&nbsp;err&nbsp;=&nbsp;readLine(reader,&nbsp;bulkLen)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;err&nbsp;!=&nbsp;<span style="color: #008080;line-height: 26px;">nil</span>&nbsp;{&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;处理错误</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;接下来我们对刚刚读取的行进行解析</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;我们简单的将&nbsp;Reply&nbsp;分为两类:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;单行:&nbsp;StatusReply,&nbsp;IntReply,&nbsp;ErrorReply</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;多行:&nbsp;BulkReply,&nbsp;MultiBulkReply</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;!readingMultiLine&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;isMulitBulkHeader(line)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;我们收到了&nbsp;MulitBulkReply&nbsp;的第一行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;获得&nbsp;MulitBulkReply&nbsp;中&nbsp;BulkString&nbsp;的个数</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedArgsCount&nbsp;=&nbsp;parseMulitBulkHeader(line)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;等待&nbsp;MulitBulkReply&nbsp;后续行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;readingMultiLine&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">true</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;isBulkHeader(line)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;我们收到了&nbsp;BulkReply&nbsp;的第一行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;获得&nbsp;BulkReply&nbsp;第二行的长度,&nbsp;通过&nbsp;bulkLen&nbsp;告诉&nbsp;readLine&nbsp;函数下一行&nbsp;BulkString&nbsp;的长度</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bulkLen&nbsp;=&nbsp;parseBulkHeader()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;这个&nbsp;Reply&nbsp;中一共有&nbsp;1&nbsp;个&nbsp;BulkString</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedArgsCount&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">1</span>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;等待&nbsp;BulkReply&nbsp;后续行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;readingMultiLine&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">true</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;处理&nbsp;StatusReply,&nbsp;IntReply,&nbsp;ErrorReply&nbsp;等单行&nbsp;Reply</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reply&nbsp;:=&nbsp;parseSingleLineReply(line)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;通过&nbsp;ch&nbsp;返回结果</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emitReply(ch)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;进入此分支说明我们正在等待&nbsp;MulitBulkReply&nbsp;或&nbsp;BulkReply&nbsp;的后续行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;MulitBulkReply&nbsp;的后续行有两种，BulkHeader&nbsp;或者&nbsp;BulkString</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;isBulkHeader(line)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bulkLen&nbsp;=&nbsp;parseBulkHeader()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;我们正在读取一个&nbsp;BulkString,&nbsp;它可能是&nbsp;MulitBulkReply&nbsp;或&nbsp;BulkReply&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;=&nbsp;<span style="color: #0086b3;line-height: 26px;">append</span>(args,&nbsp;line)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;<span style="color: #0086b3;line-height: 26px;">len</span>(args)&nbsp;==&nbsp;expectedArgsCount&nbsp;{&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;我们已经读取了所有后续行</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;通过&nbsp;ch&nbsp;返回结果</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emitReply(ch)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #998;font-style: italic;line-height: 26px;">//&nbsp;重置状态,&nbsp;准备解析下一条&nbsp;Reply</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;readingMultiLine&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">false</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedArgsCount&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">nil</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bulkLen&nbsp;=&nbsp;<span style="color: #008080;line-height: 26px;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br></code></pre><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;border-bottom: 2px solid rgb(239, 112, 96);font-size: 1.3em;"><span style="display: none;"></span><span style="display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);padding: 3px 10px 1px;border-top-right-radius: 3px;border-top-left-radius: 3px;margin-right: 3px;">三、实现内存数据库</span><span style="display: inline-block;vertical-align: bottom;border-bottom: 36px solid #efebe9;border-right: 20px solid transparent;"> </span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">至此我们已经搞定数据接收和解析的部分了，剩下就是我们应该把数据存在哪里了？</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">抛开持久化部分，作为基于内存的 KV 数据库 Redis 的所有数据需要都存储在内存中的哈希表，而这个哈希表就是我们今天需要编写的最后一个组件。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">与单线程的 Redis 不同我们实现的 Redis（godis）是并行工作的，所以我们必须考虑各种并发安全问题。常见的并发安全哈希表设计有几种：</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;color: black;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">sync.map</code>：Golang 官方提供的并发哈希表，适合读多写少的场景。但是在 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">m.dirty</code> 刚被提升后会将 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">m.read</code> 复制到新的 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">m.dirty</code> 中，在数据量较大的情况下复制操作会阻塞所有协程，存在较大的隐患。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;color: black;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">juc.ConcurrentHashMap</code>：Java 的并发哈希表采用分段锁实现。在进行扩容时访问哈希表线程都将协助进行 rehash 操作，在 rehash 结束前所有的读写操作都会阻塞。因为缓存数据库中键值对数量巨大且对读写操作响应时间要求较高，使用 juc 的策略是不合适的。</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;color: black;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">memcached hashtable</code>：在后台线程进行 rehash 操作时，主线程会判断要访问的哈希槽是否已被 rehash 从而决定操作 old_hashtable 还是操作 new_hashtable。这种设计被称为<strong>渐进式 rehash</strong> 它的优点是 rehash 操作基本不会阻塞主线程的读写，是最理想的的方案。</p></section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">但渐进式 rehash 的实现非常复杂，所以 godis 采用 Golang 社区广泛使用的分段锁策略（非上面的三种），就是将 key 分散到固定数量的 shard 中避免进行整体 rehash 操作。shard 是有锁保护的 map，当 shard 进行 rehash 时会阻塞 shard 内的读写，但不会对其他 shard 造成影响。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.5855728429985856" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="jpeg" data-w="707" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 181.185px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">代码如下：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="font-weight: bold;line-height: 26px;">type</span>&nbsp;ConcurrentDict&nbsp;<span style="font-weight: bold;line-height: 26px;">struct</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;[]*Shard<br>&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;<span style="font-weight: bold;line-height: 26px;">int32</span><br>}<br><br><span style="font-weight: bold;line-height: 26px;">type</span>&nbsp;Shard&nbsp;<span style="font-weight: bold;line-height: 26px;">struct</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">map</span>[<span style="font-weight: bold;line-height: 26px;">string</span>]<span style="font-weight: bold;line-height: 26px;">interface</span>{}<br>&nbsp;&nbsp;&nbsp;&nbsp;mutex&nbsp;sync.RWMutex<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(dict&nbsp;*ConcurrentDict)</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">spread</span><span style="line-height: 26px;">(hashCode&nbsp;<span style="font-weight: bold;line-height: 26px;">uint32</span>)</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">uint32</span></span>&nbsp;{<br>&nbsp;tableSize&nbsp;:=&nbsp;<span style="font-weight: bold;line-height: 26px;">uint32</span>(<span style="color: #0086b3;line-height: 26px;">len</span>(dict.table))<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;(tableSize&nbsp;-&nbsp;<span style="color: #008080;line-height: 26px;">1</span>)&nbsp;&amp;&nbsp;<span style="font-weight: bold;line-height: 26px;">uint32</span>(hashCode)<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(dict&nbsp;*ConcurrentDict)</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">getShard</span><span style="line-height: 26px;">(index&nbsp;<span style="font-weight: bold;line-height: 26px;">uint32</span>)</span>&nbsp;*<span style="color: #900;font-weight: bold;line-height: 26px;">Shard</span></span>&nbsp;{<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;dict.table[index]<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(dict&nbsp;*ConcurrentDict)</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">Get</span><span style="line-height: 26px;">(key&nbsp;<span style="font-weight: bold;line-height: 26px;">string</span>)</span>&nbsp;<span style="line-height: 26px;">(val&nbsp;<span style="font-weight: bold;line-height: 26px;">interface</span>{},&nbsp;exists&nbsp;<span style="font-weight: bold;line-height: 26px;">bool</span>)</span></span>&nbsp;{<br>&nbsp;hashCode&nbsp;:=&nbsp;fnv32(key)<br>&nbsp;index&nbsp;:=&nbsp;dict.spread(hashCode)<br>&nbsp;shard&nbsp;:=&nbsp;dict.getShard(index)<br>&nbsp;shard.mutex.RLock()<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">defer</span>&nbsp;shard.mutex.RUnlock()<br>&nbsp;val,&nbsp;exists&nbsp;=&nbsp;shard.m[key]<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span><br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(dict&nbsp;*ConcurrentDict)</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">Put</span><span style="line-height: 26px;">(key&nbsp;<span style="font-weight: bold;line-height: 26px;">string</span>,&nbsp;val&nbsp;<span style="font-weight: bold;line-height: 26px;">interface</span>{})</span>&nbsp;<span style="line-height: 26px;">(result&nbsp;<span style="font-weight: bold;line-height: 26px;">int</span>)</span></span>&nbsp;{<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;dict&nbsp;==&nbsp;<span style="color: #008080;line-height: 26px;">nil</span>&nbsp;{<br>&nbsp;&nbsp;<span style="color: #0086b3;line-height: 26px;">panic</span>(<span style="color: #d14;line-height: 26px;">"dict&nbsp;is&nbsp;nil"</span>)<br>&nbsp;}<br>&nbsp;hashCode&nbsp;:=&nbsp;fnv32(key)<br>&nbsp;index&nbsp;:=&nbsp;dict.spread(hashCode)<br>&nbsp;shard&nbsp;:=&nbsp;dict.getShard(index)<br>&nbsp;shard.mutex.Lock()<br>&nbsp;<span style="font-weight: bold;line-height: 26px;">defer</span>&nbsp;shard.mutex.Unlock()<br><br>&nbsp;<span style="font-weight: bold;line-height: 26px;">if</span>&nbsp;_,&nbsp;ok&nbsp;:=&nbsp;shard.m[key];&nbsp;ok&nbsp;{<br>&nbsp;&nbsp;shard.m[key]&nbsp;=&nbsp;val<br>&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;<span style="color: #008080;line-height: 26px;">0</span><br>&nbsp;}&nbsp;<span style="font-weight: bold;line-height: 26px;">else</span>&nbsp;{<br>&nbsp;&nbsp;shard.m[key]&nbsp;=&nbsp;val<br>&nbsp;&nbsp;dict.addCount()<br>&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;<span style="color: #008080;line-height: 26px;">1</span><br>&nbsp;}<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">ConcurrentDict</code> 可以保证对单个 key 操作的并发安全性，但是仍然无法满足并发安全的需求，举例来说：</p><ol data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">Incr 命令需要完成：<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">读取 -&gt; 做加法 -&gt; 写入</code> 三步操作，读取和写入两步操作不是原子性的</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">MSETNX 命令当且仅当所有给定键都不存在时所有给定键设置值，我们需要保证「检查多个key是否存在」以及「写入多个key」这两个操作的原子性</section></li></ol><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">因此我们需要实现 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">db.Locker</code> 用于锁定一个或一组 key 直到我们完成所有操作后再释放。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">实现 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">db.Locker</code> 最直接的想法是使用一个 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">map[string]*sync.RWMutex</code></p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">加锁过程分为两步：初始化 mutex -&gt; 加锁</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 26px;color: rgb(1, 1, 1);">解锁过程也分为两步: 解锁 -&gt; 释放mutex</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">那么存在一个无法解决的并发问题：</p><section data-tool="mdnice编辑器" style="overflow-x: auto;"><table><thead><tr style="border-width: 1px 0px 0px;border-right-style: initial;border-bottom-style: initial;border-left-style: initial;border-right-color: initial;border-bottom-color: initial;border-left-color: initial;border-top-style: solid;border-top-color: rgb(204, 204, 204);background-color: white;"><th style="border-top-width: 1px;border-color: rgb(204, 204, 204);background-color: rgb(240, 240, 240);min-width: 85px;text-align: center;">时间</th><th style="border-top-width: 1px;border-color: rgb(204, 204, 204);background-color: rgb(240, 240, 240);min-width: 85px;text-align: center;">协程A</th><th style="border-top-width: 1px;border-color: rgb(204, 204, 204);background-color: rgb(240, 240, 240);min-width: 85px;text-align: center;">协程B</th></tr></thead><tbody style="border-width: 0px;border-style: initial;border-color: initial;"><tr style="border-width: 1px 0px 0px;border-right-style: initial;border-bottom-style: initial;border-left-style: initial;border-right-color: initial;border-bottom-color: initial;border-left-color: initial;border-top-style: solid;border-top-color: rgb(204, 204, 204);background-color: white;"><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">1</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;"><br></td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">locker["a"].Unlock()</td></tr><tr style="border-width: 1px 0px 0px;border-right-style: initial;border-bottom-style: initial;border-left-style: initial;border-right-color: initial;border-bottom-color: initial;border-left-color: initial;border-top-style: solid;border-top-color: rgb(204, 204, 204);background-color: rgb(248, 248, 248);"><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">2</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">locker["a"] = &amp;sync.RWMutex{}</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;"><br></td></tr><tr style="border-width: 1px 0px 0px;border-right-style: initial;border-bottom-style: initial;border-left-style: initial;border-right-color: initial;border-bottom-color: initial;border-left-color: initial;border-top-style: solid;border-top-color: rgb(204, 204, 204);background-color: white;"><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">3</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;"><br></td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">delete(locker["a"])</td></tr><tr style="border-width: 1px 0px 0px;border-right-style: initial;border-bottom-style: initial;border-left-style: initial;border-right-color: initial;border-bottom-color: initial;border-left-color: initial;border-top-style: solid;border-top-color: rgb(204, 204, 204);background-color: rgb(248, 248, 248);"><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">4</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;">locker["a"].Lock()</td><td style="border-color: rgb(204, 204, 204);min-width: 85px;text-align: center;"><br></td></tr></tbody></table></section><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">由于 t3 时协程 B 释放了锁，t4 时协程 A 试图加锁会失败。若协程B在解锁时不执行 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;color: rgb(239, 112, 96);">delete(locker["a"])</code> 就可以避免该异常的发生，但是这样会造成严重的内存泄露。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">我们注意到哈希槽的数量远少于 key 的数量，反过来说多个键可以共用一个哈希槽。所以我们不再直接对 key 进行加锁而是锁定 key 所在的哈希槽也可以保证安全，另一方面哈希槽数量较少即使不释放也不会消耗太多内存。</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;"><code style="overflow-x: auto;padding: 16px;color: #333;background: #f8f8f8;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;border-radius: 0px;font-size: 12px;-webkit-overflow-scrolling: touch;"><span style="font-weight: bold;line-height: 26px;">type</span>&nbsp;Locks&nbsp;<span style="font-weight: bold;line-height: 26px;">struct</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;[]*sync.RWMutex<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="color: #900;font-weight: bold;line-height: 26px;">Make</span><span style="line-height: 26px;">(tableSize&nbsp;<span style="font-weight: bold;line-height: 26px;">int</span>)</span>&nbsp;*<span style="color: #900;font-weight: bold;line-height: 26px;">Locks</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;:=&nbsp;<span style="color: #0086b3;line-height: 26px;">make</span>([]*sync.RWMutex,&nbsp;tableSize)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">for</span>&nbsp;i&nbsp;:=&nbsp;<span style="color: #008080;line-height: 26px;">0</span>;&nbsp;i&nbsp;&lt;&nbsp;tableSize;&nbsp;i++&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table[i]&nbsp;=&nbsp;&amp;sync.RWMutex{}<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;line-height: 26px;">return</span>&nbsp;&amp;Locks{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table:&nbsp;table,<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(locks&nbsp;*Locks)</span><span style="color: #900;font-weight: bold;line-height: 26px;">Lock</span><span style="line-height: 26px;">(key&nbsp;<span style="font-weight: bold;line-height: 26px;">string</span>)</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;:=&nbsp;locks.spread(fnv32(key))<br>&nbsp;&nbsp;&nbsp;&nbsp;mu&nbsp;:=&nbsp;locks.table[index]<br>&nbsp;&nbsp;&nbsp;&nbsp;mu.Lock()<br>}<br><br><span style="line-height: 26px;"><span style="font-weight: bold;line-height: 26px;">func</span>&nbsp;<span style="line-height: 26px;">(locks&nbsp;*Locks)</span><span style="color: #900;font-weight: bold;line-height: 26px;">UnLock</span><span style="line-height: 26px;">(key&nbsp;<span style="font-weight: bold;line-height: 26px;">string</span>)</span></span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;:=&nbsp;locks.spread(fnv32(key))<br>&nbsp;&nbsp;&nbsp;&nbsp;mu&nbsp;:=&nbsp;locks.table[index]<br>&nbsp;&nbsp;&nbsp;&nbsp;mu.Unlock()<br>}<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在锁定多个 key 时需要注意，若 协程A 持有 键a 的锁试图获得 键b 的锁，此时 协程B 持有 键b 的锁试图获得 键a 的锁则会形成死锁。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">解决方法是所有协程都按照相同顺序加锁，若两个协程都想获得 键a 和 键b 的锁，那么必须先获取 键a 的锁后获取 键b 的锁，这样就可以避免循环等待。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">到目前为止构建 Redis 服务器所需的基本组件已经备齐，只需要将 TCP 服务器、协议解析器与哈希表组装起来我们的 Redis 服务器就可以开始工作啦。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">最后，以上代码均简化自我写的 Godis：一个开源仅用 Go 语言实现的 Redis 服务器。期待您的关注和 Star：</p><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(239, 112, 96);background: rgb(255, 249, 249);"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;color: black;line-height: 26px;">项目地址：https://github.com/HDT3213/godis</p></blockquote><h1 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 24px;"><span style="display: none;"></span></h1><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 1.3em;border-bottom: 2px solid rgb(239, 112, 96);"><span style="margin-right: 3px;padding: 3px 10px 1px;display: inline-block;background: rgb(239, 112, 96);color: rgb(255, 255, 255);border-top-right-radius: 3px;border-top-left-radius: 3px;">四、结束</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">很多朋友的日常工作主要是编写业务代码，对于框架、数据库、中间件这些“架构”、“底层代码” 有一些恐惧感。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">但本文我们只写了 3 个组件，共计几百行代码就实现了一个基本的 Redis 服务器。所以底层的技术并不难，只要你对技术感兴趣由浅入深、从简到繁，“底层代码”也并不神秘。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;"><span style="color: rgb(153, 153, 153);font-size: 15px;text-align: center;background-color: rgb(255, 255, 255);letter-spacing: 0px;"><br></span></p><section style="max-width: 100%;font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 0.544px;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);color: rgb(62, 62, 62);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-mpa-template="t" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;">&nbsp; &nbsp;</p><section style="margin-right: 8px;margin-left: 8px;max-width: 100%;letter-spacing: 0.544px;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: center;font-size: 15px;word-spacing: 1.6px;text-size-adjust: auto;caret-color: rgb(62, 62, 62);box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-copyright="0" data-ratio="0.07625" data-s="300,640" data-src="../../mmbiz_jpg/WLXa0NsmXuiap5yprf7DJXhpdhC0XIBAopbpFTUe1eSSuGbT5Kg63CPBicfpxwLAFIm2wPkicB5NWdSicbzziaibPXSA/640.jpg" data-type="jpeg" data-w="800" style="letter-spacing: 0.544px; box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 247px !important; height: 18.8337px !important;" _width="247px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" crossorigin="anonymous" alt="图片"><span style="max-width: 100%;color: inherit;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0.544px;word-spacing: 1.6px;box-sizing: border-box !important;overflow-wrap: break-word !important;"></span></section><section style="max-width: 100%;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0.544px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-role="outer" label="Powered by 135editor.com" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-role="outer" label="Powered by 135editor.com" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-role="outer" label="Powered by 135editor.com" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tools="135编辑器" data-id="93451" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-role="outer" label="Powered by 135editor.com" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tools="135编辑器" data-id="92877" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-width="100%" style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding-right: 10px;padding-left: 10px;max-width: 100%;text-align: left;line-height: 1.6;letter-spacing: 0.034em;color: rgb(63, 63, 63);box-sizing: border-box !important;overflow-wrap: break-word !important;"><section style="margin-right: 16px;margin-left: 16px;max-width: 100%;letter-spacing: 2px;text-align: center;word-spacing: 2px;widows: 1;caret-color: rgb(43, 43, 43);color: rgb(43, 43, 43);font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;text-size-adjust: auto;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section><section style="margin-top: 1.5em;margin-bottom: 5px;max-width: 100%;color: inherit;white-space: normal;background-color: rgb(255, 255, 255);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0px;line-height: inherit;font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;">喜欢明哥文章的同学</section><section style="margin-top: 5px;margin-bottom: 1.5em;max-width: 100%;color: inherit;white-space: normal;background-color: rgb(255, 255, 255);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0px;line-height: inherit;font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;">欢迎长按下图订阅！</section><p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: inherit;white-space: normal;background-color: rgb(255, 255, 255);font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;letter-spacing: 0px;line-height: inherit;font-size: 15px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;">⬇⬇⬇</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;max-width: 100%;min-height: 1em;color: rgb(0, 0, 0);font-family: -apple-system, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;font-size: 16px;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);line-height: 26px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><img data-ratio="1" data-src="../../mmbiz_png/Z9cbLZEggxIpo9uxnz9ibo0GBLOuLy5f8g9JYaGfSM85yYauOiafx2cj04PpT3wfB53FpLuBXqFdV4CgzL0Yjmsw/640.jpg" data-type="png" data-w="430" style="box-sizing: border-box !important; overflow-wrap: break-word !important; visibility: visible !important; width: 259px !important; height: 259px !important;" _width="259px" class="img_loading" src="../../mmbiz_png/Z9cbLZEggxIpo9uxnz9ibo0GBLOuLy5f8g9JYaGfSM85yYauOiafx2cj04PpT3wfB53FpLuBXqFdV4CgzL0Yjmsw/640.jpg" crossorigin="anonymous" alt="图片"></p></section>                </div><div>来源:https://mp.weixin.qq.com/s/YfQvzT_xbmIRto11G_AHyg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="212" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="212" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/xBgIbW1vdNPWkD6xmM3YDpLKRk9icwRvyyIuib3RuttVFnsljC8XwPgicGkL1zibBcKKAhTERZRwKnzEaesYZhcfXQ/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="212" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/Golang1.html" class="tag" rel="tag">golang</a></li>
+        <li>浏览次数：<span>210</span> 次浏览</li>
+        <li>发布日期：2021-07-09 10:09:20</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/212.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="210.html">基于 Yarp 实现内网 http 穿透</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="213.html">使用 C# 开发浏览器扩展</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="312.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="《Go 语言高级编程》的故事" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="312.html">《Go 语言高级编程》的故事</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="249.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="用 Go 写一个轻量级的 ssh 批量操作工具" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="249.html">用 Go 写一个轻量级的 ssh 批量操作工具</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="228.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="Go 中 io 包的使用方法" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="228.html">Go 中 io 包的使用方法</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="216.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="Go 语言实现简易版 netstat 命令" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="216.html">Go 语言实现简易版 netstat 命令</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="6274b920373d096e7ed1ec60d07c3923">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="212">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

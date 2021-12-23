@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>Prometheus 中使用 PrometheusAlert 进行聚合报警 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="b2fc03a08c7c48f94e1626d303c47f7d">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">Prometheus 中使用 PrometheusAlert 进行聚合报警</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 234 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="font-size: 16px;color: black;padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;" data-mpa-powered-by="yiban.io"><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.4557752341311134" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="961" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">本身prometheus已经有了alertmanager这个组件提供了一些报警媒介比如email wechat等，为什么我还还要使用prometheusalert呢？</p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzU4MjQ0MTU4Ng==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/z9BgVMEm7YtTw2oONBkwaiaM9hBxUj6yRLDEw8rSSxR8wWZFLjjXWpmGq5LNDlEAn4v9lSALDiaGfC4MyPZwL95g/0?wx_fmt=png" data-nickname="k8s技术圈" data-alias="kube100" data-signature="专注容器、专注 kubernetes 技术......" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzU4MjQ0MTU4Ng==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/z9BgVMEm7YtTw2oONBkwaiaM9hBxUj6yRLDEw8rSSxR8wWZFLjjXWpmGq5LNDlEAn4v9lSALDiaGfC4MyPZwL95g/0.jpg" alt="k8s技术圈">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                k8s技术圈                           </strong>           <div class="wx_profile_desc">专注容器、专注 kubernetes 技术......</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">223篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">Prometheus Alert是开源的运维告警中心消息转发系统,支持主流的监控系统Prometheus,Zabbix,日志系统Graylog和数据可视化系统Grafana发出的预警消息,支持钉钉,微信,华为云短信,腾讯云短信,腾讯云电话,阿里云短信,阿里云电话等，可以看出prometheusalert相比和alertmanager内置的报警媒介相比支持的更全面，并且配置和调试更方便，prometheusalert 并不能取代alertmanager，而是要作为webhoook与alertmanager结合使用。</p><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="display: none;"></span>安装</h2><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #5c6370;font-style: italic;line-height: 26px;">#Kubernetes中运行可以直接执行以下命令行即可(注意默认的部署模版中未挂载模版数据库文件&nbsp;db/PrometheusAlertDB.db，为防止模版数据丢失，请自行增加挂载配置&nbsp;)</span><br>wget&nbsp;https://raw.githubusercontent.com/feiyu563/PrometheusAlert/master/example/kubernetes/PrometheusAlert-Deployment.yaml<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">注意：这里需要修改一下文件中volumemount中使用的configmap名称，参见<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">https://github.com/feiyu563/PrometheusAlert/issues</code>(2021-01-26)</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">修改后文件如下</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;"><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;apiVersion:&nbsp;v1</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;kind:&nbsp;Namespace</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;metadata:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;name:&nbsp;monitoring</span><br>---&nbsp;&nbsp;<br>apiVersion:&nbsp;v1<br>data:<br>&nbsp;&nbsp;app.conf:&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓全局配置-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;appname&nbsp;=&nbsp;PrometheusAlert<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#监听端口</span><br>&nbsp;&nbsp;&nbsp;&nbsp;httpport&nbsp;=&nbsp;8080<br>&nbsp;&nbsp;&nbsp;&nbsp;runmode&nbsp;=&nbsp;dev<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#设置代理&nbsp;proxy&nbsp;=&nbsp;http://123.123.123.123:8080</span><br>&nbsp;&nbsp;&nbsp;&nbsp;proxy&nbsp;=<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#开启JSON请求</span><br>&nbsp;&nbsp;&nbsp;&nbsp;copyrequestbody&nbsp;=&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#告警消息标题</span><br>&nbsp;&nbsp;&nbsp;&nbsp;title=PrometheusAlert<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#链接到告警平台地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;GraylogAlerturl=http://graylog.org<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#钉钉告警&nbsp;告警logo图标地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;logourl=https://raw.githubusercontent.com/feiyu563/PrometheusAlert/master/doc/alert-center.png<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#钉钉告警&nbsp;恢复logo图标地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;rlogourl=https://raw.githubusercontent.com/feiyu563/PrometheusAlert/master/doc/alert-center.png<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#短信告警级别(等于3就进行短信告警)&nbsp;告警级别定义&nbsp;0&nbsp;信息,1&nbsp;警告,2&nbsp;一般严重,3&nbsp;严重,4&nbsp;灾难</span><br>&nbsp;&nbsp;&nbsp;&nbsp;messagelevel=3<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#电话告警级别(等于4就进行语音告警)&nbsp;告警级别定义&nbsp;0&nbsp;信息,1&nbsp;警告,2&nbsp;一般严重,3&nbsp;严重,4&nbsp;灾难</span><br>&nbsp;&nbsp;&nbsp;&nbsp;phonecalllevel=4<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#默认拨打号码(页面测试短信和电话功能需要配置此项)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;defaultphone=xxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#故障恢复是否启用电话通知0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;phonecallresolved=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#自动告警抑制(自动告警抑制是默认同一个告警源的告警信息只发送告警级别最高的第一条告警信息,其他消息默认屏蔽,这么做的目的是为了减少相同告警来源的消息数量,防止告警炸弹,0为关闭,1为开启)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;silent=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否前台输出file&nbsp;or&nbsp;console</span><br>&nbsp;&nbsp;&nbsp;&nbsp;logtype=file<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#日志文件路径</span><br>&nbsp;&nbsp;&nbsp;&nbsp;logpath=logs/prometheusalertcenter.log<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#转换Prometheus,graylog告警消息的时区为CST时区(如默认已经是CST时区，请勿开启)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;prometheus_cst_time=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#数据库驱动，支持sqlite3，mysql,如使用mysql，请开启db_host,db_user,db_password,db_name的注释</span><br>&nbsp;&nbsp;&nbsp;&nbsp;db_driver=sqlite3<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#db_host=127.0.0.1:3306</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#db_user=root</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#db_password=root</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#db_name=prometheusalert</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓webhook-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启钉钉告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-dingding=1<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#默认钉钉机器人地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ddurl=https://oapi.dingtalk.com/robot/send?access_token=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启&nbsp;@所有人(0为关闭,1为开启)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;dd_isatall=1<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启微信告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-weixin=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#默认企业微信机器人地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;wxurl=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启飞书告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-feishu=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#默认飞书机器人地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;fsurl=https://open.feishu.cn/open-apis/bot/hook/xxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓腾讯云接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启腾讯云短信告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-txdx=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云短信接口key</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DX_appkey=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云短信模版ID&nbsp;腾讯云短信模版配置可参考&nbsp;prometheus告警:{1}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DX_tpl_id=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云短信sdk&nbsp;app&nbsp;id</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DX_sdkappid=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云短信签名&nbsp;根据自己审核通过的签名来填写</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DX_sign=腾讯云<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启腾讯云电话告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-txdh=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云电话接口key</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DH_phonecallappkey=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云电话模版ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DH_phonecalltpl_id=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#腾讯云电话sdk&nbsp;app&nbsp;id</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TXY_DH_phonecallsdkappid=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓华为云接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启华为云短信告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-hwdx=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云短信接口key</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_APP_Key=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云短信接口Secret</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_APP_Secret=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云APP接入地址(端口接口地址)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_APP_Url=https://rtcsms.cn-north-1.myhuaweicloud.com:10743<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云短信模板ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_Templateid=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云签名名称，必须是已审核通过的，与模板类型一致的签名名称,按照自己的实际签名填写</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_Signature=华为云<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#华为云签名通道号</span><br>&nbsp;&nbsp;&nbsp;&nbsp;HWY_DX_Sender=xxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓阿里云接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启阿里云短信告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-alydx=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云短信主账号AccessKey的ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DX_AccessKeyId=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云短信接口密钥</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DX_AccessSecret=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云短信签名名称</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DX_SignName=阿里云<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云短信模板ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DX_Template=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启阿里云电话告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-alydh=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云电话主账号AccessKey的ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DH_AccessKeyId=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云电话接口密钥</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DH_AccessSecret=xxxxxxxxxxxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云电话被叫显号，必须是已购买的号码</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DX_CalledShowNumber=xxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#阿里云电话文本转语音（TTS）模板ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;ALY_DH_TtsCode=xxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓容联云接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启容联云电话告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;RLY_DH_open-rlydh=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#容联云基础接口地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;RLY_URL=https://app.cloopen.com:8883/2013-12-26/Accounts/<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#容联云后台SID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;RLY_ACCOUNT_SID=xxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#容联云api-token</span><br>&nbsp;&nbsp;&nbsp;&nbsp;RLY_ACCOUNT_TOKEN=xxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#容联云app_id</span><br>&nbsp;&nbsp;&nbsp;&nbsp;RLY_APP_ID=xxxxxxxxxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓邮件配置-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启邮件</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-email=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#邮件发件服务器地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Email_host=smtp.qq.com<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#邮件发件服务器端口</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Email_port=465<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#邮件帐号</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Email_user=xxxxxxx@qq.com<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#邮件密码</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Email_password=xxxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#邮件标题</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Email_title=运维告警<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#默认发送邮箱</span><br>&nbsp;&nbsp;&nbsp;&nbsp;Default_emails=xxxxx@qq.com,xxxxx@qq.com<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓七陌云接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启七陌短信告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-7moordx=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#七陌账户ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;7MOOR_ACCOUNT_ID=Nxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#七陌账户APISecret</span><br>&nbsp;&nbsp;&nbsp;&nbsp;7MOOR_ACCOUNT_APISECRET=xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#七陌账户短信模板编号</span><br>&nbsp;&nbsp;&nbsp;&nbsp;7MOOR_DX_TEMPLATENUM=n<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#注意：七陌短信变量这里只用一个var1，在代码里写死了。</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#-----------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启七陌webcall语音通知告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-7moordh=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#请在七陌平台添加虚拟服务号、文本节点</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#七陌账户webcall的虚拟服务号</span><br>&nbsp;&nbsp;&nbsp;&nbsp;7MOOR_WEBCALL_SERVICENO=xxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;文本节点里被替换的变量，我配置的是text。如果被替换的变量不是text，请修改此配置</span><br>&nbsp;&nbsp;&nbsp;&nbsp;7MOOR_WEBCALL_VOICE_VAR=text<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓telegram接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启telegram告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-tg=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#tg机器人token</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TG_TOKEN=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#tg消息模式&nbsp;个人消息或者频道消息&nbsp;0为关闭(推送给个人)，1为开启(推送给频道)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TG_MODE_CHAN=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#tg用户ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TG_USERID=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#tg频道name</span><br>&nbsp;&nbsp;&nbsp;&nbsp;TG_CHANNAME=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#tg&nbsp;api地址,&nbsp;可以配置为代理地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#TG_API_PROXY="https://api.telegram.org/bot%s/%s"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#---------------------↓workwechat接口-----------------------</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#是否开启workwechat告警通道,可同时开始多个通道0为关闭,1为开启</span><br>&nbsp;&nbsp;&nbsp;&nbsp;open-workwechat=0<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;企业ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_CropID=xxxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;应用ID</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_AgentID=xxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;应用secret</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_AgentSecret=xxxx<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;接受用户</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_ToUser=<span style="color: #98c379;line-height: 26px;">"zhangsan|lisi"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;接受部门</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_ToParty=<span style="color: #98c379;line-height: 26px;">"ops|dev"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;接受标签</span><br>&nbsp;&nbsp;&nbsp;&nbsp;WorkWechat_ToTag=<span style="color: #98c379;line-height: 26px;">""</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;消息类型,&nbsp;暂时只支持markdown</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;WorkWechat_Msgtype&nbsp;=&nbsp;"markdown"</span><br>&nbsp;&nbsp;user.csv:&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;2019年4月10日,15888888881,小张,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>&nbsp;&nbsp;&nbsp;&nbsp;2019年4月11日,15888888882,小李,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>&nbsp;&nbsp;&nbsp;&nbsp;2019年4月12日,15888888883,小王,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>&nbsp;&nbsp;&nbsp;&nbsp;2019年4月13日,15888888884,小宋,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>kind:&nbsp;ConfigMap<br>metadata:<br>&nbsp;&nbsp;name:&nbsp;prometheus-alert-center-conf<br>&nbsp;&nbsp;namespace:&nbsp;monitoring<br>---<br>apiVersion:&nbsp;apps/v1<br>kind:&nbsp;Deployment<br>metadata:<br>&nbsp;&nbsp;labels:<br>&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;&nbsp;&nbsp;alertname:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;name:&nbsp;prometheus-alert-center<br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;namespace:&nbsp;monitoring&nbsp;&nbsp;</span><br>spec:<br>&nbsp;&nbsp;replicas:&nbsp;1<br>&nbsp;&nbsp;selector:<br>&nbsp;&nbsp;&nbsp;&nbsp;matchLabels:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alertname:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;template:<br>&nbsp;&nbsp;&nbsp;&nbsp;metadata:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;labels:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alertname:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;&nbsp;&nbsp;spec:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containers:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;image:&nbsp;feiyu563/prometheus-alert<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;TZ<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;<span style="color: #98c379;line-height: 26px;">"Asia/Shanghai"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ports:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;containerPort:&nbsp;8080<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;http<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resources:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;limits:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpu:&nbsp;200m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory:&nbsp;200Mi<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requests:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpu:&nbsp;100m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory:&nbsp;100Mi<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumeMounts:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;prometheus-alert-center-conf-map<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mountPath:&nbsp;/app/conf/app.conf<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subPath:&nbsp;app.conf<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;prometheus-alert-center-conf-map<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mountPath:&nbsp;/app/user.csv<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subPath:&nbsp;user.csv<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumes:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name:&nbsp;prometheus-alert-center-conf-map<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configMap:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;prometheus-alert-center-conf<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;key:&nbsp;app.conf<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;app.conf<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;key:&nbsp;user.csv<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;user.csv<br>---<br>apiVersion:&nbsp;v1<br>kind:&nbsp;Service<br>metadata:<br>&nbsp;&nbsp;labels:<br>&nbsp;&nbsp;&nbsp;&nbsp;alertname:&nbsp;prometheus-alert-center<br>&nbsp;&nbsp;name:&nbsp;prometheus-alert-center<br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;namespace:&nbsp;monitoring&nbsp;&nbsp;</span><br>&nbsp;&nbsp;annotations:<br>&nbsp;&nbsp;&nbsp;&nbsp;prometheus.io/scrape:&nbsp;<span style="color: #98c379;line-height: 26px;">'true'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;prometheus.io/port:&nbsp;<span style="color: #98c379;line-height: 26px;">'8080'</span>&nbsp;&nbsp;<br>spec:<br>&nbsp;&nbsp;ports:<br>&nbsp;&nbsp;-&nbsp;name:&nbsp;http<br>&nbsp;&nbsp;&nbsp;&nbsp;port:&nbsp;8080<br>&nbsp;&nbsp;&nbsp;&nbsp;targetPort:&nbsp;http<br>&nbsp;&nbsp;selector:<br>&nbsp;&nbsp;&nbsp;&nbsp;app:&nbsp;prometheus-alert-center<br>---<br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;apiVersion:&nbsp;networking.k8s.io/v1beta1</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;kind:&nbsp;Ingress</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;metadata:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;annotations:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kubernetes.io/ingress.class:&nbsp;nginx</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;name:&nbsp;prometheus-alert-center</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;namespace:&nbsp;monitoring</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;spec:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;rules:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;host:&nbsp;alert-center.local</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paths:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;backend:</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serviceName:&nbsp;prometheus-alert-center</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;servicePort:&nbsp;8080</span><br><span style="color: #5c6370;font-style: italic;line-height: 26px;">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path:&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">文件中的注释很详细，这里需要额外说一下PrometheusAlert 同时支持按照日期发送告警到不同号码,并且已经加入告警失败或者被告警人未接听电话后转联系默认联系人<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">defaultphone</code> 只需新建<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">user.csv</code>文件,并将文件放到程序运行目录下即可自动加载 同时该文件也是电话回调接口所必需文件(如回调接口返回非0状态,则会在此文件中寻找下一号码进行拨打,如开启回调功能,请务必创建该文件) ps:目前grafana/graylog的电话和短信告警依赖于该文件,prometheus电话和短信告警优先从rules的<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">mobile</code>字段读取,如未配置号码,则会从<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">user.csv</code>中读取,如<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">user.csv</code>中也未配置,则会直接发送到<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">defaultphone</code><mpcpc js_editor_cpcad="" class="" src="/cgi-bin/readtemplate?t=tmpl/cpc_tmpl#1625489458892" data-category_id_list="1|11|16|17|22|24|26|27|28|29|3|31|32|35|36|37|39|41|42|43|45|46|47|48|49|5|50|51|52|53|54|55|6|7|8" data-id="1625489458892" style="display: none;"></mpcpc><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;"></code></p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">关于user.csv中值班时间切换问题,默认每日上午10点进行切换，</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">2019年4月10日,15888888881,小张,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>2019年4月11日,15888888882,小李,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>2019年4月12日,15888888883,小王,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br>2019年4月13日,15888888884,小宋,15999999999,备用联系人小陈,15999999998,备用联系人小赵<br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">我们先需要修改一下configmap中的报警媒介地址,然后执行<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">kubectl apply -f deployment.yaml</code></p><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="display: none;"></span>prometheus配置</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">Prometheus支持两种配置，任选其一或者两者搭配均可。</p><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>通过Prometheus Rules方式<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">通过这种方式会使用报警规则中定义的一些报警媒介的信息。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">首先需要在Alertmanager配置Webhook，可参考如下模板：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">global:<br>&nbsp;&nbsp;resolve_timeout:&nbsp;5m<br>route:<br>&nbsp;&nbsp;group_by:&nbsp;[<span style="color: #98c379;line-height: 26px;">'instance'</span>]<br>&nbsp;&nbsp;group_wait:&nbsp;10m<br>&nbsp;&nbsp;group_interval:&nbsp;10s<br>&nbsp;&nbsp;repeat_interval:&nbsp;10m<br>&nbsp;&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'web.hook.prometheusalert'</span><br>receivers:<br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'web.hook.prometheusalert'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://prometheus-alert-center:8080/prometheus/alert'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;send_resolved:&nbsp;<span style="color: #56b6c2;line-height: 26px;">true</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">Prometheus Server 的告警rules配置，可参考如下模板：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">groups:<br>-&nbsp;name:&nbsp;node_alert<br>&nbsp;&nbsp;rules:<br>&nbsp;&nbsp;-&nbsp;alert:&nbsp;主机CPU告警<br>&nbsp;&nbsp;&nbsp;&nbsp;expr:&nbsp;node_load1&nbsp;&gt;&nbsp;1<br>&nbsp;&nbsp;&nbsp;&nbsp;labels:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;prometheusalertcenter<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;3&nbsp;&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#告警级别,告警级别定义&nbsp;0&nbsp;信息,1&nbsp;警告,2&nbsp;一般严重,3&nbsp;严重,4&nbsp;灾难</span><br>&nbsp;&nbsp;&nbsp;&nbsp;annotations:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description:&nbsp;<span style="color: #98c379;line-height: 26px;">"{{&nbsp;$labels.instance&nbsp;}}&nbsp;CPU&nbsp;load占用过高"</span>&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#告警信息</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mobile:&nbsp;15888888881,15888888882,15888888883&nbsp;&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#告警发送目标手机号(需要设置电话和短信告警级别)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ddurl:&nbsp;<span style="color: #98c379;line-height: 26px;">"https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#支持添加多个钉钉机器人告警,用,号分割即可,如果留空或者未填写,则默认发送到配置文件中填写的钉钉器人地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fsurl:&nbsp;<span style="color: #98c379;line-height: 26px;">"https://open.feishu.cn/open-apis/bot/hook/xxxxxxxxx,https://open.feishu.cn/open-apis/bot/hook/xxxxxxxxx"</span>&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#支持添加多个飞书机器人告警,用,号分割即可,如果留空或者未填写,则默认发送到配置文件中填写的飞书器人地址</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wxurl:&nbsp;<span style="color: #98c379;line-height: 26px;">"https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxx-xxxxxx-xxxxxx-xxxxxx,https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx-xxxx-xxxxxxx-xxxxx"</span>&nbsp;<span style="color: #5c6370;font-style: italic;line-height: 26px;">#支持添加多个企业微信机器人告警,用,号分割即可,如果留空或者未填写,则默认发送到配置文件中填写的企业微信机器人地址</span><br></code></pre><h3 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 20px;"><span style="display: none;"></span>通过Prometheus AlertManager router方式<span style="display: none;"></span></h3><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">针对 <code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">/prometheus/router AlertManager router指定接收端接口</code>,该接口可在url中直接指定告警的接收端,目前支持三个参数,分别是:wxurl,ddurl,phone(phone用于短信和电话告警)</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">在 Prometheus Alertmanager 中配置Webhook，可参考如下模板：</p><pre data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.55) 0px 2px 10px;"><span style="display: block;background: url(&quot;../../mmbiz_svg/WmwqjsSBsZKWo44C5eXQypQWO1VMfOszVaATJo9B4HViasKIoyhhIy7Vj1FrOiaKXdqnuoqsicibwr3SX9JOYJuUVcIzgcmSZw9e/640.jpg&quot;) 10px 10px / 40px no-repeat rgb(40, 44, 52);height: 30px;width: 100%;margin-bottom: -7px;border-radius: 5px;"></span><code style="overflow-x: auto;padding: 16px;color: #abb2bf;display: -webkit-box;font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;font-size: 12px;-webkit-overflow-scrolling: touch;padding-top: 15px;background: #282c34;border-radius: 5px;">global:<br>&nbsp;&nbsp;resolve_timeout:&nbsp;5m<br>route:<br>&nbsp;&nbsp;group_by:&nbsp;[<span style="color: #98c379;line-height: 26px;">'instance'</span>]<br>&nbsp;&nbsp;group_wait:&nbsp;10m<br>&nbsp;&nbsp;group_interval:&nbsp;10s<br>&nbsp;&nbsp;repeat_interval:&nbsp;10m<br>&nbsp;&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'web.hook.prometheusalert'</span><br>&nbsp;&nbsp;routes:<br>&nbsp;&nbsp;-&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-weixin'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;group_wait:&nbsp;10s<br>&nbsp;&nbsp;&nbsp;&nbsp;match:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;<span style="color: #98c379;line-height: 26px;">'1'</span><br>&nbsp;&nbsp;-&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-dingding'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;group_wait:&nbsp;10s<br>&nbsp;&nbsp;&nbsp;&nbsp;match:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;<span style="color: #98c379;line-height: 26px;">'2'</span><br>&nbsp;&nbsp;-&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-feishu'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;group_wait:&nbsp;10s<br>&nbsp;&nbsp;&nbsp;&nbsp;match:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;<span style="color: #98c379;line-height: 26px;">'3'</span><br>&nbsp;&nbsp;-&nbsp;receiver:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-all'</span><br>&nbsp;&nbsp;&nbsp;&nbsp;group_wait:&nbsp;10s<br>&nbsp;&nbsp;&nbsp;&nbsp;match:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;<span style="color: #98c379;line-height: 26px;">'4'</span><br>receivers:<br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'web.hook.prometheusalert'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://[prometheusalert_url]:8080/prometheus/alert'</span><br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-weixin'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://[prometheusalert_url]:8080/prometheus/router?wxurl=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx'</span><br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-dingding'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://[prometheusalert_url]:8080/prometheus/router?ddurl=https://oapi.dingtalk.com/robot/send?access_token=xxxxx'</span><br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-feishu'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://[prometheusalert_url]:8080/prometheus/router?fsurl=https://open.feishu.cn/open-apis/bot/hook/xxxxxxxxx'</span><br>-&nbsp;name:&nbsp;<span style="color: #98c379;line-height: 26px;">'prometheusalert-all'</span><br>&nbsp;&nbsp;webhook_configs:<br>&nbsp;&nbsp;-&nbsp;url:&nbsp;<span style="color: #98c379;line-height: 26px;">'http://[prometheusalert_url]:8080/prometheus/router?wxurl=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx&amp;ddurl=https://oapi.dingtalk.com/robot/send?access_token=xxxxx&amp;phone=15395105573'</span><br></code></pre><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">最终告警效果:</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.7835671342685371" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="998" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 241.772px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><h2 data-tool="mdnice编辑器" style="margin-top: 30px;margin-bottom: 15px;font-weight: bold;font-size: 22px;"><span style="display: none;"></span>使用dashboard进行调试</h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">depoyment.yaml文件中默认注释了ingress相关资源，我们需要调试可以取消注释使用。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.6797642436149313" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="2036" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 210.008px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">我们可以点击上图的<code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: &quot;Operator Mono&quot;, Consolas, Monaco, Menlo, monospace;word-break: break-all;">test</code>切换到测试页面，然后点击告警测试即可测试我们配置的报警媒介是否能正常发送告警消息。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.6141450313339302" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="2234" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 189.928px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.7443365695792881" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1854" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 229.767px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;line-height: 26px;">我们可以收到如下的告警测试消息</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-ratio="0.5907079646017699" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="904" style="display: block; margin-right: auto; margin-left: auto; width: 308px !important; height: 182.757px !important;" _width="328px" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;border-left-color: rgba(0, 0, 0, 0.4);background: rgba(0, 0, 0, 0.05);color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;"><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;color: black;line-height: 26px;">原文链接：https://www.lishuai.fun/2021/01/27/prometheusalert/</p></blockquote></section><p><br></p><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding-right: 10px;padding-left: 10px;font-size: 16px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;text-align: left;font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding-right: 10px;padding-left: 10px;line-height: 1.6;letter-spacing: 0px;word-break: break-word;font-family: -apple-system, system-ui, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><section style="letter-spacing: 0.544px;color: rgb(53, 53, 53);word-spacing: 0.8px;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><section powered-by="xiumi.us" style="text-align: center;"><section style="display: inline-block;vertical-align: top;width: 406.188px;"><section powered-by="xiumi.us" style="margin-top: 10px;margin-bottom: 10px;"><section style="width: 406.188px;"><section style="margin-bottom: -1px;padding-right: 5px;padding-left: 5px;display: inline-block;border-bottom: 2px solid rgb(51, 105, 232);vertical-align: top;"><p><span style="font-weight: bolder;"><span style="color: rgb(51, 105, 232);">K8S 进阶训练营</span></span></p></section></section></section></section></section></section><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="padding: 5px;color: rgb(53, 53, 53);letter-spacing: 0.8px;word-spacing: 0.8px;line-height: 1.6;word-break: break-word;border-radius: 16px;"><p style="text-align: center;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzU4MjQ0MTU4Ng==&amp;mid=2247489805&amp;idx=2&amp;sn=5b56d6eb75fe6c287ca1e20c153acea8&amp;chksm=fdb91610cace9f06cfbbe1ef52cf7485b7b14edd918e9d568ab08dae3db5fa3263c2754daf77&amp;scene=21#wechat_redirect');" textvalue="你已选中了添加链接的内容" data-itemshowtype="0" tab="innerlink" data-linktype="1" hasload="1" style="color: rgb(68, 181, 73);-webkit-tap-highlight-color: rgba(0, 0, 0, 0);cursor: pointer;outline: none;transition: color 0.3s ease 0s;touch-action: manipulation;"><span class="js_jump_icon h5_image_link" data-positionback="static" style="line-height: 0;inset: auto;"><img class="rich_pages img_loading" data-cropselx1="0" data-cropselx2="528" data-cropsely1="0" data-cropsely2="276" data-ratio="0.66640625" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="jpeg" data-w="1280" style="border-width: 0px; border-style: initial; border-color: initial; vertical-align: middle; box-sizing: border-box !important; visibility: visible !important; width: 278px !important; height: 185.261px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></span></a></p><p style="text-align: center;"><br></p></section><section style="margin-right: 16px;margin-left: 16px;letter-spacing: 0.544px;word-spacing: 0.8px;font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;line-height: normal;"><span style="font-weight: bold;color: rgb(79, 79, 79);letter-spacing: 0px;font-size: 15px;"><img class="__bg_gif" data-ratio="0.6197183" data-type="gif" data-w="71" width="29px" data-src="../../mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640.jpg" style="vertical-align: middle; border-style: none; box-sizing: border-box !important; visibility: visible !important; width: 29px !important; height: 17.9718px !important;" _width="29px" src="../../mmbiz_gif/rFWVXwibLGty0S5JgMN8PpBib2631p7cDvlvTEaxFBzljBX9qWcVMSOymhkTd6ZmanRibYWsh0HmccjGWkadiaLwAA/640.jpg" data-order="0" alt="图片">&nbsp;</span><span style="letter-spacing: 0.544px;font-size: 15px;"><span style="color: rgb(79, 79, 79);letter-spacing: 0px;">点击屏末</span><span style="font-weight: bolder;letter-spacing: 0.544px;color: rgb(72, 133, 237);"><span style="color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;">&nbsp;</span><span style="font-weight: bolder;color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;">|&nbsp;<span style="font-weight: bolder;"><span style="color: rgb(51, 105, 232);"><span style="font-weight: bolder;">阅</span></span><span style="color: rgb(213, 15, 37);"><span style="font-weight: bolder;">读</span></span><span style="color: rgb(238, 178, 17);"><span style="font-weight: bolder;">原</span></span><span style="color: rgb(0, 153, 37);"><span style="font-weight: bolder;">文</span></span></span>&nbsp;|</span><span style="color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;">&nbsp;</span></span><span style="color: rgb(79, 79, 79);letter-spacing: 0px;font-family: Roboto, sans-serif;text-align: center;"><span style="font-weight: bolder;letter-spacing: 0.544px;text-align: left;">即刻学习</span></span></span></section><p><br></p><section data-mpa-template="t" mpa-from-tpl="t"><section data-mpa-template="t" mpa-from-tpl="t"><section data-mid="" mpa-from-tpl="t" style="display: flex;justify-content: center;align-items: center;width: 677px;"><section data-mid="" mpa-from-tpl="t" style="display: flex;justify-content: center;align-items: center;width: 677px;"><section data-mid="" mpa-from-tpl="t" style="padding: 3px;width: 240px;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);"><section data-mid="" mpa-from-tpl="t" style="padding-top: 9px;padding-bottom: 9px;padding-left: 10px;width: 232px;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);display: grid;grid-template-columns: 100px auto;"><section data-mid="" mpa-from-tpl="t" style="display: flex;justify-content: flex-start;align-items: center;flex-direction: column;"><section data-mid="" mpa-from-tpl="t" style="margin-bottom: -18.1px;margin-left: -5.1px;width: 23px;height: 23px;display: flex;justify-content: center;align-items: center;align-self: flex-start;z-index: 1;"><img data-ratio="1" data-type="png" data-w="46" data-src="../../mmbiz_png/Mp83icLwk6BOfqd1lDictduuuc9icYTwVuFwSwuYLo1a3rzEOGtDpZ0BXD0qChwwpMAuQxw5DDSuoZ9CIzRdP2JYQ/640.jpg" style="box-sizing: border-box !important; visibility: visible !important; width: 23px !important; height: 23px !important;" _width="46px" class="img_loading" src="../../mmbiz_png/Mp83icLwk6BOfqd1lDictduuuc9icYTwVuFwSwuYLo1a3rzEOGtDpZ0BXD0qChwwpMAuQxw5DDSuoZ9CIzRdP2JYQ/640.jpg" crossorigin="anonymous" alt="图片"></section><section data-mid="" mpa-from-tpl="t" style="width: 100px;height: 100px;display: flex;justify-content: center;align-items: center;border-width: 1px;border-style: solid;border-color: rgb(52, 52, 51);"><img data-cropselx1="0" data-cropselx2="98" data-cropsely1="0" data-cropsely2="98" data-ratio="1" data-src="../../mmbiz_jpg/z9BgVMEm7YumiaZW5IfZJLcK4oKteea23LftIgbhDZWCUicRZJM2LRz3JvlicGGeVXmFtrBoEPo87dibHPtMxciagpg/640.jpg" data-type="jpeg" data-w="258" style="box-sizing: border-box !important; visibility: visible !important; width: 98px !important; height: 98px !important;" _width="98px" class="img_loading" src="../../mmbiz_jpg/z9BgVMEm7YumiaZW5IfZJLcK4oKteea23LftIgbhDZWCUicRZJM2LRz3JvlicGGeVXmFtrBoEPo87dibHPtMxciagpg/640.jpg" crossorigin="anonymous" alt="图片"></section><section data-mid="" mpa-from-tpl="t" style="margin-top: -18.1px;margin-right: -5.1px;width: 23px;height: 23px;display: flex;justify-content: center;align-items: center;align-self: flex-end;z-index: 1;"><img data-ratio="1" data-type="png" data-w="46" data-src="../../mmbiz_png/Mp83icLwk6BOfqd1lDictduuuc9icYTwVuFwSwuYLo1a3rzEOGtDpZ0BXD0qChwwpMAuQxw5DDSuoZ9CIzRdP2JYQ/640.jpg" style="box-sizing: border-box !important; visibility: visible !important; width: 23px !important; height: 23px !important;" _width="46px" class="img_loading" src="../../mmbiz_png/Mp83icLwk6BOfqd1lDictduuuc9icYTwVuFwSwuYLo1a3rzEOGtDpZ0BXD0qChwwpMAuQxw5DDSuoZ9CIzRdP2JYQ/640.jpg" crossorigin="anonymous" alt="图片"></section></section><section data-mid="" mpa-from-tpl="t" style="padding-left: 8px;width: 120px;display: flex;justify-content: space-between;align-items: center;flex-direction: column;"><section data-mid="" mpa-from-tpl="t" style="margin-top: 4px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;align-self: flex-start;"><section data-mid="" mpa-from-tpl="t" style="margin-top: 2px;align-self: flex-start;background: rgb(61, 106, 141);"><p data-mid="" style="font-size: 14px;font-weight: bold;color: rgb(255, 255, 255);line-height: 24px;">扫描二维码获取</p></section><section data-mid="" mpa-from-tpl="t" style="margin-top: 2px;align-self: flex-start;background: rgb(61, 106, 141);"><p data-mid="" style="font-size: 14px;font-weight: bold;color: rgb(255, 255, 255);line-height: 24px;">更多云原生知识</p></section></section><section data-mid="" mpa-from-tpl="t" style="margin-bottom: 6px;display: flex;justify-content: flex-start;align-items: center;flex-direction: column;align-self: flex-start;"><section data-mid="" mpa-from-tpl="t" style="margin-bottom: -4px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: flex-start;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="margin-bottom: -4px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: center;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="margin-bottom: -2.1px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: flex-end;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="display: flex;justify-content: center;align-items: center;"><section data-mid="" mpa-from-tpl="t" style="margin-right: -2.5px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: center;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="padding: 3px 8px 2px 9px;align-self: flex-start;border-width: 1px;border-style: dashed;border-color: rgb(61, 106, 141);"><p data-mid="" style="font-size: 14px;font-weight: bold;color: rgb(52, 52, 51);line-height: 20px;">k8s 技术圈</p></section><section data-mid="" mpa-from-tpl="t" style="margin-left: -2.5px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: center;"><br></section></section><section data-mid="" mpa-from-tpl="t" style="margin-top: -2.1px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: flex-start;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="margin-top: -4px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: center;z-index: 1;"><br></section><section data-mid="" mpa-from-tpl="t" style="margin-top: -4px;width: 4px;height: 4px;background-image: initial;background-position: initial;background-size: initial;background-repeat: initial;background-attachment: initial;background-origin: initial;background-clip: initial;border-width: 1px;border-style: solid;border-color: rgb(61, 106, 141);align-self: flex-end;z-index: 1;"><br></section></section></section></section></section></section></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/VF1P4lQ53NQciuvm2wPHBw</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="150" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="150" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/z9BgVMEm7Ysl6OgQFYUTzQR03ff8aiarypUgb4o8ugNsDbkpDq1TbJYCu7oXN4QfXRYoqmia0eChn4YcibHRWewjw/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="150" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>234</span> 次浏览</li>
+        <li>发布日期：2021-07-05 21:11:36</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/150.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="146.html">从上厕所想到的线程池设计原理</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="151.html">群英荟萃、大咖云集！2021 IJCAI-SAIA 青年精英学术会议今日完美开幕</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640.jpg" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640.jpg" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640.jpg" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="b2fc03a08c7c48f94e1626d303c47f7d">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="150">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

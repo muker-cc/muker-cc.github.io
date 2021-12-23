@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>透彻Java线程状态转换 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="504e3efd3e9d70a99a15899a22c448c7">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">透彻Java线程状态转换</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 283 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" data-mpa-powered-by="yiban.io"><blockquote class="" data-type="2" data-url="" data-author-name="" data-content-utf8-length="12" data-source-title=""><section class=""><section style="text-align: left;"><span style="color: rgb(0, 82, 255);"><strong><span style="color: rgb(0, 82, 255);font-size: 14px;">来自公众号：<span style="color: rgb(0, 82, 255);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;letter-spacing: 0.544px;text-align: start;">程序猿阿星</span></span></strong></span></section></section></blockquote><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: left;">内容通俗易懂，请放心食用。<br></p><h1 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 24px;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);margin-top: 20px;text-align: center;"><span style="font-size: 22px;margin-top: -36px;border-bottom: 2px solid #135ce0;">线程状态</span></h1><p style="font-size: 16px;padding-top: 8px;padding-bottom: 8px;line-height: 2;color: black;font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);">先来个开场四连问</p><ul style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;font-size: 16px;text-align: left;white-space: normal;background-color: rgb(255, 255, 255);" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 2;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 2;color: black;"><code style="font-size: 14px;font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);">Java</code>线程状态有几个？</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 2;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 2;color: black;"><code style="font-size: 14px;font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);">Java</code>线程状态是如何转换？</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 2;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 2;color: black;"><code style="font-size: 14px;font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);">Java</code>线程状态转换什么情况会进入锁的等待队列？</p></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;line-height: 2;color: rgb(1, 1, 1);"><p style="padding-top: 8px;padding-bottom: 8px;line-height: 2;color: black;"><code style="font-size: 14px;font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);">Java</code>线程状态转换什么情况会进入锁的同步队列？</p></section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">一提到<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Java</code>线程状态，不少读者立马想到线程状态转换图，但细想，印象又不深刻，只记得有那么几个状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">再要你说出<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Java</code>线程状态是如何转换的，脑子里可能就如下图一样，已经是一团浆糊了。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="382" data-backw="558" data-ratio="0.6841339155749636" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="687" style="display: block; margin-right: auto; margin-left: auto; width: 100% !important; height: auto !important; visibility: visible !important;" _width="100%" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">别慌，阿星为了帮读者大大们理清楚上面的问题，会一步一步的把<strong style="color: rgb(19, 92, 224);">线程状态转换图</strong>给画出来，让读者大大们真正的理解<strong style="color: rgb(19, 92, 224);">Java线程状态转换</strong>。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;">首先线程的状态可以分为<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">6</code>态或<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">7</code>态，具体状态如下</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;"><strong style="color: rgb(19, 92, 224);">6态</strong></p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">New</code>：新建状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Runnable</code>：可运行状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Terminated</code>：终止状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Waiting</code>：等待状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">TimedWaiting</code>：超时等待状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Blocked</code>：阻塞状态</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;"><strong style="color: rgb(19, 92, 224);">7态</strong></p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">New</code>：新建状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Ready</code>：就绪状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Running</code>：运行状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Terminated</code>：终止状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Waiting</code>：等待状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">TimedWaiting</code>：超时等待状态</section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><code style="font-size: 14px;padding: 2px 4px;border-radius: 4px;margin-right: 2px;margin-left: 2px;color: rgb(30, 107, 184);background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;word-break: break-all;">Blocked</code>：阻塞状态</section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">其实6态与7态差别不大，只不过<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">7</code>态把<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Runnable</code>可运行状态，拆解成了<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Ready</code>就绪状态与<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Running</code>运行状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;">阿星以<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">7</code>态为例，来逐步讲解它们之间是如何转换的。</p><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">新建状态（New）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">我们可以通过实现<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Runnable</code>接口或继承<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">Thread</code>声明一个线程类，<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">new</code>一个实例后，线程就进入了新建状态。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="330" data-backw="558" data-ratio="0.5908346972176759" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="611" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 194.612px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">一个刚诞生的线程，处于新建状态。</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">就绪状态（Ready）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">线程对象创建成功后，调用该线程的<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">start()</code>函数，线程进入就绪状态，该状态的线程进入可运行线程池中，等待获取<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">C P U</code>的使用权。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="222" data-backw="558" data-ratio="0.3985032740879326" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1069" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 131.912px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">线程表示，我已经准备好了，此时我是就绪状态，快选我吧~</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">运行状态（Running)</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">此时线程调度程序正在从<strong style="color: rgb(19, 92, 224);">可运行线程池</strong>中选择一个线程，该线程进入运行状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;">换句话说，线程获取到了<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">C P U</code>时间片。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="182" data-backw="558" data-ratio="0.32578524470416365" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1369" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 108.206px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">还没完呢，当线程时间片用完或调用的<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">yield()</code>函数，该线程回到就绪状态。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="208" data-backw="558" data-ratio="0.37227414330218067" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1284" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 123.361px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">作为一名运气好的线程，我进入了运行状态，但是运气用完了，我还得回到就绪状态。</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">终止状态（Terminated）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">线程继续运行，直到执行结束或执行过程中因异常意外终止都会使线程进入终止状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;">线程一旦终止，就不能复生，这是不可逆的过程。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="165" data-backw="558" data-ratio="0.2948877805486284" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1604" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 98.1334px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">线程的人生迎来了终点，可能一帆风顺过完一生，也可能英年早逝令人惋惜。</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">等待状态（Waiting）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">运行状态的线程执行wait()、join()、LockSupport.park()任意函数，该线程进入等待状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">其中<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">wait()</code>与<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">join()</code>函数会让J V M把该线程放入锁等待队列。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">处于这种状态的线程不会被分配C P U执行时间，它们要等待被<strong style="color: rgb(19, 92, 224);">主动唤醒</strong>，否则会一直处于等待状态。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="340" data-backw="558" data-ratio="0.6097406704617331" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1581" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 200.775px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;">如果我们要唤醒线程怎么办呢？</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">执行<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">LockSupport.unpark(t)</code>函数唤醒指定线程，该线程回到就绪状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;">而通过<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">notify()、notifyAll()、join线程执行完毕</code>方式，会唤醒锁等待队列的线程，出队的线程回到就绪状态。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="361" data-backw="558" data-ratio="0.6477987421383647" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1590" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 213.182px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">线程的人生迎来了劫难，听信小人之言，跑去菲律宾做打工，结果被黑工厂扣下，只希望警察叔叔能早日解救我出去。</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">超时等待状态（Timed waiting）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">超时等待与等待状态一样，唯一的区别就是多了超时机制，不会一直等待被其他线程主动唤醒，而是到达指定时间后会<strong style="color: rgb(19, 92, 224);">自动唤醒</strong>。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;">以下函数会触发进入超时等待状态</p><ul data-tool="mdnice编辑器" style="margin-top: 8px;margin-bottom: 8px;padding-left: 25px;color: black;" class="list-paddingleft-2"><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><strong style="color: rgb(19, 92, 224);">wait(long)</strong></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><strong style="color: rgb(19, 92, 224);">join(long)</strong></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><strong style="color: rgb(19, 92, 224);">LockSupport.parkNanos(long)</strong></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><strong style="color: rgb(19, 92, 224);">LockSupport.parkUtil(long)</strong></section></li><li><section style="margin-top: 5px;margin-bottom: 5px;color: rgb(1, 1, 1);line-height: 2;"><strong style="color: rgb(19, 92, 224);">sleep(long)</strong></section></li></ul><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">其中<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">wait(long)、join(long)</code>函数会让J V M把线程放入锁等待队列。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="402" data-backw="558" data-ratio="0.7202970297029703" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1616" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 236.817px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">后面的唤醒剧情就和等待状态如出一辙，就多了超时时间到了，自动唤醒的动作。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="414" data-backw="558" data-ratio="0.7423857868020305" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1576" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 244.018px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">从菲律宾回国后的线程，也做起了违法的勾当，最终被警察抓捕，好在只判了5年，熬一熬就可以出来了。</p></blockquote><h2 data-tool="mdnice编辑器" style="font-weight: bold;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);font-size: 20px;"><span style="display: none;"></span><span style="border-left: 4px solid;padding-left: 10px;">阻塞状态（Blocked）</span></h2><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">运行状态的线程获取同步锁失败或发出<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">I/O</code>请求，该线程进入阻塞状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">如果是获取同步锁失败<code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">J V M</code>还会把该线程放入锁的同步队列。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;"><br></p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="416" data-backw="558" data-ratio="0.7455808080808081" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="3168" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 245.059px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">同步锁被释放时，锁的同步队列会出队所有线程，进入就绪状态。</p><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;text-align: justify;"><code style="font-size: 14px;border-radius: 4px;margin-right: 2px;margin-left: 2px;background-color: rgba(27, 31, 35, 0.05);font-family: 'Operator Mono', Consolas, Monaco, Menlo, monospace;color: rgb(19, 148, 216);padding: 2px 6px;word-break: normal;">I/O</code>处理完毕时，该线程重新回到就绪状态。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="448" data-backw="558" data-ratio="0.8025078369905956" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="3190" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 263.618px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><blockquote data-tool="mdnice编辑器" style="border-top: none;border-right: none;border-bottom: none;font-size: 0.9em;overflow: auto;color: rgb(106, 115, 125);padding: 10px 10px 10px 20px;margin-bottom: 20px;margin-top: 20px;border-left-color: rgb(178, 174, 197);background: rgb(255, 249, 249);"><p style="padding-top: 8px;padding-bottom: 8px;font-size: 16px;color: rgb(102, 102, 102);line-height: 2;text-align: justify;">出狱后的线程，后面的人生一直都是磕磕碰碰，就没顺利过，大家要引以为戒。</p></blockquote><h1 data-tool="mdnice编辑器" style="font-weight: bold;font-size: 24px;padding-top: 30px;padding-bottom: 30px;color: rgb(19, 92, 224);margin-top: 20px;text-align: center;"><span style="font-size: 22px;margin-top: -36px;border-bottom: 2px solid #135ce0;">小结</span></h1><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;text-align: justify;">相信读者大大们跟着阿星的思路来，已经掌握了线程状态的知识，以后面试官问这类问题，也可以吊打一番，最后放一张简化的线程转换图为本文画上句号。</p><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;"><img data-backh="256" data-backw="558" data-ratio="0.45829042224510813" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="971" style="display: block; margin-right: auto; margin-left: auto; width: 328px !important; height: 151.403px !important;" _width="100%" class="img_loading" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></figure><p data-tool="mdnice编辑器" style="padding-top: 8px;padding-bottom: 8px;color: black;line-height: 2;margin-top: 16px;"><br></p></section><p><br></p><figure style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);text-align: center;"><span style="text-align: justify;">--- EOF ---</span><br></figure><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);margin-bottom: 5px;">往期回顾<br></section><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494367&amp;idx=1&amp;sn=1be5ce6d1b6b4fb997e98470e7bdfe77&amp;chksm=973e7476a049fd603969464839758952a3054c8c5a3043912354e74ce16b311256e731ca4b9b&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" data-linktype="2">从上厕所想到的线程池设计原理</a><br></section><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494332&amp;idx=1&amp;sn=2e8a304f287ff4251029c3de0838c1e0&amp;chksm=973e7415a049fd03066957ae44da348367ec341712e514d72e1b0e1daedbd742d5fcfa436319&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">用好 Java 中的枚举，让你的工作效率飞起来！</a><br></section><section style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);margin-bottom: 5px;"><a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzIwNDY1NTU1OA==&amp;mid=2247494327&amp;idx=1&amp;sn=009d9cffe0993dea564e7d3c70bec3b4&amp;chksm=973e741ea049fd0865eff1de48a3e19eda34fd7562a7cd6a1eddf5bf2847631993b1f7e67b4f&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">编写高性能 Java 代码的最佳实践，写得真好！</a><br></section><section><section powered-by="xiumi.us"><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzIwNDY1NTU1OA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/DibTgjt8mhxwsibjA6QDEY9evlE1wnIOkZyVgwXynsibtEFZlMuYoEv184ZvcTCunicbRqLiagaMN82PVcFzuwiaibLvg/0?wx_fmt=png" data-nickname="编程技术进阶" data-alias="tech_jinjie" data-signature="编程技术进阶，专注分享Java技术干货，包括多线程、架构设计、微服务、消息队列、Git、面试题、程序员攻略、JVM、Spring Boot、Spring Cloud、Dubbo、Zookeeper、Redis等。" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzIwNDY1NTU1OA==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/DibTgjt8mhxwsibjA6QDEY9evlE1wnIOkZyVgwXynsibtEFZlMuYoEv184ZvcTCunicbRqLiagaMN82PVcFzuwiaibLvg/0.jpg" alt="编程技术进阶">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                编程技术进阶                           </strong>           <div class="wx_profile_desc">编程技术进阶，专注分享Java技术干货，包括多线程、架构设计、微服务、消息队列、Git、面试题、程序员攻略、JVM、Spring Boot、Spring Cloud、Dubbo、Zookeeper、Redis等。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">40篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/v_yOnbdh3AyU89TEoTuwcA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="167" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="167" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/23OQmC1ia8nzQJHQPJjQCcnzH05sicBiaDy6A8S9K2bBYW89tic3icEwbZdojq50FDSVHYFsicw1Ws7ANORZKiaeGk09w/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="167" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/java.html" class="tag" rel="tag">java</a><a href="../t/netstat.html" class="tag" rel="tag"> 线程</a></li>
+        <li>浏览次数：<span>283</span> 次浏览</li>
+        <li>发布日期：2021-07-06 18:33:09</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/167.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="165.html">写了个鸿蒙应用，如何安装到真机上？</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="168.html">多集群编排很难很繁琐？一定是你没用对管理系统</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="268.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/RXvHpViaz3EoOs44EkUiceqsT2yyRBYuPP7RkU21gibQo4icojIVfI6YsEHnib3eVrkSySr2FXKibSxS3f2aBFWKBDfg/640.jpg" alt="图解Java中那18 把锁" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="268.html">图解Java中那18 把锁</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="230.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="推荐一款 Java 零注解 API 文档生成工具" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="230.html">推荐一款 Java 零注解 API 文档生成工具</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="217.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="【非广告】2021 入门级的 Java 程序员学习路线图 1.0" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="217.html">【非广告】2021 入门级的 Java 程序员学习路线图 1.0</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="197.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="服务发布或重启，发生抖动怎么办？" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="197.html">服务发布或重启，发生抖动怎么办？</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="504e3efd3e9d70a99a15899a22c448c7">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="167">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

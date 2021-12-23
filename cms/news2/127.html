@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>Go实现海量日志收集系统 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="35">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="9205750bb991750787398b386337ccd2">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../news2.html">资讯</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">Go实现海量日志收集系统</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 287 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="text-align: center;" data-mpa-powered-by="yiban.io"><img class="rich_pages __bg_gif" data-galleryid="" data-ratio="0.23693379790940766" data-src="../../mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640.jpg" data-type="gif" data-w="574" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="../../mmbiz_gif/IP70Vic417DOjMRrV3RrW2HaXlrTFpEI1EYiaJaJkfYOvEuQc3F6RibYXS9oMIvvJNCywron0Wd809g43gmTHlqEA/640.jpg" data-order="0" alt="图片" data-fail="0"></p><section data-tool="mdnice编辑器" data-website="https://www.mdnice.com" style="color: black;word-break: break-word;text-align: left;font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, &quot;PingFang SC&quot;, Cambria, Cochin, Georgia, Times, &quot;Times New Roman&quot;, serif;font-size: 14px;letter-spacing: 0.05em;line-height: 2;"><figure data-tool="mdnice编辑器" style="margin-top: 10px;margin-bottom: 10px;display: flex;flex-direction: column;justify-content: center;align-items: center;padding: 0px 0.5em;"><img data-ratio="0.5611814345991561" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="474" style="display: block; box-shadow: rgb(210, 210, 210) 0em 0em 0.5em 0px; border-radius: 4px; margin-right: auto; margin-left: auto; font-size: 17px; width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></figure></section><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">再次整理了一下这个日志收集系统的框，如下图</span><br></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="0.44051825677267376" data-src="../../mmbiz_png/RQueXibgo0KPkeKF4CUvTnWydhJqeFfZNr3kACSqiag3wbgaS2zZMsMymQWddULa4Ns2RYjO2AicYOPzeQqq04zZQ/640.jpg" data-type="png" data-w="1698" style="margin-right: auto; margin-left: auto; box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; cursor: zoom-in; display: block; visibility: visible !important; width: 328px !important; height: auto !important;" _width="328px" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"><span style="font-size: 15px;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;letter-spacing: 0.544px;text-align: start;">这次要实现的代码的整体逻辑为：</span></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="0.4993849938499385" data-src="../../mmbiz_png/RQueXibgo0KPkeKF4CUvTnWydhJqeFfZNVkKxf0lKgXdsz28Sc74xeupW6WTVt6cVPlibktNTXwUGr6Lu5eLibspw/640.jpg" data-type="png" data-w="1626" style="margin-right: auto; margin-left: auto; box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; cursor: zoom-in; display: block; visibility: visible !important; width: 328px !important; height: auto !important;" _width="328px" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="margin-top: 16px;margin-bottom: 16px;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);border-width: 0px;border-style: initial;border-color: initial;"><br></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">完整代码地址为: https://github.com/pythonsite/logagent</span></p><h1 style="font-weight: 700;font-size: 1.5em;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;line-height: 1.33333;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;text-align: start;background-color: rgb(255, 255, 255);margin-top: 28px !important;"><span style="border-width: 0px;border-style: initial;border-color: initial;font-size: 20px;">etcd介绍</span></h1><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">高可用的分布式key-value存储，可以用于配置共享和服务发现</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">类似的项目：zookeeper和consul</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">开发语言：go</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">接口：提供restful的接口，使用简单</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">实现算法：基于raft算法的强一致性，高可用的服务存储目录</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">etcd的应用场景：</span></p><ul class="list-paddingleft-2" style="margin: 20px 30px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;list-style-position: outside;list-style-image: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">服务发现和服务注册</span></p></li><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">配置中心(我们实现的日志收集客户端需要用到)</span></p></li><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">分布式锁</span></p></li><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">master选举</span></p></li></ul><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">官网对etcd的有一个非常简明的介绍：</span></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><img data-ratio="0.2346688470973017" data-src="../../mmbiz_png/RQueXibgo0KPkeKF4CUvTnWydhJqeFfZNe7XbmYCGicpoQrZeLYBVkIrIgGpSP4eLVOx6wkgdRygR1xJOQPt8dlg/640.jpg" data-type="png" data-w="1223" style="margin-right: auto; margin-left: auto; box-sizing: border-box; border-width: 0px; border-style: initial; border-color: initial; cursor: zoom-in; display: block; visibility: visible !important; width: 328px !important; height: auto !important;" _width="328px" class="" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">etcd搭建：<br style="display: inline;">下载地址：https://github.com/coreos/etcd/releases/<br style="display: inline;">根据自己的环境下载对应的版本然后启动起来就可以了</span></p><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">启动之后可以通过如下命令验证一下：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;">[root@localhost etcd-v3<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">.2.18</span>-linux-amd64]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);"># ./etcdctl set name zhaofan </span><br><br>zhaofan<br>[root@localhost etcd-v3<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">.2.18</span>-linux-amd64]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);"># ./etcdctl get name</span><br>zhaofan<br>[root@localhost etcd-v3<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">.2.18</span>-linux-amd64]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">#</span></span></code></pre><h1 style="font-weight: 700;font-size: 1.5em;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;line-height: 1.33333;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;text-align: start;background-color: rgb(255, 255, 255);margin-top: 28px !important;"><span style="border-width: 0px;border-style: initial;border-color: initial;font-size: 20px;">context 介绍和使用</span></h1><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">其实这个东西翻译过来就是上下文管理，那么context的作用是做什么，主要有如下两个作用：</span></p><ul class="list-paddingleft-2" style="margin: 20px 30px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;list-style-position: outside;list-style-image: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">控制goroutine的超时</span></p></li><li style="list-style: inherit;border-width: 0px;border-style: initial;border-color: initial;font-size: 15px;"><p><span style="font-size: 15px;">保存上下文数据</span></p></li></ul><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">通过下面一个简单的例子进行理解：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"net/http"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"context"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"io/ioutil"</span><br>)<br><br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">type</span> Result <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">struct</span>{<br>    r *http.Response<br>    err error<br>}<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">process</span>()</span>{<br>    ctx,cancel := context.WithTimeout(context.Background(),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">2</span>*time.Second)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> cancel()<br>    tr := &amp;http.Transport{}<br>    client := &amp;http.Client{Transport:tr}<br>    c := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">make</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">chan</span> Result,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">1</span>)<br>    req,err := http.NewRequest(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"GET"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"http://www.google.com"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"http request failed,err:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// 如果请求成功了会将数据存入到管道中</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">go</span> <span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span>()</span>{<br>        resp,err := client.Do(req)<br>        pack := Result{resp,err}<br>        c &lt;- pack<br>    }()<br><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">select</span>{<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">case</span> &lt;- ctx.Done():<br>        tr.CancelRequest(req)<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"timeout!"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">case</span> res := &lt;-c:<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> res.r.Body.Close()<br>        out,_:= ioutil.ReadAll(res.r.Body)<br>        fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"server response:%s"</span>,out)<br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br><br>}<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    process()<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">写一个通过context保存上下文，代码例子如：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/Go-zh/net/context"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>)<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">add</span>(ctx context.Context,a,b <span style="color: rgb(17, 75, 166);">int</span>) <span style="color: rgb(168, 46, 46);">int</span></span> {<br>    traceId := ctx.Value(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"trace_id"</span>).(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>)<br>    fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"trace_id:%v\"</span>,traceId)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> a+b<br>}<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">calc</span>(ctx context.Context,a, b <span style="color: rgb(17, 75, 166);">int</span>) <span style="color: rgb(168, 46, 46);">int</span></span>{<br>    traceId := ctx.Value(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"trace_id"</span>).(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>)<br>    fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"trace_id:%v\"</span>,traceId)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">//再将ctx传入到add中</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> add(ctx,a,b)<br>}<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">//将ctx传递到calc中</span><br>    ctx := context.WithValue(context.Background(),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"trace_id"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"123456"</span>)<br>    calc(ctx,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">20</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">30</span>)<br><br>}</span></code></pre><h1 style="font-weight: 700;font-size: 1.5em;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;line-height: 1.33333;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;text-align: start;background-color: rgb(255, 255, 255);margin-top: 28px !important;"><span style="border-width: 0px;border-style: initial;border-color: initial;font-size: 20px;">结合etcd和context使用</span></h1><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">关于通过go连接etcd的简单例子：(这里有个小问题需要注意就是etcd的启动方式，默认启动可能会连接不上，尤其你是在虚拟你安装，所以需要通过如下命令启动：<br style="display: inline;">./etcd --listen-client-urls http://0.0.0.0:2371 --advertise-client-urls http://0.0.0.0:2371 --listen-peer-urls http://0.0.0.0:2381<br style="display: inline;">)</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    etcd_client <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/coreos/etcd/clientv3"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>)<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    cli, err := etcd_client.New(etcd_client.Config{<br>        Endpoints:[]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>{<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"192.168.0.118:2371"</span>},<br>        DialTimeout:<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">5</span>*time.Second,<br>    })<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect failed,err:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br><br>    fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect success"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> cli.Close()<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">下面一个例子是通过连接etcd，存值并取值</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 16px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/coreos/etcd/clientv3"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"context"</span><br>)<br><br><span style="font-size: 16px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    cli,err := clientv3.New(clientv3.Config{<br>        Endpoints:[]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>{<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"192.168.0.118:2371"</span>},<br>        DialTimeout:<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">5</span>*time.Second,<br>    })<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect failed,err:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect succ"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> cli.Close()<br>    ctx,cancel := context.WithTimeout(context.Background(),time.Second)<br>    _,err = cli.Put(ctx,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"logagent/conf/"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"sample_value"</span>)<br>    cancel()<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"put failed,err"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    ctx, cancel = context.WithTimeout(context.Background(),time.Second)<br>    resp,err := cli.Get(ctx,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"logagent/conf/"</span>)<br>    cancel()<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"get failed,err:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,ev := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> resp.Kvs{<br>        fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"%s:%s\"</span>,ev.Key,ev.Value)<br>    }<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">关于context官网也有一个例子非常有用，用于控制开启的goroutine的退出，代码如下：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"context"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>)<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// gen generates integers in a separate goroutine and</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// sends them to the returned channel.</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// The callers of gen need to cancel the context once</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// they are done consuming generated integers not to leak</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// the internal goroutine started by gen.</span><br>    gen := <span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span>(ctx context.Context) &lt;-<span style="color: rgb(168, 46, 46);">chan</span> <span style="color: rgb(168, 46, 46);">int</span></span> {<br>        dst := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">make</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">chan</span> <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int</span>)<br>        n := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">1</span><br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">go</span> <span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span>()</span> {<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> {<br>                <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">select</span> {<br>                <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">case</span> &lt;-ctx.Done():<br>                    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// returning not to leak the goroutine</span><br>                <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">case</span> dst &lt;- n:<br>                    n++<br>                }<br>            }<br>        }()<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> dst<br>    }<br><br>    ctx, cancel := context.WithCancel(context.Background())<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> cancel() <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// cancel when we are finished consuming integers</span><br><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> n := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> gen(ctx) {<br>        fmt.Println(n)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> n == <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">5</span> {<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">break</span><br>        }<br>    }<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">关于官网文档中的WithDeadline演示的代码例子：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;">package</span> <span style="border-width: 0px;border-style: initial;border-color: initial;">main</span><br><br><br><span style="border-width: 0px;border-style: initial;border-color: initial;">import</span> (<br>    "<span style="border-width: 0px;border-style: initial;border-color: initial;">context</span>"<br>    "<span style="border-width: 0px;border-style: initial;border-color: initial;">fmt</span>"<br>    "<span style="border-width: 0px;border-style: initial;border-color: initial;">time</span>"<br>)<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;">func</span> <span style="border-width: 0px;border-style: initial;border-color: initial;">main</span>() {<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">d </span>:= time.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">Now</span>().<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">Add</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">50</span> * time.Millisecond)<br>    ctx, cancel := context.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">WithDeadline</span>(context.Background(), d)<br><br>    // Even though ctx will be expired, it is good practice to call its<br>    // cancelation function in any case. Failure to do so may keep the<br>    // context and its parent alive longer than necessary.<br>    defer <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">cancel</span>()<br><br>    select {<br>    case &lt;-time.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">After</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">1</span> * time.Second):<br>        fmt.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">Println</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"overslept"</span>)<br>    case &lt;-ctx.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">Done</span>():<br>        fmt.<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">Println</span>(ctx.Err())<br>    }<br><br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">通过上面的代码有了一个基本的使用，那么如果我们通过etcd来做配置管理，如果配置更改之后，我们如何通知对应的服务器配置更改，通过下面例子演示：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/coreos/etcd/clientv3"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"context"</span><br>)<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    cli,err := clientv3.New(clientv3.Config{<br>        Endpoints:[]<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>{<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"192.168.0.118:2371"</span>},<br>        DialTimeout:<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">5</span>*time.Second,<br>    })<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect failed,err:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> cli.Close()<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// 这里会阻塞</span><br>    rch := cli.Watch(context.Background(),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"logagent/conf/"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> wresp := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> rch{<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,ev := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> wresp.Events{<br>            fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"%s %q : %q\"</span>, ev.Type, ev.Kv.Key, ev.Kv.Value)<br>        }<br>    }<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">实现一个kafka的消费者代码的简单例子：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/Shopify/sarama"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"strings"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>)<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    consumer,err := sarama.NewConsumer(strings.Split(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"192.168.0.118:9092"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">","</span>),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"failed to start consumer:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    partitionList,err := consumer.Partitions(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"nginx_log"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"Failed to get the list of partitions:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    fmt.Println(partitionList)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> partition := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> partitionList{<br>        pc,err := consumer.ConsumePartition(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"nginx_log"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span>(partition),sarama.OffsetNewest)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>            fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"failed to start consumer for partition %d:%s\"</span>,partition,err)<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>        }<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> pc.AsyncClose()<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">go</span> <span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span>(partitionConsumer sarama.PartitionConsumer)</span>{<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> msg := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> pc.Messages(){<br>                fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"partition:%d Offset:%d Key:%s Value:%s"</span>,msg.Partition,msg.Offset,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(msg.Key),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(msg.Value))<br>            }<br>        }(pc)<br>    }<br>    time.Sleep(time.Hour)<br>    consumer.Close()<br><br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">但是上面的代码并不是最佳代码，因为我们最后是通过time.sleep等待goroutine的执行，我们可以更改为通过sync.WaitGroup方式实现</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 14px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/Shopify/sarama"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"strings"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"sync"</span><br>)<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">var</span> (<br>    wg sync.WaitGroup<br>)<br><br><span style="font-size: 14px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">main</span>()</span> {<br>    consumer,err := sarama.NewConsumer(strings.Split(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"192.168.0.118:9092"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">","</span>),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"failed to start consumer:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    partitionList,err := consumer.Partitions(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"nginx_log"</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>        fmt.Println(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"Failed to get the list of partitions:"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    fmt.Println(partitionList)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> partition := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> partitionList{<br>        pc,err := consumer.ConsumePartition(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"nginx_log"</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span>(partition),sarama.OffsetNewest)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>            fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"failed to start consumer for partition %d:%s\"</span>,partition,err)<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>        }<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">defer</span> pc.AsyncClose()<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">go</span> <span style="font-size: 14px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span>(partitionConsumer sarama.PartitionConsumer)</span>{<br>            wg.Add(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">1</span>)<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> msg := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> partitionConsumer.Messages(){<br>                fmt.Printf(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"partition:%d Offset:%d Key:%s Value:%s"</span>,msg.Partition,msg.Offset,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(msg.Key),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(msg.Value))<br>            }<br>            wg.Done()<br>        }(pc)<br>    }<br><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">//time.Sleep(time.Hour)</span><br>    wg.Wait()<br>    consumer.Close()<br><br>}</span></code></pre><h1 style="font-weight: 700;font-size: 1.5em;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;line-height: 1.33333;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;text-align: start;background-color: rgb(255, 255, 255);margin-top: 28px !important;"><span style="border-width: 0px;border-style: initial;border-color: initial;font-size: 18px;">将客户端需要收集的日志信息放到etcd中</span></h1><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">关于etcd处理的代码为：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 15px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/coreos/etcd/clientv3"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/astaxie/beego/logs"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"context"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"fmt"</span><br>)<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">var</span> Client *clientv3.Client<br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">var</span> logConfChan <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">chan</span> <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span><br><br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// 初始化etcd</span><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">initEtcd</span>(addr []<span style="color: rgb(17, 75, 166);">string</span>,keyfmt <span style="color: rgb(17, 75, 166);">string</span>,timeout time.Duration)(err error)</span>{<br><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">var</span> keys []<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,ip := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> ipArrays{<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">//keyfmt = /logagent/%s/log_config</span><br>        keys = <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">append</span>(keys,fmt.Sprintf(keyfmt,ip))<br>    }<br><br>    logConfChan = <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">make</span>(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">chan</span> <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">10</span>)<br>    logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"etcd watch key:%v timeout:%v"</span>, keys, timeout)<br><br>    Client,err = clientv3.New(clientv3.Config{<br>        Endpoints:addr,<br>        DialTimeout: timeout,<br>    })<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span>{<br>        logs.Error(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"connect failed,err:%v"</span>,err)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"init etcd success"</span>)<br>    waitGroup.Add(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">1</span>)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _, key := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> keys{<br>        ctx,cancel := context.WithTimeout(context.Background(),<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">2</span>*time.Second)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// 从etcd中获取要收集日志的信息</span><br>        resp,err := Client.Get(ctx,key)<br>        cancel()<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> err != <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">nil</span> {<br>            logs.Warn(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"get key %s failed,err:%v"</span>,key,err)<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">continue</span><br>        }<br><br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _, ev := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> resp.Kvs{<br>            logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"%q : %q\"</span>,  ev.Key, ev.Value)<br>            logConfChan &lt;- <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(ev.Value)<br>        }<br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">go</span> WatchEtcd(keys)<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>}<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">WatchEtcd</span>(keys []<span style="color: rgb(17, 75, 166);">string</span>)</span>{<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(153, 153, 153);">// 这里用于检测当需要收集的日志信息更改时及时更新</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">var</span> watchChans []clientv3.WatchChan<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,key := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> keys{<br>        rch := Client.Watch(context.Background(),key)<br>        watchChans = <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">append</span>(watchChans,rch)<br>    }<br><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> {<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,watchC := <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> watchChans{<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">select</span>{<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">case</span> wresp := &lt;-watchC:<br>                <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> _,ev:= <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">range</span> wresp.Events{<br>                    logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"%s %q : %q\"</span>, ev.Type, ev.Kv.Key, ev.Kv.Value)<br>                    logConfChan &lt;- <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">string</span>(ev.Kv.Value)<br>                }<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">default</span>:<br><br>            }<br>        }<br>        time.Sleep(time.Second)<br>    }<br>    waitGroup.Done()<br>}<br><br><span style="font-size: 15px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">GetLogConf</span>()<span style="color: rgb(168, 46, 46);">chan</span> <span style="color: rgb(168, 46, 46);">string</span></span>{<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> logConfChan<br>}</span></code></pre><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">同样的这里增加对了限速的处理，毕竟日志收集程序不能影响了当前业务的性能，所以增加了limit.go用于限制速度：</span></p><pre style="margin-top: 1em;margin-bottom: 1em;padding: 15px;letter-spacing: 0.544px;font-family: Monaco;font-size: 16px;white-space: pre-wrap;border-width: 1px;border-style: solid;border-color: rgb(232, 232, 232);line-height: 1.5;color: rgb(34, 34, 34);background: rgb(250, 250, 250);overflow-x: auto;border-radius: 3px;text-align: left;box-shadow: rgba(216, 216, 216, 0.5) 0px 0px 0px 1px inset;"><code style="font-family: inherit;font-size: 1em;border-width: 0px;border-style: initial;border-color: initial;"><span style="font-size: 14px;"><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">package</span> main<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">import</span> (<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"time"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"sync/atomic"</span><br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"github.com/astaxie/beego/logs"</span><br>)<br><br><span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">type</span> SecondLimit <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">struct</span> {<br>    unixSecond <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int64</span><br>    curCount <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span><br>    limit <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span><br>}<br><br><span style="font-size: 14px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> <span style="color: rgb(168, 46, 46);">NewSecondLimit</span>(limit <span style="color: rgb(17, 75, 166);">int32</span>) *<span style="color: rgb(168, 46, 46);">SecondLimit</span></span> {<br>    secLimit := &amp;SecondLimit{<br>        unixSecond:time.Now().Unix(),<br>        curCount:<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">0</span>,<br>        limit:limit,<br>    }<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> secLimit<br>}<br><br><span style="font-size: 14px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> (s *SecondLimit) <span style="color: rgb(168, 46, 46);">Add</span>(count <span style="color: rgb(17, 75, 166);">int</span>)</span> {<br>    sec := time.Now().Unix()<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> sec == s.unixSecond {<br>        atomic.AddInt32(&amp;s.curCount,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span>(count))<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span><br>    }<br>    atomic.StoreInt64(&amp;s.unixSecond,sec)<br>    atomic.StoreInt32(&amp;s.curCount, <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">int32</span>(count))<br>}<br><br><span style="font-size: 14px;border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);"><span style="color: rgb(17, 75, 166);">func</span> (s *SecondLimit) <span style="color: rgb(168, 46, 46);">Wait</span>()<span style="color: rgb(168, 46, 46);">bool</span></span> {<br>    <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">for</span> {<br>        sec := time.Now().Unix()<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> (sec == atomic.LoadInt64(&amp;s.unixSecond)) &amp;&amp; s.curCount == s.limit {<br>            time.Sleep(time.Microsecond)<br>            logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"limit is running,limit:%d s.curCount:%d"</span>,s.limit,s.curCount)<br>            <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">continue</span><br>        }<br><br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">if</span> sec != atomic.LoadInt64(&amp;s.unixSecond) {<br>            atomic.StoreInt64(&amp;s.unixSecond,sec)<br>            atomic.StoreInt32(&amp;s.curCount,<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(168, 46, 46);">0</span>)<br>        }<br>        logs.Debug(<span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(0, 117, 59);">"limit is exited"</span>)<br>        <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(17, 75, 166);">return</span> <span style="border-width: 0px;border-style: initial;border-color: initial;color: rgb(138, 115, 4);">false</span><br>    }<br>}</span></code></pre><h1 style="font-weight: 700;font-size: 1.5em;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;line-height: 1.33333;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;text-align: start;background-color: rgb(255, 255, 255);margin-top: 28px !important;"><span style="border-width: 0px;border-style: initial;border-color: initial;font-size: 16px;">小结</span></h1><p style="margin-top: 16px;margin-bottom: 16px;letter-spacing: 0.544px;white-space: normal;border-width: 0px;border-style: initial;border-color: initial;color: rgb(34, 34, 34);font-family: &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;font-size: 16px;text-align: start;background-color: rgb(255, 255, 255);"><span style="font-size: 15px;">这次基本实现了日志收集的前半段的处理，后面将把日志扔到es中，并最终在页面上呈现</span></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><span style="font-size: 13px;">来源：</span></p><p style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;white-space: normal;background-color: rgb(255, 255, 255);"><span style="font-size: 13px;">https://www.toutiao.com/a6916833750924018179/</span></p><p style="white-space: normal;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);text-align: right;"><span style="font-size: 12px;color: rgb(178, 178, 178);"><em>文章转载：IT大咖说&nbsp;<br>（版权归原作者所有，侵删）</em></span></p><p style="padding-right: 0.5em;padding-left: 0.5em;white-space: normal;color: rgb(0, 0, 0);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);text-align: center;"><img class="__bg_gif" data-before-oversubscription-url="https://mmbiz.qlogo.cn/mmbiz_gif/HbjXqFK3L72957xsibH48vUn4119YSdqKzKaWGu3iaLPF8MpDeGzGJRDyXEjp2hEX6VE5ruWP2uibv4tVibOrwYIaA/0?wx_fmt=gif" data-ratio="0.5625" data-src="../../mmbiz_gif/US10Gcd0tQEfcffueY0reDaT8agHibMbk6Pqc4ibhiccO8Pz07m9jJ4eyuPZVomxWiac5FdicwB3aOub11CqBzXQrjw/640.jpg" data-type="gif" data-w="1280" height="40" width="94" style="letter-spacing: 0.544px; box-sizing: border-box !important; visibility: visible !important; width: 55.7969px !important; height: 31.3858px !important;" _width="55.7969px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" data-order="1" alt="图片"></p><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-galleryid="" data-ratio="0.47577092511013214" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="2270" _width="328px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" style="width: 328px !important; height: 157.101px !important;" crossorigin="anonymous" alt="图片"></p><p style="white-space: normal;"><span data-ratio="1.7777777777777777" id="js_tx_video_container_0.9560980235652259" class="js_tx_video_container" style="display: block; width: 328px !important; height: 197px !important;"><iframe frameborder="0" width="328" height="184.5" allow="autoplay; fullscreen" allowfullscreen="true" src="../../txp/iframe/player.html"></iframe></span><br></p><section data-mpa-template="t" mpa-from-tpl="t" style="white-space: normal;color: rgb(0, 0, 0);font-size: 14px;text-align: left;font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);"><section data-mpa-category="模板" data-mid="" mpa-from-tpl="t" style="padding-top: 20px;display: flex;justify-content: center;align-items: center;"><section data-mid="" mpa-from-tpl="t" style="display: flex;justify-content: center;align-items: center;"><img class="__bg_gif" data-ratio="0.9661016949152542" data-src="../../mmbiz_gif/Ax5Bp6214YNMtf0RNv4VQ0V1bg9SLBsGR5p3Olv8OSO4thBdpswMMZB8mHmWKdE9raicHrIbHZQRO5xxq1RZblA/640.jpg" data-type="gif" data-w="59" style="margin-right: 16px; box-sizing: border-box !important; visibility: visible !important; width: 38px !important; height: 36.7119px !important;" _width="38px" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" data-order="2" alt="图片"><p data-mid="" style="font-size: 16px;font-family: PingFangSC-Regular, &quot;PingFang SC&quot;;color: rgb(102, 102, 102);line-height: 23px;letter-spacing: 3px;"><em><span style="font-size: 15px;">点击下方“阅读原文”查看更多</span></em></p></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/-IT8LukMP5vrtmuVv0HZrA</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="127" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="127" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="../../assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="127" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../news2.html">资讯</a></li>
+        <li>本文标签：无</li>
+        <li>浏览次数：<span>287</span> 次浏览</li>
+        <li>发布日期：1970-01-01 08:00:00</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/news2/127.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="126.html">“接活”必备的 10 个开源项目！</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="138.html">谷歌应用商店用 AAB 取代 APK</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/334.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640.jpg" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/334.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/333.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/WhqIIKvibJ9VKwHNtUgcg3StqFwUAiaAxcet1SpndfWReuAr0ZUJc06fJW13RE4IzVvD3dicrAdzvkAtI6LGCiagzg/640.jpg" alt="浅议Linq和MoreLinq" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/333.html">浅议Linq和MoreLinq</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/332.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="Yarp+AgileConfig 配置热更新的代理网关" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/332.html">Yarp+AgileConfig 配置热更新的代理网关</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech2/331.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/lB5L72GibpKgs2s7VS5WT4dOVzYhmLLgKEygzOgJ373C6xxzjXNrYy7XGoiabAicY27vskkEGQjXibeJTGmdXT2cxQ/640.jpg" alt="在业务层实现校验请求参数" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech2/331.html">在业务层实现校验请求参数</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="9205750bb991750787398b386337ccd2">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="127">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

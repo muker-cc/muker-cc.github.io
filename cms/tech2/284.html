@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>3分钟搞定鸿蒙开发版应用开发！ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="1295f681a2d1e68a1fee932bb5e468c2">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">3分钟搞定鸿蒙开发版应用开发！</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 318 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img" data-galleryid="" data-ratio="0.602510460251046" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCqt7D7tLlaicdich5Kdyjb8AX5C2cwUd9JpJKickpeI4VXHsDZLB4dsKoA/640.jpg" data-type="png" data-w="956" style="width: 328px !important; height: auto !important; visibility: visible !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCqt7D7tLlaicdich5Kdyjb8AX5C2cwUd9JpJKickpeI4VXHsDZLB4dsKoA/640.jpg" crossorigin="anonymous" alt="图片" data-fail="0"></p><section style="box-sizing: border-box;font-size: 16px;"><section style="height: auto;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin-left: -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;box-sizing: border-box;"><p style="white-space: normal;box-sizing: border-box;">OpenHarmony2.0 应用开发环境搭建</p></section></section><section style="margin-right: 0%;margin-bottom: 8px;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><section style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①配置 OpenHarmony SDK（OpenHarmony SDK 与 HarmonyOS 应用开发 sdk 不通用）</span></strong></h2><section style="line-height: normal;"><br></section><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">前提条件：</span></h3><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">已下载并安装好 DevEco Studio 2.1 Release</span></p></li><li><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">已获取 OpenHarmony SDK 包并解压</span></p></li></ul><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">下载链接：</span></section><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;color: rgb(174, 135, 250);overflow-wrap: inherit !important;word-break: inherit !important;">https:</span>/<span style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">/developer.harmonyos.com/cn/develop/deveco</span>-studio<span style="font-size: inherit;line-height: inherit;color: rgb(128, 128, 128);overflow-wrap: inherit !important;word-break: inherit !important;">#download</span><br><span style="font-size: inherit;line-height: inherit;color: rgb(174, 135, 250);overflow-wrap: inherit !important;word-break: inherit !important;">https:</span>/<span style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">/mirror.iscas.ac.cn/</span>OpenHarmony/sdk/OpenHarmony-SDK-<span style="font-size: inherit;line-height: inherit;color: rgb(174, 135, 250);overflow-wrap: inherit !important;word-break: inherit !important;">2.0</span>-Canary.<span style="font-size: inherit;line-height: inherit;color: rgb(174, 135, 250);overflow-wrap: inherit !important;word-break: inherit !important;">7</span>z<br></code></pre></section><section style="line-height: normal;"><br></section><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">配置 SDK 信息：</span></h3><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">运行已安装的 DevEco Studio，首次使用，请选择 Do not import settings，点击 OK。</span></h3></li><li><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">接下来 DevEco Studio 会根据向导指示，进入到 SDK 下载界面，HarmonyOS SDK Location 选择本地解压的 SDK 包路径，然后点击 Next。</span></h3></li></ul><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">说明：如果不是首次安装 DevEco Studio，可能无法查看进入该界面，可通过欢迎页的 Configure（或图标）→Settings→Appearance &amp; Behavior→ System Settings→HarmonyOS SDK </span><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">界面，点击 HarmonyOS SDK Location 加载 SDK。</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.7291005291005291" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="945" style="width: 312px !important; height: 228.021px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">SDK 安装完成后，点击 Finish，界面会进入到 DevEco Studio 欢迎页。</span></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">进入 Sdk\\js\\2.2.0.0\\build-tools\\ace-loader 目录，然后在该目录下运行命令行工具，分别执行如下命令，直至安装完成。</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">npm</span>&nbsp;cache&nbsp;clean&nbsp;-f&nbsp;<br><span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">npm</span>&nbsp;install<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.1653363740022805" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1754" style="width: 312px !important; height: 53.2543px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">如果执行 npm install 失败，可以将 ace-loader 下面的 package-lock.json 删掉或者更名，在 ace-loader 路径直接执行 npm install：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.49125081011017496" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCfOsD6cYthZXahHlkNjYIC9SnuwvmLhYQyjPPQqZcVFuDak5VfSQHcg/640.jpg" data-type="png" data-w="1543" style="width: 312px !important; height: 154.288px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCfOsD6cYthZXahHlkNjYIC9SnuwvmLhYQyjPPQqZcVFuDak5VfSQHcg/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.28426395939086296" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1773" style="width: 312px !important; height: 90.1218px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②导入 OpenHarmony 工程</span></strong></h2><section style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">OpenHarmony SDK 配置完成后，便可以启动应用开发。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">针对 OpenHarmony 应用开发，只能通过导入 Sample 工程的方式来创建一个新工程。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">目前，支持 OpenHarmony 应用开发的 Sample 工程，请选择导入含有“This sample is intended for novices at developing OpenHarmony applications.”说明的 Sample。</span></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">例如选择 common 分类中的 HelloWorld 或者 JsHelloWorld：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.6590909090909091" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1232" style="width: 312px !important; height: 206.318px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.693040293040293" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1365" style="width: 312px !important; height: 216.842px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Sample 导入后，请打开工程下的 build.gradle，修改 hap 插件的版本号为“2.4.4.3-RC”：</span></p><section style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.4420849420849421" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1036" style="width: 312px !important; height: 139.046px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></section><section style="box-sizing: border-box;font-size: 16px;"><section style="height: auto;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin-left: -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;box-sizing: border-box;"><p style="white-space: normal;box-sizing: border-box;">配置&nbsp;OpenHarmony 应用签名信息</p></section></section><section style="margin-right: 0%;margin-bottom: 8px;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">OpenHarmony 系统上运行的应用必须拥有签名，无签名无法进行安装：<br></span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img" data-ratio="0.072737686139748" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1746" style="width: 312px !important; height: 22.6942px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><section style="text-align: center;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="1.0303030303030303" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCVo5128eCb89qQWWBB4cy7CpIXoh0usPamHHqNyCGic7hyUY5oIrP74w/640.jpg" data-type="png" data-w="429" style="width: 328px !important; height: 337.879px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCVo5128eCb89qQWWBB4cy7CpIXoh0usPamHHqNyCGic7hyUY5oIrP74w/640.jpg" crossorigin="anonymous" alt="图片"></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">OpenHarmony 应用签名主要分为四个步骤：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">生成秘钥和证书请求文件</span></p></li><li><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">生成应用证书文件</span></p></li><li><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">生成应用 profile 文件</span></p></li><li><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">配置应用签名信息</span></p></li></ul><p style="line-height: normal;"><br></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①DevEco Studio 来生成密钥文件（.p12 文件）和证书请求文件（.csr 文件）</span></strong></h2><p style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">点击 Build 中的 Generate Key and CSR，</span><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">会生成 csr、p12 两个文件：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="1.0947242206235013" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zChueLYyqnC4kmSHRKuqOUNJ1XeVL6qE80PdOGGrZjPxibFeicVgXSBrfg/640.jpg" data-type="png" data-w="834" style="width: 312px !important; height: 341.365px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zChueLYyqnC4kmSHRKuqOUNJ1XeVL6qE80PdOGGrZjPxibFeicVgXSBrfg/640.jpg" crossorigin="anonymous" alt="图片"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②生成应用证书文件</span></strong></h2><section style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">将步骤 1 生成的文件复制到 Sdk\oolchains\\lib（设置 sdk 的路径）文件夹下。</span></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">在 Sdk\oolchains\\lib 此目录下进入命令行模式，输入如下指令生成应用证书文件：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">keytool&nbsp;-gencert&nbsp;-<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">alias</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"OpenHarmony&nbsp;Application&nbsp;CA"</span>&nbsp;-infile&nbsp;app.csr&nbsp;-outfile&nbsp;IDE.cer&nbsp;-keystore&nbsp;OpenHarmony.p12&nbsp;-sigalg&nbsp;SHA384withECDSA&nbsp;-storepass&nbsp;123456&nbsp;-ext&nbsp;KeyUsage:<span style="font-size: inherit;line-height: inherit;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"critical=digitalSignature"</span>&nbsp;-validity&nbsp;&nbsp;3650&nbsp;-rfc<br></code></pre></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">说明：&nbsp;在上述命令中，标识为蓝色字体的字段不能修改，否则会导致证书生成失败。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">关于该命令的参数说明如下：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">alias：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">用于签发证书的 CA 私钥别名，OpenHarmony 社区 CA 私钥存于 OpenHarmony.p12 密钥库文件中，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">infile：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书请求（CSR）文件的路径。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">outfile：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输出证书链文件名及路径。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">keystore：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">签发证书的 CA 密钥库路径，OpenHarmony 密钥库文件名为 OpenHarmony.p12，文件在 OpenHarmony SDK 中 Sdk\oolchains\\lib 路径下，该参数不能修改。</span></p><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">请注意，该 OpenHarmony.p12 文件并不是生成密钥和证书请求文件中生成的 .p12 文件。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">sigalg：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书签名算法，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">storepass：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">密钥库密码，密码为 123456，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">ext：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书扩展项，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">validity：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书有效期，自定义天数。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">rfc：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输出文件格式指定，该参数不能修改。</span></p></li></ul><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">参考命令：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">&nbsp;keytool&nbsp;-gencert&nbsp;-<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">alias</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"OpenHarmony&nbsp;Application&nbsp;CA"</span>&nbsp;-infile&nbsp;example.csr&nbsp;-outfile&nbsp;IDE.cer&nbsp;-keystore&nbsp;OpenHarmony.p12&nbsp;-sigalg&nbsp;SHA384withECDSA&nbsp;-storepass&nbsp;123456&nbsp;-ext&nbsp;KeyUsage:<span style="font-size: inherit;line-height: inherit;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"critical=digitalSignature"</span>&nbsp;-validity&nbsp;&nbsp;3650&nbsp;-rfc<br></code></pre></section><p style="line-height: normal;"><br></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">③生成应用 Profile 文件</span></strong></h2><p style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">Profile 文件包含 OpenHarmony 应用的包名、数字证书信息、描述应用允许申请的证书权限列表，以及允许应用调试的设备列表（如果应用类型为 Release 类型，则设备列表为空）等内容，每个应用包中均必须包含一个 Profile 文件。</span></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在 Sdk\oolchains\\lib 此目录下进入命令行模式，输入如下指令生成应用 Profile 文件：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">java</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">-jar</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">provisionsigtool</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.jar</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">sign</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--in</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">UnsgnedReleasedProfileTemplate</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.json</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--out</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">SgnedReleasedProfileTemplate</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.p7b</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--keystore</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmony</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.p12</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--storepass</span>&nbsp;123456&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--alias</span>&nbsp;"<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmony</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Application</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Profile</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Release</span>"&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--sigAlg</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">SHA256withECDSA</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--cert</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmonyProfileRelease</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.pem</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--validity</span>&nbsp;365&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--developer-id</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">ohosdeveloper</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--bundle-name</span>&nbsp;包名&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--permission</span>&nbsp;受限权限名（可选）&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--permission</span>&nbsp;受限权限名（可选）&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--distribution-certificate</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">IDE</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.cer</span><br></code></pre></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">关于该命令的参数说明如下：</span></section><ul class="list-paddingleft-2" style="list-style-type: disc;"><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">provisionsigtool：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Profile 文件生成工具，文件在 OpenHarmony SDK 的 Sdk\oolchains\\lib 路径下。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">in：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Profile 模板文件所在路径，文件在 OpenHarmony SDK 中 Sdk\oolchains\\lib 路径下，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">out：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输出的 Profile 文件名和路径。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">keystore：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">签发证书的密钥库路径，OpenHarmony 密钥库文件名为 OpenHarmony.p12，文件在 OpenHarmony SDK 中 Sdk\oolchains\\lib 路径下，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">storepass：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">密钥库密码，密码为 123456，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">alias：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">用于签名 Profile 私钥别名，OpenHarmony 社区 CA 私钥存于 OpenHarmony.p12 密钥库文件中，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">sigalg：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书签名算法，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">cert：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">签名 Profile 的证书文件路径，文件在 OpenHarmony SDK 中 Sdk\oolchains\\lib 路径下，该参数不能修改。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">validity：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">证书有效期，自定义天数。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">developer-id：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">开发者标识符，自定义一个字符串。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">bundle-name：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">填写应用包名。</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">permission：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">可选字段，如果不需要，则可以省去此字段；如果需要添加多个受限权限，则如示例所示重复输入。</span></p><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">受限权限列表如下：</span></p><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">ohos.permission.READ_CONTACTS</span></p><p><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">ohos.permission.WRITE_CONTACTS</span></p></li><li><p><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">distribution-certificate：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">生成应用证书文件中生成的证书文件。</span></p></li></ul><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">参考命令：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">java</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">-jar</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">provisionsigtool</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.jar</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">sign</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--in</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">UnsgnedReleasedProfileTemplate</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.json</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--out</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">SgnedReleasedProfileTemplate</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.p7b</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--keystore</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmony</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.p12</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--storepass</span>&nbsp;123456&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--alias</span>&nbsp;"<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmony</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Application</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Profile</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Release</span>"&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--sigAlg</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">SHA256withECDSA</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--cert</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">OpenHarmonyProfileRelease</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.pem</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--validity</span>&nbsp;7200&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--developer-id</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">ohosdeveloper</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--bundle-name</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">ohos</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.samples.jshelloworld</span>&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">--distribution-certificate</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">IDE</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.cer</span><br></code></pre></section><p style="line-height: normal;"><br></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">④配置签名信息</span></strong></h2><section style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在真机设备上调试前，需要使用到制作的私钥（.p12）文件、证书（.cer）文件和 Profile（.p7b）文件对调试的模块进行签名。</span></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">打开File→Project Structure，点击 Project→Signing Configs→debug 窗口中，去除勾选“Automatically generate signing”，然后配置指定模块的调试签名信息。</span></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Store File：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">选择密钥库文件，文件后缀为 .p12，该文件为生成密钥和证书请求文件中生成的 .p12 文件。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Store Password：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输入密钥库密码，该密码为生成密钥和证书请求文件中填写的密钥库密码保持一致。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Key Alias：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输入密钥的别名信息，与生成密钥和证书请求文件中填写的别名保持一致。</span></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Key Password：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">输入密钥的密码，与 Store Password 保持一致。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Sign Alg：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">签名算法，固定为 SHA256withECDSA。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Profile File：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">选择申请的调试 Profile 文件，文件后缀为 .p7b。</span></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">Certpath File：</span></strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">选择申请的调试数字证书文件，文件后缀为 .cer。</span></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">⑤Build 应用</span></strong></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">点击 Build 中的 Build Hap（s）/APP(S) 生成 hap 应用：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.22420634920634921" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCAC2TBSM9WaCom9pJkOB2Rkl5ibpHQMkiakq53lLaQ4HqMgVyr5CnWP0A/640.jpg" data-type="png" data-w="1008" style="width: 312px !important; height: 71.504px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCAC2TBSM9WaCom9pJkOB2Rkl5ibpHQMkiakq53lLaQ4HqMgVyr5CnWP0A/640.jpg" crossorigin="anonymous" alt="图片"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">⑥安装应用</span></strong><br></h2><section style="line-height: normal;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">hdc_std install entry-debug-standard-signed.hap：<br></span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img" data-ratio="0.11576011157601115" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1434" style="width: 312px !important; height: 36.1172px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.6712962962962963" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCxByJuZHDseMAcKrz4lnYOlWRzDsHnOMfsm43v8QibWheqNWJyJcHbPA/640.jpg" data-type="png" data-w="1080" style="width: 312px !important; height: 210.102px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCxByJuZHDseMAcKrz4lnYOlWRzDsHnOMfsm43v8QibWheqNWJyJcHbPA/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-ratio="0.6167279411764706" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1088" style="width: 312px !important; height: 193.186px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><section style="box-sizing: border-box;font-size: 16px;"><section style="height: auto;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin-right: 0%;margin-left: 0%;justify-content: flex-start;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin-left: -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;" powered-by="xiumi.us"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;box-sizing: border-box;"><p style="white-space: normal;box-sizing: border-box;">hdc 工具安装及使用</p></section></section><section style="margin-right: 0%;margin-bottom: 8px;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg viewbox="0 0 1 1" style="float:left;line-height:0;width:0;vertical-align:top;"></svg></section></section></section></section></section><section style="line-height: normal;"><br></section><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①工具配置</span></strong></h2><h2 style="line-height: normal;"><br></h2><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">hdc 工具官方 gitee 链接：</span></h2><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">https:<span style="font-size: inherit;line-height: inherit;color: rgb(128, 128, 128);overflow-wrap: inherit !important;word-break: inherit !important;">//gitee.com/openharmony/developtools_hdc_standard</span><br></code></pre></section><section style="line-height: normal;"><br></section><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">hdc 工具在源码目录下：</span></h2><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">developtools/hdc_standard/prebuilt/windows/hdc_std.exe<br></code></pre></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">配置环境变量后即可使用；</span><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">通过 usb 连接鸿蒙（只需要连接 USB 即可）。</span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">通过 Hi3516 背面的 type-c 口连接电脑, 目前只有这口能传数据， 底下的口不行。</span></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">如果成功，可以在电脑设备管理-用串行总线设备下面看到 HDC Device：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.622202327663384" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="1117" style="width: 312px !important; height: 194.883px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">打开终端， 输入 hdc list targets 列出设备。</span></section><section style="line-height: normal;"><br></section><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②常用使用命令</span></strong></h2><h2 style="line-height: normal;"><br></h2><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">查看版本信息 hdc_std v；查看设备信息 hdc_std list targets -v。</span></h2><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.15807860262008733" data-s="300,640" data-src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zC5YrkIiapQYjMDzu3bYwopfE7qicHLy4bEibJye9847rcgLgqRr9gEGKibg/640.jpg" data-type="png" data-w="1145" style="width: 312px !important; height: 51.0044px !important;" _width="328px" src="../../mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zC5YrkIiapQYjMDzu3bYwopfE7qicHLy4bEibJye9847rcgLgqRr9gEGKibg/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">远程执行命令或进入交互命令环境 hdc_std shell：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.4470588235294118" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="680" style="width: 312px !important; height: 140.588px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">抓取 log 信息 hdc_std hilog，</span><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">安装应用 install [-r/-d/-g] package。</span></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">安装 OpenHarmony package：</span></p><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.5045278137128072" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="773" style="width: 312px !important; height: 158.404px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(71, 193, 168);letter-spacing: 1px;">使用方法（举例）：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">hdc_std</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">install</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">-r</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">E</span>:\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">openharmony</span>\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">code-2</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.0-canary</span>\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">applications</span>\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">standard</span>\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">hap</span>\\<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">Gallery_Demo</span><span style="font-size: inherit;line-height: inherit;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">.hap</span><br></code></pre></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="color: rgb(89, 89, 89);font-size: 15px;letter-spacing: 1px;">卸载应用 uninstall [-k] package。</span></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">卸载 OpenHarmony 应用：</span></p><section style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.36597938144329895" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="776" style="width: 312px !important; height: 115.454px !important;" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" alt="图片"></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">使用方法（举例）：</span></p><section style="font-size: 16px;color: rgb(62, 62, 62);line-height: 1.6;letter-spacing: 0px;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><pre style="font-size: inherit;color: inherit;line-height: inherit;"><code style="margin-right: 2px;margin-left: 2px;line-height: 18px;font-size: 14px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);padding: 0.5em;overflow-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">hdc_std&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">uninstall</span>&nbsp;<span style="font-size: inherit;line-height: inherit;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">package</span><br></code></pre></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 10px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">终止 hdc 服务进程，-r 选项会触发再次重启 hdc server，如果出现连不上开发版，可以尝试先 kill 然后再使用 start 命令启动。</span></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 10px;"><img class="rich_pages wxw-img img_loading" data-galleryid="" data-ratio="0.6666666666666666" data-s="300,640" data-src="../../mmbiz_jpg/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCGwjAAJPlDfF6MicmCNOsqDRIYS2kU7Q4pNsRNsakOLhpC4rNRDEknVw/640.jpg" data-type="jpeg" data-w="900" style="width: 312px !important; height: 208.667px !important;" _width="328px" src="../../mmbiz_jpg/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCGwjAAJPlDfF6MicmCNOsqDRIYS2kU7Q4pNsRNsakOLhpC4rNRDEknVw/640.jpg" crossorigin="anonymous" alt="图片"></p><p style="margin-right: 8px;margin-left: 8px;white-space: normal;text-align: center;line-height: 1.75em;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">👇</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">点击</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">关注鸿蒙技术社区👇<br></span></strong></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzkzNzE0MTA4OQ==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0?wx_fmt=png" data-nickname="鸿蒙技术社区" data-alias="" data-signature="HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzkzNzE0MTA4OQ==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0.jpg" alt="鸿蒙技术社区">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                鸿蒙技术社区                           </strong>           <div class="wx_profile_desc">HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">157篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="white-space: normal;text-align: center;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">了解</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">鸿蒙</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">一手资讯</span></strong></p><p style="line-height: normal;"><br></p><section style="box-sizing: border-box;font-size: 16px;"><section style="margin: 10px 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="display: inline-block;vertical-align: middle;width: 12%;box-sizing: border-box;"><section style="text-align: center;margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;box-sizing: border-box;"><img data-ratio="1" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="gif" data-w="300" style="vertical-align: middle; box-sizing: border-box; width: 39px !important; height: 39px !important;" _width="100%" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" class="__bg_gif" data-order="0" alt="图片"></section></section></section><section style="display: inline-block;vertical-align: middle;width: 88%;padding-left: 10px;box-sizing: border-box;"><section style="margin-right: 0%;margin-left: 0%;box-sizing: border-box;" powered-by="xiumi.us"><section style="box-sizing: border-box;"><p style="white-space: normal;box-sizing: border-box;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(89, 89, 89);"><strong>点</strong></span><span style="font-size: 15px;letter-spacing: 1px;color: rgb(255, 41, 65);"><strong>“阅读原文”</strong></span><span style="font-size: 15px;letter-spacing: 1px;color: rgb(89, 89, 89);"><strong>了解更多</strong></span></p></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/hBox_uYjinhn1GppJRP-og</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="284" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="284" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBbxecmicmfXZCP0KkmDP7zCqt7D7tLlaicdich5Kdyjb8AX5C2cwUd9JpJKickpeI4VXHsDZLB4dsKoA/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="284" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/鸿蒙.html" class="tag" rel="tag">鸿蒙</a></li>
+        <li>浏览次数：<span>318</span> 次浏览</li>
+        <li>发布日期：2021-07-21 12:36:15</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/284.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="283.html">GitHub 周榜第一！微软给新手开源的 ML 课程，1.2 万 Star</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="285.html">鸿蒙OS将支持控制中心与通知中心左右滑动切换</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="304.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="十分钟完成Hi3516小型系统的编译烧录！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="304.html">十分钟完成Hi3516小型系统的编译烧录！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../soft/289.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="鸿蒙首款地图服务卡片，我心动了！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../soft/289.html">鸿蒙首款地图服务卡片，我心动了！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech/286.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="首款鸿蒙系统游戏《迷你世界》上架华为商城！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech/286.html">首款鸿蒙系统游戏《迷你世界》上架华为商城！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="285.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="鸿蒙OS将支持控制中心与通知中心左右滑动切换" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="285.html">鸿蒙OS将支持控制中心与通知中心左右滑动切换</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="1295f681a2d1e68a1fee932bb5e468c2">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="284">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

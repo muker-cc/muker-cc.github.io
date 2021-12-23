@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>在鸿蒙上开发Unity游戏的方法！ - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="c8192551e818d2f8500404e83f4eeb5d">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">在鸿蒙上开发Unity游戏的方法！</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 351 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="margin: 20px 0% 10px;box-sizing: border-box;"><section style="display: inline-block;width: 100%;vertical-align: top;border-style: solid;border-width: 1px;border-color: rgb(89, 89, 89);box-sizing: border-box;"><section style="box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;display: flex;flex-flow: row nowrap;margin: -8px 0% 0px;transform: translate3d(27px, 0px, 0px);-webkit-transform: translate3d(27px, 0px, 0px);-moz-transform: translate3d(27px, 0px, 0px);-o-transform: translate3d(27px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;vertical-align: top;width: auto;flex: 0 0 0%;height: auto;line-height: 0;z-index: 3;box-sizing: border-box;"><section style="margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 16px;height: 16px;vertical-align: top;overflow: hidden;background-color: rgba(255, 255, 255, 0);border-width: 1px;border-radius: 26px;border-style: solid;border-color: rgb(89, 89, 89);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: top;width: auto;flex: 0 0 0%;height: auto;margin: 0px 0px 0px -8px;line-height: 0;box-sizing: border-box;"><section style="margin: 0px 0%;justify-content: flex-start;transform: translate3d(-3px, 0px, 0px);-webkit-transform: translate3d(-3px, 0px, 0px);-moz-transform: translate3d(-3px, 0px, 0px);-o-transform: translate3d(-3px, 0px, 0px);box-sizing: border-box;"><section style="display: inline-block;width: 16px;height: 16px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section></section><section style="margin: 14px 0% 4px;box-sizing: border-box;"><section style="font-size: 15px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px 28px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">上一次测试了 <a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzkzNzE0MTA4OQ==&amp;mid=2247489193&amp;idx=1&amp;sn=699ed57b4f9044f9abdc9658d68b4e70&amp;chksm=c292a0a7f5e529b133dd0a06d5e573d20db6329af6c981f6878781682dde034f0ab222f65ec7&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="11" textvalue="Cocos 直接打包鸿蒙应用" hasload="1">Cocos 直接打包鸿蒙应用</a>，体验极度舒适。但是，对于 Cocos 之外的其他游戏引擎使用者，例如 Laya，例如 Egret，特别是 Unity，有什么办法可以在鸿蒙上开发游戏呢？</p></section></section><section style="text-align: right;justify-content: flex-end;transform: translate3d(-18px, 0px, 0px);-webkit-transform: translate3d(-18px, 0px, 0px);-moz-transform: translate3d(-18px, 0px, 0px);-o-transform: translate3d(-18px, 0px, 0px);margin: 0px 0% -12px;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 15px;height: auto;align-self: center;margin: 0px -7px 0px 0px;box-sizing: border-box;"><section style="transform: rotateZ(311deg);-webkit-transform: rotateZ(311deg);-moz-transform: rotateZ(311deg);-o-transform: rotateZ(311deg);box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><section style="display: inline-block;vertical-align: middle;width: 15px;height: auto;align-self: center;box-sizing: border-box;"><section style="transform: rotateZ(311deg);-webkit-transform: rotateZ(311deg);-moz-transform: rotateZ(311deg);-o-transform: rotateZ(311deg);box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section></section></section></section></section><section style="line-height: normal;"><br></section><section style="text-align: center;margin-bottom: 5px;margin-left: 8px;margin-right: 8px;"><img class="rich_pages" style="width: 578px !important; height: auto !important; visibility: visible !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="783" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.6398467432950191" data-galleryid="" data-cropsely2="376" data-cropsely1="0" data-cropselx2="562" data-cropselx1="0" _width="578px" data-fail="0"></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">由于这些引擎的底层与 Cocos 不同，不能直接用 Cocos 的代码，所以在这些引擎为鸿蒙提供原生支持之前，我们需要一个曲线救国的方法。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">于是乎，我想到了：Webview。<br></span></p><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">官方文档：</span></p><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(174, 135, 250);word-wrap: inherit !important;word-break: inherit !important;">https:</span>/<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">/developer.harmonyos.com/cn/docs/documentation/doc-guides/ui</span>-java-component-webview-<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(174, 135, 250);word-wrap: inherit !important;word-break: inherit !important;">00000010</span>92715158<br></code></pre></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">实际效果：</span></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 648px !important; height: 337.96px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="648" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.5200617283950617" data-galleryid="" _width="648px"></p><h1 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">使用 Webview 在鸿蒙设备上运行 Unity 游戏需要几个步骤？</span></h1><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="height: auto;box-sizing: border-box;"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin: 0px 0px 0px -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">用 Webview 在鸿蒙上运行 Unity 游戏</p></section></section><section style="margin: 0px 0% 8px;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><section style="line-height: normal;"><br></section><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①创建鸿蒙全屏工程</span></strong></h2><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">在 DevEco 中创建一个新工程，模板选择 Full Screen Ability。</span></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 443.86px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1126" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.6705150976909414" data-galleryid="" _width="677px"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②添加 Webview</span></strong></h2><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">这个工程的布局很简单，就是一个全屏的 image 组件，把 image 组件替换成 webview 即可。<br></span></p><section style="line-height: normal;"><br></section><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">将模板 layout 中的 image 组件替换成 webview：</span></h3><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">ohos.agp.components.webengine.WebView</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">ohos:id</span>=<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"$+id:webview"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">ohos:height</span>=<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"match_parent"</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">ohos:width</span>=<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);overflow-wrap: inherit !important;word-break: inherit !important;">"match_parent"</span>&gt;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">&lt;/<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);overflow-wrap: inherit !important;word-break: inherit !important;">ohos.agp.components.webengine.WebView</span>&gt;</span><br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">注意：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">该模板提供了 2 个 layout，land_main 是横屏，port_main 是竖屏，根据需要或者直接都替换掉。</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 424.48px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="978" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.6411042944785276" data-galleryid="" _width="677px"></p><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">初始化 webview，并加载 url，在 MainAbilitySlice 中，添加方法 initWebview：</span></h3><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//&nbsp;初始化webview，并加载url</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;"><span style="line-height: inherit;margin: 0px;padding: 0px;overflow-wrap: inherit !important;word-break: inherit !important;">private</span>&nbsp;<span style="line-height: inherit;margin: 0px;padding: 0px;overflow-wrap: inherit !important;word-break: inherit !important;">void</span>&nbsp;<span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(165, 218, 45);overflow-wrap: inherit !important;word-break: inherit !important;">initWebview</span><span style="line-height: inherit;margin: 0px;padding: 0px;color: rgb(255, 152, 35);overflow-wrap: inherit !important;word-break: inherit !important;">()</span></span>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebView&nbsp;webView&nbsp;=&nbsp;(WebView)&nbsp;findComponentById(ResourceTable.Id_webview);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webView.getWebConfig().setJavaScriptPermit(<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">true</span>);&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//&nbsp;如果网页需要使用JavaScript，增加此行；如何使用JavaScript下文有详细介绍</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">final</span>&nbsp;String&nbsp;url&nbsp;=&nbsp;EXAMPLE_URL;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//&nbsp;EXAMPLE_URL由开发者自定义</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webView.load(url);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 385.76px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1087" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.5823367065317387" data-galleryid="" _width="677px"></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">并在 onStart 方法中调用：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 394.21px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="1077" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.5951717734447539" data-galleryid="" _width="677px"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">③隐藏标题栏</span></strong></h2><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">添加完 Webview 组件，就可以用它来查看网页了。下图中，展示了我的博客，可以看到，标题栏还在。</span></p><section style="text-align: center;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 498px !important; height: 1047.78px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="498" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="2.108433734939759" data-galleryid="" _width="498px"></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">为了提供更好的体验，我们想办法把它隐藏。以下方法来自钟发发老师：</span><br></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 622px !important; height: 213.31px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="622" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.3408360128617363" data-galleryid="" _width="622px"></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;letter-spacing: 1px;color: rgb(71, 193, 168);">两个步骤：</span></section><p style="line-height: normal;"><br></p><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">①在 config.json 中设置 NoTitleBar：</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><br></span></p><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"abilities"</span>:&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">...</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"metaData"</span>:{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"customizeData"</span>:[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"name"</span>:&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"hwc-theme"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"value"</span>:&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"androidhwext:style/Theme.Emui.NoTitleBar"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">"extra"</span>:<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(238, 220, 112);word-wrap: inherit !important;word-break: inherit !important;">""</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">...</span><br>&nbsp;&nbsp;&nbsp;&nbsp;}<br></code></pre></section><p style="line-height: normal;"><br></p><h3 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">②在 onStart 中设置 MARK_TRANSLUCENT_STATUS，</span></strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">注意，以下代码需要在 setUIContent 之前调用：</span><br></h3><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//&nbsp;沉浸式显示（by&nbsp;钟发发老师)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(248, 35, 117);word-wrap: inherit !important;word-break: inherit !important;">this</span>.getWindow().addFlags(WindowManager.LayoutConfig.MARK_TRANSLUCENT_STATUS);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(128, 128, 128);word-wrap: inherit !important;word-break: inherit !important;">//&nbsp;setUIContent&nbsp;之前</span><br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">再次测试 Webview，这次标题栏就隐藏了：</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 570px !important; height: 1066.25px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="570" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="1.8736842105263158" data-galleryid="" _width="570px"></p><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">④设置 Webview 加载 Unity Webgl 游戏</span></strong><br></h2><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">首先，用 Unity 打包 Webgl 游戏，并上传到服务器上。然后，用 Webview 加载 Unity 游戏的链接。</span></section><h2 style="line-height: normal;"><br></h2><h2 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">⑤打开远程真机，进行调试</span></strong></h2><section style="line-height: normal;"><br></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">与 Cocos 项目一样，模拟器无法正常演示游戏，需要使用远程真机来调试。参考上一篇：<a href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzkzNzE0MTA4OQ==&amp;mid=2247489193&amp;idx=1&amp;sn=699ed57b4f9044f9abdc9658d68b4e70&amp;chksm=c292a0a7f5e529b133dd0a06d5e573d20db6329af6c981f6878781682dde034f0ab222f65ec7&amp;scene=21#wechat_redirect');" target="_blank" data-linktype="2" tab="innerlink" data-itemshowtype="11" textvalue="《用DevEco 2.2远程真机调试+Cocos Creator 3.2开发一个鸿蒙游戏》">《用DevEco 2.2远程真机调试+Cocos Creator 3.2开发一个鸿蒙游戏》</a></span><br></p><section style="text-align: center;margin-left: 8px;margin-right: 8px;"><img class="rich_pages img_loading" style="width: 600px !important; height: 595.01px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="600" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.9916666666666667" data-galleryid="" _width="600px"></section><p style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">完成~</span></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 661px !important; height: 560.6px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="663" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.8476621417797888" data-galleryid="" _width="663px"></p><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="height: auto;box-sizing: border-box;"><section style="display: flex;flex-flow: row nowrap;margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 0 0 0%;height: auto;align-self: flex-end;box-sizing: border-box;"><section style="text-align: left;margin: 0px 0%;justify-content: flex-start;box-sizing: border-box;"><section style="display: inline-block;width: 22px;height: 22px;vertical-align: top;overflow: hidden;background-color: rgb(251, 228, 151);border-width: 0px;border-radius: 26px;border-style: none;border-color: rgb(62, 62, 62);box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;flex: 100 100 0%;align-self: flex-end;height: auto;margin: 0px 0px 0px -14px;box-sizing: border-box;"><section style="text-align: left;justify-content: flex-start;transform: translate3d(24px, 0px, 0px);-webkit-transform: translate3d(24px, 0px, 0px);-moz-transform: translate3d(24px, 0px, 0px);-o-transform: translate3d(24px, 0px, 0px);box-sizing: border-box;"><section style="text-align: justify;font-size: 18px;color: rgb(89, 89, 89);line-height: 2;letter-spacing: 1px;padding: 0px;box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">如何加载本地资源？</p></section></section><section style="margin: 0px 0% 8px;box-sizing: border-box;"><section style="background-color: rgb(89, 89, 89);height: 1px;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section><section style="display: inline-block;vertical-align: bottom;width: auto;align-self: flex-end;min-width: 10%;max-width: 100%;flex: 0 0 auto;height: auto;box-sizing: border-box;"><section><svg xmlns="http://www.w3.org/2000/svg" style="float:left;line-height:0;width:0;vertical-align:top;" viewbox="0 0 1 1"></svg></section></section></section></section></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">你可能已经注意到了，本文介绍的方法，游戏代码是放在服务器上的，如果你没有服务器，或者想把资源放在游戏包中，可以参考官方 WebView 文档，里边有详细介绍如何加载本地资源。<br></span></section><p style="line-height: normal;"><br></p><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">如果有空尝试的话，我会再出一篇相关文章。</span><br></section><section style="line-height: normal;"><br></section><section style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;margin-bottom: 5px;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">《WebView》：</span></section><section><pre style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;"><code style="white-space:pre-wrap;overflow-wrap: break-word;margin: 0px 2px;line-height: 18px;font-size: 14px;font-weight: normal;word-spacing: 0px;letter-spacing: 0px;font-family: Consolas, Inconsolata, Courier, monospace;border-radius: 0px;color: rgb(169, 183, 198);background: rgb(40, 43, 46);overflow-x: auto;padding: 0.5em;word-wrap: normal !important;word-break: normal !important;overflow: auto !important;display: -webkit-box !important;"><span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(174, 135, 250);word-wrap: inherit !important;word-break: inherit !important;">https:</span>/<span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">/developer.harmonyos.com/cn</span><span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">/docs/documentation</span><span style="font-size: inherit;color: inherit;line-height: inherit;margin: 0px;padding: 0px;word-wrap: inherit !important;word-break: inherit !important;">/doc-guides/ui</span>-java-component-webview-<span style="font-size: inherit;line-height: inherit;margin: 0px;padding: 0px;color: rgb(174, 135, 250);word-wrap: inherit !important;word-break: inherit !important;">00000010</span>92715158<br></code></pre></section><section style="line-height: normal;"><br></section><p style="text-align: center;margin-left: 8px;margin-right: 8px;margin-bottom: 5px;"><img class="rich_pages img_loading" style="width: 490px !important; height: 334.63px !important;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" crossorigin="anonymous" data-w="490" data-type="png" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-s="300,640" data-ratio="0.6816326530612244" data-galleryid="" _width="490px"></p><h1 style="text-align: justify;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;">最后，非常感谢钟发发老师在我遇到困难时，第一时间伸出援手，非常感谢，比心。</span></h1><p style="line-height: normal;"><br></p><p style="text-align: center;margin-left: 8px;margin-right: 8px;line-height: 1.75em;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">👇</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">点击</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">关注鸿蒙技术社区👇<br></span></strong></p><section><mpprofile class="js_uneditable" data-from="0" data-signature="HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。" data-alias="" data-nickname="鸿蒙技术社区" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0?wx_fmt=png" data-id="MzkzNzE0MTA4OQ==" data-pluginname="mpprofile"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzkzNzE0MTA4OQ==" data-index="0" data-isban="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" alt="鸿蒙技术社区" src="../../mmbiz_png/bmc8z80Q8fBthvCfLJkGNShxCDvq8LOYEMQrA17PgpwoLtF94tIRLVTnEDfAc7yIOLgJNUvDCmPSNmHQpnsCPw/0.jpg">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                鸿蒙技术社区                           </strong>           <div class="wx_profile_desc">HarmonyOS（鸿蒙）技术社区是由51CTO和华为共同打造的综合性开发和应用技术社区。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">147篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="text-align: center;"><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;"></span></strong><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">了解</span></strong><span style="color: rgb(255, 41, 65);"><strong><span style="font-size: 14px;letter-spacing: 1px;">鸿蒙</span></strong></span><strong><span style="font-size: 14px;color: rgb(89, 89, 89);letter-spacing: 1px;">一手资讯</span></strong></p><section style="line-height: normal;"><br></section><section style="box-sizing: border-box;font-style: normal;font-weight: 400;text-align: justify;font-size: 16px;"><section style="margin: 10px 0%;box-sizing: border-box;"><section style="display: inline-block;vertical-align: middle;width: 12%;box-sizing: border-box;"><section style="text-align: center;margin: 0px 0%;box-sizing: border-box;"><section style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;width: 100%;box-sizing: border-box;"><img class="img_loading __bg_gif" style="width: 81px !important; height: 81px !important; vertical-align: middle; max-width: 100%; box-sizing: border-box;" alt="图片" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-w="300" data-type="gif" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-ratio="1" _width="100%" data-order="0"></section></section></section><section style="display: inline-block;vertical-align: middle;width: 88%;padding: 0px 0px 0px 10px;box-sizing: border-box;"><section style="margin: 0px 0%;box-sizing: border-box;"><section style="box-sizing: border-box;"><p style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;"><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><strong>点</strong></span><span style="font-size: 15px;letter-spacing: 1px;color: rgb(255, 41, 65);"><strong>“阅读原文”</strong></span><span style="font-size: 15px;color: rgb(89, 89, 89);letter-spacing: 1px;"><strong>了解更多</strong></span></p></section></section></section></section></section>                </div><div>来源:https://mp.weixin.qq.com/s/wzQ9-F1qs6Z86gh1_-5amg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="186" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="186" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="https://mmbiz.qpic.cn/mmbiz_png/bmc8z80Q8fBz5R5nNMmyGibUczx1oLGvOw7popCQrbR34icyBKvNa3JfPQQ4OMq1y00BVyJqOm8kmybJgztKTkdg/640">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="186" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/鸿蒙.html" class="tag" rel="tag">鸿蒙</a><a href="../t/Unity.html" class="tag" rel="tag">Unity</a></li>
+        <li>浏览次数：<span>351</span> 次浏览</li>
+        <li>发布日期：2021-07-07 15:13:07</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/186.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="182.html">Dotnet Core 优雅的命令行实现</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="187.html">HarmonyOS应用/设备开发工程师认证来啦！</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="304.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="十分钟完成Hi3516小型系统的编译烧录！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="304.html">十分钟完成Hi3516小型系统的编译烧录！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../soft/289.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="鸿蒙首款地图服务卡片，我心动了！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../soft/289.html">鸿蒙首款地图服务卡片，我心动了！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="../tech/286.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="首款鸿蒙系统游戏《迷你世界》上架华为商城！" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="../tech/286.html">首款鸿蒙系统游戏《迷你世界》上架华为商城！</a></h5>
+        </div>
+                <div class="col-sm-3 col-xs-6">
+            <a href="285.html" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" alt="鸿蒙OS将支持控制中心与通知中心左右滑动切换" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="285.html">鸿蒙OS将支持控制中心与通知中心左右滑动切换</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="c8192551e818d2f8500404e83f4eeb5d">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="186">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>

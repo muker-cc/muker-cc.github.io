@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class=""> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>如何将 Numpy 加速 700 倍？用 CuPy 呀 - 技术改变生活</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<meta name="referrer" content="never">
+    <link rel="shortcut icon" href="../../assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" media="screen" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/libs/fastadmin-layer/dist/theme/default/layer.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/swiper.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/share.min.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/iconfont.css">
+    <link rel="stylesheet" media="screen" href="../../assets/addons/cms/css/common.css">
+
+    <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.js"></script>
+    <script src="/libs/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="group-page">
+
+<header class="header">
+    <!-- S 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html"><img src="../../uploads/20210611/12b922043e5247eeca1b833a969486c3.png" height="40" alt=""></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav" data-current="34">
+                    <!--如果你需要自定义NAV,可使用channellist标签来完成,这里只设置了2级,如果显示无限级,请使用cms:nav标签-->
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../index.html">首页</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../../cms2.html">新闻动态</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="javascript:window.open('https://www.clrs.me/');">博客</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="">
+                        <a href="../special/hmtech.html">鸿蒙专题</a>
+                        <ul class="dropdown-menu" role="menu">
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../product.html" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../p/reload.html">充值缴费</a></li>
+                                                        <li><a href="../weixingongju.html">微信工具</a></li>
+                                                        <li><a href="../dianshangxitong.html">电商系统</a></li>
+                                                        <li><a href="../zaixianjiaoyu.html">在线教育</a></li>
+                                                        <li><a href="../quanziluntan.html">圈子论坛</a></li>
+                                                        <li><a href="../neirongguanliCMS.html">内容管理(CMS)</a></li>
+                                                        <li><a href="../yumingchushou.html">域名出售</a></li>
+                                                        <li><a href="../opensource.html">开源项目</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown">解决方案 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../qiyejiejuefangan.html">企业解决方案</a></li>
+                                                        <li><a href="../p/tongyongjiejuefangan.html">通用解决方案</a></li>
+                                                    </ul>
+                    </li>
+                                        <!--判断是否有子级或高亮当前栏目-->
+                    <li class="dropdown">
+                        <a href="../download.html" data-toggle="dropdown">下载中心 <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="../fuwuqi.html">服务器</a></li>
+                                                        <li><a href="../caozuoxitong.html">操作系统</a></li>
+                                                    </ul>
+                    </li>
+                    
+                    <!--如果需要无限级请使用cms:nav标签-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="form-inline navbar-form" action="/cms/s.html" method="get">
+                            <div class="form-search hidden-sm hidden-md">
+                                <input class="form-control" name="q" data-suggestion-url="/addons/cms/search/suggestion.html" type="text" id="searchinput" value="" placeholder="搜索">
+                            </div>
+                            <input type="hidden" name="__searchtoken__" value="4a22aebb7c3eb60dec568a2af5c327d7">                        </form>
+                    </li>
+                    <li class="dropdown">
+                                                <a href="../../index/user/index.html" class="dropdown-toggle" data-toggle="dropdown">会员<span class="hidden-sm">中心</span> <b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a href="../../index/user/login1.html"><i class="fa fa-sign-in fa-fw"></i> 登录</a></li>
+                            <li><a href="../../index/user/register.html"><i class="fa fa-user-o fa-fw"></i> 注册</a></li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- E 导航 -->
+
+</header>
+
+<main class="main-content">
+    
+
+<div class="container" id="content-container">
+
+    <div class="row">
+
+        <main class="col-md-8">
+            <div class="panel panel-default article-content">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <!-- S 面包屑导航 -->
+                                                <li><a href="../index.html">首页</a></li>
+                                                <li><a href="../tech2.html">技术</a></li>
+                                                <!-- E 面包屑导航 -->
+                    </ol>
+                </div>
+                <div class="panel-body">
+                    <div class="article-metas">
+                        <h1 class="metas-title">如何将 Numpy 加速 700 倍？用 CuPy 呀</h1>
+
+                        <div class="metas-body">
+                                                        <span class="views-num">
+                                <i class="fa fa-eye"></i> 248 阅读
+                            </span>
+                            <span class="comment-num">
+                                <i class="fa fa-comments"></i> 0 评论
+                            </span>
+                            <span class="like-num">
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <span class="js-like-num"> 0 点赞
+                                </span>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-text">
+                        <!-- S 正文 -->
+                        <p>
+                                                        <div class="rich_media_content " id="js_content" style="visibility: visible;">                                                                                                    <p style="white-space: normal;font-variant-ligatures: normal;orphans: 2;widows: 2;text-align: center;"><span style="font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;max-width: 100%;white-space: pre-wrap;font-size: 14px;color: rgb(255, 41, 65);line-height: 22.4px;box-sizing: border-box !important;overflow-wrap: break-word !important;"></span></p><p style="white-space: normal;text-align: center;"><span style="color: rgb(255, 169, 0);font-size: 15px;">↓</span><span style="color: rgb(255, 169, 0);font-size: 15px;">推荐关注↓</span><span style="font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;max-width: 100%;white-space: pre-wrap;color: rgb(255, 41, 65);font-size: 14px;line-height: 22.4px;box-sizing: border-box !important;overflow-wrap: break-word !important;"></span></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzA5MzUxMzg5NA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/AQF4KzdPxcice1Gv5eYdy8vZKxrd4GyjRFTsXmbMy0ibZV040KibVic7aPBoLuz1HHiadKEib0bblbPRXG5UCluia06lA/0?wx_fmt=png" data-nickname="Python开发精选" data-alias="BestPython" data-signature="分享 Python 技术文章、资源、课程、资讯。" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzA5MzUxMzg5NA==" data-isban="0" data-index="0">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/AQF4KzdPxcice1Gv5eYdy8vZKxrd4GyjRFTsXmbMy0ibZV040KibVic7aPBoLuz1HHiadKEib0bblbPRXG5UCluia06lA/0.jpg" alt="Python开发精选">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                Python开发精选                           </strong>           <div class="wx_profile_desc">分享 Python 技术文章、资源、课程、资讯。</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">10篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile><span style="font-family: mp-quote, -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;text-align: justify;"></span></section><blockquote data-type="2" data-url="" data-author-name="" data-content-utf8-length="142" data-source-title="" style="color: rgba(0, 0, 0, 0.5);white-space: normal;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;background-color: rgb(255, 255, 255);">作为 Python 语言的一个扩展程序库，Numpy 支持大量的维度数组与矩阵运算，为 Python 社区带来了很多帮助。借助于 Numpy，数据科学家、机器学习实践者和统计学家能够以一种简单高效的方式处理大量的矩阵数据。那么 Numpy 速度还能提升吗？本文介绍了如何利用 CuPy 库来加速 Numpy 运算速度。</blockquote><p style="white-space: normal;"><span style="font-size: 15px;">就其自身来说，Numpy 的速度已经较 Python 有了很大的提升。当你发现 Python 代码运行较慢，尤其出现大量的 for-loops 循环时，通常可以将数据处理移入 Numpy 并实现其向量化最高速度处理。</span></p><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">但有一点，上述 Numpy 加速只是在 CPU 上实现的。由于消费级 CPU 通常只有 8 个核心或更少，所以并行处理数量以及可以实现的加速是有限的。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">这就催生了新的加速工具——CuPy 库。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;text-align: center;line-height: 1.75em;"><span style="font-size: 16px;"><strong>何为 CuPy？</strong></span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><p style="white-space: normal;text-align: center;"><img class="rich_pages" data-ratio="0.428" data-s="300,640" data-src="../../mmbiz_png/KmXPKA19gWib6ibZXomMicUawgQIhGibNuan62KrV2oibyS1SSKqMnw1uakbPS0ZrUH1uAdCN2woMrKGR9ASNU6ALgg/640.jpg" data-type="png" data-w="1000" _width="328px" src="../../mmbiz_png/KmXPKA19gWib6ibZXomMicUawgQIhGibNuan62KrV2oibyS1SSKqMnw1uakbPS0ZrUH1uAdCN2woMrKGR9ASNU6ALgg/640.jpg" style="width: 328px !important; height: auto !important; visibility: visible !important;" crossorigin="anonymous" alt="图片" data-fail="0"></p><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">CuPy 是一个借助 CUDA GPU 库在英伟达 GPU 上实现 Numpy 数组的库。基于 Numpy 数组的实现，GPU 自身具有的多个 CUDA 核心可以促成更好的并行加速。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">CuPy 接口是 Numpy 的一个镜像，并且在大多情况下，它可以直接替换 Numpy 使用。只要用兼容的 CuPy 代码替换 Numpy 代码，用户就可以实现 GPU 加速。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">CuPy 支持 Numpy 的大多数数组运算，包括索引、广播、数组数学以及各种矩阵变换。</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">如果遇到一些不支持的特殊情况，用户也可以编写自定义 Python 代码，这些代码会利用到 CUDA 和 GPU 加速。整个过程只需要 C++格式的一小段代码，然后 CuPy 就可以自动进行 GPU 转换，这与使用 Cython 非常相似。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">在开始使用 CuPy 之前，用户可以通过 pip 安装 CuPy 库：</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><pre style="font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;text-align: start;background-color: rgb(255, 255, 255);"><code style="margin-right: 2px;margin-left: 2px;padding: 0.5em;font-size: 14px;color: rgb(169, 183, 198);line-height: 18px;border-radius: 0px;background: rgb(40, 43, 46);display: block;font-family: Consolas, Inconsolata, Courier, monospace;overflow-x: auto;letter-spacing: 0px;overflow-wrap: normal !important;word-break: normal !important;overflow-y: auto !important;">pip&nbsp;install&nbsp;cupy<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"></code></pre><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;text-align: center;line-height: 1.75em;"><span style="font-size: 16px;"><strong>使用 CuPy 在 GPU 上运行</strong></span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">为符合相应基准测试，PC 配置如下：</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><ul class="list-paddingleft-2" style="width: 577.422px;white-space: normal;"><li><p><span style="font-size: 15px;">i7–8700k CPU</span></p></li><li><p><span style="font-size: 15px;">1080 Ti GPU</span></p></li><li><p><span style="font-size: 15px;">32 GB of DDR4 3000MHz RAM</span></p></li><li><p><span style="font-size: 15px;">CUDA 9.0</span></p></li></ul><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">CuPy 安装之后，用户可以像导入 Numpy 一样导入 CuPy：</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><pre style="font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;text-align: start;background-color: rgb(255, 255, 255);"><code style="margin-right: 2px;margin-left: 2px;padding: 0.5em;font-size: 14px;color: rgb(169, 183, 198);line-height: 18px;border-radius: 0px;background: rgb(40, 43, 46);display: block;font-family: Consolas, Inconsolata, Courier, monospace;overflow-x: auto;letter-spacing: 0px;overflow-wrap: normal !important;word-break: normal !important;overflow-y: auto !important;"><span style="font-size: inherit;color: rgb(248, 35, 117);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">import</span>&nbsp;numpy&nbsp;<span style="font-size: inherit;color: rgb(248, 35, 117);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">as</span>&nbsp;np<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;color: rgb(248, 35, 117);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">import</span>&nbsp;cupy&nbsp;<span style="font-size: inherit;color: rgb(248, 35, 117);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">as</span>&nbsp;cp<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"><span style="font-size: inherit;color: rgb(248, 35, 117);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">import</span>&nbsp;time<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"></code></pre><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">在接下来的编码中，Numpy 和 CuPy 之间的切换就像用 CuPy 的 cp 替换 Numpy 的 np 一样简单。如下代码为 Numpy 和 CuPy 创建了一个具有 10 亿 1』s 的 3D 数组。为了测量创建数组的速度，用户可以使用 Python 的原生 time 库：</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><pre style="font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;text-align: start;background-color: rgb(255, 255, 255);"><code style="margin-right: 2px;margin-left: 2px;padding: 0.5em;font-size: 14px;color: rgb(169, 183, 198);line-height: 18px;border-radius: 0px;background: rgb(40, 43, 46);display: block;font-family: Consolas, Inconsolata, Courier, monospace;overflow-x: auto;letter-spacing: 0px;overflow-wrap: normal !important;word-break: normal !important;overflow-y: auto !important;"><span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;Numpy&nbsp;and&nbsp;CPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_cpu&nbsp;=&nbsp;np.ones((<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>,<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>,<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>))*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;CuPy&nbsp;and&nbsp;GPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_gpu&nbsp;=&nbsp;cp.ones((<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>,<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>,<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">1000</span>))*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"></code></pre><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">这很简单！</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">令人难以置信的是，即使以上只是创建了一个数组，CuPy 的速度依然快得多。Numpy 创建一个具有 10 亿 1』s 的数组用了 1.68 秒，而 CuPy 仅用了 0.16 秒，实现了 10.5 倍的加速。</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">但 CuPy 能做到的还不止于此。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">比如在数组中做一些数学运算。这次将整个数组乘以 5，并再次检查 Numpy 和 CuPy 的速度。</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><pre style="font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;text-align: start;background-color: rgb(255, 255, 255);"><code style="margin-right: 2px;margin-left: 2px;padding: 0.5em;font-size: 14px;color: rgb(169, 183, 198);line-height: 18px;border-radius: 0px;background: rgb(40, 43, 46);display: block;font-family: Consolas, Inconsolata, Courier, monospace;overflow-x: auto;letter-spacing: 0px;overflow-wrap: normal !important;word-break: normal !important;overflow-y: auto !important;"><span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;Numpy&nbsp;and&nbsp;CPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_cpu&nbsp;*=&nbsp;<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">5</span>*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;CuPy&nbsp;and&nbsp;GPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_gpu&nbsp;*=&nbsp;<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">5</span>*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"></code></pre><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">果不其然，CuPy 再次胜过 Numpy。Numpy 用了 0.507 秒，而 CuPy 仅用了 0.000710 秒，速度整整提升了 714.1 倍。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">现在尝试使用更多数组并执行以下三种运算：</span></section><p style="white-space: normal;"><br></p><ol class="list-paddingleft-2" style="width: 577.422px;white-space: normal;"><li><p><span style="font-size: 15px;">数组乘以 5</span></p></li><li><p><span style="font-size: 15px;">数组本身相乘</span></p></li><li><p><span style="font-size: 15px;">数组添加到其自身</span></p></li></ol><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><br></section><p style="white-space: normal;"><br></p><pre style="font-size: 16px;color: rgb(62, 62, 62);line-height: inherit;text-align: start;background-color: rgb(255, 255, 255);"><code style="margin-right: 2px;margin-left: 2px;padding: 0.5em;font-size: 14px;color: rgb(169, 183, 198);line-height: 18px;border-radius: 0px;background: rgb(40, 43, 46);display: block;font-family: Consolas, Inconsolata, Courier, monospace;overflow-x: auto;letter-spacing: 0px;overflow-wrap: normal !important;word-break: normal !important;overflow-y: auto !important;"><span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;Numpy&nbsp;and&nbsp;CPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_cpu&nbsp;*=&nbsp;<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">5</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">x_cpu&nbsp;*=&nbsp;x_cpu<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">x_cpu&nbsp;+=&nbsp;x_cpu*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<span style="font-size: inherit;color: rgb(128, 128, 128);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">###&nbsp;CuPy&nbsp;and&nbsp;GPU</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">s&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">*x_gpu&nbsp;*=&nbsp;<span style="font-size: inherit;color: rgb(174, 135, 250);line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">5</span><br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">x_gpu&nbsp;*=&nbsp;x_gpu<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">x_gpu&nbsp;+=&nbsp;x_gpu*<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">e&nbsp;=&nbsp;time.time()<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;">print(e&nbsp;-&nbsp;s)<br style="font-size: inherit;color: inherit;line-height: inherit;overflow-wrap: inherit !important;word-break: inherit !important;"></code></pre><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">结果显示，Numpy 在 CPU 上执行整个运算过程用了 1.49 秒，而 CuPy 在 GPU 上仅用了 0.0922 秒，速度提升了 16.16 倍。</span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;text-align: center;line-height: 1.75em;"><span style="font-size: 16px;"><strong>数组大小（数据点）达到 1000 万，运算速度大幅度提升</strong></span></section><p style="white-space: normal;"><br></p><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">使用 CuPy 能够在 GPU 上实现 Numpy 和矩阵运算的多倍加速。值得注意的是，用户所能实现的加速高度依赖于自身正在处理的数组大小。下表显示了不同数组大小（数据点）的加速差异：</span></section><section style="white-space: normal;line-height: 1.75em;"><br></section><p style="white-space: normal;text-align: center;"><img class="rich_pages img_loading" data-ratio="0.4287812041116006" data-s="300,640" data-src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" data-type="png" data-w="681" _width="328px" src="../../mmbiz_png/mywaEccpTnSauzxqicw6wH2n8A7H5g4iaicdRAibomdYiaT9lTrUU7IktjaQeBOtnI6xyQQPDicUQJuSGCengxeWyzSw/640.jpg" style="width: 328px !important; height: 141.783px !important;" crossorigin="anonymous" alt="图片"></p><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;line-height: 1.75em;"><span style="font-size: 15px;">数据点一旦达到 1000 万，速度将会猛然提升；超过 1 亿，速度提升极为明显。Numpy 在数据点低于 1000 万时实际运行更快。此外，GPU 内存越大，处理的数据也就更多。所以用户应当注意，GPU 内存是否足以应对 CuPy 所需要处理的数据。</span><br></section><section style="white-space: normal;line-height: 1.75em;"><br></section><section style="white-space: normal;text-align: left;line-height: 1.75em;"><span style="color: rgb(136, 136, 136);"><em><span style="font-size: 12px;">原文链接：</span></em><em><span style="font-size: 12px;">https://towardsdatascience.com/heres-how-to-use-cupy-to-make-numpy-700x-faster-4b920dda1f56</span></em></span></section><blockquote style="white-space: normal;caret-color: rgb(0, 0, 0);font-family: -apple-system-font, system-ui, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;"><p><span style="font-size: 14px;">转自：机器之心</span></p></blockquote><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(136, 136, 136);"></span></p><p style="white-space: normal;text-align: center;"><br></p><p style="white-space: normal;text-align: center;"><span style="font-size: 15px;color: rgb(136, 136, 136);">- EOF -</span></p><p style="white-space: normal;text-align: center;"><br></p><section style="margin-left: 1em;white-space: normal;max-width: 100%;line-height: 1.4;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="padding: 3px 8px;max-width: 100%;border-radius: 4px;color: rgb(255, 255, 255);background-color: rgb(255, 105, 31);font-family: inherit;text-align: inherit;text-decoration: inherit;font-size: 16px;box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐阅读</span>&nbsp;&nbsp;<span style="margin-left: 4px;padding: 3px 8px;max-width: 100%;border-radius: 1.2em;color: rgb(255, 255, 255);line-height: 1.2;background-color: rgb(204, 204, 204);font-family: inherit;text-align: inherit;text-decoration: inherit;border-color: rgb(249, 110, 87);font-size: 12px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点击标题可跳转</span></section><section style="margin-top: -11px;padding: 22px 16px 16px;font-family: inherit;font-size: 1em;text-align: inherit;white-space: normal;text-decoration: inherit;max-width: 100%;border-width: 1px;border-style: solid;border-color: rgb(255, 105, 31);box-sizing: border-box !important;overflow-wrap: break-word !important;"><p style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="text-decoration: underline;font-size: 13px;">1、<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA5ODM5MDU3MA==&amp;mid=2650873263&amp;idx=1&amp;sn=3371c82c82fe43bc041382a7b9c6edd5&amp;chksm=8b67faeabc1073fc53c273a7436bcb258ad4b1011d5cc77200ced97b25adfc89b9f4879807bb&amp;scene=21#wechat_redirect');" data-itemshowtype="11" tab="innerlink" data-linktype="2">高并发存储番外篇：Redis套路，一网打尽</a></span></p><p style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="text-decoration: underline;font-size: 13px;">2、<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA5ODM5MDU3MA==&amp;mid=2650873193&amp;idx=1&amp;sn=0d31799bd3c985b60a1bd3e977bc75d4&amp;chksm=8b67fa2cbc10733ac5b58cc386f87a094c8344e5bc327b97a515ed544e468d221e079c24e34b&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">SQL 查找是否"存在"，别再 count 了！</a></span></p><p style="max-width: 100%;min-height: 1em;line-height: 2em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="text-decoration: underline;font-size: 13px;">3、<a target="_blank" href="javascript:window.open('http://mp.weixin.qq.com/s?__biz=MzA5ODM5MDU3MA==&amp;mid=2650873137&amp;idx=1&amp;sn=10bc0f2fec3cc66e6649f47485999c82&amp;chksm=8b67fa74bc107362d3a6abefeb88d62214f5460c6d9728aa1a795a4684c42a7291a5c7bb40d4&amp;scene=21#wechat_redirect');" data-itemshowtype="0" tab="innerlink" data-linktype="2">发现一款好用到爆的数据库工具，被惊艳到了！</a></span></p></section><p style="white-space: normal;"><br></p><p style="white-space: normal;caret-color: rgb(0, 0, 0);color: rgb(0, 0, 0);text-align: start;max-width: 100%;min-height: 1em;box-sizing: border-box !important;overflow-wrap: break-word !important;"><br></p><p style="white-space: normal;font-size: 16px;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;color: rgb(62, 62, 62);background-color: rgb(255, 255, 255);text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;">看完本文有收获？请转发分享给更多人</span><br></p><p style="white-space: normal;font-size: 16px;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;color: rgb(62, 62, 62);background-color: rgb(255, 255, 255);line-height: 25.6px;text-align: center;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;font-size: 15px;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="max-width: 100%;color: rgb(255, 169, 0);box-sizing: border-box !important;overflow-wrap: break-word !important;">推荐关注「数据分析与开发」，提升数据技能</span></strong></span></p><section class=""><mpprofile class="js_uneditable" data-pluginname="mpprofile" data-id="MzA5ODM5MDU3MA==" data-headimg="http://mmbiz.qpic.cn/mmbiz_png/DmibiaFiaAI4B3yECIF3LxR8ZMPVxnto79bB8LrraNT18VPT5aCHSDFGiczOnt4CYCQlBCWg5ykox33kcLydFc4jhA/0?wx_fmt=png" data-nickname="数据分析与开发" data-alias="DBDevs" data-signature="「数据分析与开发」分享数据分析与开发相关技术文章、教程、工具" data-from="0"> <!-- profile卡片 --> <div class="appmsg_card_context wx_profile_card js_wx_profile_card" data-id="MzA5ODM5MDU3MA==" data-isban="0" data-index="1">   <div class="wx_profile_card_bd">     <div class="wx_profile weui-flex">       <div class="wx_profile_hd">                  <img class="wx_profile_avatar" src="../../mmbiz_png/DmibiaFiaAI4B3yECIF3LxR8ZMPVxnto79bB8LrraNT18VPT5aCHSDFGiczOnt4CYCQlBCWg5ykox33kcLydFc4jhA/0.jpg" alt="数据分析与开发">                </div>       <div class="wx_profile_bd weui-flex weui-flex__item">         <div class="weui-flex__item">           <strong class="wx_profile_nickname">                                数据分析与开发                           </strong>           <div class="wx_profile_desc">「数据分析与开发」分享数据分析与开发相关技术文章、教程、工具</div>           <div class="wx_profile_tips" id="js_profile_desc">             <span class="wx_profile_tips_meta" id="js_profile_article">55篇原创内容</span>             <!-- <span class="wx_profile_tips_meta" id="js_profile_friends"></span> -->           </div>         </div>         <i class="weui-icon-arrow"></i>       </div>     </div>   </div>   <div class="wx_profile_card_ft">公众号</div> </div> </mpprofile></section><p style="white-space: normal;font-size: 16px;max-width: 100%;min-height: 1em;font-family: -apple-system-font, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei UI&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif;letter-spacing: 0.544px;color: rgb(62, 62, 62);background-color: rgb(255, 255, 255);text-align: right;box-sizing: border-box !important;overflow-wrap: break-word !important;"><span style="font-size: 14px;"></span><span style="letter-spacing: 0.544px;caret-color: rgb(51, 51, 51);max-width: 100%;font-size: 14px;box-sizing: border-box !important;overflow-wrap: break-word !important;">点赞和在看就是最大的支持</span><span style="letter-spacing: 0.544px;caret-color: rgb(51, 51, 51);max-width: 100%;font-size: 14px;box-sizing: border-box !important;overflow-wrap: break-word !important;">❤️</span></p>                </div><div>来源:https://mp.weixin.qq.com/s/eodW-y4-lqBy86fA5Haerg</div>                        
+                        <!-- E 正文 -->
+                    </div>
+
+                    <!-- S 付费阅读 -->
+<!-- E 付费阅读 -->
+
+
+                    <!-- S 点赞 -->
+<div class="article-donate">
+    <a href="javascript:" class="btn btn-primary btn-like btn-lg" data-action="vote" data-type="like" data-id="248" data-tag="archives"><i class="fa fa-thumbs-up"></i> 点赞(<span>0</span>)</a>
+    <a href="javascript:" class="btn btn-outline-primary btn-donate btn-lg" data-action="donate" data-id="248" data-image="../../uploads/20210611/c81a0eac1c3e5de3ecee547f7d6afebb.png"><i class="fa fa-cny"></i> 打赏</a>
+</div>
+<!-- E 点赞 -->
+
+
+                    
+
+<!-- S 分享 -->
+<div class="social-share text-center mt-2 mb-1" data-initialized="true" data-mode="prepend" data-image="../../assets/addons/cms/img/noimage.jpg">
+    <a href="javascript:;" class="social-share-icon icon-heart addbookbark" data-type="archives" data-aid="248" data-action="/addons/cms/ajax/collection.html"></a>
+    <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+
+<!-- E 分享 -->
+
+
+                    <div class="entry-meta">
+    <ul>
+        <!-- S 归档 -->
+        <li>本文分类：<a href="../tech2.html">技术</a></li>
+        <li>本文标签：<a href="../t/jenkis5.html" class="tag" rel="tag">数据处理</a></li>
+        <li>浏览次数：<span>248</span> 次浏览</li>
+        <li>发布日期：2021-07-16 12:11:17</li>
+        <li>本文链接：<a href="">http://muker.cc/cms/tech2/248.html</a></li>
+        <!-- S 归档 -->
+    </ul>
+
+    <ul class="article-prevnext">
+        <!-- S 上一篇下一篇 -->
+                <li>
+            <span>上一篇 &gt;</span>
+            <a href="247.html">.NET对象池的使用</a>
+        </li>
+                <li>
+            <span>下一篇 &gt;</span>
+            <a href="249.html">用 Go 写一个轻量级的 ssh 批量操作工具</a>
+        </li>
+                <!-- E 上一篇下一篇 -->
+    </ul>
+</div>
+
+
+                    <div class="related-article">
+    <div class="row">
+        <!-- S 相关文章 -->
+                <div class="col-sm-3 col-xs-6">
+            <a href="" class="img-zoom">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <img src="../../assets/addons/cms/img/noimage.jpg" alt="如何将 Numpy 加速 700 倍？用 CuPy 呀" class="embed-responsive-item">
+                </div>
+            </a>
+            <h5 class="text-center"><a href="">如何将 Numpy 加速 700 倍？用 CuPy 呀</a></h5>
+        </div>
+                <!-- E 相关文章 -->
+    </div>
+</div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="comments">
+                <div class="panel-heading">
+                    <h3 class="panel-title">评论列表                        <small>共有 <span>0</span> 条评论</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                                        <div id="comment-container">
+    <!-- S 评论列表 -->
+    <div id="commentlist">
+                <div class="loadmore loadmore-line loadmore-nodata"><span class="loadmore-tips">暂无评论</span></div>
+            </div>
+    <!-- E 评论列表 -->
+
+    <!-- S 评论分页 -->
+    <div id="commentpager" class="text-center">
+            </div>
+    <!-- E 评论分页 -->
+
+    <!-- S 发表评论 -->
+    <div id="postcomment">
+        <h3>发表评论 <a href="javascript:;">
+            <small>取消回复</small>
+        </a></h3>
+        <form action="/addons/cms/comment/post.html" method="post" id="postform">
+            <input type="hidden" name="__token__" value="4a22aebb7c3eb60dec568a2af5c327d7">            <input type="hidden" name="type" value="archives">
+            <input type="hidden" name="aid" value="248">
+            <input type="hidden" name="pid" id="pid" value="0">
+            <div class="form-group">
+                <textarea name="content" class="form-control" disabled="" placeholder="请登录后再发表评论" id="commentcontent" cols="6" rows="5" tabindex="4"></textarea>
+            </div>
+                        <div class="form-group">
+                <a href="../../index/user/login1.html" class="btn btn-primary">登录</a>
+                <a href="../../index/user/register.html" class="btn btn-outline-primary">注册新账号</a>
+            </div>
+                    </form>
+    </div>
+    <!-- E 发表评论 -->
+</div>
+
+                                    </div>
+            </div>
+
+        </main>
+
+        <aside class="col-xs-12 col-sm-4">
+                        <!-- S 关于作者 -->
+            <div class="panel panel-default about-author" data-id="2" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <meta itemprop="name" content="clrs">
+                <meta itemprop="image" content="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png">
+                <meta itemprop="url" content="/u/2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">关于作者</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="../../u/2.html">
+                                <img class="media-object img-circle img-medium" style="width:64px;height:64px;" src="../../uploads/20210611/1c33f3b2e46303967d5fa6e70be59f24.png" data-holder-rendered="true">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 style="margin-top:10px;" class="media-heading">
+                                <a href="../../u/2.html">clrs</a>
+                            </h3>
+                            这家伙很懒，什么也没写！                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- E 关于作者 -->
+                        
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门资讯 -->
+<div class="panel panel-default hot-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐资讯</h3>
+    </div>
+    <div class="panel-body">
+            </div>
+</div>
+<!-- E 热门资讯 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+<!-- S 热门标签 -->
+<div class="panel panel-default hot-tags">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门标签</h3>
+    </div>
+    <div class="panel-body">
+        <div class="tags">
+                        <a href="../t/多标签ssh工具.html" class="tag"> <span>多标签ssh工具</span></a>
+                        <a href="../t/西部数码.html" class="tag"> <span>西部数码</span></a>
+                        <a href="../t/CPU.html" class="tag"> <span>CPU</span></a>
+                        <a href="../t/无线WiFi网络管理.html" class="tag"> <span>无线WiFi网络管理</span></a>
+                        <a href="../t/电子书设计制作.html" class="tag"> <span>电子书设计制作</span></a>
+                        <a href="../t/asp.netcore.html" class="tag"> <span>asp.net core</span></a>
+                        <a href="../t/数组.html" class="tag"> <span>数组</span></a>
+                        <a href="../t/jenkis.html" class="tag"> <span>jenkis</span></a>
+                        <a href="../t/Opencv.html" class="tag"> <span>Opencv</span></a>
+                        <a href="../t/文件快传.html" class="tag"> <span>文件快传</span></a>
+                        <a href="../t/日志工具.html" class="tag"> <span>日志工具</span></a>
+                        <a href="../t/vs2022.html" class="tag"> <span>vs2022</span></a>
+                        <a href="../t/K8s.html" class="tag"> <span>K8s</span></a>
+                        <a href="../t/PC.html" class="tag"> <span>PC</span></a>
+                        <a href="../t/PDF编辑软件.html" class="tag"> <span>PDF编辑软件</span></a>
+                        <a href="../t/机器学习.html" class="tag"> <span>机器学习</span></a>
+                        <a href="../t/投资.html" class="tag"> <span>投资</span></a>
+                        <a href="../t/防火墙工具.html" class="tag"> <span>防火墙工具</span></a>
+                        <a href="../t/Pandas.html" class="tag"> <span>Pandas</span></a>
+                        <a href="../t/腾讯.html" class="tag"> <span>腾讯</span></a>
+                        <a href="../t/云计算.html" class="tag"> <span>云计算</span></a>
+                        <a href="../t/dropbox.html" class="tag"> <span>dropbox</span></a>
+                        <a href="../t/学习.html" class="tag"> <span>学习</span></a>
+                        <a href="../t/AI.html" class="tag"> <span>AI</span></a>
+                        <a href="../t/vim.html" class="tag"> <span>vim</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> netstat</span></a>
+                        <a href="../t/Sublime.html" class="tag"> <span>Sublime</span></a>
+                        <a href="../t/VR.html" class="tag"> <span>VR</span></a>
+                        <a href="../t/数据库.html" class="tag"> <span>数据库</span></a>
+                        <a href="../t/netstat.html" class="tag"> <span> Jenkins</span></a>
+                    </div>
+    </div>
+</div>
+<!-- E 热门标签 -->
+
+<!-- S 推荐下载 -->
+<div class="panel panel-default recommend-article">
+    <div class="panel-heading">
+        <h3 class="panel-title">推荐下载</h3>
+    </div>
+    <div class="panel-body">
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">1</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/44.html" title="Compressor 4.4.4 苹果官方出品视频解码格式转换工具">Compressor 4.4.4 苹果官方出品视频解码格式转换工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">2</span>
+            </div>
+            <div class="media-body">
+                <a href="../app/47.html" title="Pikka 2.0.4 菜单栏屏幕取色器">Pikka 2.0.4 菜单栏屏幕取色器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">3</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/49.html" title="iShowU Instant 1.2.11 实时屏幕录制软件">iShowU Instant 1.2.11 实时屏幕录制软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">4</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/50.html" title="VideoProc 3.2(2019013001) 视频格式转换">VideoProc 3.2(2019013001) 视频格式转换</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">5</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/51.html" title="RightFont 5.4.1(2474) 超级好用的字体管理工具">RightFont 5.4.1(2474) 超级好用的字体管理工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">6</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/52.html" title="SPlayerX 4.1.4 射手播放器">SPlayerX 4.1.4 射手播放器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">7</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/54.html" title="Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器">Meta 1.9.2(2358) 音频元数据音乐标签信息编辑器</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">8</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/57.html" title="Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件">Camtasia 2018.0.8(105822) 强大且易用的视频录制和剪辑软件</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">9</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/60.html" title="Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具">Cinemagraph Pro 2.7.1 专业的动态图片与视频制作工具</a>
+            </div>
+        </div>
+                <div class="media media-number">
+            <div class="media-left">
+                <span class="num">10</span>
+            </div>
+            <div class="media-body">
+                <a href="../media/62.html" title="MacX Video Converter Pro 6.4.0(20181213) 视频转换器">MacX Video Converter Pro 6.4.0(20181213) 视频转换器</a>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- E 推荐下载 -->
+
+<div class="panel panel-blockimg">
+    <p><img src="../../uploads/20210616/89c87bce97dfae0c305ab5741caf5259.png"></p>
+</div>
+
+        </aside>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row footer-inner">
+                <div class="col-md-3 col-sm-3">
+                            <div class="footer-logo">
+                                <a href="#"><i class="fa fa-bookmark"></i></a>
+                            </div>
+                            <p class="copyright"><small>© 2020-2021 穆客智能 All Rights Reserved.</small></p>
+                        </div>
+                        <div class="col-md-5 col-md-push-1 col-sm-5 col-sm-push-1">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="javascript:window.open('https://www.muker.club/cms/p/aboutus.html');">关于我们</a></li>
+                                        <li><a href="#">发展历程</a></li>
+                                        <li><a href="#">服务项目</a></li>
+                                        <li><a href="#">团队成员</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">新闻</a></li>
+                                        <li><a href="#">资讯</a></li>
+                                        <li><a href="#">推荐</a></li>
+                                        <li><a href="#">博客</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4">
+                                    <ul class="links">
+                                        <li><a href="#">服务</a></li>
+                                        <li><a href="#">圈子</a></li>
+                                        <li><a href="#">论坛</a></li>
+                                        <li><a href="#">广告</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-md-push-1 col-sm-push-1">
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-weibo"></i></a>
+                                <a href="#"><i class="fa fa-qq"></i></a>
+                                <a href="#"><i class="fa fa-wechat"></i></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="floatbtn">
+    <!-- S 浮动按钮 -->
+
+        <a href="javascript:;">
+        <i class="iconfont icon-wxapp"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信小程序</p>
+            <p>微信扫一扫体验</p>
+        </div>
+    </a>
+    
+    <a class="hover" href="../../index/user/index.html" target="_blank">
+        <i class="iconfont icon-pencil"></i>
+        <em>立即<br>投稿</em>
+    </a>
+
+    <div class="floatbtn-item floatbtn-share">
+        <i class="iconfont icon-share"></i>
+        <div class="floatbtn-wrapper" style="height:50px;top:0">
+            <div class="social-share" data-initialized="true" data-mode="prepend">
+                <a href="#" class="social-share-icon icon-weibo" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qq" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-qzone" target="_blank"></a>
+                <a href="#" class="social-share-icon icon-wechat"></a>
+            </div>
+        </div>
+    </div>
+
+        <a href="javascript:;">
+        <i class="iconfont icon-qrcode"></i>
+        <div class="floatbtn-wrapper">
+            <div class="qrcode"><img src="../../uploads/20210611/f75e8bc38b426f1a8ae2604807729aca.jpg"></div>
+            <p>微信公众账号</p>
+            <p>微信扫一扫加关注</p>
+        </div>
+    </a>
+        <a id="feedback" class="hover" href="#comments">
+        <i class="iconfont icon-feedback"></i>
+        <em>发表<br>评论</em>
+    </a>
+    
+    <a id="back-to-top" class="hover" href="javascript:;">
+        <i class="iconfont icon-backtotop"></i>
+        <em>返回<br>顶部</em>
+    </a>
+    <!-- E 浮动按钮 -->
+</div>
+
+
+<script type="text/javascript" src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/libs/fastadmin-layer/dist/layer.js"></script>
+<script type="text/javascript" src="../../assets/libs/art-template/dist/template-native.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/swiper.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/share.min.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/cms.js"></script>
+<script type="text/javascript" src="../../assets/addons/cms/js/common.js"></script>
+
+</body>
+</html>
